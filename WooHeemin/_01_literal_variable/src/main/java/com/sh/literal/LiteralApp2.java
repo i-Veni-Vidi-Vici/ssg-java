@@ -41,15 +41,15 @@ public class LiteralApp2 {
         //5. 문자와 정수 연산 - 문자는 정수로 변환후 연산이 가능하다.
         System.out.println('a' + 1);
         System.out.println('a' - 1);
-        System.out.println('a' * 1);
-        System.out.println('a' / 1);
-        System.out.println('a' % 1);
+        System.out.println('a');
+        System.out.println('a');
+        System.out.println(0);
 
         //6. 문자와 실수 연산 - 문자는 실수로 변환후 연산이 가능하다.
         System.out.println('a' + 1.0);
         System.out.println('a' - 1.0);
         System.out.println('a' * 1.0);
-        System.out.println('a' / 1.0);
+        System.out.println('a');
         System.out.println('a' % 1.0);
 
         //7. 문자열

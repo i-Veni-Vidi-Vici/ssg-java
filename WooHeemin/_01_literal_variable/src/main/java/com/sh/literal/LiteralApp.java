@@ -22,7 +22,7 @@ public class LiteralApp {
         System.out.println('1');
         // 5. String
         System.out.println("This is a string");
-        System.out.println("");
+        System.out.println();
         System.out.println("a");
 
     }
