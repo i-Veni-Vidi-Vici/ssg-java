@@ -22,5 +22,8 @@ public class TernaryOperatorApp {
         int m=35;
         int max = k > b ? k : m;
         System.out.println(max);
+
+        System.out.println("a"+"b");
     }
+
 }

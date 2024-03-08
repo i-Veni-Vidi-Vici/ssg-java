@@ -2,7 +2,7 @@ package com.sh.operator.arithmetic;
 
 /**
  * <pre>
- * 산술연산
+ * 산술연산 + - * / %
  * +
  * -
  * *
