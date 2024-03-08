@@ -13,8 +13,8 @@ public class LogicalOperatorApp2 {
         System.out.println(num); //11 또는 10
 
         int k = 20;
-        //System.out.println(true|| k++ > 20); //우항 검사를 하지 않음 true a = 20
-        System.out.println(false|| k++ > 20);   //우항을 실행함 false 21
+        System.out.println(true || ++k > 20); //우항 검사를 하지 않음 true a = 20
+        //System.out.println(false|| k++ > 20);   //우항을 실행함 false 21
         System.out.println(k);
     }
 }
