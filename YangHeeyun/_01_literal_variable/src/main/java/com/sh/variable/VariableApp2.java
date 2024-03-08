@@ -1,6 +1,4 @@
-package variable;
-
-import java.sql.SQLOutput;
+package com.sh.variable;
 
 public class VariableApp2 {
     /**
@@ -10,8 +8,8 @@ public class VariableApp2 {
      * 3. 변수를 사용한다. (출력문, 피연산자 등)
      *
      * 기본 자료형 (자바에서 지원하는 기본 자료형은 8가지)
-    - 다양한 리터럴(값)을 형태에 따라 지정한 크기의 공간으로 처리할지 컴파일러와 약속한 단위
-    * 1. 정수
+     - 다양한 리터럴(값)을 형태에 따라 지정한 크기의 공간으로 처리할지 컴파일러와 약속한 단위
+     * 1. 정수
      * -byte(1byte)
      * -short(2byte)
      * -int(4byte) - 기본형(대표타입,default)
@@ -27,6 +25,7 @@ public class VariableApp2 {
      * 문자열은 참조자료형 String타입으로 처리한다. (기본형이 아님)
      * @param args
      */
+
     public static void main(String[] args) {
         //1. 선언
         // 정수 사용시에는 int를 기본적으로 사용
@@ -72,7 +71,7 @@ public class VariableApp2 {
         System.out.println("str = " + str);
 
         // 초기화 - 변수의 선언과 값대입을 동시에 하는 것
-        int i=100;
+        int i = 100;
         System.out.println(i);
 
         // 선언 - 값대입 - 사용의 순서를 반드시 지켜야 한다.
