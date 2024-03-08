@@ -4,7 +4,7 @@ public class VariableApp2 {
     /**
      * 변수 사용 방법
      * 1. 자료형을 지정해서 선언한다.
-     * 2. 변수에 값을 대입한다.
+     * 2. 변수에 값을 대입한다.햣
      * 3. 변수를 사용한다. (출력문, 피연산자 등)
      *
      * 자료형
@@ -13,7 +13,7 @@ public class VariableApp2 {
      *  - byte(1byte)
      *  - short(2byte)
      *  - int(4byte) - basic
-     *  - long(8byte)
+     *  - long(8햣 byte)
      * 2. 실수
      *  - float(4byte)
      *  - double(8byte) - basic
@@ -22,7 +22,7 @@ public class VariableApp2 {
      * 4. 논리
      *  - boolean(1byte)
      *
-     * 문자열은 참조자료형 String타입으로 처리한다.
+     * 문자열은 참조자료형(4byte) String타입으로 처리한다.
      *
      * @param args
      */
@@ -45,11 +45,11 @@ public class VariableApp2 {
 
         // 2. definition
         bnum = 123;
-        snum = 10_000;
+        snum = 10_000; //콤마대신 가독성을 위해 _(underscore) 사용
         inum = 1_000_000;
         lnum = 10_000_000;
 
-        fnum = 123.456f;
+        fnum = 123.456f; //default는 double, f나 F를 접미사로 사용해 float임을 명시함.
         dnum = 123.456;
 
         ch = 'ㅎ';
