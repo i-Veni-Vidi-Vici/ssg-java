@@ -1,6 +1,6 @@
 package com.ssg.test.operator.logical.app;
 
-public class TestLogicalOperatorApp {
+public class TestOperatorLogicalApp {
     public static void main(String[] args){
         // 정수 n이 1부터 100사이의 수인지 검사
         int n = 55;
