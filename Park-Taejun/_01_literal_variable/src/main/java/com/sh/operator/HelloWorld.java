@@ -1,4 +1,4 @@
-package com.sh;
+package com.sh.operator;
 // package 관련된 클래스 묶음. 디렉토리
 // 실제 클래스의 이름은 패키지를 포함. com.sh.HelloWorld
 // 중복을 막기위해 domain을 3레벨 이상 뒤집어쓰는 관행이 있다.

@@ -1,4 +1,4 @@
-package com.sh.literal;
+package com.sh.operator.literal;
 
 public class LiteralApp2 {
     /**
