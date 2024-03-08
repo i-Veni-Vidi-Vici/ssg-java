@@ -1,6 +1,6 @@
 package com.sh.operator.logical.App;
 
-public class SsgProblem01 {
+public class app {
 
 /*
 금요일 과제
