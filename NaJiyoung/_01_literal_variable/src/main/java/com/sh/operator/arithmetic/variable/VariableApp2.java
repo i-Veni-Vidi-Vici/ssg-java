@@ -1,4 +1,4 @@
-package com.sh.variable;
+package com.sh.operator.arithmetic.variable;
 
 public class VariableApp2 {
     /**
@@ -7,7 +7,7 @@ public class VariableApp2 {
      * 2. 변수에 값을 대입한다.
      * 3. 변수를 사용한다. (출력문, 피연산자 등)
      *
-     * 기본 자료형 (8가지)
+     * 기본 자료형 (8가지, 나머지는 다 참조형 변수)
      * - 다양한 리터럴(값)을 형태에 따라 지정한 크기의 공간으로 처리할지 컴파일러와 약속한 단위
      * 1. 정수
      * - byte(1byte)    // 1byte == 8bit
@@ -20,9 +20,9 @@ public class VariableApp2 {
      * 3. 문자
      * - char(2byte)
      * 4. 논리
-     * - boolean(1byte)
+     * - boolean(1byte) - java는 true/false, c/c++은 1/0 출력
      *
-     * 문자열은 참조자료형 String타입으로 처리한다. (기본형이 아님)
+     * 문자열은 참조자료형(byte) String타입으로 처리한다. (기본형이 아님)
      *
      *
      * @param args
