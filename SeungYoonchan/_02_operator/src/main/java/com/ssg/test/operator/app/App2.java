@@ -18,8 +18,8 @@ public class App2 {
 
         // 삼항연산자 사용
         // 성별이 M 또는 n으로 입력 받았을때 남자로 판단하여 '남'을 반환 아니라면 '여'로 반환
-        temp1 = (gender1 == "M" || gender1 == "n") ? "남" : "여";
-        temp2 = (gender2 == "M" || gender2 == "n") ? "남" : "여";
+        temp1 = (gender1 == "M" || gender1 == "m") ? "남" : "여";
+        temp2 = (gender2 == "M" || gender2 == "m") ? "남" : "여";
 
         System.out.println("\t이름\t\t\t전화번호\t\t\t성별\t\t\t주소\t");
         System.out.println("--------------------------------------------------------------------------");
