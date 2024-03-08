@@ -4,7 +4,7 @@ public class VariableApp2 {
     /**
      * 변수 사용 방법
      * 1. 자료형을 지정해서 선언한다.
-     * 2. 변수에 값을 대입한다.햣
+     * 2. 변수에 값을 대입한다.
      * 3. 변수를 사용한다. (출력문, 피연산자 등)
      *
      * 자료형
@@ -13,7 +13,7 @@ public class VariableApp2 {
      *  - byte(1byte)
      *  - short(2byte)
      *  - int(4byte) - basic
-     *  - long(8햣 byte)
+     *  - long(8byte)
      * 2. 실수
      *  - float(4byte)
      *  - double(8byte) - basic
