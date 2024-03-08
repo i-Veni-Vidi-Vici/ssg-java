@@ -23,6 +23,8 @@ public class LiteralApp {
 //        System.out.println('ab'); // compile error - 자바문법을 제대로 작성하지 못한 경우
 //        System.out.println(''); // 문자 0개 오류
         System.out.println('1'); // 숫자여도 ''로 감싸져 있다면 문자로 처리
+        System.out.println(' '); // 공백문자 1개 가능
+
         // 5. 문자열(0 ~ n개) - 쌍따옴표로 감싸서 처리
         System.out.println("안녕");
         System.out.println(""); // 빈 문자열 표현 가능
