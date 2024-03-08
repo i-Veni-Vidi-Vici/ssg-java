@@ -1,9 +1,9 @@
-package com.sh;
+package com.sh.overflow;
 
 public class OverflowApp {
     public static void main(String [] args){
-        int i = Integer.MAX.VALUE;
-        i = i+1;
+        int i = Integer.MAX_VALUE;
+        i = i;
         System.out.println(i);
     }
 }
