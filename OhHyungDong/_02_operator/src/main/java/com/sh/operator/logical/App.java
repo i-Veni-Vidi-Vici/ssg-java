@@ -13,7 +13,7 @@ public class App {
 
 // 문자 ch2가 영어 소문자인지 검사
         char ch2 = 'g';
-        System.out.println(ch2>= 97 && ch2<=122); //소문자의 아스키 코드값인 97이상 122이하기 때문에 값이 True가 나오면 소문자 
+        System.out.println(ch2>= 97 && ch2<=122); //소문자의 아스키 코드값인 97이상 122이하기 때문에 값이 True가 나오면 소문자
 
 // 문자 yn이 대소문자 관계없이 y인지 검사
         char yn = 'Y';
