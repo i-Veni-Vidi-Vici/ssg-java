@@ -11,8 +11,8 @@ public class App1 {
 
         int shinKoreanScore = 95;
         int shinEnglishScore = 80;
-        int shimMathScore = 100;
-        int shinTotalScore = shinKoreanScore + shinEnglishScore + shimMathScore;
+        int shinMathScore = 100;
+        int shinTotalScore = shinKoreanScore + shinEnglishScore + shinMathScore;
         double shinAverageScore = shinTotalScore / 3.0;
 
         System.out.println("-홍길동-\n총점 : " + hongTotalScore
@@ -26,7 +26,7 @@ public class App1 {
                 + "\n평균 : " + shinAverageScore
                 + "\n합격 여부 : " + (shinKoreanScore >= 40
                                 && shinEnglishScore >= 40
-                                && shimMathScore >= 40
+                                && shinMathScore >= 40
                                 && shinAverageScore >= 60 ? "합격" : "불합격"));
     }
 }
