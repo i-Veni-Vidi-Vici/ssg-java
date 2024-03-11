@@ -1,4 +1,4 @@
-package com.sh.variable;
+package com.sh.operator.arithmetic.variable;
 
 public class VariableApp {
 

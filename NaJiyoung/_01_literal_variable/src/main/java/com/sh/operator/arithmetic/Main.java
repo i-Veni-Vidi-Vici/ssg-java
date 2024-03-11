@@ -1,4 +1,4 @@
-package com.sh;
+package com.sh.operator.arithmetic;
 
 public class Main {
     public static void main(String[] args) {
