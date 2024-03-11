@@ -1,9 +1,9 @@
-package com.sh.operator.logical.App;
+package com.ssg.test.operator.logical;
 
-public class app {
+public class App {
 
 /*
-금요일 과제
+금요일 과제1
  */
 
 
