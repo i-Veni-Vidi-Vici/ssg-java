@@ -1,6 +1,6 @@
 package com.sh.variable;
 
-public class VariavleApp2 {
+public class VariableApp2 {
     /**
      *  변수 사용 방법
      *  1. 자료형 지정해서 선언한다.
@@ -22,7 +22,7 @@ public class VariavleApp2 {
      *  4. 논리
      *  - boolean(1byte)
      *
-     *  ~문자열은 참조자료형 String타입으로 처리한다. (기본형 아님)~
+     *  ~문자열은 참조자료형 String타입으로 처리한다. (기본형 아님)~ 4byte
      *
      *
      * @param args
@@ -56,7 +56,7 @@ public class VariavleApp2 {
         ch = 'ㅋ';
         ch = 97; // 정수 대입하면 아스키코드표에 따라 문자로 변환 후 처리
 
-        bool = true; // 자바는 소문자임..
+        bool = true; // 자바는 소문자임
         bool = false;
         bool = !bool; // 반전연산자 true -> false , false -> true
 
@@ -79,6 +79,7 @@ public class VariavleApp2 {
         // 선언 - 값대입 - 사용의 순서를 반드시 지켜야 한다.
 //        double d; // 값 대입 안해서... 오류남!!
 //        System.out.println(d);
+
 
 
 
