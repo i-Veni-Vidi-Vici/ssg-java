@@ -37,7 +37,7 @@ public class LogicalOperatorApp {
         System.out.println(a > b || c < d); // a가 b보다 크거나 c가 d보다 작은지 여부
         System.out.println(a < b + 100 || c == d); // a가 b + 100보다 작거나 c와 d가 동일한지 여부
         System.out.println(a != b || c > d * 2); // a와 b가 다르거나 c가 d * 2보다 큰지 여부
-        System.out.println(a + b + c < d || d == 0); // a + b + c가 d보다 작나 d가 음수인지 여부
+        System.out.println(a + b + c < d || d == 0); // a + b + c가 d보다 작거나 d가 음수인지 여부
 
         // 범위에 포함되는가 여부
         int x = 55;
