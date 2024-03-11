@@ -25,7 +25,7 @@ public class VariableApp2 {
      * 문자열은 참조 자료형 String 타입으로 처리한다. (기본형이 아님.)
      */
 
-    public static <string> void main(String[] args){
+    public static void main(String[] args){
 
         //1. 선언
         //정수 사용 시에는 int를 기본적으로 사용하는 것이 관례이다.
