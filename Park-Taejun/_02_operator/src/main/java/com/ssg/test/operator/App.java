@@ -1,6 +1,6 @@
 package operator;
 
-public class TestLogicalOperatorApp {
+public class App {
     public static void main(String[] args) {
 
         int n = 55;
