@@ -1,4 +1,4 @@
-package com.sh.variable;
+package com.sh.operator.variable;
 
 public class VariableApp2 {
     /**
