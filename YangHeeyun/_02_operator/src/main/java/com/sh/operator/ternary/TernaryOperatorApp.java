@@ -22,7 +22,7 @@ public class TernaryOperatorApp {
         int k=20;
         int m=35;
         int max=35;
-        int max= (k>m)?k:m;
+        //int max= (k>m)?k:m;
         System.out.println(max);
     }
 }

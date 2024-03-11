@@ -1,4 +1,4 @@
-package com.ssg.test.operator.logical;
+package com.ssg.test.operator;
 
 public class App2 {
     public static void main(String[] args){

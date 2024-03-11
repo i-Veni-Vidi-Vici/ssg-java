@@ -15,7 +15,7 @@ package com.sh.operator.comparison;
  * != 좌우항이 다른가?
  * </pre>
  */
-public class comparisonOperatorApp {
+public class ComparisonOperatorApp {
     public static void main(String[] args) {
         // 정수비교
         int a=10;
