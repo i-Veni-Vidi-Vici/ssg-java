@@ -22,7 +22,7 @@ public class VariableApp2 {
      * 4. 논리
      *  - boolean(1byte)
      *
-     *  문자열은 참조자료형 String타입으로 처리한다. (기본형이 아님)
+     *  문자열은 참조자료형(4byte) String타입으로 처리한다. (기본형이 아님)
      * 
      * 
      * @param args
