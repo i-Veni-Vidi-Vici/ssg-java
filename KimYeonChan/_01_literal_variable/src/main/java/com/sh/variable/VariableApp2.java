@@ -49,6 +49,7 @@ public class VariableApp2 {
         dnum = 1.0f;
 
         ch = 'z';
+        ch = 97;
 
         bool = true;
         bool = !false;

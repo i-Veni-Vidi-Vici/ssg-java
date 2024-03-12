@@ -3,12 +3,11 @@ package com.sh.variable;
 public class VariableApp {
 
     /**
-     * 변수 - RAM 메모리 상의 값을 보관하기 위한 공간
+     * 변수 - (RAM)메모리 상의 값을 보관하기 위한 공간
      * 변수의 사용목적
      * 1. 값을 변수에 담아 사용하기 위한 목적을 표현한다.
      * 2. 값을 재사용할 수 있다.
      * 3. 시간에 따라 변하는 값을 처리할 수 있다.
-     *
      */
 
     public static void main(String[] args){

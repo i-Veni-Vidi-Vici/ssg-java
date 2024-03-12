@@ -61,6 +61,6 @@ public class VariableApp2 {
         System.out.println();
         System.out.println("fnum = " + fnum);
         System.out.println("dnum = " + dnum);
-
+        System.out.println("안녕하세요");
     }
 }

@@ -7,7 +7,7 @@ public class VariableApp2 {
      * 2. 변수에 값을 대입한다.
      * 3. 변수를 사용한다. (출력문, 피연사자 등)
      *
-     * 기본 자료형 (8가지)
+     * 기본 자료형 (8가지) 그 외 나머지는 참조형(참조형 크기는 4byte로 같음)
      * - 다양한 리터럴(값)을 형태에 따라 지정한 크기의 공간으로 처리할지 컴파일러와 약속한 단위
      * 1. 정수
      * - byte(1byte)
@@ -26,7 +26,7 @@ public class VariableApp2 {
      */
         public static void main(String[] args){
             // 1. 선언
-            // 정수를 사요시에는 int를 기본적으로 사용한다.
+            // 정수를 사용시에는 int를 기본적으로 사용한다.
             byte bnum;
             short snum;
             int inum;
