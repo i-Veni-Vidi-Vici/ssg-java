@@ -1,0 +1,50 @@
+package com.sh.scanner;
+
+import javax.swing.plaf.synth.SynthLookAndFeel;
+import java.util.Scanner;
+
+/**
+ * <pre>
+ * java.util.Scanner클래스 API
+ * - 사용자 표준입력(키보드 입력)을 읽어들이는 기능 제공
+ * - 사용자 입력값 토큰(공백 개행문자등으로 구분된 문자열)단위로 분리해서 읽어온다.
+ * - 문자열, 정수, 실수, 논리값등으로 형변환을 지원하는 메소드 제공.
+ *
+ * 표준 입력
+ * - System.in 키보드
+ * 표준 입력
+ * - System.out 콘솔
+ *
+ * 구분
+ * - next계열 메소드
+ * - nextint
+ * - nextDouble
+ * - nextBoolean
+ * - next
+ *
+ * - nextLine계열 메소드
+ * - nextLine
+ * </pre>
+ */
+public class App {
+    public static void main(String[] args) {
+        //1. scanner객체 생성
+        Scanner scanner = new Scanner(System.in);// 표준 입력을 읽어드이는 Scanner객체 생성
+        int age;
+
+        //2. 사용자 입력값 읽어오기
+        System.out.print("이름 입력 : ");
+        String name = scanner.next();// 공백이 나온 순간 입력 끝
+        System.out.println("입력한 이름 : " + name);
+
+        //String name2 = scanner.nextLine();// 문자열처럼 받음, 엔터치면 끝
+        //System.out.println("입력한 문자 : " + name2);
+
+        //3. 정수 입력값 읽어오기
+        System.out.print("나이 입력 : ");
+        age=scanner.nextInt();
+        System.out.println("입력한 나이는 : " + age);
+
+    }
+
+}

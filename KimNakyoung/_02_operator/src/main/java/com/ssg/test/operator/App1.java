@@ -14,8 +14,10 @@ public class App1 {
         int sinMathScore = 100; // 신사임당 수학
         int hongTotalScore = (hongKoreaScore + hongEnglishScore + hongMathScore); // 홍길동 총점
         int sinTotalScore = (sinKoreaScore + sinEnglishScore + sinMathScore); // 신사임당 총점
-        double hongAvg = hongTotalScore / 3 ; // 홍길동 평균
-        double sinAvg = sinTotalScore / 3 ; // 신사임당 평균
+        double hongAvg = hongTotalScore / 3.0 ; // 홍길동 평균 // 3으로 나눴는데 3.0이여야함 소수점 가질라고
+        double sinAvg = sinTotalScore / 3.0 ; // 신사임당 평균 // 3으로 나눴는데 3.0이여야함 소수점 가질라고
+
+
 
 //        2. 총점, 평균, 합격여부 출력.
         System.out.println("홍길동 총점 : " + hongTotalScore);

@@ -14,6 +14,7 @@ public class App2 {
         phone = "01012341234"; // 전화번호는 숫자지만, 시작하는 0처리를 위해 문자열로 처리해야 한다. 또한 연산할 필요도 없다.
         gender = 'M';
         address = "서울시 서초구 방배동";
+        // 문자열 안에서 탭문자(\t), 개행문자(\n)등을 처리할 수 있다. - escaping문자
         System.out.println(name + "\t" + phone + "\t" + (gender == 'M' ? "남" : "여") + "\t" + address); // \t는 탭문자를 의미한다.
 
         // data2
