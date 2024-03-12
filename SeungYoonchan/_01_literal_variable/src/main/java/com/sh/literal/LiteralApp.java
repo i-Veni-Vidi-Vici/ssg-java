@@ -27,6 +27,5 @@ public class LiteralApp {
         //5. 문자열 - "쌍따옴표"
         System.out.println("ABC");
         System.out.println(""); //빈 문자열 표현 가능
-
     }
 }
