@@ -14,7 +14,7 @@ import java.lang.String;
  * - 파일구조의 디렉토리(폴더)와 대응됨
  * - 클래스의 이름은 패키지를 포함
  * - 동일한 패키지에 동일한 이름의 클래스는 존재할 수 없음
- * - 도메인(blog.naver.com -> com.naver.blog)을 뒤집어서 3레벨 이상 사용하는 것을 권장
+ * - 도메인을 뒤집어서(blog.naver.com -> com.naver.blog) 3레벨 이상 사용하는 것을 권장
  * </pre>
  */
 
