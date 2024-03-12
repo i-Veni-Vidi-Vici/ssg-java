@@ -15,7 +15,8 @@ public class App8 {
 
         int sum1;
         // static, 합을 구한다
-        //같은 클래스 같은 경우 클래스명 생략 가능
+        //같은 클래스에 존재 하는 경우 클래스명 생략 가능
+        //-> 바로 메소드명을 사용 할 수 있다.
         //메소드 이름이 기울어져 있다 = static 클래스다
         //기본 폰트 = non-static
         sum1=sum(100,30);
@@ -34,6 +35,10 @@ public class App8 {
 
         Bar bar = new Bar();
         System.out.println(bar.min(3,40));//3
+
+        sum1=sum(100,30);
+        //sum = sum(a,b);
+        System.out.println(sum1);
     }
 
     public static int sum(int a, int b) {
