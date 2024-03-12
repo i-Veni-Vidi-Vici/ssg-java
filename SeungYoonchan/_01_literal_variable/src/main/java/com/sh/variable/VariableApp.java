@@ -37,5 +37,6 @@ public class VariableApp {
         price = price + 20000;
         System.out.println("총액은 " + price + "원 입니다.");
         System.out.println();
+
     }
 }
