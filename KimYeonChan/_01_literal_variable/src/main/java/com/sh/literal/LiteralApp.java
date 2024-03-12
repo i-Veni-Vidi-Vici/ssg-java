@@ -19,6 +19,7 @@ public class LiteralApp {
         System.out.println(false);
         // 4. 문자
         System.out.println('a');
+        System.out.println(' ');
         // 5. 문자열
         System.out.println("abc");
     }

@@ -26,7 +26,7 @@ public class VariableApp2 {
      * 4. 논리
      *  - bollean (1byte)
      *
-     *  문자열은 참조자료형 String 타입으로 처리한다. (기본형이 아님)
+     *  문자열은 참조자료형(4byte) String 타입으로 처리한다. (기본형이 아님)
      *
      * @param args
      */
@@ -48,7 +48,7 @@ public class VariableApp2 {
         String str;
 
         // 2. 값 대입
-        bnum = 123;
+        bnum = 123; // 숫자 보기쉽게 하기위해 "," 못쓰고 "_" 사용가능
         snum = 10_000;
         inum = 1_000_000;
         lnum = 1_000_000_000;

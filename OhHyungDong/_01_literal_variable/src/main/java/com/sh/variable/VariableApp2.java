@@ -15,6 +15,7 @@ public class VariableApp2 {
      * 4. 논리형 - boolean(1byte)
      *
      * - 문자열은 참조자료형 String으로 처리함.(기본형 x)
+     * - 참조형들의 크기는 모두 4byte로 고정
      * @param args
      */
     public static void main(String[] args) {
