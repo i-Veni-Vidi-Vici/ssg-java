@@ -1,4 +1,4 @@
-package com.ssg.test1;
+package com.ssg.test2;
 
 import java.util.Random;
 
