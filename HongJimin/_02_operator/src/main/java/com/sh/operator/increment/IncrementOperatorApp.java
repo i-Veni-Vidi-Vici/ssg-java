@@ -16,7 +16,7 @@ package com.sh.operator.increment;
  */
 public class IncrementOperatorApp {
     public static void main(String[] args) {
-        // 단한 연산자
+        // 단항 연산자
         int a = 10;
         a++;
         a++;
