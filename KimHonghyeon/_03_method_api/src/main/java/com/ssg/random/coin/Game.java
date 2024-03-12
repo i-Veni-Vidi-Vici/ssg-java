@@ -16,7 +16,6 @@ public class Game {
                 else{
                     System.out.println("틀렸습니다!");
                 }
-                System.out.println("=================");
             }
             else if(choice==3){
                 System.out.println("게임을 종료합니다.");
