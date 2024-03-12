@@ -15,6 +15,7 @@ package com.sh.math;
  * - 절대값, 올림, 반올림, 내림, 난수 생성 등
  * </pre>
  */
+
 public class App {
     public static void main(String[] args){
         //1. 절대값
