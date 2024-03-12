@@ -36,6 +36,6 @@ public class App {
         int age = sc.nextInt();
         System.out.println("> 입력한 나이는 " + age + "세 입니다.");
 
-        
+
     }
 }
