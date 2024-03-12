@@ -32,5 +32,6 @@ public class App {
 
         // boolean형 논리값
         System.out.println(rnd.nextBoolean());
+
     }
 }
