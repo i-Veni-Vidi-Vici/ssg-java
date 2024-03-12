@@ -84,3 +84,4 @@ public class LiteralApp2 {
 
     }
 }
+//문자는 정수로 정수는 실수로 변환됨
