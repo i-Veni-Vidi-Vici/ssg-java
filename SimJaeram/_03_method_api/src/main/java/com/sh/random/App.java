@@ -7,7 +7,7 @@ import java.util.Random;
  *     java.util.Random 클래스
  *     - 난수를 타입별로 생성하는 메소드 제공
  *     - Random#nextInt(int):int        // 경우의수와 최솟값을 이용해 특정범위의 난수 생성, Random 클래스의 nextInt() 메소드는 int를 리턴
- *     - Random#nextDouble():double     // #은 non-static 메소드라느 뜻
+ *     - Random#nextDouble():double     // #은 non-static 메소드라는 뜻
  *     - Random#nextBoolean():boolean
  *     
  *     - Random#nextInt 난수 생성 공식 : Random#nextInt(경우의 수) + 최솟값
