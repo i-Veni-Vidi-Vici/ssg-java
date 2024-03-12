@@ -30,7 +30,7 @@ public class App {
 
         //난수 생성 : 0.0 이상~ 1.0 미만의 난수 (double)
         System.out.println(Math.random());
-
+        System.out.println();
 
 
     }
