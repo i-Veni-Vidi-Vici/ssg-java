@@ -40,7 +40,7 @@ public class LiteralApp2 {
         System.out.println((char) 65); //A <-대문자
 
         //6. 문자와 실수 연산 - 문자는 실수로 변환 후 연산이 가능하다
-        System.out.println('a' + 1.0); //9.8
+        System.out.println('a' + 1.0); //98.0
         System.out.println('a' - 1.0);
         System.out.println('a' * 1.0);
         System.out.println('a' / 1.0);

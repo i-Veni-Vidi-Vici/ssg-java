@@ -67,10 +67,10 @@ public class VariableApp2 {
         System.out.println(str);
 
         //초기화 - 변수의 선언과 값 대입을 동시에 하는 것
-        int i=100;
+        int i =100;
         System.out.println(i);
 
         // 선언 - 값대임 - 사용의 순서를 반드시 지켜야 한다.
-        
+
     }
 }

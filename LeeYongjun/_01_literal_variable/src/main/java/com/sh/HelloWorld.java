@@ -25,8 +25,8 @@ public class HelloWorld {
 
     /**
      * 메소드 - 자바 코드를 실행하는 가장 작은 단위. 실행코드는 반드시 메소드안에 위치해야함.
-     * main메소드 - 자바프로그램의 시작.
-     *  - public static void main(String[] args){}
+     *      * main메소드 - 자바프로그램의 시작.
+     *      *  - public static void main(String[] args){}
      */
     public static void main(String[] args) {
         System.out.println("안녕");
