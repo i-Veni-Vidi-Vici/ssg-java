@@ -3,12 +3,12 @@ package com.ssg.test.operator;
 public class App2 {
     public static void main(String[] args) {
         String Name1 = "홍길동";
-        int phone1 = 01012341234;
+        String phone1 = "01012341234";
         char gen1 = 'M';
         String addr1 = "서울시 서초구 방배동";
 
         String Name2 = "신사임당";
-        int phone2 = 01044443333;
+        String phone2 = "01044443333";
         char gen2 = 'F';
         String addr2 = "경기도 남양주시 별내면";
 
