@@ -13,7 +13,7 @@ public class RandomNumGenerator {
     public void generate(){
 //1. 1에서 1000사이의 정수범위의 난수를 생성
         Random rnd = new Random();
-        int random = rnd.nextInt(1000) + 0;
+        int random = rnd.nextInt(1000) + 1;
         System.out.println(random);
 
         //        2. 난수출력, 생성된 난수가 300에서 600사이에 포함되는지 여부 출력
