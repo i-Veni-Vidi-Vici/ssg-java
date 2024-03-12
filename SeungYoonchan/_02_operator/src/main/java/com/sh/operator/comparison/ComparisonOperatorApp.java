@@ -1,5 +1,17 @@
 package com.sh.operator.comparison;
 
+/**
+ * <h3> 비교 연산자 </h3>
+ * <pre>
+ *     - 연산 결과는 boolean 타입이다.
+ *     - if문 혹은 삼항연산자의 조건식으로 사용된다,
+ *
+ *     > 좌항이 우항보다 큰가? GT ( greater than )
+ *     < 좌항이 우항보다 작은가? LT ( less than )
+ *     >= 좌항이 우항보다 크거나 같은가
+ *     <= 좌항이 우항보다 작거나 같은가
+ * </pre>
+ */
 public class ComparisonOperatorApp {
     public static void main(String[] args){
         // 정수 비교
