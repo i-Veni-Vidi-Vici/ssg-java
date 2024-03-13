@@ -12,7 +12,7 @@ public class App {
 
         // 문자 ch2가 영어 소문자인지 검사
         char ch2 = 'g';
-        System.out.println(ch2 >= 'g' && ch2 <= 'g');
+        System.out.println(ch2 >= 'a' && ch2 <= 'z');
 
         // 문자 yn이 대소문자 관계없이 y인지 검사
         char yn = 'Y';
