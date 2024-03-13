@@ -1,4 +1,6 @@
-package com.sh.random.coin;
+package com.ssg.random.coin;
+
+import com.ssg.random.coin.Game;
 
 public class Main {
     public static void main(String[] args){
