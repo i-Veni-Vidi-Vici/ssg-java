@@ -16,7 +16,11 @@ public class App {
         // if~else
         IfElse ifElse = new IfElse();
 //        ifElse.test();
-        ifElse.test2();
-        ifElse.test3();
+//        ifElse.test2();
+//        ifElse.test3();
+
+        // if-else if
+        IfElseIf ifElseIf = new IfElseIf();
+        ifElseIf.test();
     }
 }

@@ -55,8 +55,8 @@ public class IfElse {
      */
     public void test3() {
         System.out.print("정수 :");
-
         int number = sc.nextInt();
+
         if (number < 0) {
             System.out.println("음수");
         } else if (number > 0) {
