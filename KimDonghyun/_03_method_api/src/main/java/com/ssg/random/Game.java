@@ -12,8 +12,10 @@ public class Game {
         Random rnd = new Random();
         Scanner sc = new Scanner(System.in);
         System.out.println("=== 동전 앞 뒤 맞추기 ===");
+        // 컴퓨터 동전 던지기
         int comCoin = rnd.nextInt(2) + 1;
 //        System.out.println("comCoin = " + comCoin);
+        // 사용자 앞뒤면 유추
         System.out.print("숫자를 입력해주세요 (1. 앞면 2.뒷면) : ");
         int userCoin = sc.nextInt();
         String result = comCoin == userCoin ? "맞췄습니다😁" : "땡! 틀렸습니다!😂";
