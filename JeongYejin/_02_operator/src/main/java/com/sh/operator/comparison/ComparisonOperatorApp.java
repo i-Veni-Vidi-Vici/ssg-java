@@ -7,12 +7,12 @@ package com.sh.operator.comparison;
  * - if문 혹은 삼항연산자의 조건식으로 사용된다.
  *
  * (좌항기준 즉, 좌항이 우항보다)
- * > : 크다
- * < : 작다
- * >= : 크거나 같다
- * <= : 작거나 같다
- * == : 같다
- * != : 다르다
+ * > : 크다 gt greater than
+ * < : 작다 lt less than
+ * >= : 크거나 같다 ge greater than or equal to
+ * <= : 작거나 같다 le less than or equal to
+ * == : 같다 eq equal to
+ * != : 다르다 ne not equal to
  *
  * </pre>
  */

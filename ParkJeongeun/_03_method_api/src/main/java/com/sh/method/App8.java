@@ -21,7 +21,7 @@ public class App8 {
 //        test();
 //        int sum2 = sum(100, 30);
 
-        // non/static 기본폰트
+        // non-static 기본폰트
         App8 app = new App8();
         app.hello();
 

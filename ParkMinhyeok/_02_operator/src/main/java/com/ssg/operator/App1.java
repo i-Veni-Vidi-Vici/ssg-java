@@ -13,11 +13,11 @@ public class App1 {
         int hongTotalScore = (hongKoreaScore + hongEnglishScore + hongMathScore);
         int shinTotalScore = (shinKoreaScore + shinEnglishScore + shinMathScore);
 
-        float hongAvg = hongTotalScore / 3;
-        float shinAvg = shinTotalScore / 3;
+        double hongAvg = hongTotalScore / 3.0;
+        double shinAvg = shinTotalScore / 3.0;
 
-        System.out.println(hongKoreaScore >= 40 && hongEnglishScore >= 40 && hongMathScore >= 40 && hongTotalScore >= 60? "합격" : "불합격");
-        System.out.println(shinKoreaScore >= 40 && shinEnglishScore >= 40 && shinMathScore >=40 && shinTotalScore >= 60 ? "합격" : "불합격");
+        System.out.println(hongKoreaScore >= 40 && hongEnglishScore >= 40 && hongMathScore >= 40 && hongAvg >= 60? "합격" : "불합격");
+        System.out.println(shinKoreaScore >= 40 && shinEnglishScore >= 40 && shinMathScore >=40 && shinAvg >= 60 ? "합격" : "불합격");
 
     }
 }
