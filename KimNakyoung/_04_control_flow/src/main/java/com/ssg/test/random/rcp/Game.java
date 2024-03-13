@@ -9,9 +9,11 @@ public class Game {
 
         Scanner sc = new Scanner(System.in);
 
+
         System.out.println("===가위 바위 보 게임===");
         System.out.print("숫자를 선택하세요(1.가위/2.바위/3.보) : ");
-        char num = sc.next().charAt(0);
+        int num = sc.nextInt();
+
         String user = "";
         String computer = "";
         Random rnd = new Random();
@@ -20,11 +22,12 @@ public class Game {
 
 
         switch (num) {
-            case '1' : user = "가위"; break;
-            case '2' : user = "바위"; break;
-            case '3' : user = "보"; break;
+            case 1 : user = "가위"; break;
+            case 2 : user = "바위"; break;
+            case 3 : user = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
+                return;
         }
 
         switch (computerRandom) {
@@ -40,9 +43,9 @@ public class Game {
         System.out.println("컴퓨터는 " + computer + "를 " + "냈습니다." );
         System.out.println("==========================");
 
-        if (((int) num == '1' && computerRandom == 3) ||
-                ((int) num == '2' && computerRandom == 1) ||
-                ((int) num == '3' && computerRandom == 2)) {
+        if (( num == 1 && computerRandom == 3) ||
+                ( num == 2 && computerRandom == 1) ||
+                ( num == 3 && computerRandom == 2)) {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
         }
         else if ((int) num == computerRandom){
