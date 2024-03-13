@@ -9,10 +9,12 @@ public class LogicalApp {
         // 문자 ch1이 영어 대문자인지 검사
         char ch1 = 'G'; // 대문자 65~90
         System.out.println(ch1 >= 65 && ch1 <= 90); // true
+//      ch1 >= 'A' && ch1 <= 'Z' 도 가능
 
         // 문자 ch2가 영어 소문자인지 검사
         char ch2 = 'g'; // 소문자 97~122
         System.out.println(ch2 >=97 && ch2 <= 122); // true
+//      ch2 >='a' && ch2 <= 'z' 도 가능
 
         // 문자 yn이 대소문자 관계없이 y인지 검사
         char yn = 'Y';

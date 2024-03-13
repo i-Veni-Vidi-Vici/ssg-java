@@ -22,6 +22,7 @@ public class AssignmentOperatorApp {
         // 복합대입 연산자
 //        num = num + 3;
         num += 3;
+        // num =+ 3;    -> num = +3; 양수 3이 된다.
         System.out.println(num);
 
         num -= 3;
