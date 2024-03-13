@@ -1,7 +1,10 @@
 package com.ssg.test.operator;
 
+import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
+
 public class App2 {
     public static void main(String[] args){
+        String a;
         String name1 = "홍길동";
         String number1 = "01012341234";
         char gender1 = 'M';
