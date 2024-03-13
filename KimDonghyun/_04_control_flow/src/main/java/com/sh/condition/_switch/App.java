@@ -6,5 +6,6 @@ public class App {
 //        _switch.test();
 //        _switch.test2();
         _switch.test3();
+
     }
 }
