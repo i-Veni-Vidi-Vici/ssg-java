@@ -14,7 +14,7 @@ public class Test3 {
 
         double result = ((double) weight)/(height*height)*100*100;
 
-        System.out.println("BMI 지수 : "+ result);
+        System.out.println("BMI 지수 : "+ String.format("%.1f", result));
 
         if (result >= 30) {
             System.out.println("고도비만");
