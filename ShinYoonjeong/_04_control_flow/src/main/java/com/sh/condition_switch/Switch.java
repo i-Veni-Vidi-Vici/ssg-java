@@ -100,6 +100,6 @@ public class Switch {
                 System.out.println("연산자를 잘못 입력하셨습니다.");
                 return; // 조기 리턴. 하위의 코드를 실행하지 않고 리턴.
         }
-        System.out.println("결과 출력 : " + num1 + x + num2 + "=" + result);
+        //System.out.println("결과 출력 : " + num1 + x + num2 + "=" + result);
     }
 }

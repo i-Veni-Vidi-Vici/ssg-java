@@ -1,7 +1,10 @@
 package com.sh.condition_switch;
 
 public class App {
-    Switch _switch = new Switch();
-    _switch.test();
-    _switch.test2();
+    public static void main(String[] args) {
+        Switch _switch = new Switch();
+        _switch.test();
+        _switch.test2();
+    }
+
 }
