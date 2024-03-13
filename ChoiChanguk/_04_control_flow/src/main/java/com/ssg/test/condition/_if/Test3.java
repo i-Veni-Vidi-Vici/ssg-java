@@ -3,7 +3,7 @@ package com.ssg.test.condition._if;
 import java.util.Scanner;
 
 public class Test3 {
-    public static void main(String[] args) {
+    public void test() {
         double height;
         double weight;
         double BMI;

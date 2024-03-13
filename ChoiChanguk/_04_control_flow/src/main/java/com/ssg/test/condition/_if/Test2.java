@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Test2 {
-    public static void main(String[] args) {
+    public void test() {
         Scanner sc=new Scanner(System.in);
 
         System.out.print("정수를 입력 하세요 ");

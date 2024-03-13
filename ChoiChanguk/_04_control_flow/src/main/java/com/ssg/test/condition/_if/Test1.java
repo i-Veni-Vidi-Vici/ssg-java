@@ -3,7 +3,7 @@ package com.ssg.test.condition._if;
 import java.util.Scanner;
 
 public class Test1 {
-    public static void main(String[] args) {
+    public void test() {
         Scanner sc=new Scanner(System.in);
 
         int result;
