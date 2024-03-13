@@ -3,14 +3,14 @@ package com.sh.condition._if;
 import java.util.Scanner;
 
 public class IfElseIf {
-    public void test() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("풍덩");
-        System.out.println("1. 금도끼 2. 은도끼 3. 쇠도끼");
-
-        int choice = sc.nextInt();
-    }
+//    public void test() {
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.println("풍덩");
+//        System.out.println("1. 금도끼 2. 은도끼 3. 쇠도끼");
+//
+//        int choice = sc.nextInt();
+//    }
 
     public void test2(){
         Scanner sc = new Scanner(System.in);
