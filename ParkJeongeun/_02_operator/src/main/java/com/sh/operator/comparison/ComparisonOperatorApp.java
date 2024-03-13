@@ -7,13 +7,12 @@ package com.sh.operator.comparison;
  * - if문 혹은 삼항연산자의 조건식으로 사용됨
  *
  * (무조건 좌항 기준으로 읽기)
- * > 좌항이 우항보다 큰가?
- * < 좌항이 우항보다 작은가?
- * >= 좌항이 우항보다 크거나 같은가?
- * <= 좌항이 우항보다 작거나 같은가?
- * == 좌우항이 같은가?
- * != 좌우항이 다른가?
- *
+ * > 좌항이 우항보다 큰가? (at) greater than
+ * < 좌항이 우항보다 작은가? (lt) less than
+ * >= 좌항이 우항보다 크거나 같은가? (ge) grater than or equal to
+ * <= 좌항이 우항보다 작거나 같은가? (le) less than or equal to
+ * == 좌우항이 같은가? (eq)
+ * != 좌우항이 다른가? (ne)
  * </pre>
  */
 public class ComparisonOperatorApp {

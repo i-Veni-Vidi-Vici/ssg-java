@@ -1,3 +1,3 @@
-# JeongYejin's java_workspace
+# Yejin's java_workspace 🎀
 
-## 안녕하세요?
+## 안녕하세요 😊
