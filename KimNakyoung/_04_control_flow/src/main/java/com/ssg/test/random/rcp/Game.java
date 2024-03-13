@@ -15,22 +15,22 @@ public class Game {
         String user = "";
         String computer = "";
         Random rnd = new Random();
-        int computerRandom = rnd.nextInt(3) + 1; // 컴퓨터
-        System.out.println(computerRandom);
+        int computerRandom = rnd.nextInt(3) + 1; // 컴퓨터 (1~3) 생성
+//        System.out.println(computerRandom);
 
 
         switch (num) {
-            case '1' : user = "가위";
-            case '2' : user = "바위";
-            case '3' : user = "보";
+            case '1' : user = "가위"; break;
+            case '2' : user = "바위"; break;
+            case '3' : user = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
         }
 
         switch (computerRandom) {
-            case '1' : computer = "가위";
-            case '2' : computer = "바위";
-            case '3' : computer = "보";
+            case 1 : computer = "가위"; break;
+            case 2 : computer = "바위"; break;
+            case 3 : computer = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
         }
@@ -38,14 +38,15 @@ public class Game {
         System.out.println("========= 결과 ===========");
         System.out.println("당신은 " + user + "를 " + "냈습니다." );
         System.out.println("컴퓨터는 " + computer + "를 " + "냈습니다." );
+        System.out.println("==========================");
 
-        if (num == computerRandom) {
-            System.out.println("둘다 비겼습니다");
-        }
-        else if (num == 1 && computerRandom == 3 ||
-                num == 2 && computerRandom == 1 ||
-                num == 3 && computerRandom == 2){
+        if (((int) num == '1' && computerRandom == 3) ||
+                ((int) num == '2' && computerRandom == 1) ||
+                ((int) num == '3' && computerRandom == 2)) {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
+        }
+        else if ((int) num == computerRandom){
+                System.out.println("둘다 비겼습니다");
         }else {
             System.out.println("컴퓨터가 이겼습니다.");
         }
