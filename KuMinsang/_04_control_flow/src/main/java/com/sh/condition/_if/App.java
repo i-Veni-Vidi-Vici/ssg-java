@@ -7,6 +7,8 @@ package com.sh.condition._if;
  *
  */
 
+import com.ssg.test.condition_if.Test3;
+
 /**
  * if표현식
  * if(조건식){
@@ -20,9 +22,18 @@ public class App {
         //run.test();
         //run.test2();
         //IfElse run2 = new IfElse();
-        IfElseIf run3 = new IfElseIf();
-        run3.test();
+        //IfElseIf run3 = new IfElseIf();
+        //run3.test();
+/*
+        Test1 t1 = new Test1();
+        t1.test();
+*/
+        /*
+        Test2 t2 = new Test2();
+        t2.test();
 
-
+         */
+        Test3 t3 = new Test3();
+        t3.test();
     }
 }
