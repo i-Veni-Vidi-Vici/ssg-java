@@ -21,14 +21,15 @@ public class Game {
 
             System.out.print("--------------->(입력: restart/quit)");
             String game = scanner.next();
+
             if (game.equals("restart")) {
                 isRunning = true;
             }
             if (game.equals("quit")) {
                 isRunning = false;
-            } else throw new IllegalAccessException("잘못된 입력값 입니다.");
+            } else throw new IllegalArgumentException("잘못된 입력값 입니다.");
         }
-
 
     }
 }
+
