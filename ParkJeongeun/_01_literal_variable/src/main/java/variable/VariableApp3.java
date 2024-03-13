@@ -1,6 +1,7 @@
 package variable;
 
 /**
+ * <pre>
  * 변수 명명 규칙
  * - 지키지 않을 경우 컴파일 오류
  * - 지키지 않아도 컴파일 오류는 나지 않지만, 자바개발자 사이에 혼동을 줄 수 있는 부분
@@ -21,6 +22,7 @@ package variable;
  * - 명사형으로 작성
  * - boolean형은 논리형을 유추할 수 있는 변수명 사용 (형용사)
  * - 값의 의미를 명확히 대변
+ * </pre>
  */
 public class VariableApp3 {
     public static void main(String [] args) {
