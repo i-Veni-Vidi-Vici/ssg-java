@@ -20,9 +20,18 @@ public class App {
         //ifElse.test2();
         //ifElse.test3();
 
-        IfElseIf ifElseIf = new IfElseIf();
+        //IfElseIf ifElseIf = new IfElseIf();
         //ifElseIf.test();
         //ifElseIf.test2();
-        ifElseIf.test3();
+        //ifElseIf.test3();
+
+        //Test1 Test = new Test1();
+        //Test1.test();
+
+        //Test2 Test = new Test2();
+        //Test2.test();
+
+        Test3 Test = new Test3();
+        Test3.test();
     }
 }
