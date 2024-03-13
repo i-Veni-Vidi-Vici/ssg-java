@@ -15,6 +15,9 @@ public class RandomUtils {
         System.out.println(intRandom);
         System.out.println(intRandom % 2 != 0 ? "홀수" : "짝수" );
 
+        //even number 홀
+        //add number 짝
+
 
 
 
