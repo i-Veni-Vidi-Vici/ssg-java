@@ -13,7 +13,7 @@ public class Test1 {
         int firstNumber = scan.nextInt();
         System.out.print("정수2 입력 : ");
         int secondNumber = scan.nextInt();
-        System.out.print("연산자 입력(+ - * / : ");
+        System.out.print("연산자 입력(+ - * / %) : ");
         String operator = scan.next();
         System.out.println("-------------------");
 
