@@ -18,8 +18,7 @@ public class Test1 {
 
         int result = 0;
 
-        if(num1 < 0 || num2 < 0)
-        {
+        if(num1 < 0 || num2 < 0) {
             System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
         }
         else if(operator == '+') {
