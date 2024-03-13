@@ -6,12 +6,12 @@ package com.sh.operator.comparison;
  * - 연산결과는 boolean 타입이다.
  * - if문 혹은 삼항연산자의 조건식
  * 무조건 좌항 기준
- * > ex) 좌항>우항 = 왼쪽이 오른쪽보다 큰가??
- * < ex) 좌항<우항 = 왼쪽이 오른쪽보다 작은가??
- * <= ex) 좌항<=우항 = 왼쪽이 오른쪽보다 작거나 같은가??
+ * > ex) 좌항>우항 = 왼쪽이 오른쪽보다 큰가?? gt greater than
+ * < ex) 좌항<우항 = 왼쪽이 오른쪽보다 작은가?? lt less than
+ * <= ex) 좌항<=우항 = 왼쪽이 오른쪽보다 작거나 같은가?? le less than or equal to
  * >= ex) 좌항>=우항 = 왼쪽이 오른쪽보다 큰거나 작은가??
- * == ex) 좌항==우항 = 왼쪽과 오른쪽이 같은가??
- * != ex) 좌항!=우항 = 왼쪽과 오른쪽이 다른가??
+ * == ex) 좌항==우항 = 왼쪽과 오른쪽이 같은가?? eq equal to
+ * != ex) 좌항!=우항 = 왼쪽과 오른쪽이 다른가?? ne not equal to
  * </pre>
  */
 public class ComparisonOperatorApp {
