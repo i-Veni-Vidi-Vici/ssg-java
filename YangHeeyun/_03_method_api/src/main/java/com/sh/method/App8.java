@@ -14,7 +14,7 @@ public class App8 {
         // test가 static 키워드를 가진 메소드이므로 위에 객체 생성 문장이 필요없다.
 
         // 같은 클래스 static 메소드
-        App8.test(); // italic 기울임 포느
+        App8.test(); // italic 기울임 폰트
 
         int sum = App8.sum(100,30);
         System.out.println(sum);

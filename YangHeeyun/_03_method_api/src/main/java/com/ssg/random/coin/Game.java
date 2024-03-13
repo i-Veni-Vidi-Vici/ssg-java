@@ -1,4 +1,4 @@
-package com.sh.random.coin;
+package com.ssg.random.coin;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -17,6 +17,7 @@ public class Game {
 
 
             System.out.println("===동전 앞 뒤 맞추기===");
+            // 사용자 앞뒷면 유추
             System.out.print("숫자를 입력해주세요 (1.앞면 / 2.뒷면) : ");
             num = sc.nextInt();
 
