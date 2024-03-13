@@ -16,7 +16,12 @@ public class TernaryOperatorApp {
         // 양수/음수/0 여부 출력
         int x = -50;
 //        System.out.println("x는 " + (x>0? "양수다": "양수가 아니다."));
-        System.out.println("x는 " + (x>0? "양수다": (x==0?"0이다":"음수다")));
+        System.out.println("x는 " +
+                (x>0?
+                        "양수다":
+                            (x==0?
+                                    "0이다":
+                                        "음수다")));
 
         // 삼항연산자 결과값을 대입
         int k=20;

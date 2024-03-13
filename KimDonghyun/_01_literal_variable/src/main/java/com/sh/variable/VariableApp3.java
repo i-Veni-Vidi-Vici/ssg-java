@@ -1,6 +1,7 @@
 package com.sh.variable;
 
 /**
+ * <pre>
  * 변수 명명 규칙
  * - 지키지 않을 경우 컴파일오류 유발
  * - 지키지 않아도 컴파일 오류는 나지 않지만, 자바개발자 사이에 혼동을 줄수 있는 부분
@@ -21,7 +22,7 @@ package com.sh.variable;
  *  - 명사형으로 작성한다.
  *  - boolean형은 논리형을 유추할수 있는 변수명을 사용한다. (형용사)
  *  - 값의 의미를 명확히 대변해야 한다.
- *
+ * </pre>
  */
 public class VariableApp3 {
     public static void main(String[] args) {
