@@ -19,6 +19,6 @@ public class App {
 
 // 문자 k가 영문자인지 검사
         char k = 'z';
-        System.out.println('A'<= k && k <= 'z');
+        System.out.println(('A'<= k && k <= 'Z') || ('a' <= k && k <= 'z'));
     }
 }
