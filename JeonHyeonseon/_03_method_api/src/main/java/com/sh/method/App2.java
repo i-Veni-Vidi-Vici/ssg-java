@@ -5,7 +5,7 @@ package com.sh.method;
  */
 public class App2 {
     public static void main(String[] args) {
-        // 1. 객체생성
+        // 1. 객체생성 - 메소드를 가진 클래스를 객체로 만든다.
         App2 app2 = new App2();
         // 2. 객체를 통해 메소드 호출
         app2.s();
