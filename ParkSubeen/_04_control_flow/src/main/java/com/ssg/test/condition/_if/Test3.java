@@ -10,7 +10,7 @@ public class Test3 {
         int kg = sc.nextInt();
         System.out.print("신장입력(cm) : ");
         int cm = sc.nextInt();
-        double m = (double) cm * 0.01;
+        double m = cm * 0.01;
         System.out.println("-----------------------");
         double bmi = (Math.round(kg / (m * m) * 10)/ 10.0);
         String result = "";
