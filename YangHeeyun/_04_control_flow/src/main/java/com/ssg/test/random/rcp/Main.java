@@ -1,4 +1,3 @@
-/*
 package com.ssg.test.random.rcp;
 
 public class Main {
@@ -7,4 +6,4 @@ public class Main {
         game.rockPaperScissors();
     }
 }
- */
+
