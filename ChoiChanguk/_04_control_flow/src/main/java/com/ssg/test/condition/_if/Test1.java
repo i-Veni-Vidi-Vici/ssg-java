@@ -18,7 +18,11 @@ public class Test1 {
 
         System.out.println("----------------------------");
 
-        if(ch=='+')
+        if(num1<0 || num2<0) {
+            System.out.println("잘못 입력 하셨습니다. 프로그램을 종료합니다");
+            return;
+        }
+        else if(ch=='+')
         {
             result=num1+num2;
         }
@@ -37,10 +41,11 @@ public class Test1 {
         else if(ch=='%') {
             result = num1 % num2;
         }
-        else {
+        else{
             System.out.println("잘못 입력 하셨습니다. 프로그램을 종료합니다");
             return;
         }
+
         System.out.println(num1+" + "+num2+" = "+result);
     }
 }
