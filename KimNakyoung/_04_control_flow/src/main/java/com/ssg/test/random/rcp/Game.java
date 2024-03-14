@@ -11,7 +11,8 @@ public class Game {
 
         System.out.println("===가위 바위 보 게임===");
         System.out.print("숫자를 선택하세요(1.가위/2.바위/3.보) : ");
-        char num = sc.next().charAt(0);
+//        char num = sc.next().charAt(0);
+        int num = sc.nextInt();
         String user = "";
         String computer = "";
         Random rnd = new Random();
@@ -20,17 +21,18 @@ public class Game {
 
 
         switch (num) {
-            case '1' : user = "가위";
-            case '2' : user = "바위";
-            case '3' : user = "보";
+            case 1 : user = "가위"; break;
+            case 2 : user = "바위"; break;
+            case 3 : user = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
+                return;
         }
 
         switch (computerRandom) {
-            case '1' : computer = "가위";
-            case '2' : computer = "바위";
-            case '3' : computer = "보";
+            case 1 : computer = "가위"; break;
+            case 2 : computer = "바위"; break;
+            case 3 : computer = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
         }
