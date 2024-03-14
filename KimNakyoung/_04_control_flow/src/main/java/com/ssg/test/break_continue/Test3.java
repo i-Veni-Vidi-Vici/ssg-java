@@ -1,6 +1,9 @@
 package com.ssg.test.break_continue;
 
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * - 1~100 사이의 임의의 난수를 발생시키고, 정수 한 개를 입력 받습니다.
  * - 난수가 입력 받은 정수보다 작으면 “입력하신 정수보다 작습니다.” 출력,
@@ -11,4 +14,27 @@ package com.ssg.test.break_continue;
  *
  */
 public class Test3 {
+    public static void main(String[] args) {
+        Random rnd = new Random(); // 난수
+        int random = rnd.nextInt(100)+1; // 1~ 100 난수
+        Scanner sc = new Scanner(System.in);
+
+        int cnt = 0; // 맞춘횟수
+        for(; ; ) {
+            System.out.print("정수입력 : ");
+            int num = sc.nextInt(); // 입력정수
+            if (random < num) {
+                System.out.println("입력하신 정수보다 작습니다.");
+                cnt++;
+
+            } else if(random > num) {
+                System.out.println("입력하신 정수보다 큽니다.");
+                cnt++;
+
+            }else {
+                System.out.println("정답입니다. " + cnt +"회 만에 정답을 맞추셨습니다.");
+                break;
+            }
+        }
+    }
 }
