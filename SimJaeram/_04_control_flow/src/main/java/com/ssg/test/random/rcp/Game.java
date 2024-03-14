@@ -12,7 +12,7 @@ public class Game {
         System.out.println("=== 가위 바위 보 게임 ===");
         System.out.print("숫자를 선택하세요(1.가위 / 2.바위 / 3. 보) : ");
         user = sc.nextInt();
-        computer =(int) (Math.random() * 3) + 1; // (int) (Math.random() * 경우의 수) + 최소값
+        computer = (int) (Math.random() * 3) + 1; // (int) (Math.random() * 경우의 수) + 최소값
 
         if(user == computer) {
             result = "비겼";
