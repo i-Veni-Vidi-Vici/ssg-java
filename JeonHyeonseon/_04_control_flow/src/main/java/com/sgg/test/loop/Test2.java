@@ -18,9 +18,9 @@ public class Test2 {
 
         for(int i = 1; i <= num; i++) { // i는 변하는 값
             if (i % 2 != 0) {
-                System.out.println("수");
+                System.out.print("수");
             } else {
-                System.out.println("박");
+                System.out.print("박");
             }
         }
         System.out.println();

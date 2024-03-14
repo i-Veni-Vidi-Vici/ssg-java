@@ -8,7 +8,7 @@ public class App {
 //        _for.test3();
 //        _for.test4();
 //        _for.test5();
-//        _for.test6();
+        _for.test6();
 
         For2 for2 = new For2();
 //        for2.test1(); //for2라는 클래스에 test1이라는 메서드를 만듦
