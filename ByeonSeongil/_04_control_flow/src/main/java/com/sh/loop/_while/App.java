@@ -5,8 +5,10 @@ public class App {
         While _while = new While();
 //        _while.test1();
 //        _while.test2();
-            _while.test4();
-        StringBuilder sb = new StringBuilder();
-        sb.toString();
+//            _while.test4();
+
+        DoWhile doWhile = new DoWhile();
+        doWhile.test1();
+
     }
 }
