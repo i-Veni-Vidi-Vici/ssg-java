@@ -8,5 +8,9 @@ public class RandomIUtils {
         int randomNum = rnd.nextInt();
 
         System.out.println(randomNum%2==0?randomNum + "은 짝수": randomNum + "은 홀수");
+
+        // boolean isEven = num%2==0;
+        //System.out.println(num +"은 " + (isEven ?)"짝수":"홀수");
+
     }
 }
