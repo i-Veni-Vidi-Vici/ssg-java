@@ -26,7 +26,6 @@ public class Game {
             case 3 : user = "보"; break;
             default:
                 System.out.println("잘 못 입력했습니다.");
-                return;
         }
 
         switch (computerRandom) {
@@ -42,12 +41,12 @@ public class Game {
         System.out.println("컴퓨터는 " + computer + "를 " + "냈습니다." );
         System.out.println("==========================");
 
-        if (((int) num == '1' && computerRandom == 3) ||
-                ((int) num == '2' && computerRandom == 1) ||
-                ((int) num == '3' && computerRandom == 2)) {
+        if ((num == 1 && computerRandom == 3) ||
+                (num == 2 && computerRandom == 1) ||
+                (num == 3 && computerRandom == 2)) {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
         }
-        else if ((int) num == computerRandom){
+        else if (num == computerRandom){
                 System.out.println("둘다 비겼습니다");
         }else {
             System.out.println("컴퓨터가 이겼습니다.");
