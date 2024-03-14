@@ -12,28 +12,30 @@ public class Test4 {
     public static void main(String[] args) {
 
         String str = "";
-        String strSearch = "";
+        char chSearch = ' '; // char 반드시 값 할당
         int count = 0;
         char tmp;
         Scanner sc = new Scanner(System.in);
         System.out.print("문자열 입력 : ");
         str = sc.nextLine();
         System.out.print("검색할 문자 입력 : ");
-        strSearch = sc.nextLine();
+        chSearch = sc.next().charAt(0);
 
-        for (int i = 0; i <= str.length(); i++) {
+        // 검색 할 문자가 영문자가 아니면 종료
+        if (!(('A' <= chSearch) && ('Z' >= chSearch)) || ('a' <= chSearch) && ('z' >= chSearch)) {
+            System.out.println("영문자가 아닙니다.");
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
 
             tmp = str.charAt(i);
+            // char은 기본타입이라 비교연산자 가능, String은 참조타입이라 비교연산자 불가능
+            if (chSearch == tmp){
+                count ++;
+            }
 
-            if ((('A' <= tmp) && ('Z' >= tmp)) || ('a' <= tmp) && ('z' >= tmp)) {
-                if (strSearch.equals(tmp)){
-                    count ++;
-                }
-            }
-            else {
-                System.out.println("영문자가 아닙니다.");
-            }
-        }
-        System.out.println("'" + strSearch+ "'" + "가 포함된 갯수 :"+ count + "개");
+        }System.out.println("'" + chSearch+ "'" + "가 포함된 갯수 :"+ count + "개");
+
     }
 }
