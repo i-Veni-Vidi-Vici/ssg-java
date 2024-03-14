@@ -16,7 +16,10 @@ public class Test4 {
         char text = sc.next().charAt(0); // 0번째 인덱스 문자를 가져온다.
 
         if((text >= 'A' && text <= 'Z') || (text >= 'a' && text <= 'z')) {
-            for {int i = 0; i
+            int i = 0;
+            for(i = 0; i < str.length(); i++){
+                char ch = str.charAt(i);
+                System.out.println(i);
 
             }
         } else {
