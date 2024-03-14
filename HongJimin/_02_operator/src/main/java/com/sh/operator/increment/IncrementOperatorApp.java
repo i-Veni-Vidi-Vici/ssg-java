@@ -16,19 +16,19 @@ package com.sh.operator.increment;
  */
 public class IncrementOperatorApp {
     public static void main(String[] args) {
-        // 단한 연산자
+        // 단항 연산자
         int a = 10;
-        a++;
-        a++;
-        a++;
-        System.out.println(a);
-        a--;
-        System.out.println(a);
+        a++; //11
+        a++; //12
+        a++; //13
+        System.out.println(a); //13
+        a--; //12
+        System.out.println(a);//12
 
         //전위 증감 연산자
         int m = 20;
 //        System.out.println(++m); //이때 인접 연산은 출력이다.
-//        int m2 = ++m +2; //이때 인접 연산은 +이다.
+//        int m2 = ++m + 2; //이때 인접 연산은 +이다.
 //        System.out.println("m = " + m + ", m2 = " + m2); //m = 21, m2 = 23
         int m3 = ++m; // 이때 인접 연산은 =이다.
         System.out.println("m = " + m + ", m3 = " + m3); //m = 21, m3 = 21
@@ -46,6 +46,7 @@ public class IncrementOperatorApp {
         int y = 50;
         int z = x++ + --y; //x = 40, y = 49, z = 89 , x는 연산 후에 41이 됨
         System.out.println("x = " + x + ", y = " + y + ", z = " + z); //x = 41, y = 49, z = 89
+        System.out.println(a);
 
 
     }

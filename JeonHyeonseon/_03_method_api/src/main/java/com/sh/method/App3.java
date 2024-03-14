@@ -9,12 +9,12 @@ package com.sh.method;
  *
  * 매개인자 Argument
  * - 메소드 호출부에서 전달하는 값
- * - 메소드 호출시에 매개변수에 대입되어 호출 시 사용된다.
+ * - 메소드 호출시에 매개변수에 대입되어 호출시 사용된다.
  * </pre>
  */
 public class App3 {
     public static void main(String[] args){
-        App3 app = new App3();
+        App3 app = new App3(); // 객체생성 - 메소드를 가진 클래스를 객체로 만든다.
         String name = "홍길동";
         app.printName(name); // 변수를 사용해도 변수의 값이 매개인자로써 사용된다.
         name = "신사임당";

@@ -29,16 +29,34 @@ public class App {
     public static void main(String[] args) {
         // 1. Scanner 객체 생성
         Scanner sc = new Scanner(System.in); // 표준입력을 읽어드리는 Scanner 객체 생성
+//
+//        // 2. 사용자 입력값 읽어오기
+//        System.out.println("이름 입력 : ");
+//        String name = sc.next();
+//        System.out.println("> 입력한 이름은 " + name + "입니다.");
+//
+//        // 3. 정수 int 입력값 읽어오기
+//        System.out.println("나이 입력 : ");
+//        int age = sc.nextInt();
+////        System.out.println("> 입력한 나이는 " + age + "세 입니다.");
+//
+//        // 4. 실수 double 입력값 읽어오기
+//        System.out.println("키 입력 (예 : 177.5) : ");
+//        double height = sc.nextDouble();
+//        System.out.println("입력한 키는 " + height + "cm입니다.");
+//
+//        // 5. 논리 입력값 읽어오기
+//        System.out.println("결혼하셨습니까? true / false :");
+//        boolean married = sc.nextBoolean();
+//        System.out.println("> 입력한 결혼여부는 " + (married ? "기혼" : "미혼") + "입니다.");
 
-        // 2. 사용자 입력값 읽어오기
-        System.out.println("이름 입력 : ");
-        String name = sc.next();
-        System.out.println("> 입력한 이름은 " + name + "입니다.");
+        // 6. 문자값 읽어오기
+        // Scanner에는 char를 읽어오는 메소드를 지원하지 않는다.
+        // String#charAt(int) 메소드를 이용해서 0번째 인덱스 문자를 가져온다.
+        System.out.println("성별 입력 (남 / 여) : ");
+        char gender = sc.next().charAt(0); // 0번째 글짜 "남" -> '남' char로 바꿔줌
+        System.out.println("입력하신 성별은 " + gender + "입니다.");
 
-        // 3. 정수 int 입력값 읽어오기
-        System.out.println("나이 입력 : ");
-        int age = sc.nextInt();
-        System.out.println("> 입력한 나이는 " + age + "세 입니다.");
 
     }
 }

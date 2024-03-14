@@ -7,16 +7,16 @@ package com.sh.method;
 public class App2 {
     public static void main(String[] args){
         //1. 객체생성
-        App2 app2 = new App2();
+        App2 app = new App2();
         //2. 객체를 통해 메소드 호출
-        app2.s();
-        app2.s();
-        app2.g();
+        app.s();
+        app.s();
+        app.g();
         System.out.println("");
-        app2.j();
-        app2.a();
-        app2.v();
-        app2.a();
+        app.j();
+        app.a();
+        app.v();
+        app.a();
 
     }
 
