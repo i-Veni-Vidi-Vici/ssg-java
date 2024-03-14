@@ -36,7 +36,7 @@ public class Switch {
                     + "==================\n"
                     + "번호 입력 : ";
         System.out.println(menu);
-        String choice = sc.next();
+        String choice = sc.next(); // 숫자로 값을 받긴하지만 문자로 처리한다.
         // switch문 안에서 사용할 변수는 switch블럭 밖에서 선언한다.
         String name = ""; // 빈 문자열 초기화
         int price = 0; // 0 초기화
@@ -83,9 +83,9 @@ public class Switch {
         switch(score / 10) {
             case 10:
             case 9: grade = 'A'; break;
-            case 8: grade = 'A'; break;
-            case 7: grade = 'A'; break;
-            case 6: grade = 'A'; break;
+            case 8: grade = 'B'; break;
+            case 7: grade = 'C'; break;
+            case 6: grade = 'D'; break;
             default: grade = 'F';
         }
         System.out.println(score + "점은" + grade + "학점입니다.");

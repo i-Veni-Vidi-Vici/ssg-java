@@ -34,6 +34,7 @@ public class App {
         //2. 사용자 입력 값 읽어오기
         //공백문자 전까지 읽어온다
         //"박 문수"를 입력하면 '박'만 가져온다
+        /*
         System.out.println("이름 입력 : ");
         String name = sc.next();
         System.out.println("> 입력한 이름은 " + name + "입니다.");
@@ -50,6 +51,32 @@ public class App {
         System.out.println("주소 입력 : ");
         String addr = sc.nextLine();
         System.out.println("> 입력한 주소은 " + addr + "입니다.");
+
+         */
+
+        //4. 실수 double 입력값 읽어오기
+        /*
+        System.out.println("키 입력 (예:177.7 : ");
+        double height = sc.nextDouble();
+        System.out.println("입력한 키는 " + height + "cm 입니다.");
+        */
+
+        //5. 논리 입력 값 읽어오기
+        /*
+        System.out.println("결혼 하셨습니까? true / false : ");
+        boolean married = sc.nextBoolean();
+        System.out.println("/> 입력값 결혼 여부는 " + (married ? "기혼" : "미혼") + "입니다.");
+
+         */
+
+        //6. 문자 값 읽어오기
+        //Scanner는 char를 읽어오는 메소드를 지원하지 않는다.
+        //String#charAt(int)메소드를 이용해서 0번째 인덱스 문자를 가져온다.
+        System.out.println("성별 입력 (남 / 여): ");
+        char gender = sc.next().charAt(0);
+        System.out.println("> 입력하신 성별은 " + gender + "입니다.");
+
+
 
     }
 

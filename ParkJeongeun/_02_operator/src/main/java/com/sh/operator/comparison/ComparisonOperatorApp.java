@@ -11,8 +11,8 @@ package com.sh.operator.comparison;
  * < 좌항이 우항보다 작은가? (lt) less than
  * >= 좌항이 우항보다 크거나 같은가? (ge) grater than or equal to
  * <= 좌항이 우항보다 작거나 같은가? (le) less than or equal to
- * == 좌우항이 같은가? (eq)
- * != 좌우항이 다른가? (ne)
+ * == 좌우항이 같은가? (eq) equal to
+ * != 좌우항이 다른가? (ne) not equal to
  * </pre>
  */
 public class ComparisonOperatorApp {

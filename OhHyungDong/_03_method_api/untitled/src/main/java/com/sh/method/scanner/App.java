@@ -27,12 +27,31 @@ public class App {
         // 객체 생성
         Scanner scan = new Scanner(System.in);
         // 사용자 입력값 읽어오기
-        System.out.print("이름 입력 : ");
-        String name = scan.next();
-        System.out.println("입력한 이름 : " + name);
-        // 정수 입력값 읽어오기
-        System.out.println("나이 입력 : ");
-        int age = scan.nextInt();
-        System.out.println("입력한 나이는 " + age + "세 입니다.");
+//        System.out.print("이름 입력 : ");
+//        String name = scan.next();
+//        System.out.println("입력한 이름 : " + name);
+//        // 정수 입력값 읽어오기
+//        System.out.println("나이 입력 : ");
+//        int age = scan.nextInt();
+//        System.out.println("입력한 나이는 " + age + "세 입니다.");
+//
+//        //4. 실수 double형 입력값 읽어오기.
+//        System.out.println("키 입력 : ");
+//        double height = scan.nextDouble();
+//        System.out.println("입력한 키는 "+ height + "입니다. ");
+//
+        //5. 논리 입력값 읽어오기
+        System.out.println("결혼 하셨습니까? true/false : ");
+        boolean married = scan.nextBoolean();
+        System.out.println("입력값 결혼 여부는 " + (married ? "기혼" : "미혼") + "입니다. ");
+
+        //6. 문자값 읽어오기 -
+        //Scanner에는 char를 읽어오는 메소드를 지원하지 않는다.
+        //String#charAt(int)메소드를 이용해서 0번째 인덱스 문자를 가져온다.
+        System.out.println("성별 입력 (남/여): ");
+        char gender = scan.next().charAt(0); // string -> char "남" -> '남'
+        System.out.println("입력하신 성별은 " + gender + "입니다.");
+
+
     }
 }

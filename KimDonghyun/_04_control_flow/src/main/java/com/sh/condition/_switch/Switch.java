@@ -3,6 +3,8 @@ package com.sh.condition._switch;
 import java.util.Scanner;
 
 /**
+ * <pre>
+ *
  * switch문
  * - 논리값이 값으로써 분기처리하는 제어문
  * - 값 자리에는 변수 또는 값으로 처리되는 계산식 작성
@@ -22,7 +24,8 @@ import java.util.Scanner;
  *     default: 
  *      // 모든 case문이 실행되지 않은 경우 기본실행문
  * }
- * 
+ *
+ * </pre>
  */
 public class Switch {
     public void test() {

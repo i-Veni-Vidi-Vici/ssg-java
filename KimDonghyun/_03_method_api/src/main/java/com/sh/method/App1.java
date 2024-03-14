@@ -9,10 +9,10 @@ package com.sh.method;
  * main method 
  * - jvm에 의해 실행되는 자바프로그램 최초의 메소드
  * 
- * non-static메소드 호출
+ * static메소드 호출
  * - 객체(메모리조각)를 만들고, 객체를 통해 호출
  * 
- * static 메소드 호출
+ * non-static 메소드 호출
  * - 객체를 만들지 않고, 클래스 명으로 호출
  * 
  * </pre>
