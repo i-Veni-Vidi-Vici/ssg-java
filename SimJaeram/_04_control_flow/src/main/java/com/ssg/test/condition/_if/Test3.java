@@ -15,8 +15,9 @@ public class Test3 {
         weight = sc.nextDouble();
         System.out.print("신장입력(cm) : ");
         height = sc.nextDouble();
-        bmi = weight / ((height/10) * (height/10));
+        bmi = weight / ((height/100) * (height/100));
 
+        // 간결한 코드 짧은 코드도 좋지만, 동료가 잘 읽을 수 있는 코드가 더 좋은 코드
         if (bmi < 18.5) {
             result = "저체중";
         } else if (bmi < 23) {
@@ -29,8 +30,9 @@ public class Test3 {
             result = "고도비만";
         }
 
+        // Math 클래스의 메소드는 소수점 몇번째 자리까지 반올림 하라는 설정할 수 없어, 소수점을 올린 뒤 다시 되돌리는 방식 코딩
         System.out.println("----------------------------------");
-        System.out.println("BMI 지수 : " + bmi);
+        System.out.println("BMI 지수 : " + Math.round(bmi * 10) / 10.0);
         System.out.println(result + "입니다.");
     }
 }
