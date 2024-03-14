@@ -1,4 +1,4 @@
-package constant;
+package com.sh.constant;
 
 /**
  * <pre>
