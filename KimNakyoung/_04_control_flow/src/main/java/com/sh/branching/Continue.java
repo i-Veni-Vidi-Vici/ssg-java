@@ -31,8 +31,7 @@ public class Continue {
 //        }
 
         // while문에 continue는 더욱 주의해야 한다.
-        // continue 하위에 증감식이 위치해서는 안된다.
-
+        // continue 하위에 증감식이 위치해서는 안된
         int i = 0;
         while (i <= 20){
             i++;
