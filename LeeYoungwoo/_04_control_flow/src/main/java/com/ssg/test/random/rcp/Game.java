@@ -16,7 +16,7 @@ public class Game {
         Random rnd = new Random();
         int comNum = rnd.nextInt(1, 4);
 
-        // 사용자와 컴퓨터의 값을 가위 바위 보로 변경
+        // 사용자와 컴퓨터의 int값을 가위 바위 보로 변경
         String userChoice = "";
         String comChoice = "";
 
