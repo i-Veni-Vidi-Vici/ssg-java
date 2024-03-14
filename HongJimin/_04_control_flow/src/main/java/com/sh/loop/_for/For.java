@@ -1,4 +1,4 @@
-package com.sh.condition.loop._for;
+package com.sh.loop._for;
 
 import com.ssg.test.random.rcp.Main;
 
@@ -174,5 +174,7 @@ public class For {
             int result = n * i;
             System.out.println(n + " * " + i + " =" + result);
         }
+        // %d 정수, %f 실수, %s 문자열
+        //printf는 기본적으로 개행을 지원하지 않는다.
     }
 }
