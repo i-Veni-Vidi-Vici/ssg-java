@@ -15,8 +15,8 @@ package com.sh.method;
  */
 public class App5 {
     public static void main(String[] args){
-        App5 app = new App5();
-        app.a();
+        App5 app = new App5(); // 객체 생성
+        app.a(); // 객체를 호출
         System.out.println("main");
         return; // 프로그램 종료를 의미한다.
     }

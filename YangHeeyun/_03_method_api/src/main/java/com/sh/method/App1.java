@@ -8,11 +8,13 @@ package com.sh.method;
  *
  * main method
  * - jvm에 의해 실행되는 자바 프로그램 최초의 메소드
+ *
  * method 2가지 호출방식
- * non - static 메소드 호출
- * - 객체(메모리 조각)를 만들고, 객체를 통해 호출
  * static 메소드 호출
  * - 객체를 만들지 않고 클래스 명으로 호출
+ * non - static 메소드 호출
+ * - 객체(메모리 조각)를 만들고, 객체를 통해 호출
+ *
  * </pre>
  */
 public class App1 {
@@ -41,11 +43,11 @@ public class App1 {
         // non-static 메소드 호출법
         // 1. 객체생성 - 메소드를 가진 클래스를 객체로 만든다.
         // 클래스명 변수명 = new 클래스명();
-        App1 app1 = new App1();
+        App1 app = new App1();
         // 2. 객체를 통해 호출
-        app1.b(); // app1 안에 있는 a를 호출해줌
-        app1.a();
-        app1.a();
+        app.b(); // app1 안에 있는 a를 호출해줌
+        app.a();
+        app.a();
         System.out.println("main end...");
 
     }

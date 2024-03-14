@@ -14,6 +14,7 @@ public class LogicalOperatorApp {
         System.out.println(false || true); // true
         System.out.println(false || false); // false
 
+        
         //논리 연산자 적용
         int a = 10;
         int b = 20;
