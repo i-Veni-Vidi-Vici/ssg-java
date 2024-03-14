@@ -14,45 +14,46 @@ public class Game {
         user = sc.nextInt();
         computer = (int) (Math.random() * 3) + 1; // (int) (Math.random() * 경우의 수) + 최소값
 
-        if(user == computer) {
+        if (user == computer) {
             result = "비겼";
-        } else {
-            switch(user) {
-                case 1:
-                    switch(computer) {
-                        case 2:
-                            result = "졌";
-                            break;
-                        case 3:
-                            result = "이겼";
-                            break;
-                    }
-                break;
-
-                case 2:
-                    switch(computer) {
-                        case 1:
-                            result = "이겼";
-                            break;
-                        case 3:
-                            result = "졌";
-                            break;
-                    }
-                break;
-
-                case 3:
-                    switch(computer) {
-                        case 1:
-                            result = "졌";
-                            break;
-                        case 2:
-                            result = "이겼";
-                            break;
-                    }
-                break;
-
-            }
         }
+
+        switch (user) {
+            case 1:
+                switch (computer) {
+                    case 2:
+                        result = "졌";
+                        break;
+                    case 3:
+                        result = "이겼";
+                        break;
+                }
+                break;
+
+            case 2:
+                switch (computer) {
+                    case 1:
+                        result = "이겼";
+                        break;
+                    case 3:
+                        result = "졌";
+                        break;
+                }
+                break;
+
+            case 3:
+                switch (computer) {
+                    case 1:
+                        result = "졌";
+                        break;
+                    case 2:
+                        result = "이겼";
+                        break;
+                }
+                break;
+
+        }
+
 
         System.out.println("======= 결과 =======");
         System.out.println("당신은 " + user + "를 냈습니다.");
