@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * if표현식
  * if(조건식) {
- * // 조건식이 true인 경우 실행코드
+ *  // 조건식이 true인 경우 실행코드
  * }
  */
 public class If {
