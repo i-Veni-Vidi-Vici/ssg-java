@@ -71,7 +71,7 @@ public class Switch {
      */
     public void test2(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("> 점수 입력 :0");
+        System.out.println("> 점수 입력 : ");
         int score = sc.nextInt();
         char grade = ' '; // 빈문자열로 초기화
 
