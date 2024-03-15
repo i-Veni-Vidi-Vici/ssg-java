@@ -6,6 +6,11 @@ import java.util.Scanner;
 public class Test5 {
 
     public static void main(String[] args) {
+        Test5 test5 = new Test5();
+        test5.test();
+    }
+
+    public void test() {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
