@@ -7,7 +7,7 @@ public class Test1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("정수를 입력하시오. => ");
         int num = sc.nextInt();
-        int mul=0;
+        int mul=1;
         for(int i=1;i<=num;i++)
         {
             if(i%2==1)

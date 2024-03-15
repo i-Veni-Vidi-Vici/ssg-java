@@ -9,12 +9,12 @@ public class Main {
         Test5 test5 = new Test5();
         Test6 test6 = new Test6();
         Test7 test7 = new Test7();
-        //test1.test();
-        //test2.test();
-        //test3.test();
-        //test4.test();
-        //test5.test();
-        //test6.test();
+        test1.test();
+        test2.test();
+        test3.test();
+        test4.test();
+        test5.test();
+        test6.test();
         test7.test();
     }
 }
