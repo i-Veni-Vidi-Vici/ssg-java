@@ -33,9 +33,7 @@ public class Test6 {
             int menu = sc.nextInt();
 
             switch (menu) {
-                for (int i = 0; i <= 10; i++) {
-                    i
-                }
+
             }
 
             System.out.println("수량 선택 : ");
