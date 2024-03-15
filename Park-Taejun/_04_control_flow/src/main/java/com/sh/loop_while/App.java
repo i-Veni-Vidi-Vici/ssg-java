@@ -1,6 +1,7 @@
-package com.sh._while;
+package com.sh.loop_while;
 
-public class App {
+public class
+        App {
     public static void main(String[] args){
  //       While _while = new While ();
 //        _while.test1();
