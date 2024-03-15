@@ -7,9 +7,6 @@ public class ifElse {
         Scanner sc = new Scanner(System.in);
         System.out.println("> 정수 입력: ");
         int num = sc.nextInt();
-        if (num % 2 == 1) {
-
-        }
     }
 
     public void test2() {

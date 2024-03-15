@@ -1,8 +1,14 @@
 package com.ssg.test.random.rcp;
 
-
 import java.util.Random;
 import java.util.Scanner;
+
+/**
+ * 가위바위보게임
+ * 1. 사용자 가위/바위/보 입력
+ * 2. 프로그램 가위/바위/보 결정(난수)
+ * 3. 값 비교 & 결과출력
+ */
 
 public class Game {
     public void rockPaperScissors(){
@@ -11,6 +17,7 @@ public class Game {
 
         System.out.println("===가위 바위 보 게임===");
         System.out.print("숫자를 선택하세요(1.가위/2.바위/3.보) : ");
+
         // 내가 선택한 수
         int num = sc.nextInt();
         String me = "";

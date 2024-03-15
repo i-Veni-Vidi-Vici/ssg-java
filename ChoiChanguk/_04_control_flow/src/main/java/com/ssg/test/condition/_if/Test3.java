@@ -10,10 +10,16 @@ public class Test3 {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("체중입력(kg) : ");
-        weight=sc.nextInt();
+        weight = sc.nextInt();
 
         System.out.print("신장입력(m) : ");
-        height=sc.nextInt();
+        height = sc.nextInt();
+
+        System.out.println("height = " + height*100);
+
+
+
+
         height=height*0.01;
 
         BMI=(double) weight/(height*height);
