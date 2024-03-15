@@ -7,6 +7,11 @@ package com.sh.math;
  * - 0.0 이상 ~ 1.0 미만의 실수를 반환
  * - 특정범위의 난수 생성 공식 : (int) (Math.random() * 경우의수) + 최솟값
  *
+ *  종류
+ *  올림 : Math.ceil()
+ *  버림 : Math.floor()
+ *  반올림 : Math.round()
+ *
  *
  * </pre>
  *
