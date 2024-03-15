@@ -8,6 +8,8 @@ public class App {
 //        array1.test3();
 //        array1.test4();
         Array2 array2 = new Array2();
-        array2.test1();
+//        array2.test1();
+//        array2.test2();
+        array2.test3();
     }
 }
