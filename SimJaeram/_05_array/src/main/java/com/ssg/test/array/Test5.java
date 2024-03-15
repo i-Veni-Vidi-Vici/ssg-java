@@ -3,7 +3,8 @@ package com.ssg.test.array;
 import java.util.Scanner;
 
 public class Test5 {
-    public static void main(String[] args) {
+
+    public void test() {
         // 필요한 변수 선언
         Scanner sc = new Scanner(System.in);
         int arrLength = 0;
