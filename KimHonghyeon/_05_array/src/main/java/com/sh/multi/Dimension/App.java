@@ -10,7 +10,7 @@ public class App {
         //mda.test5();
         JaggedArray ja = new JaggedArray();
         //ja.test1();
-        ja.test2();
+        //ja.test2();
     }
 
 
