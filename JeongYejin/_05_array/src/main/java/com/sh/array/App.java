@@ -13,6 +13,5 @@ public class App {
 //        array2.test();
 //        array2.test2();
         array2.test3();
-        array2.test4();
     }
 }

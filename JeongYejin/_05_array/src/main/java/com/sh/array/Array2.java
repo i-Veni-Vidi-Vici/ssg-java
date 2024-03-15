@@ -2,16 +2,17 @@ package com.sh.array;
 
 import java.util.Scanner;
 
+/**
+ * 배열 - 관련있고 동일한 자료형의 데이터를 처리하는데 적합
+ * - 관련있고 동일한 자료형의 데이터를 처리하는 데 적합
+ * - 점수 데이터, 이름 데이터 등
+ */
+
 public class Array2 {
-    /**
-     * 배열 - 관련있고 동일한 자료형의 데이터를 처리하는데 적합
-     * - 관련있고 동일한 자료형의 데이터를 처리하는 데 적합
-     * - 점수 데이터, 이름 데이터 등
-     */
     public void test() {
         // 국어 90, 영어 85, 수학 55 -> 총점/평균
-        int[] scores = new int[]{90, 85, 55};
 //        int[] scores = new int[3];
+        int[] scores = new int[]{90, 85, 55};
 //        scores[0] = 90;
 //        scores[1] = 85;
 //        scores[2] = 55;
@@ -71,8 +72,5 @@ public class Array2 {
                 System.out.print(", ");
             }
         }
-    }
-
-    public void test4() {
     }
 }
