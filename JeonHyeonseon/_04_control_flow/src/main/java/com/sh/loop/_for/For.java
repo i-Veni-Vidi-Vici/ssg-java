@@ -121,7 +121,7 @@ public class For {
     public void test4() {
         // 누적합을 구할 변수는 0으로 초기화한다.
         // 누적곱을 구할 변수는 1로 초기화한다.
-        int sum = 0;
+        int sum = 0;  // 누적합을 구할 변수는 0으로 초기화한다.
 //        sum += 1;
 //        sum += 2;
 //        sum += 3;
