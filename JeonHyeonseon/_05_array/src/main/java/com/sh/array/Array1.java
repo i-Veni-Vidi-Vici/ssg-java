@@ -130,7 +130,7 @@ public class Array1 {
     public void test4(){
 //        boolean[] bools = new boolean[] {true, false, true, false, true}; // 크기를 명시하지 않음. 하지만 {}를 통해서 5라는 것을 알 수 있음
         boolean[] bools = {true, false, true, false, true}; // 131줄과 같은 의미
-        System.out.println(bools.length); // 5
+//        System.out.println(bools.length); // 5
 //        for(int i = 0; i < 5; i++) { // magic number -> 5가 무슨 뜻인지에 대한 의미
                                         // magic number 대신 변수를 사용하자. 의도파악이 쉽고, 유지보수하기 좋다.
           for(int i =0; i < bools.length; i++){ // 132줄과 같은 의미
