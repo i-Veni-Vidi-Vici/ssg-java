@@ -10,10 +10,8 @@ public class Test3 {
         int w = sc.nextInt();
 
         System.out.print("신장 입력(cm) : ");
-        // double h = (double)sc.nextInt()/100;
-        double h = sc.nextInt() / 100.0;
-
-
+        // double h = (double) sc.nextInt() / 100; // (double) int / int
+        double h = sc.nextInt() / 100.0; // int / double
 
         // 결과 문자열
         String result = "";

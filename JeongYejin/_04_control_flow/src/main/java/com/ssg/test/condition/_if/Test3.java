@@ -11,7 +11,7 @@ public class Test3 {
         int heightCm = sc.nextInt();
         double heightM = heightCm * 0.01;
         System.out.println("------------------------");
-        double bmi = Math.round((weight/(heightM * heightM))*10)/10.0;
+        double bmi = weight/(heightM * heightM);
         String result;
         if (bmi < 18.5) {
             result = "저체중";
@@ -24,7 +24,7 @@ public class Test3 {
         } else {
             result = "고도비만";
         }
-        System.out.println("BMI 지수 : " + bmi);
+        System.out.println("BMI 지수 : " + Math.round(bmi) * 10/10.0);
         System.out.println(result + "입니다.");
     }
 }

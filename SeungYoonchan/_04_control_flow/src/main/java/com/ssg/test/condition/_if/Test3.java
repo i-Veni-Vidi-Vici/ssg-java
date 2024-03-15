@@ -16,7 +16,7 @@ public class Test3 {
 
         System.out.println("----------------------------------------------");
         double bmi = weight / (height * height * 0.0001);
-        bmi = Math.round(bmi); // round를 사용해서 반올림
+        bmi = Math.round(bmi * 10) / 10.0; // round를 사용해서 반올림 -> Ex) 22.45 -> 224.5(*10) -> 225(round) -> 22.5(/10.0)
         System.out.println(" > BMI 지수는 " + bmi + " 입니다.");
 
         String result = null;

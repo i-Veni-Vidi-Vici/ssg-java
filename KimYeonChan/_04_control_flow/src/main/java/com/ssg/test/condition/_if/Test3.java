@@ -11,8 +11,8 @@ public class Test3 {
         double height = sc.nextDouble();
 
         System.out.println("--------------------------");
-        double resultBMI = weight / ((height * 0.01) * (height * 0.01));
-        System.out.println("BMI 지수: " + resultBMI);
+        double resultBMI = weight / ((height / 100.0) * (height / 100.0));
+        System.out.println("BMI 지수: " + Math.round(resultBMI * 10) / 10.0);
 
         if (resultBMI >= 30) {
             System.out.println("고도비만입니다.");
