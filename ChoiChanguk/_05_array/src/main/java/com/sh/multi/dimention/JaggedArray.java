@@ -12,6 +12,7 @@ public class JaggedArray {
      */
     public void test1()
     {
+        //2차원 배열 할당
         int[][] arr=new int[3][];
 
         //각각 길이가 다른 2차원 배열 할당
