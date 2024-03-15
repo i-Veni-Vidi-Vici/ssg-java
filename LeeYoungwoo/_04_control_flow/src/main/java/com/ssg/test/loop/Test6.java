@@ -21,7 +21,38 @@ public class Test6 {
                 "10.음료수===========1000원");
 
         System.out.println(menu);
+        // 사용자로부터 입력값 받기
         System.out.println("> 메뉴선택 : ");
+        int choice = sc.nextInt();
+        System.out.println("> 수량선택 : ");
+        int num = sc.nextInt();
+        System.out.println("> 추가주문여부선택 (y/n) : ");
+        String yn = sc.nextLine();
+
+        String name= "";
+        int price = 0;
+
+        do {
+
+        }
+
+        switch (choice) {
+            case 1 :
+                name = "원조김밥";
+                price = 1500;
+                break;
+
+            case 2 :
+                name = "치즈김밥";
+                price = 2000;
+                break;
+
+            case 3 :
+                name = "참치김밥";
+                price = 2300;
+                break;
+
+        }
 
 
 
