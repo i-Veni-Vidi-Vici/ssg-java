@@ -10,7 +10,8 @@ public class App {
 //        Test2 test2 = new Test2(); // 문제2
 //        test2.test();
         Test3 test3 = new Test3(); // 문제3
-        test3.test();
+//        test3.test();
+
 
     }
 }
