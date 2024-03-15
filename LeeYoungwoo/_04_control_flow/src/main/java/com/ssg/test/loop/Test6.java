@@ -32,9 +32,6 @@ public class Test6 {
         String name= "";
         int price = 0;
 
-        do {
-
-        }
 
         switch (choice) {
             case 1 :
