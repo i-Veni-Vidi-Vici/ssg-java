@@ -33,15 +33,12 @@ public class Test5 {
             sumAge += age;
             sumHeight += height;
             sumWeight += weight;
-            list += (i + " " + name + " " + age + "세 " + " " + address + " " + height + "cm " + weight + "kg " + phoneNum);
-            if (i < 3) {
-                System.out.println();
-            }
+            list += (i + " " + name + " " + age + "세 " + " " + address + " " + height + "cm " + weight + "kg " + phoneNum + "\n");
         }
 
-        System.out.println("=========회원목록==========");
+        System.out.println("=================회원목록=================");
         System.out.println(list);
-        System.out.println("==========================");
-        System.out.printf("평균나이 %d세 / 평균 키 : %dcm / 평균 몸무게 : %dkg", sumAge/3, sumHeight/3, sumWeight/3);
+        System.out.println("=========================================");
+        System.out.printf("평균나이 %.2f세 / 평균 키 : %.2fcm / 평균 몸무게 : %.2fkg", (double) sumAge/3.0, (double) sumHeight/3.0, (double) sumWeight/3.0);
     }
 }
