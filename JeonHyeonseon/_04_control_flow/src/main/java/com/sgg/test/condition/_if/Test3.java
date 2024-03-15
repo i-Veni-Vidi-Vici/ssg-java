@@ -15,7 +15,7 @@ public class Test3 {
         //System.out.println(height = height / 100);
         String result = "";
 
-        System.out.print("BMI지수 : " + BMI);
+        System.out.println("BMI지수 : " + Math.round(BMI*10) / 10.0);
 
         if(BMI < 18.5) {
             System.out.println("저체중");
