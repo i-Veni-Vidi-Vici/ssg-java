@@ -1,8 +1,8 @@
-package com.ssh.condition.loop._for;
+package com.ssg.test1;
 
 import static java.lang.Math.pow;
 
-public class App {
+public class _7_pro {
     public static void main(String[] args) {
 
         for(int i = 1; i <= 9; ++i){
@@ -18,4 +18,3 @@ public class App {
 
     }
 }
-
