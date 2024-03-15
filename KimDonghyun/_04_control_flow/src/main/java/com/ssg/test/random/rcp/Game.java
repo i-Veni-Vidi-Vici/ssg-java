@@ -27,7 +27,6 @@ public class Game {
         System.out.println("======= 결과 =======");
         System.out.println("당신은 " + user + "를 냈습니다");
         System.out.println("컴퓨터는 " + com + "를 냈습니다");
-
         System.out.println("===================");
 
         //실행결과
