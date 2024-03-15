@@ -7,13 +7,12 @@ public class Test1 {
         Scanner sc = new Scanner(System.in);
         System.out.print("> 정수를 하나 입력하세요. => ");
         int a = sc.nextInt();
-        int b = 1;
-        for (int i = 0; i < a; i++){
-            if (a % 2 != 0) {
-
+        int sum = 1;
+        for (int i = 1; i <= a; i++){
+            if (i % 2 != 0) {
+                    sum *= i;
             }
         }
-
-
+        System.out.printf("1부터 %d까지 홀수의 곱은 %d입니다.\n", a, sum);
     }
 }
