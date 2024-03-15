@@ -23,7 +23,17 @@ public class Test6 {
                 "기타 ==================== \n" +
                 "10.음료수===========1000원\n");
 
-
+        Map<String, Integer> menus = new HashMap<>();
+        menus.put("원조김밥", 1500);
+        menus.put("치즈김밥", 2000);
+        menus.put("참치김밥", 2300);
+        menus.put("그냥라면", 3000);
+        menus.put("치즈라면", 3500);
+        menus.put("짬뽕라면", 4000);
+        menus.put("떡볶이", 2500);
+        menus.put("순대", 2500);
+        menus.put("오뎅", 1000);
+        menus.put("음료수", 1000);
         Map<String, Integer> list = new HashMap<>();
         while (true) {
             System.out.print("주문 메뉴 :");
@@ -41,11 +51,13 @@ public class Test6 {
 
         System.out.println("주문하신 정보는 다음과 같습니다.");
         System.out.println("==============================");
+        int sum =0;
         for (String string : list.keySet()) {
-            System.out.println(string+": "+list.get(string)+"개");
+            sum += menus.get(string) * list.get(string);
+            System.out.println(string+": "+list.get(string)+"개"+ (menus.get(string)*list.get(string))+ "원");
         }
 
-
-
+        System.out.println("-------------------------");
+        System.out.println("합계: "+ sum+"원");
     }
 }
