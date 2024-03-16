@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Test6 {
     public static void main(String[] args) { // To-do 😢😢😢😢😢
         Scanner sc = new Scanner(System.in);
-        String menu;
-        int num;
+        String menu, menuNum = "", orderList = "";
+        int num, price = 0, total = 0;
         char more;
         do {
             System.out.println("김밥류 ===================");
@@ -24,25 +24,42 @@ public class Test6 {
             System.out.println("기타 ====================");
             System.out.println("10.음료수===========1000원");
 
-            System.out.println("> 메뉴 선택 : ");
+            System.out.print("> 메뉴 선택 : ");
             menu = sc.next();
-            System.out.println("> 수량 선택 : ");
+            switch(menu) {
+                case "1": menuNum = "원조김밥"; price = 1500; break;
+                case "2": menuNum = "치즈김밥"; price = 2000; break;
+                case "3": menuNum = "참치김밥"; price = 2300; break;
+                case "4": menuNum = "그냥라면"; price = 3000; break;
+                case "5": menuNum = "치즈라면"; price = 3500; break;
+                case "6": menuNum = "짬뽕라면"; price = 4000; break;
+                case "7": menuNum = "떡볶이"; price = 2500; break;
+                case "8": menuNum = "순대"; price = 2500; break;
+                case "9": menuNum = "오뎅"; price = 1000; break;
+                case "10": menuNum = "음료수"; price = 1000; break;
+            }
+            System.out.print("> 수량 선택 : ");
             num = sc.nextInt();
 
-            System.out.println("추가주문여부선택 y/n");
-            more = sc.next().charAt(0);
+            total += price * num;
+            orderList += (menuNum + ": " + num + "개 - " + total + "원");
 
+            System.out.print("추가주문여부선택 y/n : ");
+            more = sc.next().charAt(0);
+            if(more == 'y') {
+                orderList += "\n";
+            }
         } while (more == 'y');
         System.out.println("주문하신 정보는 다음과 같습니다.");
         System.out.println("==============================");
+        System.out.println(orderList);
         System.out.println("------------------------------");
-        System.out.println();
+        System.out.println("합계 : " + total);
         System.out.println("==============================");
         System.out.println("감사합니다 😀");
 
 
-
-
+        // 강사님 코드
 //        Scanner sc = new Scanner(System.in);
 //        String menu = "김밥류 ===================\n"
 //                + "1.원조김밥===========1500원\n"

@@ -7,10 +7,12 @@ public class Test7 {
             for(int a = 9; a > i; a--) {
                 System.out.print(" ");
             }
+
             for(int b = 0; b < i; b++) {
                 System.out.print(b+1);
             }
             System.out.print(" X 8 + " + i + " = ");
+
             for(int a = 9; a > 0; a--) {
                 System.out.print(a);
                 if(a == 10 - i) {
