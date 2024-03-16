@@ -9,11 +9,11 @@ public class Test2 {
         System.out.print("정수입력 : ");
         int num = sc.nextInt();
 
-        for(int i = 1; i < num; i++){
-            if(num % 2 == 0){
+        for(int i = 1; i <= num; i++){
+            if(i % 2 == 0){
                 answer += "수";
             }
-            else if(num % 2 == 1){
+            else if(i % 2 == 1){
                 answer += "박";
             }
         }

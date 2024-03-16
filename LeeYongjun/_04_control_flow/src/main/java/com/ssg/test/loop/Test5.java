@@ -5,81 +5,39 @@ import java.util.Scanner;
 public class Test5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("이름은 : ");
-        String name1 = sc.next();
-
-        System.out.println("이름은 : ");
-        String name2 = sc.next();
-
-        System.out.print("이름은 : ");
-        String name3 = sc.next();
-
-
-        System.out.print("나이는 : ");
-        int age1 = sc.nextInt();
-
-        System.out.print("나이는 : ");
-        int age2 = sc.nextInt();
-
-
-        System.out.print("나이는 : ");
-        int age3 = sc.nextInt();
-
-        System.out.println("주소는 : ");
-        String address1 = sc.next();
-
-        System.out.println("주소는 : ");
-        String address2 = sc.next();
-
-        System.out.println("주소는 : ");
-        String address3 = sc.next();
-
-        System.out.print("키는 : ");
-        int height1 = sc.nextInt();
-
-        System.out.print("키는 : ");
-        int height2 = sc.nextInt();
-
-        System.out.print("키는 : ");
-        int height3 = sc.nextInt();
-
-        System.out.print("몸무게는 : ");
-        int weight1 = sc.nextInt();
-
-        System.out.print("몸무게는 : ");
-        int weight2 = sc.nextInt();
-
-        System.out.print("몸무게는 : ");
-        int weight3 = sc.nextInt();
-
-        System.out.print("전화번호는 : ");
-        String phonenum1 = sc.next();
-
-        System.out.print("전화번호는 : ");
-        String phonenum2 = sc.next();
-
-        System.out.print("전화번호는 : ");
-        String phonenum3 = sc.next();
-
+        String name = null;
+        int age = 0;
+        String address = null;
+        int weight = 0;
+        int height = 0;
+        String phonenum = null;
         int avgage = 0;
         int avgheight = 0;
         int avgweight = 0;
-        for(int i = 1; i <= 3; i++){
+        String result = null;
+        for (int i = 1; i <= 3; i++) {
             System.out.print("이름은 : ");
+            name = sc.next();
             System.out.print("나이는 : ");
+            age = sc.nextInt();
             System.out.print("주소는 : ");
+            address = sc.next();
+            System.out.print("키는 : ");
+            height = sc.nextInt();
             System.out.print("몸무게는 : ");
+            weight = sc.nextInt();
             System.out.print("전화번호는 : ");
+            phonenum = sc.next();
 
+            result = (i + 1) + "\t" + name + "\t" + age + "\t" + address + "\t" + height + "cm\t" + weight + "kg\t"
+                    + phonenum + "\n";
+            avgage += age;
+            avgheight += height;
+            avgweight += weight;
         }
-        avgage = (age1 + age2 + age3)/3;
-        avgheight = (height1 + height2 + height3)/3;
-        avgweight = (weight1 + weight2 + weight3)/3;
-        System.out.println("=================== 회원목록 ===================");
-        System.out.println("1 " + name1 + " " + age1 + " " + address1 + " " + weight1 + " " + phonenum1);
-        System.out.println("2 " + name2 + " " + age2 + " " + address2 + " " + weight2 + " " + phonenum2);
-        System.out.println("3 " + name3 + " " + age3 + " " + address3 + " " + weight3 + " " + phonenum3);
+        System.out.println("=================== 회원목록 ====================");
+        System.out.println(result);
         System.out.println("=================================================");
-        System.out.println("평균나이 " + avgage + " 평균 키 " + avgheight + " 평균 몸무게 " + avgweight);
+        System.out.println("평균나이 " + avgage / 3 + "세" + " 평균 키 " + avgheight / 3 + "cm" + " 평균 몸무게 " + avgweight / 3 + "kg");
     }
 }
