@@ -29,7 +29,7 @@ public class Sample {
             System.out.print(col + "열 ");
         }
         System.out.println();
-        
+
         for(int i = 0; i < arr.length; i++) {
             System.out.print(i + "행 ");
             int sum = 0;
