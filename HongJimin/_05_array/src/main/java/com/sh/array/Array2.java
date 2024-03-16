@@ -83,8 +83,9 @@ public class Array2 {
 
         //값 조회 3
         for (int i = 0; i < alphabets.length; i++) {
-            if (i != 0)
-            {System.out.print(", ");}
+            if (i != 0) {
+                System.out.print(", ");
+            }
             System.out.print(alphabets[i]);
 
         }
