@@ -1,4 +1,4 @@
-package com.sh.branching;
+package com.branching;
 
 /**
  * continue

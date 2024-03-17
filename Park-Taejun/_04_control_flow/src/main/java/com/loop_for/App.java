@@ -1,4 +1,4 @@
-package com.sh.loop_for;
+package com.loop_for;
 
 public class App {
     public static void main(String[] args){

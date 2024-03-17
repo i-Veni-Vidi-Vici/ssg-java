@@ -1,4 +1,4 @@
-package com.sh.multi.dimention;
+package com.sh.mult.idimention;
 
 /**
  * 다차원배열

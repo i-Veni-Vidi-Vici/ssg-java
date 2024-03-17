@@ -1,4 +1,4 @@
-package com.sh.loop_while;
+package com.loop_while;
 
 import java.util.Scanner;
 
