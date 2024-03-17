@@ -14,49 +14,40 @@ public class Test5 {
         String m = "";
 
         int sumAge = 0;
-        int sumh = 0;
-        int sumw = 0;
+        int sumH = 0;
+        int sumW = 0;
 
-//        for (int i = 0; i < 3; i++){
-//            System.out.print("> 이름 입력 : ");
-//            name = sc.nextLine();
-//            System.out.print("> 나이 입력 : ");
-//            age = sc.nextInt();
-//            sumAge += age;
-//            sc.nextLine();
-//            System.out.print("> 주소 입력 : ");
-//            address = sc.nextLine();
-//            System.out.print("> 키 입력 (cm) : ");
-//            h = sc.nextInt();
-//            sumh += h;
-//            System.out.print("> 몸무게 입력 (kg) : ");
-//            w = sc.nextInt();
-//            sumh += w;
-//            sc.nextLine();
-//            System.out.print("> 연락처 입력 : ");
-//            m = sc.nextLine();
-//        }
+        String result = "=====================회원목록=====================\n";
 
-        double avgAge = sumAge / 3.0;
-        double avgh = sumh / 3.0;
-        double avgw = sumw / 3.0;
-
-        System.out.println("> 이름, 나이, 주소, 키, 몸무게, 연락처 순으로 입력하세요.");
-        System.out.println("=====================회원목록=====================");
-        for (int i = 1; i <=3; i++) {
-            System.out.print(i + " ");
+        for (int i = 1; i <= 3; i++){
+            System.out.print("> 이름 입력 : ");
             name = sc.nextLine();
+            System.out.print("> 나이 입력 : ");
             age = sc.nextInt();
-            System.out.println("세");
-
+            sc.nextLine();
+            System.out.print("> 주소 입력 : ");
             address = sc.nextLine();
+            System.out.print("> 키 입력 (cm) : ");
             h = sc.nextInt();
+            System.out.print("> 몸무게 입력 (kg) : ");
             w = sc.nextInt();
             sc.nextLine();
+            System.out.print("> 연락처 입력 : ");
             m = sc.nextLine();
 
+            result += i + "\t" + name + "\t" + age + "세\t" + address + "\t" + h + "cm\t" + w + "kg\t" + m + "\n";
+
+            sumAge += age;
+            sumH += h;
+            sumW += w;
         }
-        System.out.println("=================================================");
-        System.out.printf("평균 나이 : %f세 / 평균 키 : %fcm / 평균 몸무게 : %fkg", avgAge, avgh, avgw);
+
+        double avgAge = sumAge / 3.0;
+        double avgH = sumH / 3.0;
+        double avgW = sumW / 3.0;
+
+        result += "=================================================\n";
+        System.out.println(result);
+        System.out.printf("평균 나이 : %.1f세 / 평균 키 : %.1fcm / 평균 몸무게 : %.1fkg", avgAge, avgH, avgW);
     }
 }
