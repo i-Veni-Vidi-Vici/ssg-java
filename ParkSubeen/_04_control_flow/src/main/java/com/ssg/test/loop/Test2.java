@@ -11,7 +11,7 @@ public class Test2 {
         for(int i = 1; i <= n; i++) {
             if(i % 2 == 0) {
                 System.out.print("박");
-            } else {
+            }else {
                 System.out.print("수");
             }
         }
