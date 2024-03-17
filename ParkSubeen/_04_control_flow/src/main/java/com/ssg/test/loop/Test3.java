@@ -10,7 +10,7 @@ public class Test3 {
 
         if(dan > 9 || dan < 1) {
             System.out.println("잘못입력하셨습니다. 프로그램종료합니다.");
-        } else {
+        }else {
             for(int i = 1; i < 10; i++) {
                 System.out.printf("%d * %d = %d\n", dan, i, dan * i);
             }
