@@ -16,10 +16,14 @@ public class Test4 {
         char text = sc.next().charAt(0); // 0번째 인덱스 문자를 가져온다.
 
         if((text >= 'A' && text <= 'Z') || (text >= 'a' && text <= 'z')) {
-            int i = 0;
-            for(i = 0; i < str.length(); i++){
-                char ch = str.charAt(i);
-                System.out.println(i);
+
+            // 문자 유효성 체크
+            int count = 0; // 개수보관할 변수
+
+            for(int i = 0; i < str.length(); i++){
+                char ch = str.charAt(i); // ch가 뭘까.
+                if (ch == text) // 만약 문자와 ch가 같다면
+                    count++; // 개수가 증가한다.
 
             }
         } else {

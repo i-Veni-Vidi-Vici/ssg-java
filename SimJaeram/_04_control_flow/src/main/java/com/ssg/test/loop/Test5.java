@@ -58,5 +58,7 @@ public class Test5 {
         System.out.printf("1 %s %d세 %s %fcm %fkg %s", name3, age3, address3, height3, weight3, phone3);
         System.out.println("=================================================");
         System.out.printf("평균나이 %d세 / 평균 키 : %dCM / 평균 몸무게 : %dkg", ageAvg, heightAvg, weightAvg);
+
+
     }
 }

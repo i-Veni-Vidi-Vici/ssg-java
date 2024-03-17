@@ -23,7 +23,7 @@ public class AssignmentOperatorApp {
 
         // 복합 대입 연산자
 //        num = num + 3;
-        num += 3;
+        num += 3; //num =+ 3; -> num = +3 num에다가 양수 3 더한 것과 같음.
         System.out.println(num);
 
         num -= 3;

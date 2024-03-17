@@ -3,7 +3,7 @@ package com.ssg.test.operator;
 public class App1 {
     public static void main(String[] args) {
         // 홍길동
-        String name = "홍길동"
+        String name = "홍길동";
         int koreanScore = 80;
         int englishScore = 70;
         int mathScore = 90;

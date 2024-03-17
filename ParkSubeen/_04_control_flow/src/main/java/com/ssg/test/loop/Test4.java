@@ -21,7 +21,7 @@ public class Test4 {
                 i++;
             }
             System.out.printf("'%c'가 포함된 갯수 : %d 개", ch, sum);
-        } else {
+        }else {
             System.out.println("영문자가 아닙니다.");
         }
     }

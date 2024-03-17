@@ -34,6 +34,7 @@ public class Test5 {
                 case 2: name2 = name; age2 = age; address2 = address; cm2 = cm; kg2 = kg; phone2 = phone; break;
                 case 3: name3 = name; age3 = age; address3 = address; cm3 = cm; kg3 = kg; phone3 = phone; break;
             }
+
             System.out.println("정보 등록 완료!");
             System.out.println();
             i++;
