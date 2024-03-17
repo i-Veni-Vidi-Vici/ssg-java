@@ -1,4 +1,4 @@
-package com.sh.loop_for;
+package com.loop_for;
 
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.sh.branching;
+package com.branching;
 
 public class App {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package com.sh._while;
+package com.loop_while;
 
 import java.util.Scanner;
 
@@ -23,7 +23,7 @@ public class DoWhile {
             System.out.println("게임실행... 얇빡쿵...");
             System.out.println("한판 더 하시겠습니까? y/n : ");
             yn = sc.next().charAt(0);
-        } while (yn == 'y');
+        } while (yn == 'y'); // 사용할 변수는 do 블럭 바깥에서 사용해라
         System.out.println("게임 종료...");
     }
 
