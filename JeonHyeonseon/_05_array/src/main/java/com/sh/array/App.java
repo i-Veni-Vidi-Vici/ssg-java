@@ -11,8 +11,8 @@ public class App {
 
         Array2 array2 = new Array2();
 //        array2.test1();
-//        array2.test2();
-        array2.test3();
+        array2.test2();
+//        array2.test3();
     }
 
 }

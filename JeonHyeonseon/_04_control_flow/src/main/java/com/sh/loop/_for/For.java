@@ -34,7 +34,7 @@ public class For {
 //        for (int i = 1; i <= 10; ) {
 //            System.out.println(i);
 //        }
-        // 조건식이 없다면(true 작성과 동잏), i가 끝없이 증가하며 무한반복
+        // 조건식이 없다면(true 작성과 동일), i가 끝없이 증가하며 무한반복
 //        for (int i = 1; ; i++) {
 //            System.out.println(i);
 //        }

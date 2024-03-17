@@ -15,7 +15,7 @@ public class Array2 {
 //        int[] scores = new int[3];
 //        scores[0] = 90;
 //        scores[1] = 85;
-//        scores[1] = 55;
+//        scores[2] = 55;
 
         // 총점 - 각 번지수의 점수를 sum 변수에 누적한다.
         int sum = 0;
@@ -31,7 +31,7 @@ public class Array2 {
 //        double avg = sum / 3.0; // 따라서 이렇게 적거나
         double avg = (double)sum / scores.length; // 소수점 이하까지 원하면 이렇게 적으면 된다.
 //        System.out.printf("평균 : " + avg); // 32줄과 같은 의미
-        System.out.printf("평균 : %.1f", avg); // printf 반올림해서 첫번쨰 자리까지 보고 싶을 때 %.1f이런 식으로 하면 된다
+        System.out.printf("평균 : %.1f", avg); // printf 반올림해서 첫번쨰 자리까지 보고 싶을 때 "%.1f" 이런 식으로 하면 된다
     }
 
     /**
@@ -40,7 +40,7 @@ public class Array2 {
      */
     public void test2() {
         Scanner sc = new Scanner(System.in);
-        int[] scores = new int[3]; // 배열의 크기(new int[배열의 크기])는 반드시 처음부터 지정해야 하고 변경할 수 없다.
+        int[] scores = new int[3]; // 자바 점수 입력, 배열의 크기(new int[배열의 크기])는 반드시 처음부터 지정해야 하고 변경할 수 없다.
         int sum = 0;
 
         for(int i = 0; i < scores.length; i++) {

@@ -46,6 +46,7 @@ public class Array1 {
         arr[3] = 40;
         arr[4] = 50;
 
+        // 사용
         System.out.println(arr[0]); // 10
         System.out.println(arr[1]); // 20
         System.out.println(arr[2]); // 30
@@ -73,7 +74,7 @@ public class Array1 {
         // 배열의 길이 변수 => 필드
         System.out.println(darr.length); // 10
 
-        // 배열객체 식별자 => hashCode
+        // 배열객체의 식별자 => hashCode
         System.out.println(darr.hashCode()); // 2055281021(임의의 수)
 
         // 생성된 배열의 길이를 변경할 수 없다.
@@ -112,9 +113,9 @@ public class Array1 {
 //            k++;
 //        }
         int k = 30;
-        for(int i  = 0; i < 3; i++) {
+        for(int i  = 0; i < 3; i++) { // i는 인덱스가 변하는 값
             arr[i] = k;
-            k += 10;
+            k += 10;  // k = k + 10
         }
 //
         // 값 읽기
