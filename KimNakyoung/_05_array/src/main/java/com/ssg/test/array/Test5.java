@@ -18,7 +18,7 @@ public class Test5 {
         Scanner sc = new Scanner(System.in);
         System.out.print("홀수인 양의정수를 하나 입력하세요 ==> ");
         int num = sc.nextInt();
-        if ( num % 2 != 0) {
+        if ( num > 0 && num % 2 != 0) {
             int[] arr = new int[num];// 홀수인 양의 정수 배열
 
             //1부터 증가 중간부터 감소
