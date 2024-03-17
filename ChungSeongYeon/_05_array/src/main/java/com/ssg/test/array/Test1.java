@@ -1,6 +1,6 @@
 package com.ssg.test.array;
 
-public class Test1 {
+public class Test1{
     public static void main(String[] args) {
         // 길이가 100인 배열 선언.
         int[] array = new int[100];
