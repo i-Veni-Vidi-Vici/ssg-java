@@ -3,7 +3,7 @@ package com.ssg.test.loop;
 import java.util.Scanner;
 
 /**
- * 요구사항 : 1부터 사용자로부터 입력 받은 정수까지 존재하는 짝수의 합을 출력하세요.
+ * 요구사항 : 1부터 사용자로부터 입력 받은 정수까지 존재하는 짝수의 합을 출력하세요..
  *
  */
 public class Test1 {

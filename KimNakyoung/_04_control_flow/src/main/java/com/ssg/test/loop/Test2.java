@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * - 정수를 입력 받아 1부터 입력 받은 정수까지 수를
- * - 홀수와 짝수를 나눠서 홀수면 “수”, 짝수면 “박”을 출력 하세요.
+ * - 홀수와 짝수를 나눠서 홀수면 “수”, 짝수면 “박”을 출력 하세요..
  */
 public class Test2 {
     public static void main(String[] args) {
