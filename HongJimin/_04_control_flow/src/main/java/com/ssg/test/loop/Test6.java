@@ -20,28 +20,71 @@ public class Test6 {
                 "10.음료수===========1000원");
 
 
-        // 주문을 1번은 무조건 함!, 그 이후에는 y, n 선택해서 추가 주문 여부를 선택함
-        // 메뉴 선택은 번호로, 만약 2번째 주문부터 똑같은 메뉴를 선택할 경우, 개수 누적 증가
-        // 메뉴 별로 주문 개수 누적하는 변수 필요
-
         Scanner sc = new Scanner(System.in);
-
-
+        int[] orderNum = new int [10];
+        String[] menuName = new String[10];
 
         do {
             System.out.println("메뉴 선택 : ");
             int menu = sc.nextInt();
 
-            switch (menu) {
-
-            }
+            // orderNum은 선택했을 때의 개수 증가
 
             System.out.println("수량 선택 : ");
-            int oderNum = sc.nextInt();
+            int productNum = sc.nextInt();
+
+            if (menu == 1){
+                orderNum[0] += productNum;
+                menuName[0] = "원조 김밥";
+            }
+            else if (menu == 2) {
+                orderNum[0] += productNum;
+                menuName[0] = "치즈 김밥";
+            }
+            else if (menu == 3) {
+                orderNum[0] += productNum;
+                menuName[0] = "참치 김밥";
+            }
+            else if (menu == 4) {
+                orderNum[0] += productNum;
+                menuName[0] = "그냥 라면";
+            }
+            else if (menu == 5) {
+                orderNum[0] += productNum;
+                menuName[0] = "치즈 라면";
+            }
+            else if (menu == 6) {
+                orderNum[0] += productNum;
+                menuName[0] = "짬뽕 라면";
+            }
+            else if (menu == 7) {
+                orderNum[0] += productNum;
+                menuName[0] = "떡볶이";
+            }
+            else if (menu == 8) {
+                orderNum[0] += productNum;
+                menuName[0] = "순대";
+            }
+            else if (menu == 9) {
+                orderNum[0] += productNum;
+                menuName[0] = "오뎅";
+            }
+            else if (menu == 10) {
+                orderNum[0] += productNum;
+                menuName[0] = "음료수";
+            }
+
+
         }
-        while ("추가주문 선택 여부 변수가 들어올 예정".equals("Y") ) ;
+        System.out.println("추가 주문 하시나요? (y / n) : ");
+        char addOrder = sc.next().charAt(0);
+        while (
+                addOrder == 'y');
         System.out.println("주문하신 정보는 다음과 같습니다.\n" +
                 "==============================");
+
+
+        System.out.println();
 
     }
 }
