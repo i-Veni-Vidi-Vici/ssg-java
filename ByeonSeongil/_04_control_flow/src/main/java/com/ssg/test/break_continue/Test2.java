@@ -13,15 +13,23 @@ public class Test2 {
 
         int sum = 0;
         if (num1 > num2) {
-            for (int i = num2; i <= num1; i++) {
+            if (num2 % 2 == 0) {
+                num2 += 1;
+            }
+
+            for (int i = num2; i <= num1; i += 2) {
                 sum += i;
             }
+
             System.out.printf("%d부터 %d까지의 홀수의 합은 %d입니다.", num2, num1, sum);
         } else {
-            for (int i = num1; i <= num2; i++) {
+            if (num1 % 2 == 0) {
+                num1 += 1;
+            }
+            for (int i = num1; i <= num2; i+=2) {
                 sum += i;
             }
-            System.out.printf("%d부터 %d까지의 홀수의 합은 %d입니다.", num1, num2,sum);
+            System.out.printf("%d부터 %d까지의 홀수의 합은 %d입니다.", num1, num2, sum);
         }
     }
 }
