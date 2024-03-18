@@ -16,7 +16,7 @@ public class InsertionSort {
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
 
-            int j;
+            int j; // 안쪽 for문이 끝난 후 변수에 접근하기 위해 미리 선언. 반복문 탈출할 때 증감변수의 범위 -1한 값 사용.
             for (j = i; j > 0; j--) {
                 // j-1 인덱스값이 temp보다 크다면 j-1인덱스의 값을 j인덱스에 덮어쓴다.
                 if (arr[j - 1] > temp) {
