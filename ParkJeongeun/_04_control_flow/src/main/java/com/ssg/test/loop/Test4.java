@@ -21,16 +21,10 @@ public class Test4 {
         char n = ' ';
         for (int i = 0; i < str.length(); i++){
             n = str.charAt(i);
-            System.out.println(n);
-
-
+            if (ch == n){
+                sum += 1;
+            }
         }
-
-
+        System.out.println(sum + "개");
     }
 }
-
-//for 문
-// str을 charAt(i)로 나열 (변수생성 n)
-// if n.equals(ch) == true이면
-//  sum += i

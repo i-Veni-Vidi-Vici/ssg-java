@@ -34,7 +34,7 @@ public class For {
 //        for (int i = 1; i <= 10; ) {
 //            System.out.println(i);
 //        }
-        // 조건식이 없다면(true 작성과 동잏), i가 끝없이 증가하며 무한반복
+        // 조건식이 없다면(true 작성과 동일), i가 끝없이 증가하며 무한반복
 //        for (int i = 1; ; i++) {
 //            System.out.println(i);
 //        }
@@ -121,7 +121,7 @@ public class For {
     public void test4() {
         // 누적합을 구할 변수는 0으로 초기화한다.
         // 누적곱을 구할 변수는 1로 초기화한다.
-        int sum = 0;
+        int sum = 0;  // 누적합을 구할 변수는 0으로 초기화한다.
 //        sum += 1;
 //        sum += 2;
 //        sum += 3;

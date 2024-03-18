@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Test5 {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         // 회원1 정보 입력
         System.out.println("회원1 회원정보");
