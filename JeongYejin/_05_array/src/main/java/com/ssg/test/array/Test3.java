@@ -13,7 +13,12 @@ public class Test3 {
         String words = sc.nextLine();
         System.out.println("검색문자 입력 : ");
         char search = sc.next().charAt(0);
-        char[] alphabets = words.toCharArray();
+//        char[] alphabets = words.toCharArray();
+        char[] alphabets = new char[words.length()];
+        for (int i = 0; i < words.length(); i++) {
+            alphabets[i] = words.charAt(i);
+        }
+
         int sum = 0;
         for (int i = 0; i < alphabets.length; i++) {
             if (alphabets[i] == search) {
@@ -22,5 +27,4 @@ public class Test3 {
         }
         System.out.printf("출력 : 입력하신 문자열 %s에서 찾으시는 문자 %c은 %d개 입니다", words, search, sum);
     }
-
 }
