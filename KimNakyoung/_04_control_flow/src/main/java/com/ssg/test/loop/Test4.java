@@ -12,7 +12,7 @@ public class Test4 {
     public static void main(String[] args) {
 
         String str = "";
-        char chSearch = ' '; // char 반드시 값 할당
+        char chSearch = ' '; // char 반드시 값 할당.
         int count = 0;
         char tmp;
         Scanner sc = new Scanner(System.in);

@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * 초기식;
  * while(조건식) {
- *     // 반복실행구문
+ *     // 반복실행구문  -> 조건이 true일 경우 반복실행
  *
  *     증감식;
  * }
@@ -27,7 +27,7 @@ public class While {
 
         // 10 ~ 1 출력
 //        int i= 10;
-//        while(i >= 1) {
+//        while(i >= 1) {  // 조건이 true일 경우 반복문실행
 //            System.out.println(i);
 //            i--;
 //        }

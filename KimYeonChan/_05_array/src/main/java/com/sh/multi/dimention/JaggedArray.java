@@ -1,0 +1,47 @@
+package com.sh.multi.dimention;
+
+import java.util.Scanner;
+
+/**
+ * 가변배열
+ * - 2차원배열은 자료형이 같은 1차원 배열의 묶음이다.
+ * - 이때 배열의 크기가 꼭 같은 필요는 없다.
+ * - 2차원배열의 크기가 다른 경우 이를 가변배열, 같은 경우는 정변배열이라 부른다.
+ *
+ */
+public class JaggedArray {
+    public void test1() {
+        int[][] arr = new int[3][];
+
+        arr[0] = new int[3];
+        arr[1] = new int[2];
+        arr[2] = new int[5];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 사용자로부터 행수를 입력받아서 다음과 같이 출력 (적절한 크기의 기본배열을 생성)
+     * - 행수 입력: 5
+     */
+    public void test2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("행수 입력: ");
+        int col = sc.nextInt();
+        int[][] arr = new int[col][];
+        int k = 1;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = new int[i + 1];
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = k++;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
