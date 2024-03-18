@@ -13,10 +13,6 @@ import java.util.Random;
  *     35 (1, 4)
  *     ...
  *
- * - 문제2 구현내용 :
-     * 1. 4행4열 2차원배열 선언 및 생성
-     * 2. 0행0열부터 2행2열까지 1부터 100사이의 임의의 정수 값 기록
-     * 3. 행열표로 나타내기
  */
 public class Sample {
     public static void main(String[] args){
@@ -41,6 +37,12 @@ public class Sample {
         }
     }
 
+    /**
+     *  * - 문제2 구현내용 :
+     *      * 1. 4행4열 2차원배열 선언 및 생성
+     *      * 2. 0행0열부터 2행2열까지 1부터 100사이의 임의의 정수 값 기록
+     *      * 3. 행열표로 나타내기
+     */
     public void exercise2(){
         Random rnd = new Random();
         int[][] arr = new int[4][4];
