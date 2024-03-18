@@ -248,7 +248,6 @@ public class For {
         System.out.print("숫자입력 : ");
         int n = sc.nextInt();
         System.out.println(n + "단출력");
-        int mutifly = 1;
 
         for(int i = 1; i <= 9; i++){
             //mutifly = i * n;
