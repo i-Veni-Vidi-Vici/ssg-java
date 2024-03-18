@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Test3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = new String();
+        String str = "";
+        char[] arr;
         char search = ' ';
         int count = 0;
 
