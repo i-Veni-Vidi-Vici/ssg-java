@@ -10,9 +10,9 @@ import java.util.Scanner;
  * - nextLine 메소드
  *  - 개행문자까지 읽어서 개행문자 제거 후 반환
  *
- * next메소드 다음에 nextLine메소드를 사용하는 경우
- * - 입력버퍼에 남아있는 개행문자를 다음 nextLine메소드가 읽어서 처리. 실제 입력값을 읽지 못함.
- * - 개행문자 제거용 nextLine메소드를 미리 호출해야 한다.
+ * - next메소드 다음에 nextLine메소드를 사용하는 경우
+ *  - 입력버퍼에 남아있는 개행문자를 다음 nextLine메소드가 읽어서 처리. 실제 입력값을 읽지 못함.
+ *  - 개행문자 제거용 nextLine메소드를 미리 호출해야 한다.
  * </pre>
  */
 public class App3 {
