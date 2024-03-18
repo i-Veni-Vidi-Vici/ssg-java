@@ -1,4 +1,4 @@
-package com.sh.multi.dimension;
+package com.sh.multi.dimentional;
 
 public class App {
     public static void main(String[] args) {
