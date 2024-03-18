@@ -1,4 +1,4 @@
-package com.ssg.multi.dimention.array;
+package com.ssg.test.multi.dimention.array.test;
 
 import java.util.Random;
 
