@@ -38,11 +38,11 @@ public class For2 {
      */
     public void test2() {
         // outer loop(바깥 부분) 2단 ~ 9단 (8번)
-        for(int dan = 2; dan <= 9; dan++){
+        for(int dan = 2; dan <= 9; dan++){ // 단을 해결하는 식
 //            System.out.println(dan);
             System.out.println("\t" + dan + "단");
             // inner loop 1 ~ 9 (9번)
-            for(int n = 1; n <= 9; n++){
+            for(int n = 1; n <= 9; n++){ // 단 안에 있는 각각의 식을 해결하는 식
 //                System.out.println("\t" + n);
                 System.out.printf("%d * %d = %d\n", dan, n, dan * n);
             }
@@ -75,9 +75,9 @@ public class For2 {
     public void test4() {
         // 2행 3열
         // 행
-        for(int row = 0; row < 2; row++){
+        for(int row = 0; row < 2; row++){ // 행을 표현
             // 열
-            for(int col = 0; col < 3; col++) {
+            for(int col = 0; col < 3; col++) {  // 열 표현
 //                System.out.print("★ ");
                 System.out.printf("(%d, %d)", row, col); // 좌표 표현
             }

@@ -12,10 +12,10 @@ public class Test4 {
         Scanner sc = new Scanner(System.in);
         System.out.print("문자열 입력 : ");
         String userStr = sc.nextLine();
-        System.out.print("검색할 문자 입력 : ");
+        System.out.print("문자 입력 : ");
         char userChar = sc.next().charAt(0);
         int sum = 0;
-        if (userChar <= 'z') {
+        if (userChar >= 'A' && userChar <= 'Z' || userChar >= 'a' && userChar <= 'z') {
             for (int i = 0; i < userStr.length(); i++) {
                 if (userStr.charAt(i) == userChar) {
                     sum += 1;
