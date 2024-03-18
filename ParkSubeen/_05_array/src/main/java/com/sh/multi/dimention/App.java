@@ -1,5 +1,7 @@
 package com.sh.multi.dimention;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         MultiDimentionalArray mda = new MultiDimentionalArray();
