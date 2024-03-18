@@ -46,6 +46,40 @@ public class MultiDimentionalArray {
         print(arr);
     }
 
+    // 문제 3
+    public void test3() {
+        // 2차원 배열 선언 및 생성
+        int[][] arr = new int[4][4];
+
+        // 2차원 배열에 값 대입
+        int value = 1;
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = arr[i].length - 1; j >= 0; j--) {
+                arr[i][j] = value++;
+            }
+        }
+
+        // 2차원 배열 출력
+        print(arr);
+    }
+
+    // 문제 4
+    public void test4() {
+        // 2차원 배열 선언 및 생성
+        int[][] arr = new int[4][4];
+
+        // 2차원 배열에 값 대입
+        int value = 1;
+        for(int i = arr.length - 1; i >= 0; i--) {
+            for(int j = arr[i].length - 1; j >= 0; j--) {
+                arr[j][i] = value++;
+            }
+        }
+
+        // 2차원 배열 출력
+        print(arr);
+    }
+
     // 2차원 배열 출력하는 메소드
     public void print (int[][] arr){
         for (int i = 0; i < arr.length; i++) {
@@ -55,4 +89,5 @@ public class MultiDimentionalArray {
             System.out.println();
         }
     }
+
 }
