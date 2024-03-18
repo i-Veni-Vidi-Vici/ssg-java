@@ -22,8 +22,7 @@ public class App3 {
 
         //2.nextLine 메소드 사용
         System.out.println("> 자기소개 입력 : ");
-        String greeting = sc. nextLine(System.in);
-
+        String greeting = sc.nextLine();
     }
 
 }
