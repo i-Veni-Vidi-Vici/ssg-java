@@ -18,19 +18,25 @@ public class LottoApp {
             lotto[i] = rnd.nextInt(45) + 1;
         }
 
-        for(int i = 0; i < lotto.length - 1; i++) {
-            for(int j = i + 1; j < lotto.length; j++) {
-                if(lotto[i] > lotto[j]) {
-                    temp = lotto[j];
-                    lotto[j] = lotto[i];
-                    lotto[i] = temp;
-                }else if(lotto[i] == lotto[j]) {
-                    lotto[i] = rnd.nextInt(45) + 1;
+        loop(lotto);
+        System.out.println(Arrays.toString(lotto));
+    }
+
+    public void loop(int[] arr) {
+        int temp = 0;
+        for(int i = 0; i < arr.length - 1; i++) {
+            for(int j = i + 1; j < arr.length; j++) {
+                if(arr[i] > arr[j]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }else if(arr[i] == arr[j]) {
+                    arr[i] = (int) (Math.random() * 45) + 1;
+                    loop(arr);
                 }else {
                     continue;
                 }
             }
         }
-        System.out.println(Arrays.toString(lotto));
     }
 }
