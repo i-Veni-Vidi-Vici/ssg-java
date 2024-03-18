@@ -1,4 +1,4 @@
-package com.sgg.test.array.copy;
+package com.sh.array.copy;
 
 import java.util.Arrays;
 
@@ -108,7 +108,7 @@ public class DeepCopy {
 
     /**
      * 중첩 for..each문
-     * @param 
+     * @param
      */
     public void test6(){
         int[][] arr = {{5, 6, 7, 8, 9},

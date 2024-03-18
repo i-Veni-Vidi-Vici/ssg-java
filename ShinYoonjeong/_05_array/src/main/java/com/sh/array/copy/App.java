@@ -1,4 +1,4 @@
-package com.sgg.test.array.copy;
+package com.sh.array.copy;
 /**
  * 배열 복사
  * (모든 객쳉 해당되는 사항)

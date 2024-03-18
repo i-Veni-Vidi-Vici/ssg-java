@@ -1,4 +1,4 @@
-package com.sgg.test.array.copy;
+package com.sh.array.copy;
 
 import java.util.Scanner; /**
  * 얕은 복사

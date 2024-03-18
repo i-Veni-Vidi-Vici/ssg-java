@@ -1,4 +1,4 @@
-package com.sh.multi.dimension;
+package com.sh.multi.dimentional;
 
 import java.util.Scanner;
 
