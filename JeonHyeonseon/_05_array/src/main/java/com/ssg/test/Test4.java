@@ -18,5 +18,6 @@ public class Test4 {
         System.out.println("전화번호 입력 : ");
         int number = sc.nextInt();
 
+
     }
 }
