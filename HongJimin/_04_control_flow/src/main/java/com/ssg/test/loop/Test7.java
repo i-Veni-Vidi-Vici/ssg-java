@@ -9,11 +9,11 @@ public class Test7 {
 //            System.out.println(i);
 //            for ()
 //        }
-
+        1 * 1 = 1;
+        1 * 10 + 2 = 12;
+        1 * 10 + 2 * 10 +3 = 123;
         for (int i = 1; i <= 9; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print(i);
-            }
+
             int front = i;
 
         }
