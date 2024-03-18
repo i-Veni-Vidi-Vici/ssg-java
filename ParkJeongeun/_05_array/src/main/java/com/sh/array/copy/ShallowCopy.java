@@ -69,47 +69,45 @@ public class ShallowCopy {
      */
     public void test4() {
         //(나)
-//        int[] nums = generateArray();
-//        for (int i = 0; i < nums.length; i++){
-//            System.out.println(nums[i]);
-//        }
+        int[] nums = generateArray();
+        for (int i = 0; i < nums.length; i++){
+            System.out.print(nums[i]);
+        }
 //
         //(모범답안)
-        Scanner sc = new Scanner(System.in);
-        System.out.print("> 정수1을 입력하세요 : ");
-        int from = sc.nextInt();
-        System.out.print("> 정수2를 입력하세요 : ");
-        int to = sc.nextInt();
-        int[] arr = generateArray(from, to);
-        for (int i = 0; i <arr.length; i++){
-            System.out.print(arr[i] + " ");
-        }
-    }
-        //(나)
-//    public int[] generateArray() {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.print("> 정수1을 입력하세요 : ");
-//        int num1 = sc.nextInt();
+//        int from = sc.nextInt();
 //        System.out.print("> 정수2를 입력하세요 : ");
-//        int num2 = sc.nextInt();
-//        int diff = Math.abs(num1 - num2);
-//        int min = Math.min(num1, num2);
-//        int[] nums = new int[diff];
-//        for (int i = 0; i < diff; i++) {
-//            int value = (int) (Math.random() * diff) + min;
-//            nums[i] = value;
+//        int to = sc.nextInt();
+//        int[] arr = generateArray(from, to);
+//        for (int i = 0; i <arr.length; i++){
+//            System.out.print(arr[i] + " ");
 //        }
-//        return nums;
+    }
+        //(나)
+    public int[] generateArray() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("> 정수1을 입력하세요 : ");
+        int num1 = sc.nextInt();
+        System.out.print("> 정수2를 입력하세요 : ");
+        int num2 = sc.nextInt();
+        int diff = Math.abs(num1 - num2) + 1;
+        int min = Math.min(num1, num2);
+        int[] nums = new int[diff];
+        for (int i = 0; i < diff; i++) {
+            nums[i] = min++;
+        }
+        return nums;
 
         //(모범답안)
-    public int[] generateArray(int from, int to){
-            int len = to - from + 1;
-            int[] arr = new int[len];
-            int value = from;
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = value++;
-            }
-            return arr;
-
+//    public int[] generateArray(int from, int to){
+//            int len = to - from + 1;
+//            int[] arr = new int[len];
+//            for (int i = 0, int value = from; i < arr.length; i++, value++) {
+//                arr[i] = value++;
+//            }
+//            return arr;
+//    }
     }
 }

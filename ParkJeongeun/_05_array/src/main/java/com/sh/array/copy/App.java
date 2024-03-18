@@ -13,7 +13,7 @@ public class App {
 //        shallowCopy.test();
 //        shallowCopy.test2();
 //        shallowCopy.test3();
-//        shallowCopy.test4();
+        shallowCopy.test4();
 
         DeepCopy deepCopy = new DeepCopy();
 //        deepCopy.test();
@@ -22,7 +22,7 @@ public class App {
 //        deepCopy.test4();
 //        deepCopy.test5();
 //        deepCopy.test6();
-        deepCopy.test7();
+//        deepCopy.test7();
 
     }
 }
