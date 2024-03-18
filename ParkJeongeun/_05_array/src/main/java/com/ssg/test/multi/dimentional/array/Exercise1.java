@@ -68,7 +68,7 @@ public class Exercise1 {
 
         System.out.printf("\t0열\t1열\t2열\t3열\n");
         for (int i = 0; i < arr.length; i++){
-            System.out.println(i + "행\t");
+            System.out.print(i + "행\t");
             for (int j = 0; j < arr[i].length; j++){
                 System.out.print(arr[i][j] + "\t");
             }
