@@ -22,7 +22,7 @@ public class CarMenu {
         ======================
         입력: """;
 
-        while(true) {
+        while(true) {   // 반복문
             System.out.print(menu);
             String choice = sc.next();
             switch(choice) {

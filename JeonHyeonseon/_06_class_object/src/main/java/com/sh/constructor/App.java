@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class App {
     public static void main(String[] args) {
         // 객체 생성 레시피
-        // 클래스(타입) 변수명 = new 생성자();
+        // 클래스(타입) 변수명 = new 생성자();  -> 생성자 메소드
         User user = new User();
         System.out.println(user.getId());
         System.out.println(user.getName());

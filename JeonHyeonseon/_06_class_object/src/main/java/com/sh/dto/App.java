@@ -31,7 +31,7 @@ public class App {
         System.out.println(memberDto.getGender());
         System.out.println(memberDto.getHeight());
         System.out.println(memberDto.getWeight());
-//        System.out.println(memberDto.isEnabled());
+        System.out.println(memberDto.isEnabled());
 
         // 본인의 회원정보 객체 만들기
         MemberDto memberDto2 = new MemberDto();
@@ -49,6 +49,6 @@ public class App {
         System.out.println(memberDto2.getGender());
         System.out.println(memberDto2.getHeight());
         System.out.println(memberDto2.getWeight());
-//        System.out.println(memberDto2.isEnabled());
+        System.out.println(memberDto2.isEnabled());
     }
 }

@@ -11,10 +11,10 @@ public class MemberDto {
     private boolean enabled;
 
 
-    // this non-static메소드 안에서 현재객체를 가리키는 숨은 참조변수
-    // 설정자 setter : set + 대문자로 시작하는 필드명, 필드와 동일한 자료형의 매개변수를 가지고,
+    // this는 non-static메소드 안에서 현재 객체를 가리키는 숨은 참조변수
+    // setter(값을 설정) : set + 대문자로 시작하는 필드명, 필드와 동일한 자료형의 매개변수를 가지고,
     //void 리턴타입
-    // 읽어오는 용도 getter : get + 대문자로 시작하는 필드면, 매개변수 없음. 필드와 동일한 리턴타입
+    // getter(값을 읽음) : get + 대문자로 시작하는 필드명, 매개변수 없음. 필드와 동일한 리턴타입
     public void setId(long id) {
         this.id = id;
     }
@@ -23,7 +23,7 @@ public class MemberDto {
         return this.id;
     }
     public void setName(String name) {
-        this.name = name; // 외부토부터 받음
+        this.name = name; // 외부로부터 받음
     }
     public String getName() {
         return this.name;
@@ -57,7 +57,12 @@ public class MemberDto {
     public void setEnabled(boolean enabled){
         this.enabled = enabled;
     }
-    public boolean getEnabled() {
+
+    /**
+     * boolean형에 대한 getter는 관례적으로 is로 시작한다.
+     * @return
+     */
+    public boolean isEnabled() {
         return this.enabled;
     }
 }

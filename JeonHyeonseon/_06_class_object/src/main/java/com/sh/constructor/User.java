@@ -18,7 +18,9 @@ public class User {
     /**
      * 기본생성자 (매개변수가 없는 것을 의미한다)
      */
-    public User() { // public + 생성자이름, 생성자이름은 클래스이름과 다르게 지어서는 안된다.
+    public User() { // 기본 생성자(App에서 User user = new User();만 작성해도 기본 생성자가 생긴다)
+        // public + 생성자이름, 생성자이름은 클래스이름과 다르게 지어서는 안된다.
+
         System.out.println("User 기본생성자 호출!");
         // 필드값 초기화 (기본값처리)
         this.id = 123;

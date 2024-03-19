@@ -24,6 +24,7 @@ public class App {
 //        generateMember(); // 메소드 호출 결과 여러개의 값을 반환받을 수 없다.
 
         // 사용자 정의 자료형 Memeber사용
+        // 다른 타입의 값 n개에 해당하는 변수를 선언하고 묶어낼 수 있다.
         Member member = new Member();
 
         // 타입별 기본값으로 초기화
@@ -50,7 +51,7 @@ public class App {
         System.out.println(Arrays.toString(member.hobbies)); // [스쿼시, 클라이밍]
 
         // 메소드 호출시 인자로 전달
-        printMemberInfo(member);
+        printMemberInfo(member);  // 여기서 괄호 안에 있는 member가 인자이다.
 
         // 메소드 반환값으로 사용하기
         Member member2 = generateMember();
