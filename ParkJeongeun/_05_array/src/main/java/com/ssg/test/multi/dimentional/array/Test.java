@@ -6,5 +6,9 @@ public class Test {
 //        ex.exercise1();
         ex.exercise2();
 
+        MultiDimentionalArray multiDimentionalArray = new MultiDimentionalArray();
+//        multiDimentionalArray.test();
+//        multiDimentionalArray.test2();
+//        multiDimentionalArray.test3();
     }
 }
