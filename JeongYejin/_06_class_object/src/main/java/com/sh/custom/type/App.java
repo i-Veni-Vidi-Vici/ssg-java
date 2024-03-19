@@ -1,4 +1,4 @@
-package com.sh.custome.type;
+package com.sh.custom.type;
 
 import java.util.Arrays;
 
