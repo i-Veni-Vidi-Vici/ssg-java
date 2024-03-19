@@ -1,8 +1,6 @@
-package com.sgg.test.array.soft;
+package com.sh.array.sort;
 
 import java.util.Arrays;
-
-import static com.sgg.test.array.soft.Swap.print;
 
 /**
  * 삽입 정렬
@@ -29,11 +27,11 @@ public class InsertionSort {
                 // j-1 인덱스 값이 temp보다 크다면 j-1 인덱스의(왼쪽) 값을 j 인덱스에(오른쪽) 덮어쓴다.
                 if(arr[j-1]>temp){
                     arr[j] = arr[j-1];
-                    print(arr, i);
+                    Swap.print(arr, i);
                 }
                 // j-1 인덱스 값이 temp보다 작다면, 반복문 중지
                 else{
-                    print(arr, i);
+                    Swap.print(arr, i);
                     break;
                 }
 

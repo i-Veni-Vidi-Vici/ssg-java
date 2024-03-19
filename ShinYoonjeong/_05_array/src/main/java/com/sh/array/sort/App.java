@@ -1,4 +1,4 @@
-package com.sgg.test.array.soft;
+package com.sh.array.sort;
 
 public class App {
     public static void main(String[] args) {
