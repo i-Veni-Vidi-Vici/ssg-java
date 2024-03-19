@@ -19,7 +19,7 @@ public class User {
      */
     public User() {
         System.out.println("User 기본생성자 호출!");
-        // 필드값 초기화 (기본값처리)
+//         필드값 초기화 (기본값처리)
         this.id = 123;
         this.name = "홍길동";
         this.createdAt = LocalDate.now();
