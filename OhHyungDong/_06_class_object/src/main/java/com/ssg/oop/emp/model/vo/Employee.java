@@ -9,89 +9,43 @@ public class Employee {
     private String job;
     private int age;
     private char gender;
-    public String gen;
+
     private int salary;
     private double bounuspoint;
     private String phone;
     private String address;
 
-    boolean inIn ;//기본 값 false
-
-//    public Employee(int empNo, String empName, String dept, String job, int age, char gender,
-//                    int salary, double bonuspoin, String phone, String address)
-//    {
-//        this.empNo = empNo;
-//        this.empName = empName;
-//        this.dept = dept;
-//        this.job = job;
-//        this.age = age;
-//        this.gender = gender;
-//        this.salary = salary;
-//        this.bounuspoint = bonuspoin;
-//        this.phone = phone;
-//        this.address = address;
-//    }
-public void empRemove(Employee employee) {
-    if (inIn) {
-        // 객체의 상태를 초기화하여 삭제된 상태를 표시
-        this.empNo = 0;
-        this.empName = null;
-        this.dept = null;
-        this.job = null;
-        this.age = 0;
-        this.gender = '\0';
-        this.salary = 0;
-        this.bounuspoint = 0.0;
-        this.phone = null;
-        this.address = null;
-        this.inIn = false; // 객체의 상태를 초기화하여 삭제된 상태를 표시
-        System.out.println("사원 정보가 삭제되었습니다.");
-    } else {
-        System.out.println("삭제할 사원 정보가 없습니다.");
-    }
-}
 
     //값 입력
-    public void empInput(Employee employee){
-
-        //값이 없으면
-        if(!inIn){
-            this.inIn = true;
+    public void empInput(){
             Scanner scanner = new Scanner(System.in);
-            System.out.print("사번 : "); employee.empNo = scanner.nextInt();
-            System.out.print("이름 : "); employee.empName = scanner.next();
-            System.out.print("소속부서 : "); employee.dept = scanner.next();
-            System.out.print("직급 : "); employee.job = scanner.next();
-            System.out.print("나이 : "); employee.age = scanner.nextInt();
-            System.out.print("성별 : "); employee.gen = scanner.next();
-            gender = gen.charAt(0);
-            System.out.print("급여 : "); employee.salary = scanner.nextInt();
-            System.out.print("보너스포인트 : "); employee.bounuspoint = scanner.nextDouble();
-            System.out.print("핸드폰 : "); employee.phone = scanner.next();
-            System.out.print("주소 : "); employee.address = scanner.next();
-        }
-
-
+            System.out.print("사번 : "); this.empNo = scanner.nextInt();
+            System.out.print("이름 : "); this.empName = scanner.next();
+            System.out.print("소속부서 : "); this.dept = scanner.next();
+            System.out.print("직급 : "); this.job = scanner.next();
+            System.out.print("나이 : "); this.age = scanner.nextInt();
+            System.out.print("성별 : "); this.gender = scanner.next().charAt(0);
+            System.out.print("급여 : "); this.salary = scanner.nextInt();
+            System.out.print("보너스포인트 : "); this.bounuspoint = scanner.nextDouble();
+            System.out.print("핸드폰 : "); this.phone = scanner.next();
+            System.out.print("주소 : "); this.address = scanner.next();
     }
 
-    public void empOutput(Employee employee){
 
-        if(inIn)
-        {
-            System.out.println("사번 : " + employee.empNo );
-            System.out.println("이름 : " + employee.empName);
-            System.out.println("소속부서 : " + employee.dept);
-            System.out.println("직급 : " + employee.job);
-            System.out.println("나이 : " + employee.age);
-            System.out.println("성별 : " + employee.gender);
-            System.out.println("급여 : " + employee.salary);
-            System.out.println("보너스포인트 : " + employee.bounuspoint);
-            System.out.println("핸드폰 : " + employee.phone);
-            System.out.println("주소 : " + employee.address);
-        }
-        else{
-            System.out.println("안에 정보가 없습니다.");
-        }
+    //값 출력
+    public void empOutput(){
+
+
+            System.out.println("사번 : " + this.empNo );
+            System.out.println("이름 : " + this.empName);
+            System.out.println("소속부서 : " + this.dept);
+            System.out.println("직급 : " + this.job);
+            System.out.println("나이 : " + this.age);
+            System.out.println("성별 : " + this.gender);
+            System.out.println("급여 : " + this.salary);
+            System.out.println("보너스포인트 : " + this.bounuspoint);
+            System.out.println("핸드폰 : " + this.phone);
+            System.out.println("주소 : " + this.address);
 
     }
 

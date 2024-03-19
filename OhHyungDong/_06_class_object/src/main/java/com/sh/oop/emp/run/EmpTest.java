@@ -6,12 +6,11 @@ import java.util.Scanner;
 
 public class EmpTest {
     public static void main(String[] args) {
-    mainMenu();
-
-
+    EmpTest empTest = new EmpTest();
+    empTest.mainMenu();
     }
 
-    public static void mainMenu() {
+    public void mainMenu() {
 
         String menu = "******* 사원 정보 관리 프로그램 **********\n"
                 + "1. 새 사원 정보 입력\n"
@@ -21,30 +20,31 @@ public class EmpTest {
                 + "*************************************\n"
                 + "입력 : ";
 
-        Employee e = new Employee();// Employee객체를 대입할 변수
-
+        Employee e = null;
         while (true) {
+            System.out.print(menu); //메뉴
+
             Scanner scanner = new Scanner(System.in);
             String choice = scanner.next();
             switch(choice){
-                case "1" : e.empInput(e); break;
-                case "2" : e.empRemove(e); break;
-                case "3" : e.empOutput(e); break;
+                case "1" :
+                    e = new Employee();
+                    e.empInput(); break;
+                case "2" :
+                    if(e == null) System.out.println("삭제 할 정보가 없습니다.");
+                    else{
+                        e = null;
+                        System.out.println("사원정보가 삭제되었습니다.");
+                    } break;
+                case "3" :
+                    if(e==null) System.out.println("출력 할 정보가 없습니다.");
+                    else e.empOutput(); break;
 
+                case "9" :
+                    System.out.println("프로그램을 종료합니다."); return;
             }
-            System.out.print(menu);
-            // 사용자 선택값에 따른 분기처리
+
         }
 
     }
 }
-//System.out.print(menu);
-//String choice = sc.next();
-//            switch (choice){
-//        case "1" : driver.startEngine();break;
-//        case "2" : driver.accelerate();break;
-//        case "3" : driver.brake();break;
-//        case "4" : driver.stopEngine();break;
-//        case "0" : return; // 현재 메소드를 호출한 곳으로 리턴 - 하위 코드 실행 x
-//default:
-////        System.out.println("> 잘못입력하셨습니다.");
