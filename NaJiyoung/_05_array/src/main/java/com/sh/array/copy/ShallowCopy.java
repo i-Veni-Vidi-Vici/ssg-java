@@ -86,6 +86,12 @@ public class ShallowCopy {
     public int[] generateArray(int from, int to) {
         int len = to - from + 1;
         int[] arr = new int[len];
+        /*
+        int value = from;
+        for(int i=0; i<arr.length; i++) {
+            arr[i] = value++;
+        }
+        */
         for(int i = 0, value = from; i < arr.length; i++, value++) {
             arr[i] = value;
         }
