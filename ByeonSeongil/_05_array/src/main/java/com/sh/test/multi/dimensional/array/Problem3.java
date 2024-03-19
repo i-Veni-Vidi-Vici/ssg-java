@@ -1,4 +1,4 @@
-package com.sh.multi.dimension.array;
+package com.sh.test.multi.dimensional.array;
 
 public class Problem3 {
     public void test() {
