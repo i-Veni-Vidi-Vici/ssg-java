@@ -1,9 +1,6 @@
-package com.sgg.test.array.soft;
+package com.sh.array.sort;
 
 import java.util.Arrays;
-
-import static com.sgg.test.array.soft.Swap.print;
-import static com.sgg.test.array.soft.Swap.swap;
 
 /**
  * 순차정렬
@@ -25,8 +22,8 @@ public class SequentialSort {
             for(int j=i+1;j<arr.length;j++)
             {// 크기 비교(비교할 j번지수가 더 작다면, 값 교환)
                 if(arr[i] > arr[j]){
-                    swap(arr,i,j);
-                    print(arr, i);
+                    Swap.swap(arr,i,j);
+                    Swap.print(arr, i);
                 }
             }
 

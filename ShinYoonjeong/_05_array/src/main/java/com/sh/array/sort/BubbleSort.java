@@ -1,9 +1,6 @@
-package com.sgg.test.array.soft;
+package com.sh.array.sort;
 
 import java.util.Arrays;
-
-import static com.sgg.test.array.soft.Swap.print;
-import static com.sgg.test.array.soft.Swap.swap;
 
 /**
  * 버블 정렬
@@ -27,8 +24,8 @@ public class BubbleSort {
             for(int j=0;j<i;j++)
             {
                 if(arr[j] > arr[j+1])
-                    swap(arr, j ,j+1);
-                print(arr,i);
+                    Swap.swap(arr, j ,j+1);
+                Swap.print(arr,i);
             }
         }
         System.out.println(Arrays.toString(arr));

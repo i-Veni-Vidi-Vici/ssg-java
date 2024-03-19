@@ -1,9 +1,6 @@
-package com.sgg.test.array.soft;
+package com.sh.array.sort;
 
 import java.util.Arrays;
-
-import static com.sgg.test.array.soft.Swap.print;
-import static com.sgg.test.array.soft.Swap.swap;
 
 /**
  * 선택 정렬
@@ -28,9 +25,10 @@ public class SelectionSort {
                     min = j; // 이제 최솟값은 j번지
 
                 }
-                print(arr,i);
+                Swap.print(arr,i);
 
-            }swap(arr, i, min);
+            }
+            Swap.swap(arr, i, min);
         }
         System.out.println(Arrays.toString(arr));
     }
