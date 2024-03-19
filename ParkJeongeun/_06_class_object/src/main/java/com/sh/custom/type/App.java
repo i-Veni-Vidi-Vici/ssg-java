@@ -52,13 +52,13 @@ public class App {
         // 메소드 호출시 인자로 전달
         printMemberInfo(member);
 
-        // 메소드 반환값으로 사용하기
-//        Member member2 = generateMember();
-//        printMemberInfo(member2);
+         // 메소드 반환값으로 사용하기
+        Member member2 = generateMember();
+        printMemberInfo(member2);
     }
 
-    public static Member generateMember(Member member){ //위 static메소드에서는 non-static메소드 호출할 수 없어서 static으로 만듦
-//        Member member = new Member();
+    public static Member generateMember(){ //위 static메소드에서는 non-static메소드 호출할 수 없어서 static으로 만듦
+        Member member = new Member();
         member.id = "leess";
         member.pwd = "pass03";
         member.name = "리순신";

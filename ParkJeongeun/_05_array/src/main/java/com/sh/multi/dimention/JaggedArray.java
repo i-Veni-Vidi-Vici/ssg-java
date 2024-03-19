@@ -70,10 +70,10 @@ public class JaggedArray {
             arr[i] = new int[i + 1];
         }
 
-        int k = 1;
+        int value = 1;
         for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < i + 1; j++){
-                arr[i][j] = k++;
+            for (int j = 0; j < arr[i].length; j++){
+                arr[i][j] = value++;
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
