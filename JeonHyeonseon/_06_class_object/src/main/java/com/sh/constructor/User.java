@@ -10,7 +10,8 @@ import java.time.LocalDate;
  */
 
 public class User {
-    //
+    // 필드(인스턴스 변수)
+    // 인스턴스 = 객체를 생성한다.
     private long id;
     private String name;
     private LocalDate createdAt;
@@ -18,7 +19,7 @@ public class User {
     /**
      * 기본생성자 (매개변수가 없는 것을 의미한다)
      */
-    public User() { // 기본 생성자(App에서 User user = new User();만 작성해도 기본 생성자가 생긴다)
+    public User() { // 기본 생성자(App에서 User user =S new User();만 작성해도 기본 생성자가 생긴다)
         // public + 생성자이름, 생성자이름은 클래스이름과 다르게 지어서는 안된다.
 
         System.out.println("User 기본생성자 호출!");
@@ -29,7 +30,8 @@ public class User {
     }
 
     /**
-     * 필드 생성자
+     * 필드 생성자 - 필드값을 주입받아서 객체를 생성
+     * 새로운 객체를 만들기 위한 생성자라고 생각하기
      * @param id
      */
     public User(long id, String name, LocalDate createdAt) {
@@ -47,10 +49,10 @@ public class User {
      * @param name
      */
     public User(long id, String name) {
-        this(id, name, LocalDate.now());
+        this(id, name, LocalDate.now()); // this(생성자) => 생성자 메소드를 호출하는 것
 //        this.id = id;
 //        this.name = name;
-//        this.createdAt = LocalDate.now(); // 오늘로 기본값처리
+//        this.createdAt = LocalDate.now(); // 오늘로 기본값처리 -> default값
     }
 
     /**

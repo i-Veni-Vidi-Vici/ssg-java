@@ -29,6 +29,10 @@ public class Account {
      * @param balance
      */
     public void init(String name, int balance) {
+        // 이름 충돌이 안나는 경우
+//        name = _name;
+//        balance = _balance;
+
         // this는 현재객체를 가리키는 숨은 참조변수
         // 이름충돌이 있을 경우 전역변수를 가리킬 수 있다.
         this.name = name;
@@ -37,7 +41,7 @@ public class Account {
     }
 
     /**
-     * 입금메소드
+     * 입금(deposit)메소드
      */
     public void deposit(int money) {
         // 유효성검사
@@ -51,7 +55,7 @@ public class Account {
     }
 
     /**
-     * 출금 메소드
+     * 출금(withdraw) 메소드
      */
     public void withdraw(int money) {
         // 유효성 검사1 - 0, 음수가 아니어야 한다.

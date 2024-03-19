@@ -36,7 +36,7 @@ public class App {
         System.out.println(user21.getName());
         System.out.println(user21.getCreatedAt());
 
-        // 복사 생성자를 통한 객체 생성
+        // 복사 생성자를 통한 객체 생성 - 값은 같으나 주소값은 다르다.
         // - 객체의 속성값이 동일한 객체를 복제하는 경우 사용된다.
         User user3 = new User(user2);
         System.out.println(user3.getId());

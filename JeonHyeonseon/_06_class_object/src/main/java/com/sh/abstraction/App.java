@@ -65,6 +65,6 @@ package com.sh.abstraction;
 public class App {
     public static void main(String[] args) {
         CarMenu carMenu = new CarMenu();
-        carMenu.menu();
+        carMenu.menu();  // carMenu라는 클래스명을 만들고 menu라는 메소드를 작성한다.
     }
 }
