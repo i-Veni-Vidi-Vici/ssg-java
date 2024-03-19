@@ -22,6 +22,9 @@ public class Test4 {
         String phone = sc.next();
 
         String[] arr = new String[phone.length()];
+        // char[] cArr = new char[phNum.length()];
+        // char배열로 만들면 String.valueof()가 없어도 된다.
+        // 배열 한 칸에 전화번호 한자릿 수가 들어가므로 String이 아니라 char도 가능
 
         for(int i=0;i<arr.length;i++){
             if(i>2 && i<7) arr[i] = "*" ;
