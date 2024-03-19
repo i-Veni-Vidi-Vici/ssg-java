@@ -20,7 +20,7 @@ public class App3 {
         String name = "홍길동";
         app.printName("홍길동"); // "홍길동" <= 매개인자, 변수가 대입되어도 매개인자의 자리!
         name = "신사임당";
-        app.printName(name); // "홍길동" <= 매개인자, 변수가 대입되어도 매개인자의 자리!
+        app.printName(name); // name <= 매개인자, 변수가 대입되어도 매개인자의 자리!
 
         // 자바는 엄격한 문법을 가졌다.
         // 자바에서 선언부와 호출부의 매개변수-매개인자는 정확히 일치해야 한다.
@@ -46,7 +46,7 @@ public class App3 {
         System.out.println("이름은 " + name + "입니다.");
     }
 
-    public void printUsernameAndAge(String name, int age) {
+    public void printUsernameAndAge(String name, int age) { // 매개변수
         System.out.println("-------------------");
         System.out.println("username: " + name);
         System.out.println("age: " + age);
