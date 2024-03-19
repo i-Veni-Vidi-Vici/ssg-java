@@ -10,18 +10,13 @@ public class BookDTO {
     private double discountRate;
 
 
-    public void Constructor() {
-
-
-    }
-
     //기본생성자
     public BookDTO(){
-        this.title = title;
-        this.publisher = publisher;
-        this.author = author;
-        this.price = price;
-        this.discountRate = discountRate;
+//        this.title = title;
+//        this.publisher = publisher;
+//        this.author = author;
+//        this.price = price;
+//        this.discountRate = discountRate;
     }
 
     public BookDTO(String title,String publisher,String author){
