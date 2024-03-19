@@ -1,20 +1,20 @@
 package com.ssg.test.lotto;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LottoApp {
     static final int selectNum=6;
     public static void main(String[] args) {
-        int[] numbers = new int[selectNum];
-        for(int i =0; i<selectNum;i++){
-            numbers[i] = (int)(Math.random()*45)+1;
+        Set numSet = new HashSet();
+        while(numSet.size()<6){
+            numSet.add((int)(Math.random()*45)+1);
         }
-        for(int i =1; i<selectNum; i++){
-            int j;
-            for(j=i; j>0;j--){
-                if(numbers[j]<numbers[j-1])swap(numbers,j, j-1);
-                else break;
-            }
+        Object[] sortedNumSet = numSet.stream().sorted().toArray();
+        int[] numbers = new int[selectNum];
+        for(int i =0; i<selectNum; i++){
+            numbers[i] = (int)sortedNumSet[i];
         }
         System.out.println(Arrays.toString(numbers));
     }
