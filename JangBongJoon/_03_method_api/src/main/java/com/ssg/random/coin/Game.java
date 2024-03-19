@@ -2,6 +2,7 @@ package com.ssg.random.coin;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Game {
     public static void flipCoin() {

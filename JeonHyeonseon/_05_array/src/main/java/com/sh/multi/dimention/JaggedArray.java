@@ -1,0 +1,75 @@
+package com.sh.multi.dimention;
+
+import java.util.Scanner;
+
+/**
+ * <pre>
+ * 가변배열
+ * - 2차원배열은 자료형이 같은 1차원 배열의 묶음이다.
+ * - 이때 배열의 크기가 꼭 같을 필요는 없다.
+ * - 2차원 배열의 크기가 다른 경우 이를 가변배열, 같은 경우 정변배열이라 부른다.
+ *
+ * </pre>
+ */
+public class JaggedArray {
+    public void test1() {
+        int[][] arr = new int[3][];
+
+        System.out.println(arr[0]); // null
+        System.out.println(arr[1]); // null
+        System.out.println(arr[2]); // null
+
+        // 길이가 각각 다른 2차원 배열 할당
+        arr[0] = new int[3];
+        arr[1] = new int[2];
+        arr[2] = new int[5];
+
+        int value = 1;
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = value++;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 사용자로부터 행수(배열)를 입력받아서 다음과 같이 출력하시오.
+     * 이때 적절한 크기의 가변배열을 생성하시오
+     * - 행수 입력 : 5
+     * 1
+     * 2 3
+     * 4 5 6
+     * 7 8 9 10
+     * 11 12 13 14 15
+     *
+     */
+    public void test2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("행수 입력 : ");
+        int row = sc.nextInt();
+        int[][] arr = new int[row][];
+
+        // 크기(길이)가 각각 다른 2차원 배열 할당
+        for(int i = 0; i < row; i++) {
+            arr[i] = new int[i + 1];
+        }
+//        arr[0] = new int[1];
+//        arr[1] = new int[2];
+//        arr[2] = new int[3];
+//        arr[3] = new int[4];
+//        arr[4] = new int[5]; // 58에서 61까지의 식을 54 - 55로 표현
+
+        // 인덱스별 값대입 및 출력
+        int value = 1;
+        for(int i = 0; i < arr.length; i++) {  // 행
+            for(int j = 0; j < arr[i].length; j++){ // 열
+                arr[i][j] = value++;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}

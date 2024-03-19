@@ -13,6 +13,7 @@ public class Game {
         int computerNum = rnd.nextInt(3)+1;
 
         System.out.println("======== 결과 ========");
+        /*
         switch (userNum) {
             case 1 :
                 System.out.println("당신은 가위를 냈습니다.");
@@ -35,6 +36,12 @@ public class Game {
                 System.out.println("컴퓨터는 보를 냈습니다.");
                 break;
         }
+        */
+
+        String user = userNum == 1 ? "가위" : (userNum == 2 ? "바위" : "보");
+        String com = computerNum == 1 ? "가위" : (computerNum == 2 ? "바위" : "보");
+        System.out.println("당신은 " + user + "를 냈습니다");
+        System.out.println("컴퓨터는 " + com + "를 냈습니다");
 
         System.out.println("=======================");
 
