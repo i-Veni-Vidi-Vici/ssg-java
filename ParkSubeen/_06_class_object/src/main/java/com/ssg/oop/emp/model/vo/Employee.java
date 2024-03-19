@@ -16,59 +16,44 @@ public class Employee {
     private String phone;
     private String address;
 
-    String empInfo = "";
-    int empNum = 0;
-    String[][] empInfomation = new String[1][empNum];
-
-    public Employee() {}
-
     // 키보드입력용 메소드
     public void empInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("사번 입력 : ");
-//        this.empNo = sc.nextInt();
-        empInfo += sc.nextInt() + ", ";
+        this.empNo = sc.nextInt();
         System.out.print("이름 입력 : ");
-//        this.empName = sc.next();
-        empInfo += sc.next() + ", ";
+        this.empName = sc.next();
         System.out.print("소속부서 입력 : ");
-//        this.dept = sc.next();
-        empInfo += sc.next() + ", ";
+        this.dept = sc.next();
         System.out.print("직급 입력 : ");
-//        this.job = sc.next();
-        empInfo += sc.next() + ", ";
+        this.job = sc.next();
         System.out.print("나이 입력 : ");
-//        this.age = sc.nextInt();
-        empInfo += sc.nextInt() + ", ";
+        this.age = sc.nextInt();
         System.out.print("성별 입력 : ");
-//        this.gender = sc.next().charAt(0);
-        empInfo += sc.next().charAt(0) + ", ";
+        this.gender = sc.next().charAt(0);
         System.out.print("급여 입력 : ");
-//        this.salary = sc.nextInt();
-        empInfo += sc.nextInt() + ", ";
+        this.salary = sc.nextInt();
         System.out.print("보너스포인트 입력 : ");
-//        this.bonusPoint = sc.nextDouble();
-        empInfo += sc.nextDouble() + ", ";
+        this.bonusPoint = sc.nextDouble();
         System.out.print("핸드폰 입력 : ");
-//        this.phone = sc.next();
-        empInfo += sc.next() + ", ";
+        this.phone = sc.next();
         sc.nextLine();
         System.out.print("주소 입력 : ");
-//        this.address = sc.nextLine();
-        empInfo += sc.nextLine();
-
-        empInfomation[1][empNum] = empInfo;
-        System.out.println(Arrays.toString(empInfomation));
-        empNum++;
-    }
-
-    public void empDelete() {
-
+        this.address = sc.nextLine();
     }
 
     // emp객체 모든 필드 출력용 메소드
     public void empOutput() {
-
+        System.out.println("사번 : " + empNo);
+        System.out.println("이름 : " + empName);
+        System.out.println("소속부서 : " + dept);
+        System.out.println("직급 : " + job);
+        System.out.println("나이 : " + age);
+        System.out.println("성별 : " + gender);
+        System.out.println("급여 : " + salary + "만원");
+        System.out.println("보너스포인트 : " + bonusPoint + "P");
+        System.out.println("핸드폰 : " + phone);
+        System.out.println("주소 : " + address);
     }
 
     // getter, setter

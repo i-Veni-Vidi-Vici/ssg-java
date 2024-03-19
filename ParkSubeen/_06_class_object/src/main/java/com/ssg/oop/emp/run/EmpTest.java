@@ -5,6 +5,7 @@ import com.ssg.oop.emp.model.vo.Employee;
 import java.util.Scanner;
 
 public class EmpTest {
+    Employee e = null;
     public static void main(String[] args) {
         EmpTest empTest = new EmpTest();
         empTest.mainMenu();
@@ -20,15 +21,31 @@ public class EmpTest {
                 + "입력 : ";
 
         Scanner sc = new Scanner(System.in);
-        Employee e = new Employee(); // Employee객체를 대입할 변수
         while (true) {
             System.out.print(menu);
             String choice = sc.next();
             // 사용자 선택값에 따른 분기처리
             switch(choice) {
-                case "1": e.empInput(); break;
-                case "2": e.empDelete(); break;
-                case "3": e.empOutput(); break;
+                case "1":
+                    e = new Employee();
+                    e.empInput();
+                    break;
+                case "2":
+                    if(e == null) {
+                        System.out.println("사원 정보가 없습니다. 사원 정보를 입력하세요.");
+                        break;
+                    }else {
+                        e = null;
+                        break;
+                    }
+                case "3":
+                    if(e == null) {
+                        System.out.println("사원 정보가 없습니다. 사원 정보를 입력하세요.");
+                        break;
+                    }else {
+                        e.empOutput();
+                        break;
+                    }
                 case "0": return;
             }
         }
