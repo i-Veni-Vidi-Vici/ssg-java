@@ -9,7 +9,7 @@ package com.sh.dto;
  * - 각 필드에 대해서 기본적으로 값을 설정하는 setter 메소드와 값을 읽기 위한 getter 메소드를 작성해둔다.
  * </pre>
  */
-public class App {
+public class Application {
     public static void main(String[] args) {
         MemberDto memberDto = new MemberDto();
         memberDto.setId(1);
