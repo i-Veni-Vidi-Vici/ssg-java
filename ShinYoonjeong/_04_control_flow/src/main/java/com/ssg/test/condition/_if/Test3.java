@@ -10,7 +10,7 @@ public class Test3 {
         System.out.println("몸무게를 입력하세요 : ");
         double kg = sc.nextInt();
         double BMI = kg / ((cm/100)*(cm/100));
-        System.out.println("BMI 지수 : " + BMI);
+        System.out.println("BMI 지수 : " + Math.round(BMI*10)/10.0);
         if(BMI>=30)
         {
             System.out.println("고도비만입니다.");

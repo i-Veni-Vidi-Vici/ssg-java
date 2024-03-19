@@ -31,6 +31,7 @@ public class Game {
                 System.out.println("당신은 보를 냈습니다");
                 break;
         }
+
         switch (computer)
         {
             case 1:
@@ -43,15 +44,20 @@ public class Game {
                 System.out.println("컴퓨터는 보를 냈습니다");
                 break;
         }
+
+
         System.out.println("=======================");
+
         if(human==1 && computer==3)
         {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
         }
-        else if(human==2 && computer==1){
+        else if(human==2 && computer==1)
+        {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
         }
-        else if(human==3 && computer==2){
+        else if(human==3 && computer==2)
+        {
             System.out.println("당신이 이겼습니다. ㅠ.ㅠ");
         }
         else {

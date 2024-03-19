@@ -13,12 +13,14 @@ public class Test3 {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("체중입력(kg) : ");
-        int height = sc.nextInt();
+        int weight= sc.nextInt();
         System.out.print("신장입력(cm) : ");
-        int weight = sc.nextInt();
+        double height = sc.nextInt() *0.01;
         String result = "";
 
-        double BMI = (double) height / ((weight * 0.01) * (weight * 0.01));
+        // BMI 계산식
+        double BMI = weight / (height * height);
+
         if (BMI < 18.5) {
             result = "저체중";
         } else if (BMI < 23) {
@@ -32,7 +34,8 @@ public class Test3 {
         }
 
         System.out.println("--------------------------");
-        System.out.println("BMI 지수 : " + BMI);
+        // Math.round(소수점 일의 자리에서 반올림)
+        System.out.println("BMI 지수 : " + Math.round(BMI*10)/10.0);
         System.out.println(result + "입니다.");
     }
 }

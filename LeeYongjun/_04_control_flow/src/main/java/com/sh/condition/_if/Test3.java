@@ -10,7 +10,7 @@ public class Test3 {
         System.out.print("> 신장입력(cm) :");
         int num2 = sc.nextInt();
         double BMI = ((double) num1 / ((double) num2 /100 * num2/100));
-        System.out.println("BMI 지수 : " + BMI);
+        System.out.println("BMI 지수 : " + Math.round(BMI * 10) / 10.0);
         System.out.println("----------------------------------------------");
 
         if (BMI >= 30) {

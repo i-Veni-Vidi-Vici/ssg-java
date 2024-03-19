@@ -54,7 +54,6 @@ public class game {
             result = "이겼습니다🥰졌습니다😂";
         }
 
-
         System.out.println("========결과========");
         System.out.println("당신은 ? " + userWord );
         System.out.println("컴퓨터는? " + comWord);

@@ -6,7 +6,5 @@ public class Main {
 
         game game = new game();
         game.rockPaperScissors();
-
-
     }
 }
