@@ -11,19 +11,15 @@ import java.time.LocalDate;
 
 public class User {
 
-    /**
-     * 기본 생성자 ( 매개변수가 없는)
-     */
 
     private long id;
-
-
 
     private String name;
     private LocalDate createdAt;
 
     /**
      * 기본 생성자
+     * - 생성자에서 값을 초기화 시킨 값을 가져오거나 기본 생성자를 통해서 객체를 생성하고 setter, getter를 통해서 값을 초기화 시키고 값을 가져옴.
      */
     public User()
     {
@@ -36,7 +32,8 @@ public class User {
     }
     /**
      * 필드 생성자
-     *
+     * - 객체를 생성하는 동시에 값일 초기화 시킬 수 있음
+     * User user = new User(200,"dhgudehd", 2023-03-19
      */
     public User(long id, String name, LocalDate createdAt) {
         this.id = id;
@@ -57,6 +54,7 @@ public class User {
     }
     /**
      * 복사생성자
+     * User user
      */
     public User(User other)
     {
