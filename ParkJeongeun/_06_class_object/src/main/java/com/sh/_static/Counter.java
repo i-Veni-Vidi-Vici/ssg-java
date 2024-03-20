@@ -8,7 +8,9 @@ public class Counter {
         this.count++;
     }
     public void increaseScount(){
-        Counter.scount++; // 클래스명(Counter) 생략가능
+        // scount는 클래스 전역에 공유되는 static 변수 -> 클래스명으로 접근 가능
+        // 클래스명(Counter) 생략가능
+        Counter.scount++;
     }
 
     public int getCount(){
