@@ -25,5 +25,6 @@ public class MethodTest {
 //        n++;
         s++;
 //        System.out.println("bar : " + n + ", " + s);
+//        foo();
     }
 }
