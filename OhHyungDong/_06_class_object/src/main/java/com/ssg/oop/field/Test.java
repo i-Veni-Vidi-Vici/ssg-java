@@ -8,14 +8,14 @@ public class Test {
         Test t = new Test();
         t.test1(); // 100, 99 출력
 
-        t.test2();
+        t.test2(); // 100 출력
 
         Test t3 = new Test();
-        t.test3(t3);
-        System.out.println(t3.a);
+        t.test3(t3); // 10출력
+        System.out.println(t3.a); //10 출력
 
 
-        t.test4(t);
+        t.test4(t); //객체 새로 생성해서 대입해서 1000출력 
 
     }
 
