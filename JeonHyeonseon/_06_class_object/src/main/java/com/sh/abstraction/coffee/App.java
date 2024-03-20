@@ -47,6 +47,6 @@ package com.sh.abstraction.coffee;
 public class App {
     public static void main(String[] args) {
         Kiosk kiosk = new Kiosk();
-//        Kiosk.menu();
+        kiosk.menu();
     }
 }

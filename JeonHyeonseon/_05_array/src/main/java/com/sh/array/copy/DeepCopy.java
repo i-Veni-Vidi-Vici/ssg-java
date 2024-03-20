@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * 방식 4가지
  * 1. 직접 복제하기
- * 2. Objext#clone()
+ * 2. Object#clone()
  * 3. System.arraycopy()
  * 4. Arrays.copyOf()
  */
@@ -42,15 +42,17 @@ public class DeepCopy {
     }
 
     /**
-     * Objext#clone()
+     * Object#clone()
      */
     public void test2() {
         int[] arr = {5, 6, 7};
-        int[] arr2 = arr.clone();
+        int[] arr2 = arr.clone(); // clone()은 얕은 복사를 수행
 
+        // 주소값은 다르나
         System.out.println(arr.hashCode());
         System.out.println(arr2.hashCode());
 
+        // 값은 동일
         print(arr);
         print(arr2);
     }

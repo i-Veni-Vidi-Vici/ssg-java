@@ -7,8 +7,8 @@ public class CallByValue {
     }
 
     public int test2(int n) {
-        n *= 10;
-        n -= 30;
+        n *= 10;  // 100
+        n -= 30;  // 100- 30 = 70
         return n;
     }
 }

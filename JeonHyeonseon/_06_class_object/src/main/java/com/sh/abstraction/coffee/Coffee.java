@@ -5,10 +5,10 @@ public class Coffee {
     private String option;
     private int count;
 
-    public Coffee(int count, String coffeName, String option) {
-        this.count = count;
+    public Coffee( String coffeName, String option, int count) {
         this.coffeName = coffeName;
         this.option = option;
+        this.count = count;
     }
 
     public String getCoffeName() {

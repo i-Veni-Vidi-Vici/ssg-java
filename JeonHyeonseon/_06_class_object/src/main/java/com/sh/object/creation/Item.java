@@ -6,7 +6,7 @@ package com.sh.object.creation;
  *  - 종합선물세트와 같이 getter/setter, 필드생성자(파라미터)를 모두 준비해둔다.
  *  - 기본생성자 호출 + setter호출 후 값대입
  *  - 필드생성자 호출 + 값대입
- *  두 개 다 가능
+ *  두 가지 다 가능
  * </pre>
  */
 public class Item {

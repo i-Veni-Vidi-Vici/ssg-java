@@ -9,8 +9,8 @@ package com.sh.abstraction.coffee;
 
 public class Barista {
     private int coffeeStock = 5000;  // 5000g 커피 보유
-//    public Coffee makeCoffee(Order order) {  // 매개인자로 주문을 받음
+    public Coffee makeCoffee(Order order) {  // 매개인자로 주문을 받음
     // 커피 한잔에 20g씩 사용
-//        return new Coffee(order.getMenuName(), order.getOption(), order.getCount());
-//    }
+        return new Coffee(order.getMenuName(), order.getOption(), order.getCount());
+    }
 }
