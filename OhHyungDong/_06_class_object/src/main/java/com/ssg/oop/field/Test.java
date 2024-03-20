@@ -15,7 +15,7 @@ public class Test {
         System.out.println(t3.a); //10 출력
 
 
-        t.test4(t); //객체 새로 생성해서 대입해서 1000출력 
+        t.test4(t); //객체 새로 생성해서 대입해서 1000출력
 
     }
 
