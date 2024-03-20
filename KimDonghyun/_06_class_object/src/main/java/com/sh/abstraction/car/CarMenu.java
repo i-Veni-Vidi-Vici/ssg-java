@@ -1,13 +1,14 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 import java.util.Scanner;
 
 public class CarMenu {
     private Scanner sc = new Scanner(System.in); // 전역변수
+    // 운전자 객체 생성
+    Driver driver = new Driver();
 
     public void menu() {
-        // 운전자 객체 생성
-        Driver driver = new Driver();
+
         
         // String block문법 (여러줄, 들여쓰기 표현가능)
         String menu = """
