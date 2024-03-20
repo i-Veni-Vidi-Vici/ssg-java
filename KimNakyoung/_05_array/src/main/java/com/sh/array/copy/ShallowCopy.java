@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ShallowCopy {
 
     public void test1(){
-        int[] arr = {1, 2, 3, 4, 5};
+        int[] arr = {1, 2, 3, 4, 5}; // 힙영역에 배열객체 생성
         // 얕은 복사
         int[] arr2 = arr; // arr의 주솟값을 arr2에 대입
 
@@ -109,6 +109,5 @@ public class ShallowCopy {
         }
         return arr; // 리턴하면
     }
-
 
 }
