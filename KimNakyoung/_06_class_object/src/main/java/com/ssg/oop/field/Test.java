@@ -15,7 +15,7 @@ public class Test {
         System.out.println(t3.a); // 10
 
 
-        t.test4(t); // 1000 
+        t.test4(t); // 1000
 
     }
 
