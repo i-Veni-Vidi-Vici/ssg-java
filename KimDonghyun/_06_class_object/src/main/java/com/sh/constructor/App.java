@@ -20,7 +20,6 @@ public class App {
         // 객체 생성 레시피
         // 클래스(타입) 변수명 = new 생성자();
         User user = new User();
-
         System.out.println(user.getId());
         System.out.println(user.getName());
         System.out.println(user.getCreatedAt());
