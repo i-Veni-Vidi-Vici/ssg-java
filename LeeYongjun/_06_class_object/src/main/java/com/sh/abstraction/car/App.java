@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 import com.sh.dto.MemberDTO;
 
@@ -27,6 +27,18 @@ import com.sh.dto.MemberDTO;
  * - 수행한 작업결과를 답장(리턴값)으로 보낸다.
  *
  * 운전프로그램
+ * 0. 요구사항 정리
+ * - 운전프로그램을 만들어주세요
+ * - 운전자는 시동걸기,악셀을 밟거나, 브레이크를 밟거나, 시동을 끌 수 있어야 합니다.
+ * - 자동차는 시동걸기, 가속하거나, 감속을 하거나, 시동이 꺼질 수 있어야 합니다.
+ * - 자동차는 처음엔 대기상태로 있습니다.
+ * - 자동차는 운전자에 의해 시동이 걸리고, 이미 시동이 걸려 있다면 다시 걸 수 없어야 합니다.
+ * - 운전자가 악셀을 밟으면, 시동이 걸린상태에서만 가속할 수 있습니다.
+ *    악셀을 밟을때마다 10km/h씩 가속되어야 합니다.
+ * - 운전자가 브레이크를 밟으면 , 움직이고 있는 상태에서 10km/h씩 감소됩니다.
+ *    0km/h 정지된 상태에서는 더이상 감속할 수 없습니다.
+ * - 운전자 시동을 끄면 더이상 차는 가소/감속 할 수 없습니다.
+ * - 자동차가 달리는 중에는 시동을 끌 수 없습니다.
  * 1. 객체 도출
  * - 자동차
  * - 운전자
@@ -104,5 +116,7 @@ public class App {
         System.out.println(memberDTO2.getHeight());
         System.out.println(memberDTO2.getWeight());
         System.out.println(memberDTO2.isEnabled());
+
+        
     }
 }

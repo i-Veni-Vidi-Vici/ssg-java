@@ -1,6 +1,9 @@
 package com.sh.dto;
 
+import com.sh.constructor.User;
 import com.sh.custom.type.Member;
+
+import java.time.LocalDate;
 
 /**
  * <pre>
@@ -16,4 +19,5 @@ public class App {
     public static void main(String[] args) {
         MemberDTO memberDTO = new MemberDTO();
     }
+
 }
