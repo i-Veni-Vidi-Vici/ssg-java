@@ -1,9 +1,6 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
-import java.sql.*;
-import java.util.Properties;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class CarMenu {
     Driver driver = new Driver();
