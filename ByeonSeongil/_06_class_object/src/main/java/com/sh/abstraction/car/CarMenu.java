@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 import java.util.Scanner;
 
