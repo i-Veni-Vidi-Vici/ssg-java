@@ -13,6 +13,7 @@ public class App4 {
         App4 app = new App4();
         app.printPerson("유관순", 16, '여');
         app.printPerson("윤봉길", 37, '남');
+
     }
 
     public void printPerson(String name, final int age, char gender){

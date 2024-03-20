@@ -10,6 +10,7 @@ public class LottoApp {
         boolean bool = true;
         int randomNumber;
 
+
         for (int i = 0; i < 6; i++) { // 로또 번호 6개
             while(true){
                 randomNumber = rand.nextInt(45) + 1; // 1부터 45까지의 랜덤한 숫자 생성
