@@ -20,26 +20,39 @@ public class Employee {
         this.empNo = sc.nextInt();
         System.out.print("이름: ");
         this.empName = sc.next();
-        System.out.print("소속부서: ");
-        this.dept = sc.next();
-        System.out.print("직급: ");
-        this.job = sc.next();
-        System.out.print("나이: ");
-        this.age = sc.nextInt();
-        System.out.print("성별: ");
-        this.gender = sc.next().charAt(0);
-        System.out.print("급여: ");
-        this.salary = sc.nextInt();
-        System.out.print("보너스포인트: ");
-        this.bonusPoint = sc.nextDouble();
-        sc.nextLine();
-        System.out.print("핸드폰: ");
-        this.phone = sc.nextLine();
-        System.out.print("주소: ");
-        this.address = sc.nextLine();
+//        System.out.print("소속부서: ");
+//        this.dept = sc.next();
+//        System.out.print("직급: ");
+//        this.job = sc.next();
+//        System.out.print("나이: ");
+//        this.age = sc.nextInt();
+//        System.out.print("성별: ");
+//        this.gender = sc.next().charAt(0);
+//        System.out.print("급여: ");
+//        this.salary = sc.nextInt();
+//        System.out.print("보너스포인트: ");
+//        this.bonusPoint = sc.nextDouble();
+//        sc.nextLine();
+//        System.out.print("핸드폰: ");
+//        this.phone = sc.nextLine();
+//        System.out.print("주소: ");
+//        this.address = sc.nextLine();
     }
 
-    public void empOutput(Employee employee) {
+    public void empOutput() {
+        System.out.print(this.empNo + ", ");
+        System.out.print(this.empName + ", ");
+        System.out.print(this.dept + ", ");
+        System.out.print(this.job + ", ");
+        System.out.print(this.age + ", ");
+        System.out.print(this.gender + ", ");
+        System.out.print(this.salary + ", ");
+        System.out.print(this.bonusPoint + ", ");
+        System.out.print(this.phone + ", ");
+        System.out.print(this.address);
+    }
+
+    public void empOutput2(Employee employee) {
         System.out.print(employee.empNo + ", ");
         System.out.print(employee.empName + ", ");
         System.out.print(employee.dept + ", ");
