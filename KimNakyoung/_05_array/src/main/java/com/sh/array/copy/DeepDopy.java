@@ -4,6 +4,11 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
+ *
+ * - heap영역의 배열객체와 동일한 크기, 동일한 값을 가진 배열을 복제한다.
+ * - 참조변수에서 배열객체를 공유하지 않는다. -> 같은 주솟값 안 쓴다는거임
+ *
+ *
  * 1. 직접 복제하기
  * 2. Object#clone()
  * 3. System.arraycopy()
@@ -29,7 +34,9 @@ public class DeepDopy {
         for (int i = 0; i < arr.length; i++) {
             arr2[i] = arr[i]; //공간이 먼저
         }
+
         arr[1] *= 10;
+
         System.out.println(arr.hashCode());
         System.out.println(arr2.hashCode());
 
@@ -103,7 +110,7 @@ public class DeepDopy {
      * }
      */
 
-
+    // 배열 같이 순회 할 수 있는 것만 가능
     public void test5(){
         int[] arr = {5,6,7,8,9};
         for( int n : arr) {

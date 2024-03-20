@@ -14,17 +14,17 @@ public class App {
 //        swap.test2();
 
         // 순차정렬
-//        SequencetialSort sequencetialSort = new SequencetialSort();
+        SequencetialSort sequencetialSort = new SequencetialSort();
 //        sequencetialSort.test();
 //
 //        // 선택정렬 O(n^2)
-//        SelectionSort selectionSort = new SelectionSort();
+        SelectionSort selectionSort = new SelectionSort();
 //        sequencetialSort.test();
 
 
         // 버블정렬 O(n^2)
 
-//        BubbleSort bubbleSort = new BubbleSort();
+        BubbleSort bubbleSort = new BubbleSort();
 //        bubbleSort.test();
 
 
