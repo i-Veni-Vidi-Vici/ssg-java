@@ -22,7 +22,7 @@ public class BookDTO {
     public BookDTO(String title, String publisher, String author, int price, double discountRate) {
         this.title = title;
         this.publisher = publisher;
-        this.author = author;
+        this.author = author; // 앞에 3줄을 this(title, publisher, author)로 줄여서 사용 가능.
         this.price = price;
         this.discountRate = discountRate;
     }
