@@ -12,6 +12,12 @@ public class Product {
         System.out.println(productId + " " + productName + " " + productArea + " " + price + " " + tex );
 
     }
+
+    public  void information2(){
+        System.out.println("상품명 : " + productName);
+        System.out.println("부가세 포함 가격 : " + (int)(price +(tex * price)));
+    }
+
     // 기본생성자
     public Product(){
 
