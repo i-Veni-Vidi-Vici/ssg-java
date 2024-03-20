@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 // 실제로 작동하는 거/ 기능 구현
 public class Car {
