@@ -3,9 +3,9 @@ package com.ssg.test.multi.dimentional.array;
 public class MultiDimentionalArray {
     public static void main(String[] args) {
         MultiDimentionalArray test = new MultiDimentionalArray();
-//        test.test1();
-//        test.test2();
-//        test.test3();
+        test.test1();
+        test.test2();
+        test.test3();
         test.test4();
     }
 

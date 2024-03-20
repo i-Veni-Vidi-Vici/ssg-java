@@ -15,6 +15,7 @@ public class ClassRoomApp {
         String[][] class1 = new String[3][2];
         String[][] class2 = new String[3][2];
 
+
         int num = 0;
         // 1분단
         System.out.println("== 1분단 ==");
