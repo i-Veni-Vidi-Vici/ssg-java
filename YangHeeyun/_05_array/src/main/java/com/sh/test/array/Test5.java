@@ -26,6 +26,7 @@ public class Test5 {
 
         System.out.print("홀수인 양의정수를 하나 입력하세요 ==> ");
         int n = sc.nextInt();
+
         int[] arr = new int[n];
         int half = n/2;
         int val=1;
@@ -47,4 +48,13 @@ public class Test5 {
             System.out.println("잘못 입력했습니다. 홀수가 아닙니다.");
         }
     }
+//              배열형태로 출력하기
+//            System.out.print("[");
+//            for (int i = 0; i < intArr.length; i++) {
+//            System.out.print(intArr[i]);
+//            System.out.print(i != intArr.length - 1 ? ", " : "");
+//            }
+//            System.out.print("]");
 }
+
+

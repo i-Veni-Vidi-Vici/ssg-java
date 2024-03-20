@@ -74,7 +74,7 @@ public class Array1 {
         // 배열의 길이 변수 => 필드
         System.out.println(darr.length); // 10
 
-        // 배열객체의 식별자 => hashCode
+        // 배열객체의 식별자 => hashCode(힙 영역 안에 다른 객체)
         System.out.println(darr.hashCode()); // 2055281021(임의의 수)
 
         // 생성된 배열의 길이를 변경할 수 없다.
