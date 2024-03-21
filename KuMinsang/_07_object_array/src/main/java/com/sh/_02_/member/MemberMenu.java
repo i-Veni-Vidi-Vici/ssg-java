@@ -64,6 +64,8 @@ public class MemberMenu {
             }
         }
     }
+
+
     private void readMember(){
         Member[] members = memberManager.readMember();
         if(members == null)
@@ -98,6 +100,9 @@ public class MemberMenu {
         System.out.println(success ?
                 ">회원 정보를 성공적으로 저장했습니다" :
                     ">회원정보를 저장하는데 실패했습니다");
+
+    }
+    private void readMemberByID() {
 
     }
 
