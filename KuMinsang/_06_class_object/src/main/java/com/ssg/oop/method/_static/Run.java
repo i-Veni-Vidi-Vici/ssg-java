@@ -2,6 +2,7 @@ package com.ssg.oop.method._static;
 
 public class Run {
     public static void main(String[] args) {
+        StaticMethod s = new StaticMethod();
         //1 toUpper메소드 호출시 "ssg academy"를 전달하면, "SSG ACADEMY"가 리턴
         String str1 = StaticMethod.toUpper("ssg academy");
         System.out.println(str1);

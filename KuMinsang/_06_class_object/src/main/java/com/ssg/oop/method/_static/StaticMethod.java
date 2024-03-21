@@ -9,7 +9,6 @@ public class StaticMethod {
     public static String toUpper(String str){
         return str.toUpperCase();
     }
-
     //2. 문자열(1)에서 전달받은 인덱스(2)의 문자를 전달받은 문자(3)로 변경하는 static 메소드
     //메소드명 : setChar(String, int, char) : String
     public static String setChar(String java, int index, char x) {
