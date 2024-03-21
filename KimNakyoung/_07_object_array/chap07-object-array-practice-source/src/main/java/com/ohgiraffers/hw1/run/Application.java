@@ -37,7 +37,7 @@ public class Application {
 
         employeeDTOS[1].setDept("영업부");
         employeeDTOS[1].setJob("부장");
-        employeeDTOS[1].setSalary(3000000);
+        employeeDTOS[1].setSalary(4000000);
         employeeDTOS[1].setBonusPoint(0.3);
 
         for (int i = 0; i < employeeDTOS.length-1; i++) {
@@ -46,19 +46,32 @@ public class Application {
         }
 
         System.out.println("-----------------------------------");
+        int salary = 0;
+        double bonus = 0;
+        int totalSalary =0;
         int sumSalary = 0;
-        double sumBonus = 0;
+
 
 
         for (int i = 0; i < employeeDTOS.length; i++) {
-            System.out.print(employeeDTOS[i].getEmpName()+"의 연봉 :");
-            sumSalary = employeeDTOS[i].getSalary();
-            sumBonus = employeeDTOS[i].getBonusPoint();
-            double totalSalary = ((sumSalary + (sumSalary * (double)sumBonus)) * 12);
+            System.out.print(employeeDTOS[i].getEmpName()+"의 연봉 : ");
+            salary = employeeDTOS[i].getSalary();
+            bonus = employeeDTOS[i].getBonusPoint();
 
-            System.out.printf("%.2f",totalSalary);
 
-        }
+            totalSalary = (int)((salary + (salary * bonus)) * 12); // 정수로 출력하기 위해
+            sumSalary += totalSalary;
+
+            System.out.println(totalSalary + "원");
+//            System.out.println(totalSalary); // 자릿수가 너무 많아서 출력이 제대로 안됨(double로 받을 때)
+
+        }System.out.println("-------------------------------------");
+        int avgSalary = (sumSalary / employeeDTOS.length);
+
+        System.out.println("직원들의 연봉의 평균 : "+ avgSalary + "원") ;
+
+
+
 
 
 
