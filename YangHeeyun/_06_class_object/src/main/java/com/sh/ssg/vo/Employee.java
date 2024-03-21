@@ -1,4 +1,4 @@
-package com.sh.test.book.model.vo;
+package com.sh.ssg.vo;
 import java.util.Scanner;
 public class Employee {
     Scanner sc = new Scanner(System.in);

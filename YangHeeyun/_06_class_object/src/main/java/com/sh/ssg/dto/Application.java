@@ -1,4 +1,4 @@
-package com.sh.test.book.model.dto;
+package com.sh.ssg.dto;
 
 
 public class Application {
