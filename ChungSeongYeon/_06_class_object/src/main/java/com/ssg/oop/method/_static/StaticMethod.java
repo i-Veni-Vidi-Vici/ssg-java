@@ -1,6 +1,7 @@
-package com.ssg.oop.method.static_;
+package com.ssg.oop.method._static;
 
 public class StaticMethod {
+
     /**
      * 1. 전달한 문자열을 모두 대문자로 바꾸는 static 메소드
      *
@@ -45,4 +46,5 @@ public class StaticMethod {
     public static String concat(String s1, String s2) {
         return s1 + s2;
     }
+
 }
