@@ -7,7 +7,7 @@ package com.sh._static;
  * - 프로그램 실행 시에 메모리에 적재되어서, 프로그램 종료시까지 유지된다.
  * - 인스턴스 간의 데이터 공유 목적으로 사용한다.
  * - 무분별한 static 자원 사용은 금물이다.
- * - static 자원을 활용하는 대표적 예가 클래스 상수 또는 Singletone 등이다.ㄴ
+ * - static 자원을 활용하는 대표적 예가 클래스 상수 또는 Singletone 등이다.
  * </pre>
  */
 public class App {
