@@ -27,7 +27,6 @@ public class Application {
             index++;
             System.out.print("계속 추가하시겠습니까? (y/n) : ");
             ans = sc.next().charAt(0);
-            if (ans == 'n') break;
         } while (ans == 'y');
 
         for (int i = 0; i < index; i++) {
