@@ -14,15 +14,17 @@ public class CallByReference {
 
     public void test3(String str) {
         str += "Byebye world";
+
     }
 
     public void test4(int n, Item item) {
 
     }
 
-    public void test5(Item item) { //원본을 건들지 X
+    public void test5(Item item) {//원본을 건들지 X
         item = new Item(item);// 복사 생성자
         item.setName("엽기떡볶이");
         item.setPrice(25000);
+//        item.print();
     }
 }
