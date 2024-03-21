@@ -31,7 +31,7 @@ public class Test {
     public void test1() {
         int a = 1000;
         int s = 999;
-        System.out.println(this.a); 
+        System.out.println(this.a);
         System.out.println(Test.s);
     }
 
