@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 public class Driver {
     // 자동차 객체를 제어해야 함 -> Car 클래스 생성
