@@ -42,5 +42,4 @@ public class Test {
         t.a = 1000;
         System.out.println(this.a); //1000
     }
-
 }
