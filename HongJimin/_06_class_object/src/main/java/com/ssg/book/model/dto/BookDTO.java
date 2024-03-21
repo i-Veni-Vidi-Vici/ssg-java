@@ -62,6 +62,7 @@ public class BookDTO {
     }
 
     public void printInformation(){
+        //getter, setter 이용하기
         System.out.print(getTitle() + ", ");
         System.out.print(getPublisher() + ", ");
         System.out.print(getAuthor() + ", ");
