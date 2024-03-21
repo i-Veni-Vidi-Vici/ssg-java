@@ -5,7 +5,7 @@ public class Test {
     static int s = 99;
 
     public static void main(String[] args) {
-        Test t = new Test();
+        Test t = new Test(); // 객체 생성
         t.test1(); // 100 \n 99
 
         t.test2(); // 100
