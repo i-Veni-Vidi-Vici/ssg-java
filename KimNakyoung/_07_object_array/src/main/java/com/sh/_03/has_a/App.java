@@ -1,6 +1,5 @@
 package com.sh._03.has_a;
 
-
 /**
  *
  * <pre>
@@ -20,10 +19,10 @@ package com.sh._03.has_a;
  *
  *
  *
- *
  */
 public class App {
     public static void main(String[] args) {
+
 
     }
 }
