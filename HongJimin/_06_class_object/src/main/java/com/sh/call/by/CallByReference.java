@@ -25,6 +25,6 @@ public class CallByReference {
         item = new Item(item);// 복사 생성자
         item.setName("엽기떡볶이");
         item.setPrice(25000);
-//        item.print();
+        item.print();
     }
 }
