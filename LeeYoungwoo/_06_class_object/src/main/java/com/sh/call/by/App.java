@@ -47,8 +47,11 @@ public class App {
         // item 참조형 -> call by reference로 작동
         callByReference.test4(n, item);
 
+        System.out.println();
+
         // call by reference 방식에서 원본객체를 수정하지 않으려면
         callByReference.test5(item);
-        System.out.println(item);
+        item.print();
+
     }
 }
