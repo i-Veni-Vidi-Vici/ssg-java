@@ -18,4 +18,8 @@ public class MemberFindService {
     public Member[] readMember() {
         return memberRepository.readMember();
     }
+
+    public Member readMemberById(Integer id) {
+        return memberRepository.readMemberById(id);
+    }
 }

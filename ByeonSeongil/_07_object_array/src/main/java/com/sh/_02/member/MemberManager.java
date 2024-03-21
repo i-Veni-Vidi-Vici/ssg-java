@@ -36,4 +36,8 @@ public class MemberManager {
     public Member[] readMember() {
         return memberFindService.readMember();
     }
+
+    public Member readMemberById(Integer id) {
+        return memberFindService.readMemberById(id);
+    }
 }

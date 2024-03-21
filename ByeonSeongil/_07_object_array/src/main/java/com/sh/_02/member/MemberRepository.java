@@ -61,4 +61,14 @@ public class MemberRepository {
 
     }
 
+    public Member readMemberById(Integer id) {
+        for (Member member : members) {
+            if (member != null && member.getId() == id) {
+                return member;
+            }
+        }
+
+        return null;
+    }
+
 }

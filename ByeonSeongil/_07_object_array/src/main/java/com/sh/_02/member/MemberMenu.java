@@ -45,13 +45,29 @@ public class MemberMenu {
 
             switch (choice) {
                 case "1": saveMember(); break;
-
+                case "2":
+                    readMemberById(); break;
                 case "3": readMember(); break;
                 case "0": return;
                 default:
                     System.out.println("> 잘못 입력하셨습니다....");
 
             }
+        }
+    }
+
+    private void readMemberById() {
+        System.out.print("id 입력: ");
+        Member member = memberManager.readMemberById(sc.nextInt());
+        if (member != null) {
+            System.out.printf("%d %s %s %s\n",
+                    member.getId(),
+                    member.getUsername(),
+                    member.getPassword(),
+                    member.getName(),
+                    member.getCreatedAt());
+        } else {
+            System.out.println("해당 멤버가 없습니다.");
         }
     }
 
