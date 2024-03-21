@@ -7,8 +7,7 @@ public class Counter {
     public void increaseCount(){
         this.count++;
     }
-    public void increaseScount(){
-        Counter.scount++;
+    public void increaseScount(){Counter.scount++;
     }
 
     public int getCount(){

@@ -5,7 +5,7 @@ public class Coffee {
     private String option;
     private int count;
 
-    public Coffee( String coffeName, String option, int count) {
+    public Coffee(String coffeName, String option, int count) {
         this.coffeName = coffeName;
         this.option = option;
         this.count = count;

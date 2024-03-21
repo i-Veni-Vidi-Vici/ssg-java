@@ -5,7 +5,7 @@ public class Order {
     private String option;
     private int count;
 
-    public Order(String menuName, String option, int count) {
+    public Order(String memnuNae, String option, int count) {
         this.menuName = menuName;
         this.option = option;
         this.count = count;

@@ -59,11 +59,6 @@ public class Kiosk {
         }
     }
 
-    private int inputCount() {
-        System.out.print("수량을 입력하세요 : ");
-        return sc.nextInt();
-    }
-
     private String optionMenu() {
         String menu = """
         =====================
@@ -76,6 +71,11 @@ public class Kiosk {
         System.out.println(menu);
         return sc.next().equals("1") ? "HOT" : "ICE";  // 문자열 비교는 equals사용
 
+    }
+
+    private int inputCount() {
+        System.out.print("수량을 입력하세요 : ");
+        return sc.nextInt();
     }
 
 

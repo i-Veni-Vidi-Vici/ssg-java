@@ -50,7 +50,7 @@ package com.sh.abstraction.car;
  *   - 사용자가 시동켜기 메뉴를 선택 -> 운전자객체는 시동켜기 -> 자동차 시동켜기
  *   - 가속메뉴선택 -> 운전자의 가속메소드 호출 -> 자동차객체의 가속(현재속도를 변경)
  *   - 감속메뉴선택 -> 운전자의 감속메소드 호출 -> 자동차객체의 감속(현재속도를 변경)
- *   - 시도끄기메뉴선택 -> 운전자객체의 시동끄기 -> 자동차객체의 시동끄기
+ *   - 시동끄기메뉴선택 -> 운전자객체의 시동끄기 -> 자동차객체의 시동끄기
  * 3. 클래스 설계
  * - 사용자클래스 (실행클래스)
  * - 운전자클래스 (시동켜기, 시동끄기, 가속, 감속 메소드)
@@ -77,6 +77,6 @@ package com.sh.abstraction.car;
 public class App {
     public static void main(String[] args) {
         CarMenu carMenu = new CarMenu();
-        carMenu.menu();  // carMenu라는 클래스명을 만들고 menu라는 메소드를 작성한다.
+        carMenu.menu();  // CarMenu라는 클래스명을 만들고 menu라는 메소드를 작성한다.
     }
 }
