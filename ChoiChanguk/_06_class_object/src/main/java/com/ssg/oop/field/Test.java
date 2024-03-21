@@ -29,6 +29,7 @@ public class Test {
         Test t = new Test();
         t.a = 1000;
         System.out.println(a); // 여기서 a는 Test필드에 있는 자료이고, 객체 t를 쓰고 싶다면 , t.a써야 한다
+        System.out.println(this.a);
     }
 
     public void test3(Test t) {

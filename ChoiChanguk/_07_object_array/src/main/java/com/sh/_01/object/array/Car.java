@@ -1,0 +1,31 @@
+package com.sh._01.object.array;
+
+public class Car {
+    private String name;
+    private int maxSpeed;
+
+    public Car(String name, int maxSpeed) {
+        this.name = name;
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void run() {
+        System.out.printf("%s가 최고 시속 %dkm/h로 달립니다\n",this.name,this.maxSpeed);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+}
