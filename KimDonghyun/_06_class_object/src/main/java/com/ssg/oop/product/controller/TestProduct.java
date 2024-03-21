@@ -1,6 +1,6 @@
 package com.ssg.oop.product.controller;
 
-import com.sh.oop.product.model.Product;
+import com.ssg.oop.product.model.Product;
 
 public class TestProduct {
 
