@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 public class Car {
     private boolean engineStarted; //기본 값 false

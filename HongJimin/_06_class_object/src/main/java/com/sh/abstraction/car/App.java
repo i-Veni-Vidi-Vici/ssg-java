@@ -1,4 +1,4 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 /**
  *### 자바 프로그래밍에서의 객체란?
