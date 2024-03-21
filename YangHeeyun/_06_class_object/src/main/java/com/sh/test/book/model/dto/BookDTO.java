@@ -1,6 +1,4 @@
-package com.sh.hw;
-
-import java.awt.print.Book;
+package com.sh.test.book.model.dto;
 
 /**
  - private
@@ -9,6 +7,7 @@ import java.awt.print.Book;
  + public
  밑줄은 static
  */
+
 public class BookDTO {
     private String title;
     private String publisher;
@@ -41,8 +40,8 @@ public class BookDTO {
         return this.title;
     }
     public void setTitle(String title){
-            this.title = title;
-        }
+        this.title = title;
+    }
 
     public String getPublisher(){
         return this.publisher;
@@ -70,11 +69,15 @@ public class BookDTO {
         return this.discountRate;
     }
     public void setDiscountRate(double discountRate){
-            this.discountRate = discountRate;
-        }
-
-    public void printInformation(){
-        System.out.println(this.title + ", " +this.publisher + ", " +  this.author + ", " + this.price + ", " + this.discountRate);
+        this.discountRate = discountRate;
     }
 
+    public void printInformation(){
+//        System.out.println(this.title + ", " +this.publisher + ", " +  this.author + ", " + this.price + ", " + this.discountRate);
+        System.out.print(getTitle()+", ");
+        System.out.print(getPublisher()+", ");
+        System.out.print(getAuthor()+", ");
+        System.out.print(getPrice()+", ");
+        System.out.print(getDiscountRate()+" \n");
+    }
 }
