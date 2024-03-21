@@ -13,7 +13,9 @@ public class LottoApp {
             rnd = (int) (Math.random() * 45) + 1;
             if (i > 0){
                 if (rnd == lotto[i - 1]){
-                    rnd = (int) (Math.random() * 45) + 1;
+                    do {
+                        rnd = (int) (Math.random() * 45) + 1;
+                    } while (rnd == lotto[i - 1]);
                     lotto [i] = rnd;
                     continue;
                 }
