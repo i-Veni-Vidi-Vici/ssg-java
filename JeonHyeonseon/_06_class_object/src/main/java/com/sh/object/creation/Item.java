@@ -10,7 +10,7 @@ package com.sh.object.creation;
  * </pre>
  */
 public class Item {
-    private long id;
+    private long id; // Item이라는 클래스에 필드를 선언
     private String name;
     private int price;
 
