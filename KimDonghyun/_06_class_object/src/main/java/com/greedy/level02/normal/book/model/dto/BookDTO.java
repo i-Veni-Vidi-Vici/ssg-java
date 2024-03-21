@@ -17,9 +17,10 @@ public class BookDTO {
     }
 
     public BookDTO(String title, String publisher, String author, int price, double discountRate) {
-        this.title = title;
-        this.publisher = publisher;
-        this.author = author;
+        this(title, publisher, author);
+//        this.title = title;
+//        this.publisher = publisher;
+//        this.author = author;
         this.price = price;
         this.discountRate = discountRate;
     }
