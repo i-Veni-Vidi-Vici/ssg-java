@@ -1,11 +1,11 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
 
 public class Car {
     private boolean engineStarted; //기본값 false
     private int speed;
     // 시동켜기
     public void startEngine() {
-        if(!engineStarted) {
+        if(engineStarted) {
             engineStarted = true;
             System.out.println("시동을 켰습니다...");
         }

@@ -1,4 +1,6 @@
-package com.sh.abstraction;
+package com.sh.abstraction.car;
+
+import com.sh.abstraction.car.Car;
 
 public class Driver {
     private Car car = new Car();
