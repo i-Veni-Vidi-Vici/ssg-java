@@ -4,8 +4,10 @@ public class Test {
     int a = 100; // 200
     static int s = 99;
 
+    // 필드 부분만 메모리에 적재
+
     public static void main(String[] args) {
-        Test t = new Test();
+        Test t = new Test(); // 스스로를 객체화한다!
         t.test1();
         // 100
         // 99
