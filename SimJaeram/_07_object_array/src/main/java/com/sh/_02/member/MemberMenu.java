@@ -65,8 +65,8 @@ public class MemberMenu {
                         member.getPassword(),
                         member.getName(),
                         member.getCreatedAt());
-        System.out.println("--------------------------------------------");
             }
+            System.out.println("--------------------------------------------");
         }
         else {
             System.out.println("> 저장된 회원정보가 없습니다.");
@@ -75,13 +75,12 @@ public class MemberMenu {
     }
 
     /**
-     * <pre>
-     *     1. 사용자 입력 값으로
-     * </pre>
+     * 1. 사용자 입력값으로 Member객체를 생성
+     * 2. MemberManager객체 saveMember(member) 저장요청
      */
     private void saveMember() {
         // 회원정보 생성
-        Member[] member = inputMember();
+        Member member = inputMember();
         boolean success = memberManager.saveMember(member);
         System.out.println(success ?
                 "> 회원 정보를 성공적으로 저장했습니다. " :
@@ -106,5 +105,6 @@ public class MemberMenu {
         String password = sc.next();
         System.out.print(" 이름 입력 : ");
         String name = sc.next();
+        return new Member(id, username, password, name, LocalDateTime.now());
     }
 }
