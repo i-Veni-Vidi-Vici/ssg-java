@@ -21,7 +21,7 @@ public class StudentDTO {
 
     public String information()
     {
-        return grade+","+classroom+","+name+","+kor+","+eng+","+math;
+        return " "+grade+"  "+classroom+" "+name+"  "+kor+"     "+eng+"     "+math;
     }
 
     public int getGrade() {
