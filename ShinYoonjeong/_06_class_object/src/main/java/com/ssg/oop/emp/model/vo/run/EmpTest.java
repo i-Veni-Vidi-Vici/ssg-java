@@ -22,8 +22,9 @@ public class EmpTest {
             String choice = sc.next();
             switch(choice)
             {
-                case "1" : Employee.emInput(); break;
-                case "2" : Employee.emOutput(); break;
+                case "1" : e = new Employee();
+                e.emInput(); break;
+                case "2" : Employee.emInput(); break;
                 case "3" : Employee.emOutput(); break;
                 case "9" : return;
                 default :
