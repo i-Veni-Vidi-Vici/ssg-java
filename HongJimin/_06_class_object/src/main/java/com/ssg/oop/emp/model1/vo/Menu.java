@@ -15,22 +15,35 @@ public class Menu {
                 + "*************************************\n"
                 + "입력 : ";
 
-        Employee employee = new Employee(); // Employee객체를 대입할 변수
+        Employee employee = null; // Employee객체를 대입할 변수
         while (true) {
             System.out.print(menu);
             String choice = sc.next();
             switch (choice) {
                 case "1":
+                    employee = new Employee();
                     employee.empInput();
                     break;
                 case "2":
-                    employee.deleteEmp();
+                    if (employee == null) {
+                        System.out.println("사원을 먼저 입력해주세요!");
+                        break;
+                    } else {
+                        employee = null;
+                    }
                     break;
                 case "3":
+                    if (employee == null) {
+                        System.out.println("사원을 먼저 입력해주세요!");
+                        break;
+                    }
                     employee.empOutput();
                     break;
                 case "0":
-                    break;
+                    System.out.println("끝");
+                    return;
+                default:
+                    System.out.println("다시 입력해~~~~~~~~~");
 
             }
         }
