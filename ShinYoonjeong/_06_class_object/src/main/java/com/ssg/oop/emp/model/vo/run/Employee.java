@@ -59,5 +59,17 @@ public class Employee {
     }
 
     public void empOutput() {
+        System.out.println(this.empNo);
+        System.out.println(this.empName);
+        System.out.println(this.dept);
+        System.out.println(this.job);
+        System.out.println(this.age);
+        System.out.println(this.gender);
+        System.out.println(this.salary);
+        System.out.println(this.bonusPoint);
+        System.out.println(this.phone);
+        System.out.println(this.address);
+
+
     }
 }

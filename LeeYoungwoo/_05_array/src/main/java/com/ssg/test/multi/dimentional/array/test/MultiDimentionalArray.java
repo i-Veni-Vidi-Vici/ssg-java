@@ -114,7 +114,7 @@ public class MultiDimentionalArray {
         for(int i = 0; i < lottoArr.length; i++){
             lottoArr[i] = rnd.nextInt(1,46);
 //            System.out.print(lottoArr[i] + " ");
-            // 이제 중복을 없애고 오름차순 정렬 해야됨 
+            // 이제 중복을 없애고 오름차순 정렬 해야됨
             // -> 오름차순 정렬하면서 비교할 값 두개가 같으면 젤 첫번째 for문으로 돌아오는 거 만들기
         }
 

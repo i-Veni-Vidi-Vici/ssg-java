@@ -17,12 +17,12 @@ public class App {
 
         DeepCopy  deepCopy = new DeepCopy();
 //        deepCopy.test1();
-//        deepCopy.test2();
+        deepCopy.test2();
 //        deepCopy.test3();
 //        deepCopy.test4();
 //        deepCopy.test5();
 //        deepCopy.test6();
-        deepCopy.test7();
+//        deepCopy.test7();
 
     }
 }
