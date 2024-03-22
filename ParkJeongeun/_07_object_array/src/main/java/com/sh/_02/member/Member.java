@@ -60,4 +60,6 @@ public class Member {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String getUsername() { return userName; }
 }
