@@ -25,11 +25,11 @@ public class Rectangle extends Shape {
 
     public Rectangle(Point leftTop, Point rightBottom) {
         points[0] = leftTop;
-        points[1] = new Point(points[0].getX() + width, points[0].getY());
         points[2] = rightBottom;
-        points[3] = new Point(points[0].getX(), points[0].getY() + height);
         this.width = Math.abs(points[0].getX() - points[2].getX());
         this.height = Math.abs(points[0].getY() - points[2].getY());
+        points[1] = new Point(points[0].getX() + width, points[0].getY());
+        points[3] = new Point(points[0].getX(), points[0].getY() + height);
     }
 
     @Override
