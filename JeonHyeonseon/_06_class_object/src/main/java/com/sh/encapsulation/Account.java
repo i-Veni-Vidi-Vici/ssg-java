@@ -20,8 +20,8 @@ package com.sh.encapsulation;
  */
 
 public class Account {
-    private String name;
-    private long balance; // 잔액
+    private String name; // 필드의 직접 접근을 방지하기 위해 private을 사용
+    private long balance; // 잔액,
 
     /**
      * 초기값 설정 메소드

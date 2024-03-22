@@ -12,9 +12,9 @@ public class MemberDto {
 
 
     // this는 non-static메소드 안에서 현재 객체를 가리키는 숨은 참조변수
-    // setter(값을 설정) : set + 대문자로 시작하는 필드명, 필드와 동일한 자료형의 매개변수를 가지고,
+    // setter(값을 설정, 설정자) : set + 대문자로 시작하는 필드명, 필드와 동일한 자료형의 매개변수를 가지고,
     //void 리턴타입
-    // getter(값을 읽음) : get + 대문자로 시작하는 필드명, 매개변수 없음. 필드와 동일한 리턴타입
+    // getter(값을 읽음, 접근자) : get + 대문자로 시작하는 필드명, 매개변수 없음. 필드와 동일한 리턴타입
     public void setId(long id) {
         this.id = id;
     }

@@ -60,6 +60,7 @@ public class MemberDTO {
      * @return
      */
     public boolean isEnabled(){
+
         return this.enabled;
     }
 
