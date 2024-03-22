@@ -2,6 +2,8 @@ package com.ssg.member.run;
 
 import com.ssg.member.model.Gold;
 import com.ssg.member.model.Silver;
+import com.ssg.member.model.Vip;
+import com.ssg.member.model.VVip;
 import com.ssg.member.repository.MemberRepository;
 
 public class Run {
@@ -14,6 +16,10 @@ public class Run {
         memberRepository.goldInsert(new Gold("김회장", "Gold",1000));
         memberRepository.goldInsert(new Gold("이회장", "Gold",2000));
         memberRepository.goldInsert(new Gold("오회장", "Gold",3000));
+        // vip 추가
+        memberRepository.vipInsert(new Vip("이부자", "Vip",10000));
+        // vvip 추가
+        memberRepository.vvipInsert(new VVip("김갑부", "VVip",100000));
         memberRepository.printData();
     }
 }
