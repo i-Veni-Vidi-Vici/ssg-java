@@ -31,14 +31,14 @@ public class Member {
     }
 
     public int getPoint() {
-        return point;
+        return this.point;
     }
 
     public void setPoint(int point) {
         this.point = point;
     }
 
-    public double getEjaPoint(){
+    public double getEjapoint(){
         return 0.0;
     }
 }
