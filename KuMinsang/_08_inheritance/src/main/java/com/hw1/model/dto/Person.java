@@ -16,7 +16,8 @@ public class Person {
     }
 
     public String information(){
-        return null;
+
+        return String.format("%d 살, %.1fcm, %.1fkg, ", age, height, weight);
     }
 
     public String getName() {

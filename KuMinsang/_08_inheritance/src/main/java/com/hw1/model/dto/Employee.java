@@ -7,8 +7,9 @@ public class Employee extends Person{
     public Employee() {
     }
 
-    public Employee(int age, double height, double weight, int salary, String dept) {
+    public Employee(String name, int age, double height, double weight, int salary, String dept) {
         super(age, height, weight);
+        this.name = name;
         this.salary = salary;
         this.dept = dept;
     }
@@ -29,5 +30,8 @@ public class Employee extends Person{
         this.dept = dept;
     }
 
-    
+    @Override
+    public String information() {
+        return String.format("%s, %s, %d원, %s부서", this.name, super.information(), this.salary, this.dept );
+    }
 }
