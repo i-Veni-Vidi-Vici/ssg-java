@@ -19,8 +19,8 @@ public class App {
         // 은행계좌관리
         Account account = new Account();
         // 초기값 설정
-//        account.name = "홍길동";
-//        account.balance = 1_000_000;
+//        account.name = "홍길동"; // 캡슐화가 적용되지 않음 -> 필드에 직접 접근
+//        account.balance = 1_000_000;  // 캡슐화가 적용되지 않음 -> 필드에 직접 접근
         account.init("홍길동", 1_000_000);
 
         account.printInfo();

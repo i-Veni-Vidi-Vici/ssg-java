@@ -10,7 +10,7 @@ package com.sh.encapsulation;
  * 캡슐화 Encapsulation
  * - 필드/메소드를 클래스 내부에 함께 작성하는 것 (자바에서는 무조건 같이 작성)
  * - private 필드의 직접 접근을 방지하고, public 메소드를 통해 제어할 수 있음
- * - 은닉화 됨 : 중요한 정보를 외부에 숨기는 것 (Account 클래시의 name, balance)
+ * - 은닉화 됨 : 중요한 정보를 외부에 숨기는 것 (Account 클래스의 name, balance)
  * </pre>
  */
 public class App {
