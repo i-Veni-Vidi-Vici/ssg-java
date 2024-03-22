@@ -37,8 +37,10 @@ public class EmpTest {
                 case "3" : if(e == null) {
                     System.out.println("> 먼저 회원정보를 입력해주세요...");
                     break;
+                } else {
+                    e.empOutput();
+                    break;
                 }
-                    e = new Employee(); e.empOutput(); break;
                 case "0" : return ;
                 default:
                     System.out.println("> 잘못 입력하셨습니다...");
