@@ -64,4 +64,14 @@ public class MemberRepository {
         }
         return members;
     }
+
+    public Member readMemberById(long id) {
+        for(int i = 0; i < index; i++) {
+            Member member = members[i];
+            if(member.getId() == id) {
+                return member; // 동일한 id의 회원을 찾으면, 즉시 반환.
+            }
+        }
+        return null;
+    }
 }

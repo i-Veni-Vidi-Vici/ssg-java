@@ -7,16 +7,17 @@ public class EmpTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String menu = "******* 사원 정보 관리 프로그램 **********\n"
-                + "1. 새 사원 정보 입력\n"
-                + "2. 사원 정보 삭제\n"
-                + "3. 사원정보 출력\n"
-                + "9. 끝내기\n"
-                + "*************************************\n"
-                + "입력 : ";
+        String menu = """
+                ******* 사원 정보 관리 프로그램 **********
+                1. 새 사원 정보 입력
+                2. 사원 정보 삭제
+                3. 사원정보 출력
+                9. 끝내기
+                *************************************
+                입력 :\s""";
 
 
-        Employee e = null; // Employee객체를 대입할 변수
+        Employee e = null; // Employee 객체를 대입할 변수
         while (true) {
             System.out.print(menu);
             // 사용자 선택값에 따른 분기처리
