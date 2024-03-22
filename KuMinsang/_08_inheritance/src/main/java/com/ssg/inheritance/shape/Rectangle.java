@@ -31,9 +31,6 @@ public class Rectangle extends Shape{
     public void draw() {    //“네 꼭지점이 (0, 0), (200, 0), (200, 100), (0, 100)이고, 너비가 200, 높이가 100인 사각형을 그린다.”
         System.out.printf("네 꼭지점이 (%d, %d), (%d, %d), (%d, %d), (%d, %d)이고, 너비가 %d, 높이가 %d인 사각형을 그린다.",
                 points[0].getX(), points[0].getY(),points[1].getX(), points[1].getY(),points[2].getX(), points[2].getY(),points[3].getX(), points[3].getY(), points[1].getX()-points[0].getX(), points[3].getY()-points[0].getY() );
-
-
-        super.draw();
     }
 
     @Override
