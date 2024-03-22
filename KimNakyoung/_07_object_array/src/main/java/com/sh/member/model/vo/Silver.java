@@ -1,4 +1,4 @@
-package com.ssg.test.member.model.vo;
+package com.sh.member.model.vo;
 
 
 /**
