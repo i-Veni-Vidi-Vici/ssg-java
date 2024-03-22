@@ -34,7 +34,7 @@ public class Run {
             System.out.print("이름 :");
             employees[index].setName(sc.next());
 
-            System.out.print("부서");
+            System.out.print("부서 : ");
             employees[index].setDept(sc.next());
             System.out.print("급여 :");
             employees[index].setSalary(sc.nextInt());
@@ -53,6 +53,9 @@ public class Run {
         }
 
         for (Employee employee : employees) {
+            if (employee == null) {
+                break;
+            }
             System.out.println(employee.information());
         }
 
