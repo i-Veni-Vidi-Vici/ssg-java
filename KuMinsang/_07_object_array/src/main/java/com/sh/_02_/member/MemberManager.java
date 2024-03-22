@@ -38,4 +38,9 @@ public class MemberManager {
         Member[] members = memberFindService.readMember();
         return members;
     }
+
+    public Member readMember(long id){
+        Member member = memberFindService.readMember(id);
+        return member;
+    }
 }
