@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Employee {
     //사원 정보 관리용 클래스
+        Scanner sc = new Scanner(System.in);
 
     int empNo;
     String empName;
@@ -15,11 +16,46 @@ public class Employee {
     double bonusPoint;
     String phone;
     String address;
+
+
     public void empInput(){
         Scanner sc = new Scanner(System.in);
+        System.out.print("사번 : ");
+        this.empNo = sc.nextInt();
+        System.out.print("이름 : ");
+        this.empName = sc.next();
+        System.out.print("소속 부서 : ");
+        this.dept = sc.next();
+        System.out.print("나이 : ");
+        this.age = sc.nextInt();
+        System.out.print("성별 : ");
+        this.gender = sc.next().charAt(0);
+        System.out.print("급여 : ");
+        this.salary = sc.nextInt();
+        System.out.print("보너스 포인트 : ");
+        this.bonusPoint = sc.nextInt();
+        System.out.print("핸드폰 : ");
+        this.phone = sc.next();
+        System.out.print("주소 : ");
+        this.address = sc.nextLine();
+        sc.nextLine();
     }
 
-    public void empOutput(){}
+    public void deleteEmp() {
+        this.empNo = getEmpNo();
+        this.empName = getEmpName();
+        this.dept = getDept();
+        this.job = getJob();
+        this.age = getAge();
+        this.gender = getGender();
+        this.salary = getSalary();
+        this.bonusPoint = getBonusPoint();
+        this.phone = getPhone();
+        this.address = getAddress();
+    }
+    public void empOutput(){
+        System.out.println("dkssud");
+    }
 
     public int getEmpNo() {
         return empNo;
@@ -100,4 +136,5 @@ public class Employee {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }
