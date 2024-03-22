@@ -39,9 +39,7 @@ package com.sh._02.member;
  */
 public class App {
     public static void main(String[] args) {
-        MemberManager memberManager = new MemberManager();
-        MemberMenu memberMenu = new MemberMenu(memberManager);
+        MemberMenu memberMenu = new MemberMenu();
         memberMenu.menu();
-        System.out.println(memberManager);
     }
 }
