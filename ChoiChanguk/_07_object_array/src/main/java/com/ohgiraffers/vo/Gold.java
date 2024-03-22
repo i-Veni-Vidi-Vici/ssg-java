@@ -1,4 +1,4 @@
-package com.ssg.vo;
+package com.ohgiraffers.vo;
 
 import java.util.Set;
 
