@@ -10,8 +10,6 @@ public class StudentVo {
     private char gender ;
 
 
-
-
     //기본생성자
     public StudentVo(){
         this.grade = grade;
@@ -85,5 +83,5 @@ public class StudentVo {
         System.out.println("성별 : " + this.getGender());
         System.out.println();
     }
-    
+
 }
