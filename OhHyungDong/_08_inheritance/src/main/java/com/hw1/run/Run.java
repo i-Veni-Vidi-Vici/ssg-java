@@ -20,7 +20,7 @@ public class Run {
         // 사원정보 등록
         int index = 0;
         Employee[] emp = new Employee[10];
-        
+
 
         //학생 정보 입력 및 출력
         String str = s.information();
