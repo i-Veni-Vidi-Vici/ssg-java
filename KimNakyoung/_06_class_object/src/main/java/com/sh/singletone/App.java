@@ -9,6 +9,8 @@ package com.sh.singletone;
 public class App {
     public static void main(String[] args) {
 //        Manager manager = new Manager();
+        // 객체 생성 안했는데 호출 가능
+        // 왜 -> static으로 만들어졌고 주솟값 리턴해주고 참조해서
         Manager manager = Manager.getInstance();
         System.out.println(manager);
         manager.getValues()[0] = "helloworld";

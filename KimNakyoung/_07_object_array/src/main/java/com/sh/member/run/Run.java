@@ -1,4 +1,4 @@
-package com.ssg.test.member.run;
+package com.sh.member.run;
 
 public class Run {
 
