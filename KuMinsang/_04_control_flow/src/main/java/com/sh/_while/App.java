@@ -1,4 +1,4 @@
-package com.sh.loop_while;
+package com.sh._while;
 
 public class App {
     public static void main(String[] args) {
