@@ -2,14 +2,24 @@ package com.ssg.test3.member.repository;
 
 import com.ssg.test3.member.model.vo.Gold;
 import com.ssg.test3.member.model.vo.Silver;
+import com.ssg.test3.member.model.vo.Vip;
+import com.ssg.test3.member.model.vo.VVip;
 
 public class MemberRepository {
     private static final int SMAX_MEMBER = 10;
     private static final int GMAX_MEMBER = 10;
+    private static final int VMAX_MEMBER = 10;
+    private static final int VVMAX_MEMBER = 10;
     private Silver[] silvers = new Silver[SMAX_MEMBER];
     private Gold[] golds = new Gold[GMAX_MEMBER];
+    private Vip[] vips = new Vip[VMAX_MEMBER];
+    private VVip[] vvips = new VVip[VVMAX_MEMBER];
+
+    // 다음에 추가할 회원인덱스(지금까지 저장한 회원수)
     private int sIndex;
     private int gIndex;
+    private int vIndex;
+    private int vvIndex;
 
 
     public void silverInsert(Silver silver) {
@@ -20,9 +30,23 @@ public class MemberRepository {
     }
 
     public void goldInsert(Gold gold) {
-        if(gIndex < SMAX_MEMBER) {
+        if(gIndex < GMAX_MEMBER) {
             golds[gIndex] = gold;
             gIndex++;
+        }
+    }
+
+    public void vipInsert(Vip vip) {
+        if(vIndex < VMAX_MEMBER) {
+            vips[vIndex] = vip;
+            vIndex++;
+        }
+    }
+
+    public void vvipInsert(VVip vVip) {
+        if(vvIndex < VVMAX_MEMBER) {
+            vvips[vvIndex] = vVip;
+            vvIndex++;
         }
     }
 
@@ -32,6 +56,8 @@ public class MemberRepository {
         System.out.println("--------------------------------------------------------");
         Silver[] silver = null;
         Gold[] gold = null;
+        Vip[] vip = null;
+        VVip[] vvip = null;
         if(sIndex > 0) {
             silver = new Silver[sIndex];
 
@@ -64,5 +90,35 @@ public class MemberRepository {
                         goldValue.getEjapoint(goldValue.getPoint()));
             }
         }
+        if(vIndex >= 0) {
+            vip = new Vip[vIndex];
+
+            for(int i = 0; i < vip.length; i++) {
+                vip[i] = this.vips[i];
+            }
+            for(Vip vipValue : vip) {
+                System.out.printf("%s           %s          %d          %.2f\n",
+                        vipValue.getName(),
+                        vipValue.getGrade(),
+                        vipValue.getPoint(),
+                        vipValue.getEjapoint(vipValue.getPoint()));
+            }
+        }
+        if(vvIndex >= 0) {
+            vvip = new VVip[vvIndex];
+
+            for(int i = 0; i < vvip.length; i++) {
+                vvip[i] = this.vvips[i];
+            }
+            for(VVip vvipValue : vvip) {
+                System.out.printf("%s           %s          %d          %.2f\n",
+                        vvipValue.getName(),
+                        vvipValue.getGrade(),
+                        vvipValue.getPoint(),
+                        vvipValue.getEjapoint(vvipValue.getPoint()));
+            }
+        }
     }
+
+
 }
