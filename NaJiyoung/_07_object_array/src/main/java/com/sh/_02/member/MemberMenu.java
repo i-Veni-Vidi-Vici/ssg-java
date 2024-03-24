@@ -36,7 +36,8 @@ public class MemberMenu {
         회원관리
         ===================
         1. 회원정보 저장
-        2. 회원정보 열람
+        2. 회원 아이디로 조회
+        3. 전체 회원정보 열람
         0. 종료
         ===================
         입력 : """;
@@ -47,11 +48,28 @@ public class MemberMenu {
 
             switch (choice) {
                 case "1" : saveMember(); break;
-                case "2" : readMember(); break;
+                case "2" : readMemberById(); break;
+                case "3" : readMember(); break;
                 case "0" : return;
                 default:
                     System.out.println("> 잘못 입력하셨습니다...");
             }
+        }
+    }
+
+    private void readMemberById() {
+        System.out.print("> 조회할 아이디(번호)를 입력하세요 : ");
+        long id = sc.nextLong();
+        Member member = memberManager.readMemberById(id);
+        if(member!=null) {
+            System.out.println("------------------------");
+            System.out.println("> id : " + member.getId());
+            System.out.println("> username : " + member.getUsername());
+            System.out.println("> name : " + member.getName());
+            System.out.println("> createdAt : " + member.getCreatedAt());
+            System.out.println("------------------------");
+        } else {
+            System.out.println("> 조회된 회원이 없습니다.");
         }
     }
 
