@@ -1,4 +1,4 @@
-package com.ssg.test;
+package com.ssg.test.array;
 
 public class Test1 {
     public static void main(String[] args) {
@@ -13,12 +13,10 @@ public class Test1 {
         // 배열 인덱스에 넣어 그 값을 출력하는 코드를 작성하시오.
 
         int[] arr = new int[100];
-        int k = 0;
 
         for(int i = 0; i < arr.length; i++){
-            arr[i] = k;
-            k++;
-            System.out.println(k);
+            arr[i] = i + 1;
+            System.out.println(arr[i]);
         }
     }
 }
