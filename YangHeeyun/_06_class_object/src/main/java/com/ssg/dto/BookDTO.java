@@ -1,4 +1,4 @@
-package com.sh.ssg.dto;
+package com.ssg.dto;
 
 /**
  - private

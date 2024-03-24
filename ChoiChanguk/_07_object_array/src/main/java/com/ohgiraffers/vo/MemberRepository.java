@@ -1,4 +1,4 @@
-package com.ssg.vo;
+package com.ssg.emp;
 
 public class MemberRepository {
     private Silver[] silvers = new Silver[10];

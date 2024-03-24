@@ -1,4 +1,4 @@
-package com.ssg.vo;
+package com.ssg.emp;
 
 public class Vip {
     private String name;

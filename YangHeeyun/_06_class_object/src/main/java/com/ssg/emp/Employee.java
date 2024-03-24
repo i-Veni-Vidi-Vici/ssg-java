@@ -1,4 +1,4 @@
-package com.sh.ssg.vo;
+package com.ssg.emp;
 import java.util.Scanner;
 public class Employee {
     Scanner sc = new Scanner(System.in);

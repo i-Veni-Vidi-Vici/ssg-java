@@ -1,4 +1,4 @@
-package com.ssg.vo;
+package com.ssg.emp;
 
 import java.util.Set;
 
