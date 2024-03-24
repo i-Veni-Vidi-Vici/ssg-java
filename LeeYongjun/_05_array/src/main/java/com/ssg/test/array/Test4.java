@@ -4,12 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test4 {
-    public static void main(String[] args) {
-        Test4 test4 = new Test4();
-        test4.test();
-    }
 
-    private void test() {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 전화번호 입력 받기
         System.out.print("전화번호를 입력 : ");

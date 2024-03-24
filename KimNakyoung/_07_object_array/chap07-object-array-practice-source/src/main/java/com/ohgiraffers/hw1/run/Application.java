@@ -48,6 +48,7 @@ public class Application {
         System.out.println("-----------------------------------");
         int salary = 0;
         double bonus = 0;
+//        double totalSalary = 0;
         int totalSalary =0;
         int sumSalary = 0;
 
@@ -59,6 +60,8 @@ public class Application {
             bonus = employeeDTOS[i].getBonusPoint();
 
 
+//            totalSalary = salary + (salary * (double) bonus) * 12;
+
             totalSalary = (int)((salary + (salary * bonus)) * 12); // 정수로 출력하기 위해
             sumSalary += totalSalary;
 
@@ -69,9 +72,6 @@ public class Application {
         int avgSalary = (sumSalary / employeeDTOS.length);
 
         System.out.println("직원들의 연봉의 평균 : "+ avgSalary + "원") ;
-
-
-
 
 
 
