@@ -15,8 +15,8 @@ public class FireEngine extends Car{
 
     @Override
     public void honk(){
-        if(isRunning){ // 2. 부모클래스의 필드 접근제한자를 protected로 설정
-//        if(isRunning()){ //1. public getter 메소드를 이용해서 접근가능
+//        if(this.isRunning){ // 2. 부모클래스의 필드 접근제한자를 protected로 설정
+        if(isRunning()){ //1. public getter 메소드를 이용해서 접근가능
             System.out.println("빵빵빠앙아아아앙아앙");
         }
         else {

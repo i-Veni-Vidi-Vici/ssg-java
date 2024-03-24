@@ -13,7 +13,7 @@ public class Car extends Object{
     /**
      * protected필드 같은 패키지 접근이 가능하고, 다른 패키지의 자식클래스에서도 직접 접근가능하다.
      */
-    protected boolean isRunning;
+    private boolean isRunning;
 
     public Car(){
         super();  // 아무것도 상속하지 않았다면 extends Object를 한 것이다.
@@ -39,7 +39,7 @@ public class Car extends Object{
         }
     }
 
-    public boolean IsRunning(){
+    public boolean isRunning(){
         return this.isRunning;
     }
 }
