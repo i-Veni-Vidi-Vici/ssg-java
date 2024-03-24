@@ -33,7 +33,7 @@ public class EmpTest {
         while (true) {
             System.out.print(menu);
             // 사용자 선택값에 따른 분기처리
-            String num = sc.nextLine(); 
+            String num = sc.nextLine();
             switch (num){
                 case "1":
                 if(employee == null) {

@@ -5,8 +5,6 @@ public class Circle extends Shape{
     int r;
 
 
-
-
     public Circle(Point point,int r) {
         this.point = point;
         this.r = r;
