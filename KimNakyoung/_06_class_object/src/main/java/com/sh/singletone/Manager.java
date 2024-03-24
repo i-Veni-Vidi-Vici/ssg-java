@@ -15,9 +15,9 @@ public class Manager {
     // manager를 반환
     public static Manager getInstance(){
         if(instance == null){
-            instance = new Manager(); // 최초 1회 할당
+            instance = new Manager(); // 최초 1회 할당 // 객체 생성
         }
-        return instance; // 두번째 부터 만들어진 객체 재사용
+        return instance; // 두번째 부터 만들어진 객체 재사용 // 주솟값을 리턴해줌 그래서 main
 
 
         /**
