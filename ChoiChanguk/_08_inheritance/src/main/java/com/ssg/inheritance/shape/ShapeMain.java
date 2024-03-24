@@ -8,8 +8,8 @@ public class ShapeMain {
         // circle1
         Circle circle = new Circle(new Point(100, 100), 10);
         circle.draw();
-        System.out.println("원의 넓이는 " + circle.getArea() + "입니다.");
-
+        //System.out.println("원의 넓이는 " + circle.getArea() + "입니다.");
+        System.out.printf("원의 넓이는 %.6f입니다\n",circle.getArea());
         // rect1
         Point[] points = {
                 new Point(0,0),

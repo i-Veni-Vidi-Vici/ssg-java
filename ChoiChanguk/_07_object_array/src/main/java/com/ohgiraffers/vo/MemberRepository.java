@@ -49,7 +49,7 @@ public class MemberRepository {
         if (silverIndex > 0) {
 
             for (int i = 0; i < silverIndex; i++) {
-                System.out.printf("%s    %s    %d     %.2f\n", silvers[i].getName(), silvers[i].getGrade(), silvers[i].getPoint(), silvers[i].getEjapoint());
+                System.out.printf("%-5s%s    %d     %.2f\n", silvers[i].getName(), silvers[i].getGrade(), silvers[i].getPoint(), silvers[i].getEjapoint());
             }
         } else {
             System.out.println("      등록된 silver등급이 없습니다")
@@ -57,7 +57,7 @@ public class MemberRepository {
         }
         if (goldIndex > 0) {
             for (int i = 0; i < goldIndex; i++) {
-                System.out.printf("%s    %s      %d     %.2f\n", golds[i].getName(), golds[i].getGrade(), golds[i].getPoint(), golds[i].getEjapoint());
+                System.out.printf("%-5s%s      %d     %.2f\n", golds[i].getName(), golds[i].getGrade(), golds[i].getPoint(), golds[i].getEjapoint());
             }
         } else {
             System.out.println("      등록된 gold등급이 없습니다");
@@ -65,7 +65,7 @@ public class MemberRepository {
 
         if (vipIndex > 0) {
             for (int i = 0; i < vipIndex; i++) {
-                System.out.printf("%s    %s       %d    %.2f\n", vips[i].getName(), vips[i].getGrade(), vips[i].getPoint(), vips[i].getEjapoint());
+                System.out.printf("%-5s%s       %d    %.2f\n", vips[i].getName(), vips[i].getGrade(), vips[i].getPoint(), vips[i].getEjapoint());
             }
         }
         else
@@ -73,7 +73,7 @@ public class MemberRepository {
 
         if (VvipIndex>0) {
             for (int i = 0; i < vipIndex; i++) {
-                System.out.printf("%s    %s      %d   %.2f\n", Vvips[i].getName(), Vvips[i].getGrade(), Vvips[i].getPoint(), Vvips[i].getEjapoint());
+                System.out.printf("%-5s%s      %d   %.2f\n", Vvips[i].getName(), Vvips[i].getGrade(), Vvips[i].getPoint(), Vvips[i].getEjapoint());
             }
         }
         else

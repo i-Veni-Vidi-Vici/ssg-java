@@ -11,8 +11,8 @@ public class Run {
         memberRepository.goldInsert(new Gold("홍길동","Gold",2000));
         memberRepository.goldInsert(new Gold("홍길동","Gold",3000));
 
-        //memberRepository.vipInsert(new Vip("이부자","vip",10000));
-        //memberRepository.VvipInsert(new Vvip("이부자","vvip",100000));
+        memberRepository.vipInsert(new Vip("이부자","vip",10000));
+        memberRepository.VvipInsert(new Vvip("이부자","vvip",100000));
 
         memberRepository.printData();
     }
