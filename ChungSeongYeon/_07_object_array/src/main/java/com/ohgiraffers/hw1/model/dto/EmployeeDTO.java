@@ -44,19 +44,9 @@ public class EmployeeDTO {
 
     }
 
-    public String information(){
-        String infoStr = " ";
-        infoStr += empNo + ", ";
-        infoStr += empName + ", ";
-        infoStr += dept + ", ";
-        infoStr += job + ", ";
-        infoStr += age + ", ";
-        infoStr += gender + ", ";
-        infoStr += salary + ", ";
-        infoStr += bonusPoint + ", ";
-        infoStr += phone + ", ";
-        infoStr += address + ", ";
-        return infoStr;
+    public String information() {
+        return empNo + ", " + empName + ", " + dept + ", " + job + ", " + age + ", " + gender + ", " + salary
+                + ", " + bonusPoint + ", " + phone + ", " + address;
     }
 
     public int getEmpNo() {
