@@ -25,12 +25,12 @@ public class App {
 
         // 입금
 //        account.balance += 1_000_000;
-        account.balance += -1_000_000; // 음수 입금
+//        account.balance += -1_000_000; // 음수 입금
 //        account.balance *= 1_000_000; // 입금 연산 잘못하기
 
         account.deposit(1_000_000);
         account.deposit(-1_000_000); // 입금처리 안됨.
-        System.out.println(account.name + "님의 잔액은 " + account.balance + "원 입니다.");
+        account.printInfo();
 
         // 출금
 //        account.balance -= 500_000;
@@ -39,8 +39,7 @@ public class App {
         account.withdraw(500_000);
         account.withdraw(-500_000);
         account.withdraw(10_000_000);
-
-        System.out.println(account.name + "님의 잔액은 " + account.balance + "원 입니다.");
+        account.printInfo();
 
     }
 }
