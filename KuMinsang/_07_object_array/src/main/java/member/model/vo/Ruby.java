@@ -1,17 +1,16 @@
 package member.model.vo;
 
-public class VVip extends Member{
-    final double POINT = 0.15;
+public class Ruby extends Member{
+    final double POINT = 0.30;
 
-    public VVip(String name, String grade, int point) {
+    public Ruby(String name, String grade, int point) {
         super(name, grade, point);
     }
 
     @Override
-    public double getEjapoint(){
-        return getPoint() * POINT;
+    public double getEjapoint() {
+        return 0;
     }
-
     public double getPOINT() {
         return POINT;
     }
