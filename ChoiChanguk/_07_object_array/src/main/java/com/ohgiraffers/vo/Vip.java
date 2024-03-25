@@ -1,45 +1,13 @@
-package com.ssg.vo;
+package com.ohgiraffers.vo;
 
-public class Vip {
-    private String name;
+public class Vip extends Member{
 
-    private String grade;
-
-    private int point;
-
-    public Vip(String name,String grade,int point)
-    {
-        this.name=name;
-        this.grade=grade;
-        this.point=point;
+    public Vip(String name, String grade, int point) {
+        super(name, grade, point);
     }
 
-
+    @Override
     public double getEjapoint() {
-        return this.point * 0.1;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
+        return this.point*0.1;
     }
 }
