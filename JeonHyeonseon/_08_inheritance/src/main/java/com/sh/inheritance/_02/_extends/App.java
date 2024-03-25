@@ -21,11 +21,11 @@ package com.sh.inheritance._02._extends;
  */
 public class App {
     public static void main(String[] args) {
-//        Car car = new Car();
-//        car.run();
-//        car.honk();
-//        car.stop();
-//        car.honk();
+        Car car = new Car();
+        car.run();
+        car.honk();
+        car.stop();
+        car.honk();
 
         // 소방차
         FireEngine fireEngine = new FireEngine();
