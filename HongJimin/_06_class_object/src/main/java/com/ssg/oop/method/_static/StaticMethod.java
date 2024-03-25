@@ -1,16 +1,5 @@
 package com.ssg.oop.method._static;
 
-<<<<<<< HEAD
-public class StaticMethod {
-
-    //static method
-    //1. 전달한 문자열을 모두 대문자로 바꾸는 static 메소드
-    //메소드명 : toUpper(String) : String
-
-
-    //2. 문자열(1)에서 전달받은 인덱스(2)의 문자를 전달받은 문자(3)로 변경하는 static 메소드
-    //메소드명 : setChar(String, int, char) : String
-=======
 import java.util.Arrays;
 
 public class StaticMethod {
@@ -30,23 +19,32 @@ public class StaticMethod {
         for (int i = 0; i < str.length(); i++) {
             strs[i] = str.charAt(i);
         }
-
-
-
-        String newWord = Arrays.toString(strs);
-        return newWord;
+        strs[num] = chr;
+        System.out.println(Arrays.toString(strs));
+        return str;
     }
->>>>>>> bb92cf9fc765e01a87aea7fd5f84a1a37520c15b
 
 
     //3. 전달한 문자열에서 영문자의 개수를 리턴하는 static 메소드
     //메소드명 : getAlphabetLength(String) : int
+    public static int getAlphabetLength(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
+                count++;
+            }
+        }
+        System.out.println(count);
+        return count;
+    }
 
 
     //4. 전달한 문자열값을 하나로 합쳐서 리턴
     //메소드명 : concat(String, String) : String
-<<<<<<< HEAD
-=======
+    public static String concat(String str1, String str2){
+        String strs = str1+str2;
+        System.out.println(strs);
+        return strs;
+    }
 
->>>>>>> bb92cf9fc765e01a87aea7fd5f84a1a37520c15b
 }
