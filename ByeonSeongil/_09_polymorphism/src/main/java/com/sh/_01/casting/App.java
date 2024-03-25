@@ -47,7 +47,7 @@ public class App {
     }
 
     /**
-     * 타입확인 - instancof 연산자
+     * 타입확인 - instanceof 연산자
      * - 객체 instanceof 클래스 -> boolean
      * - 해당타입으로 제어가능한지 여부를 boolean으로 반환한다.
      * - true를 반환한다면, 해당타입으로 형변환시 오류가 발생하지 않는다.
