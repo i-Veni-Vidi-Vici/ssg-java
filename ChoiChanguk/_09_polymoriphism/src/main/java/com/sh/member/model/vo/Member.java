@@ -1,6 +1,7 @@
 package com.sh.member.model.vo;
 
-public abstract class Member {
+public abstract class Member  {
+
     private String name;
     private String grade;
     private int point;
