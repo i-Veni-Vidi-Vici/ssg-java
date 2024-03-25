@@ -9,7 +9,9 @@ public class Run {
         StaticMethod.setChar("java", 0, 'x');
 
         //3 getAlphabetLength호출시 "안녕, 난 James야!" 전달하고, 5 리턴
+        StaticMethod.getAlphabetLength("안녕, 난 James야!");
 
         //4 concat 호출시 "hello", "world" 호출후 "helloworld" 리턴
+        StaticMethod.concat("hello", "world");
     }
 }
