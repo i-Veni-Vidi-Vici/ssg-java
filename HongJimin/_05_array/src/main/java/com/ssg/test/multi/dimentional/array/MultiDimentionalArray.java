@@ -41,9 +41,9 @@ public class MultiDimentionalArray {
         int[][] arr = new int[4][4];
 
         int n = 16;
-        for (int i = 3; i >= 0; i--) {
+        for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = n--;
+                arr[j][i] = n--;
             }
         }
         print(arr);

@@ -9,7 +9,7 @@ package com.sh.array;
  *
  * 메모리영역
  * 1. call stack 메소드 호출 영역 (실행순서별로 밑에서부터 쌓인다.)
- *  - 변수를 이름으로 참조할 수 있다. ???
+ *  - 변수를 이름으로 참조할 수 있다.
  *  - 변수에 초기값을 제공하지 않는다. 반드시 값대입후 사용해야 한다.
  *
  * 2. heap 객체 영역 (new 연산자로 생성된 객체의 저장공간)
@@ -57,7 +57,7 @@ public class Array1 {
     public void test2(){
         // 1. 배열 선언 (stack)
         double[] darr;
-        // 2. 배열객체 할당
+        // 2. 배열객체 할당 - heap객체영역에 저장
         darr = new double[10];
         // 3. 값사용
         System.out.println(darr[0]);
@@ -130,7 +130,7 @@ public class Array1 {
      */
     public void test4(){
 //        boolean[] bools = new boolean[] {true, false, true, false, true}; // 크기를 명시하지 않음. 하지만 {}를 통해서 5라는 것을 알 수 있음
-        boolean[] bools = {true, false, true, false, true}; // 131줄과 같은 의미
+        boolean[] bools = {true, false, true, false, true}; // 132줄과 같은 의미
 //        System.out.println(bools.length); // 5
 //        for(int i = 0; i < 5; i++) { // magic number -> 5가 무슨 뜻인지에 대한 의미
                                         // magic number 대신 변수를 사용하자. 의도파악이 쉽고, 유지보수하기 좋다.

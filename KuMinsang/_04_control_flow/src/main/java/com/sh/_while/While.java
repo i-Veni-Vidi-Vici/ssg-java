@@ -1,4 +1,4 @@
-package com.sh.loop_while;
+package com.sh._while;
 
 import java.awt.desktop.SystemEventListener;
 

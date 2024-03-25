@@ -2,7 +2,7 @@ package com.ssg.test.array;
 
 import java.util.Scanner;
 
-public class Test4 {
+ public class Test4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("전화번호를 입력하세요 : ");

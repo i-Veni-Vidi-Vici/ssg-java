@@ -16,4 +16,5 @@ public class Application {
         BookDTO bookDTO3 = new BookDTO("홍길동전", "활빈당", "허균", 5000000, 0.5);
         bookDTO3.printInformation();
     }
+
 }
