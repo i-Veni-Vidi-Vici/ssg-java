@@ -3,7 +3,7 @@ package com.sh.multi.dimention;
 /**
  * 다차원배열
  * - 2차원 이상의 배열을 의미
- * - 처번째 배열 인덱스마다 서로 다른 두번째 배열의 주소를 가지고 있다.
+ * - 첫번째 배열 인덱스마다 서로 다른 두번째 배열의 주소를 가지고 있다.
  * - 1차원 배열을 묶어서 관리하는 것.
  * - 3차원이상도 가능은 하지만 자주 사용되지 않는다.
  *
@@ -15,7 +15,7 @@ package com.sh.multi.dimention;
  */
 public class MultiDimentionalArray {
     public void test1() {
-        // 1. 2차원 배열변수 선언
+        // 1. 2차원 배열변수 선언;
         int[][] arr;  // arr의 변수는 int[][]이다.
 //        int arr[][];
 
@@ -25,7 +25,7 @@ public class MultiDimentionalArray {
         // 3. 첫번째 배열 각 인덱스에 두번째 1차원배열을 할당(생성)한다.
         arr[0] = new int[2]; // 열처럼 생각
         arr[1] = new int[2];
-        arr[2] = new int[2];
+        arr[2] = new int[2];  // arr = new int[3][2]
 
         // 4. 두번째 배열의 각 인덱스별로 값 할당
         arr[0][0] = 10;

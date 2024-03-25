@@ -1,40 +1,18 @@
+<<<<<<< HEAD
 package com.ssg.emp;
+=======
+package com.ohgiraffers.vo;
+>>>>>>> 9392fcfa5e97a02d3ea4517a1734de634c7524e7
 
-public class Silver {
-    private String name;
-    private String grade;
-    private int point;
+public class Silver extends Member {
 
-    public int getPoint() {
-        return point;
-    }
     public Silver(String name, String grade, int point){
-        this.name=name;
-        this.grade=grade;
-        this.point=point;
+        super(name, grade, point);
+
     }
 
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-    public double getEjapoint()
-    {
-        return this.point*0.02;
+    @Override
+    public double getEjapoint() {
+        return this.point*0.05;
     }
 }

@@ -7,7 +7,7 @@ public class Manager {
      */
     private String[] values = new String[3];
     private String str="abc";
-    private Integer[] ints = new Integer[3];
+    private int[] ints = new int[3];
     private Integer num;
 
     private Manager(){}
@@ -27,22 +27,22 @@ public class Manager {
         System.out.println(values);
     }
 
-    public Integer[] getInts() {
+    public int[] getInts() {
         return ints;
     }
 
-    public void setInts(Integer[] ints) {
+    public void setInts(int[] ints) {
         this.ints = ints;
     }
 
     public String getStr(){return this.str;}
 
 
-    public Integer getNum() {
+    public int getNum() {
         return num;
     }
 
-    public void setNum(Integer num) {
+    public void setNum(int num) {
         this.num = num;
     }
 }
