@@ -7,10 +7,10 @@ import member.model.vo.VVip;
 
 public class MemberRepository {
     private static final int MAX_INDEX = 10;
-    private Silver[] silverMembers = new Silver[MAX_INDEX];
-    private Gold[] goldMembers = new Gold[MAX_INDEX];
-    private Vip[] vipMembers = new Vip[MAX_INDEX];
-    private VVip[] vvipMembers = new VVip[MAX_INDEX];
+    private final Silver[] silverMembers = new Silver[MAX_INDEX];
+    private final Gold[] goldMembers = new Gold[MAX_INDEX];
+    private final Vip[] vipMembers = new Vip[MAX_INDEX];
+    private final VVip[] vvipMembers = new VVip[MAX_INDEX];
     private int silverIndex;
     private int goldIndex;
     private int vipIndex;

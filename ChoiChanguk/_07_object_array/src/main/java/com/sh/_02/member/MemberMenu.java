@@ -65,7 +65,9 @@ public class MemberMenu {
 
     private void readMemberById() {
         System.out.printf("찾으실 id를 입력하세요 : ");
+
         long id=sc.nextLong();
+
         Member member =memberManager.memberByid(id);
 
         if(member==null)
@@ -73,7 +75,8 @@ public class MemberMenu {
             System.out.println("찾으시는 아이디가 없거나, 잘못된 아이디입니다");
         }
         else
-        System.out.printf("ID = %d UserName = %s 암호 = %s \n이름 = %s 등록 시간 = %s\n",member.getId(),member.getUsername(),member.getPassword(),member.getName(),member.getCreatedAt());
+            System.out.printf("ID = %d UserName = %s 암호 = %s \n이름 = %s 등록 시간 = %s\n",
+                    member.getId(), member.getUsername(), member.getPassword(), member.getName(), member.getCreatedAt());
     }
 
     private void readMember() {

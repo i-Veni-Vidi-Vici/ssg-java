@@ -22,10 +22,10 @@ public class ShallowCopy {
         arr[1] *= 10;
 
         // 값 확인
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.printf("arr[%d] = %d\n", i, arr[i]);
         }
-        for(int i = 0; i < arr2.length; i++) {
+        for (int i = 0; i < arr2.length; i++) {
             System.out.printf("arr2[%d] = %d\n", i, arr[i]);
         }
 
@@ -34,7 +34,7 @@ public class ShallowCopy {
     /**
      * 얕은 복사 활용1 : 매개인자
      */
-    public void test2(){
+    public void test2() {
         int[] arr = {1, 2, 3};
         System.out.println("test2 : " + arr.hashCode());
         print(arr);
@@ -42,7 +42,7 @@ public class ShallowCopy {
 
     public void print(int[] arr) {
         System.out.println("print : " + arr.hashCode());
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
@@ -54,7 +54,7 @@ public class ShallowCopy {
     public void test3() {
         String[] animals = getAimalArray();
         System.out.println("test3 : " + animals.hashCode());
-        for(int i = 0; i < animals.length; i++){
+        for (int i = 0; i < animals.length; i++) {
             System.out.println(animals[i]);
         }
     }
@@ -70,26 +70,28 @@ public class ShallowCopy {
      * 이때 "배열 생성메소드" generateArray(from : int, to : int)를 사용하세요.
      */
 
-//    public void test4() {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("첫번째 정수 입력 : ");
-//        int from = sc.nextInt();
-//        System.out.println("두번째 정수 입력 : ");
-//        int to = sc.nextInt();
+    public void test4() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("첫번째 정수 입력 : ");  // from
+        int from = sc.nextInt();
+        System.out.println("두번째 정수 입력 : ");  // to
+        int to = sc.nextInt();
         // 배열생성
-//        int[] arr = generateArray(from, to);
+        int[] arr = generateArray(from, to);
         // 배열 출력
-//        for(int i = 0; i < arr.length; i++)
-//            System.out.println(arr[i] + " ");
-//        }
-//    }
-//
-//    public String[] generateArray(int from, int to) {
-//       int len = to - from + 1;
-//       int[] arr = new int[len];
-//       int value = from;
-//       for(int i = 0; i < arr.length; i++) {
-//           arr[i] = value++;
-//    }
-//       return arr;
-}
+        for (int i = 0; i < arr.length; i++)
+            System.out.println(arr[i] + " ");
+    }
+
+
+    public int[] generateArray(int from, int to) {
+        int len = to - from + 1;
+        int[] arr = new int[len];
+        int value = from;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = value;
+        }
+        return arr;
+    }
+    }
+

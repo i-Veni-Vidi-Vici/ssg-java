@@ -19,4 +19,10 @@ public class MemberFindService {
         Member[] members = memberRepository.readMember();
         return members;
     }
+
+    public Member readMember(long id){
+        Member member = memberRepository.readMember(id);
+        return member;
+    }
+
 }

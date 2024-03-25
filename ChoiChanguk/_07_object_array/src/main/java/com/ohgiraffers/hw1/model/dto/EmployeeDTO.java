@@ -20,6 +20,7 @@ public class EmployeeDTO {
     private double bonusPoint;// 보너스포인트
     private String phone;//전화번호
     private String address;// 주소
+
     public EmployeeDTO(){};
     public EmployeeDTO(int empNo, String empName,int age, char gender, String phone, String address) {
         this.empNo = empNo;
