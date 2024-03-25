@@ -1,5 +1,6 @@
 package com.sh._02_.member;
 
+import javax.sound.midi.Soundbank;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ public class MemberMenu {
     private Scanner sc = new Scanner(System.in);
     private MemberManager memberManager = new MemberManager();
 
-    public void menu(){
+    public void menu() {
         String menu = """
                 =====================
                 회원관리
@@ -42,11 +43,11 @@ public class MemberMenu {
                 =====================
                 """;
 
-        while(true){
+        while (true) {
             System.out.println(menu);
             String choice = sc.next();
 
-            switch(choice){
+            switch (choice) {
                 case "1":
                     saveManager();
                     break;
@@ -66,27 +67,28 @@ public class MemberMenu {
     }
 
 
-    private void readMember(){
+    private void readMember() {
         Member[] members = memberManager.readMember();
-        if(members == null)
+        if (members == null)
             System.out.println("저장된 회원 정보가 없습니다");
-        for(Member member : members){
+        for (Member member : members) {
             System.out.printf("%d %s %s %s %s\n",
                     member.getId(),
                     member.getUsername(),
                     member.getPassword(),
                     member.getName(),
-                    member.getCreateAt() );
+                    member.getCreateAt());
         }
     }
 
-    private void saveManager(){
+    private void saveManager() {
 /*        Member[] members = new Member[3];
         members[0] = new Member(1L, "abc","123", "홍길동", LocalDateTime.now());
         members[1] = new Member(2L, "def","456", "박춘배", LocalDateTime.now());
         members[2] = new Member(3L, "hij","789", "엄준식", LocalDateTime.now());
 
- */     System.out.println("회원 정보를 입력하세요.\n id, 회원아이디, 비밀번호, 이름");
+ */
+        System.out.println("회원 정보를 입력하세요.\n id, 회원아이디, 비밀번호, 이름");
         Member member = new Member(
                 sc.nextLong(),
                 sc.next(),
@@ -99,10 +101,24 @@ public class MemberMenu {
 
         System.out.println(success ?
                 ">회원 정보를 성공적으로 저장했습니다" :
-                    ">회원정보를 저장하는데 실패했습니다");
+                ">회원정보를 저장하는데 실패했습니다");
 
     }
+
     private void readMemberByID() {
+        System.out.println("조회할 ID를 입력하세요");
+        long id = sc.nextLong();
+        Member member = memberManager.readMember(id);
+        if (member == null)
+            System.out.println("해당 ID와 일치하는 회원 정보가 없습니다");
+        else {
+            System.out.printf("%d %s %s %s %s\n",
+                    member.getId(),
+                    member.getUsername(),
+                    member.getPassword(),
+                    member.getName(),
+                    member.getCreateAt());
+        }
 
     }
 
