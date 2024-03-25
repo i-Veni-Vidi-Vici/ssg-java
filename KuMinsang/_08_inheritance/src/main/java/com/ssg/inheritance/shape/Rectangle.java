@@ -37,4 +37,9 @@ public class Rectangle extends Shape{
     public double getArea() {   //사각형의 넓이 반환
         return (points[1].getX()-points[0].getX()) * (points[3].getY()-points[0].getY());
     }
+
+    @Override
+    public String toString(){
+        return String.format("(%d, %d) , (%d, %d)", points[0].getX(), points[0].getY(),points[2].getX(), points[2].getY());
+    }
 }
