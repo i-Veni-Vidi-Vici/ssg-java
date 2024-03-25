@@ -27,10 +27,11 @@ public class MemberRepository {
      * 외부에서 호출 불가한 생성자
      */
 
-    private MemberRepository(){}
+    private MemberRepository() {
+    }
 
-    public static MemberRepository getInstance(){  //싱글턴 메소드
-        if(instance == null){
+    public static MemberRepository getInstance() {  //싱글턴 메소드
+        if (instance == null) {
             instance = new MemberRepository();
         }
         return instance;
@@ -39,30 +40,39 @@ public class MemberRepository {
     /**
      * 1. 사용자 입력값으로 Member 객체를 생성
      * 2. MemberManager
+     *
      * @param member
      * @return
      */
-    public Boolean saveMember(Member member){
-        if(index<MAX_MEMBER) {
+    public Boolean saveMember(Member member) {
+        if (index < MAX_MEMBER) {
             //회원추가
             members[index] = member;
             index++;
             return true;
-        }else {
+        } else {
             //저장 회원수 초과
             return false;
         }
     }
 
-    public Member[] readMember(){
+    public Member[] readMember() {
         Member[] tmpMem = null;
-        if(index > 0){
+        if (index > 0) {
             tmpMem = new Member[index];
-            for(int i =0; i<index; i++){
+            for (int i = 0; i < index; i++) {
                 tmpMem[i] = this.members[i];
             }
         }
-        return tmpMem;
+        return tmpMem;  //데이터가 있으면 전체 다 반환 없으면 NULL
     }
 
+    public Member readMember(long id) {
+        for (int i = 0; i < index; i++) {
+            if (members[i].getId() == id) {
+                return members[i];
+            }
+        }
+        return null;
+    }
 }

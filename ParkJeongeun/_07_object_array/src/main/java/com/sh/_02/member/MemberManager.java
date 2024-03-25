@@ -20,6 +20,7 @@ package com.sh._02.member;
 public class MemberManager {
     private MemberCreateService memberCreateService = new MemberCreateService();
     private MemberFindService memberFindService = new MemberFindService();
+    private MemberFindByIdService memberFindByIdService = new MemberFindByIdService();
 
 //    private MemberRepository memberRepository = MemberRepository.getInstance(); //위에 두줄 만들고 주석처리
 
@@ -50,5 +51,10 @@ public class MemberManager {
     public Member[] readMember(){
         Member[] members = memberFindService.readMember();
         return members;
+    }
+
+    public Member readMemberById(long id) {
+        Member member = memberFindByIdService.readMemberById(id);
+        return member;
     }
 }

@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class Application {
     public static void main(String[] args) {
         EmployeeDTO[] employeeDTOS=new EmployeeDTO[3];
-        int avgSalary=0;
         double income;
         double avgIncome=0;
 
@@ -19,7 +18,9 @@ public class Application {
         {
             System.out.println(employeeDTOS[i].information());
         }
+
         System.out.println("------------------------------------------------");
+
         employeeDTOS[0].setEmpName("김말똥");
         employeeDTOS[0].setDept("영업부");
         employeeDTOS[0].setJob("팀장");
@@ -39,6 +40,7 @@ public class Application {
         {
             System.out.println(employeeDTOS[i].information());
         }
+
         System.out.println("------------------------------------------------");
 
         for(int i=0;i<employeeDTOS.length;i++)
@@ -47,6 +49,7 @@ public class Application {
             avgIncome+=income;
             System.out.printf("%s의 연봉 : %.0f원\n",employeeDTOS[i].getEmpName(),income);
         }
+
         System.out.println("------------------------------------------------");
         System.out.printf("직원들의 연봉의 평균 : %.0f원",avgIncome/3.0);
 

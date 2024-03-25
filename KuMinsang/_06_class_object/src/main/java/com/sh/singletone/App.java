@@ -15,7 +15,7 @@ public class App {
         System.out.println(manager);
 
         manager.getValues()[0] = "helloworld";
-//        manager.getStr() = "hellojava";
+        String str = manager.getStr();
         manager.getInts()[0] = 10;
         System.out.println(manager.getInts()[0]);
 //        manager.getNum()=100;

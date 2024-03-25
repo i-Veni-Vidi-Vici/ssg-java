@@ -43,16 +43,16 @@ public class Employee {
         setAddress(sc.next());
     }
     public void empOutput(){
-        System.out.println("사번 : " + getEmpNo());
-        System.out.println("이름 : " + getEmpName());
-        System.out.println("소속부서 : " + getDept());
-        System.out.println("직급 : " + getJob());
-        System.out.println("나이 : " + getAge());
-        System.out.println("성별 : " + getGender());
-        System.out.println("급여 : " + getSalary());
-        System.out.println("보너스포인트 : " + getBonusPoint());
-        System.out.println("핸드폰 : " + getPhone());
-        System.out.println("주소 : " + getAddress());
+            System.out.println("사번 : " + getEmpNo());
+            System.out.println("이름 : " + getEmpName());
+            System.out.println("소속부서 : " + getDept());
+            System.out.println("직급 : " + getJob());
+            System.out.println("나이 : " + getAge());
+            System.out.println("성별 : " + getGender());
+            System.out.println("급여 : " + getSalary());
+            System.out.println("보너스포인트 : " + getBonusPoint());
+            System.out.println("핸드폰 : " + getPhone());
+            System.out.println("주소 : " + getAddress());
     }
 
     public int getEmpNo() {
