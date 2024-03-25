@@ -83,14 +83,14 @@ public class App {
     private void test2() {
         Animal animal1 = new Rabbit();  // Rabbit 타입이 Animal타입으로 올라감 -> upcasting
         Rabbit rabbit = new Rabbit();
-        Animal animal2 = rabbit; // 32줄과 33,34줄은 같은 의미이다. -> upcasting
+        Animal animal2 = rabbit; // 86줄과 84, 85줄은 같은 의미이다. -> upcasting
 
         animal2.eat();
         animal2.run();
         animal2.cry();
 
         ((Rabbit) animal2).jump(); // Animal타입을 Rabbit으로 downcasting한 것이다. 명시적
-        Rabbit rabbit2 = (Rabbit) animal2;  // 40줄과 같은 의미
+        Rabbit rabbit2 = (Rabbit) animal2;  // 92줄과 같은 의미
 
         Animal animal3 = new Tiger();
         ((Tiger)animal3).bite();  // 괄호 무조건 사용해야한다.
