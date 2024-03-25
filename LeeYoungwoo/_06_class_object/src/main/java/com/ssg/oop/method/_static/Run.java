@@ -6,6 +6,7 @@ public class Run {
         StaticMethod.toUpper("ssg academy");
 
         //2 setChar메소드 호출시  "java", 0, 'x'를 전달하고, "xava" 리턴
+        StaticMethod.setChar("java", 0, 'x');
 
         //3 getAlphabetLength호출시 "안녕, 난 James야!" 전달하고, 5 리턴
 
