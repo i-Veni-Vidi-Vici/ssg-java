@@ -30,5 +30,6 @@ public class ShapeMain {
         Rectangle rect3 = new Rectangle(new Point(0,0), new Point(200,100));
         rect3.draw();
         System.out.println("사각형의 넓이는 " + rect3.getArea() + "입니다.");
+
     }
 }
