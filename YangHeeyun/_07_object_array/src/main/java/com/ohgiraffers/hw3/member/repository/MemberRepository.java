@@ -17,19 +17,23 @@ public class MemberRepository {
     int vvipIndex = 0;
 
     public void silverInsert(Silver silver){
-        this.silver[silverIndex++] = silver;
+        if(silverIndex < 10)
+            this.silver[silverIndex++] = silver;
     }
 
     public void goldInsert(Gold gold){
-        this.gold[goldIndex++] = gold;
+        if(goldIndex < 10)
+            this.gold[goldIndex++] = gold;
     }
 
     public void vipInsert(Vip vip) {
-        this.vip[vipIndex++] = vip;
+        if(vipIndex < 10)
+            this.vip[vipIndex++] = vip;
     }
 
     public void vvipInsert(VVip vvip) {
-        this.vvip[vvipIndex++] = vvip;
+        if(vvipIndex < 10)
+            this.vvip[vvipIndex++] = vvip;
     }
 
     public void printData(){
