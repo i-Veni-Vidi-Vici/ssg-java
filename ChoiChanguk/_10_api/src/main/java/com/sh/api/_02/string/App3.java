@@ -49,10 +49,10 @@ public class App3 {
 
         //StringTokenizer특징 : 비어있는 문자열 요소는 제거한다.
         StringTokenizer stringTokenizer2=new StringTokenizer(data2,"/");
-        System.out.println("현태 토큰구 : "+stringTokenizer2.countTokens());
+        System.out.println("현재 토큰 수 : "+stringTokenizer2.countTokens());
         while (stringTokenizer2.hasMoreTokens()) {
             String token=stringTokenizer2.nextToken();
-            System.out.println("token = "+"token"+","+"남은"+"토큰큰수+"+stringTokenizer2.countTokens());
+            System.out.println("token ="+","+"남은 토큰 수+"+stringTokenizer2.countTokens());
 
         }
 
