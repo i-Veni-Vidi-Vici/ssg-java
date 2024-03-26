@@ -1,4 +1,4 @@
-package com.sh.polymorphism._03;
+package com.sh.polymorphism._03._interface;
 
 import com.sh.polymorphism._03._interface.IProduct;
 

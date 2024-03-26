@@ -131,18 +131,6 @@ public class EmployeeDTO {
                 + this.address);
         return empName;
     }
-    int payment;
-    public int payment() {
-        payment = (this.salary +(int) (this.salary * this.bonusPoint)) * 12;
-        System.out.println(this.empName + "의 연봉 : " + payment + "원");
-        return payment;
-    }
 
-    public int paymentAverage(){
-        int paymentAverage = payment/3;
-        System.out.println("직원들의 평균 연봉 : " + paymentAverage);
-        return paymentAverage;
-
-    }
 
 }
