@@ -32,6 +32,7 @@ public class Kiosk {
             String option = null;
             int count =0;
             Order order = null;
+
             switch (choice){
                 case "1":
                     menuName = "아메리카노";
@@ -76,14 +77,14 @@ public class Kiosk {
         return sc.next().equals("1")?"Hot":"Ice";
     }
 
-    public Order createOrder(String menuName,String option,int count){
+    private Order createOrder(String menuName,String option,int count){
         // 주문 생성
         Order order = new Order(menuName,option,count);
         // 주문 확인
         boolean confirmed = confirmOrder(order);
-        return confirmed ? order : null;
+        return confirmed ? order : null; // comfirmed가 true이면
     }
-    public boolean confirmOrder(Order order){
+    private boolean confirmOrder(Order order){
         System.out.println("주문 내역을 확인하세요...");
         System.out.println("""
         ---------------------
@@ -96,7 +97,7 @@ public class Kiosk {
         return sc.next().equals("1");
     }
 
-    public void sendCoffeeRequest(Order order){
+    private void sendCoffeeRequest(Order order){
         Coffee coffee = barista.makeCoffee(order);
         System.out.println("주문하신 [" + coffee.info() + "]가 나왔습니다.");
 

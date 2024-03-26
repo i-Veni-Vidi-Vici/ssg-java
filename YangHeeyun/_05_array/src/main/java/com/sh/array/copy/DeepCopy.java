@@ -56,7 +56,7 @@ public class DeepCopy {
     }
 
     /**
-     * System.arraycopy(src,srcPosition,dest,destPosition,length): void
+     * System.arraycopy(src,srcPosition,dest,destPosition,length): void 리턴값이 없다
      * - src배열의 srcPosition인덱스부터 dest배열의 destPosition인덱스로 length개 복사
      */
     public void test3(){
@@ -132,6 +132,7 @@ public class DeepCopy {
         }
     }
 
+
     /**
      * 세 배열 a,b,c를 배열 d로 합쳐봅시다.
      */
@@ -150,6 +151,9 @@ public class DeepCopy {
 
         print(d);
     }
+
+
+
     public void print(int[] arr){
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");

@@ -28,6 +28,7 @@ public class App {
         System.out.println(user2.getName());
         System.out.println(user2.getCreatedAt());
 
+        // id,name만 값대입하고 createdAt은 자동으로 설정되길 원할경우
         User user21 = new User(3,"이순신");
         System.out.println(user21.getId());
         System.out.println(user21.getName());
