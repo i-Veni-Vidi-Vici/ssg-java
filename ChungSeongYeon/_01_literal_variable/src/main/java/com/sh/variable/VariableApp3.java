@@ -47,7 +47,7 @@ public class VariableApp3 {
         int MaxAge = 20; // 클래스명을 제외한 변수, 메소드, 필드명은 모두 소문자로 시작하는 암묵적인 관례가 있다.
         // 사용자 이름, 상품코드, 결혼여부
         String userName = "honggd";
-        long productCode = "1234124112";
+        // long productCode = "1234124112";
         boolean isMarried = false;
         boolean married = true;
         boolean hasLicense = false;

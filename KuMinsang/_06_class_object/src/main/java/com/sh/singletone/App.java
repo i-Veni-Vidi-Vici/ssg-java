@@ -11,10 +11,11 @@ package com.sh.singletone;
 public class App {
     public static void main(String[] args) {
 
-        Manager manager = Manager.getInstance();
+        Manager manager = Manager.getHello();
         System.out.println(manager);
 
         manager.getValues()[0] = "helloworld";
+
         String str = manager.getStr();
         manager.getInts()[0] = 10;
         System.out.println(manager.getInts()[0]);
@@ -22,9 +23,15 @@ public class App {
 
 
 
-        Manager manager2 = Manager.getInstance();
+        Manager manager2 = Manager.getHello();
         System.out.println(manager2);
         System.out.println(manager2.getValues()[0]);
+
+        Manager manager3 = manager2.getHello();
+        System.out.println(manager3);
+        System.out.println(manager3.getValues()[0]);
+
+
 
     }
 }
