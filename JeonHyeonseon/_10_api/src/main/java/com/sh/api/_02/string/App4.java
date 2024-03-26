@@ -31,7 +31,8 @@ public class App4 {
 
         String data = "abc$def$xyz"; //$가 구분자인 csv데이터
         String[] arr = data.split("\\$");  // $는 끝을 의미하는 정규표현식, 와일드카드
-        // \$를 전달하기 위해 \\로 작성해야 한다.
+        // \$를 전달하기 위해 \\로 작성해야 한다
+
         System.out.println(Arrays.toString(arr));
         System.out.println(arr.length);
 

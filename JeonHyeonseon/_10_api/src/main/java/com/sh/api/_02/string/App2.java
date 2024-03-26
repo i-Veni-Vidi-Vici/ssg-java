@@ -75,8 +75,8 @@ public class App2 {
 
         // replace(target, replacement):String 문자열의 target부분을 replacement로 변경한 새 문자열을 반환
         String word = "I hate you~";
-        System.out.println("replace : " + word.replace("hate", "love"));
-        System.out.println("word = " + word);
+        System.out.println("replace : " + word.replace("hate", "love")); // I love you
+        System.out.println("word = " + word); // I hate you
 
         // isEmpty():boolean 문자열의 길이 0인가? (" "과 null는 다르다)
         System.out.println("isEmpty : " + "".isEmpty()); // true

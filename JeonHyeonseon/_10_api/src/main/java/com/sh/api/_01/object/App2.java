@@ -8,7 +8,7 @@ package com.sh.api._01.object;
  *
  *  객체비교 원칙
  *  - equals 비교 결과가 true라면, 동일한 hashCode를 반환해야 한다.
- *  - 이후 Colleactions의 HashXXXX클래스들은 요소의 동등성을 위해 equals/hashCode를 모두 호출해 비교한다.
+ *  - 이후 Collections의 HashXXXX클래스들은 요소의 동등성을 위해 equals/hashCode를 모두 호출해 비교한다.
  *
  * </pre>
  */
