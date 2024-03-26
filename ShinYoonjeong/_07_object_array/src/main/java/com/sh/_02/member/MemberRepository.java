@@ -59,4 +59,7 @@ public class MemberRepository {
     }
 
 
+    public Member[] searchMember() {
+        return null;
+    }
 }
