@@ -25,13 +25,20 @@ public class ShapeMain {
         rect2.draw();
         System.out.println("사각형의 넓이는 " + rect2.getArea() + "입니다.");
 
-        Rectangle rect3 = new Rectangle(new Point(0,0), new Point(200,100));
+        Rectangle rect3 = new Rectangle(new Point(0,0), new Point(200,300));
         rect3.draw();
         System.out.println("사각형의 넓이는 " + rect3.getArea() + "입니다.");
 
         System.out.println("shape(부모)에 Rectangle(자식)을 넣습니다");
-        Shape shape1 = new Rectangle(new Point(0,0), 200, 100);
+        Shape shape1 = new Rectangle(new Point(0,0), 250, 150);
         shape1.draw();
+        //Object toString은 기본적으로 현재 객체의 해쉬코드 정보를 반환한다
+
+        System.out.println(circle);
+        System.out.println(shape1);
+
+        System.out.println("\ntoString Overriding "+rect2);
+        System.out.println("\ntoString Overriding "+rect3);
 
     }
 }

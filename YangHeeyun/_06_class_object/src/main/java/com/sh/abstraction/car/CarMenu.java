@@ -30,7 +30,7 @@ public class CarMenu {
                 case "2": driver.accelerate(); break;
                 case "3": driver.brake();break;
                 case "4": driver.stopEngine(); break;
-                case "0": return;// 현재 메소드를 호출한 곳을 리턴 App.java의 47줄로 돌아가고 더이상 수행할 메소드가 없으니 종료된다.
+                case "0": return;// 현재 메소드를 호출한 곳을 리턴 App.java의  74줄로 돌아가고 더이상 수행할 메소드가 없으니 종료된다.
                 default:
                     System.out.println("> 잘못 입력하셨습니다.");
             }

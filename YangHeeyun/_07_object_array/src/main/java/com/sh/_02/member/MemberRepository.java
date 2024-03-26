@@ -1,5 +1,22 @@
 package com.sh._02.member;
 
+/**
+ * <pre>
+ *  MemberRepository가 수신가능한 메세지
+ *  - 회원정보를 저장해라
+ *  - 회원정보를 읽어와라
+ *
+ *  MemberRepository가 알고(가지고) 있는것
+ *  - Member[]
+ *  - 저장가능한 전체회원수
+ *  - 현재 저장된 회원수
+ *
+ *  MemberRepository가 할 수 있는것
+ *  - 회원정보를 저장
+ *  - 회원정보를 읽어서 제공
+ * </pre>
+ */
+
 public class MemberRepository {
     private static MemberRepository instance;
     private static final int MAX_MEMBER = 10;
@@ -31,10 +48,18 @@ public class MemberRepository {
 //            return false;
 //        }
 //    }
-    public boolean saveMember(Member member){
-        member
+    public boolean saveMember(Member member) {
+        if(index < MAX_MEMBER) {
+            // 회원 추가
+            members[index] = member;
+            index++;
+            return true;
+        }
+        else {
+            // 회원 추가 불가능(저장 회원수 초과)
+            return false;
+        }
     }
-
 
     /**
      * MemberRepository#members를 그대로 반환하지 않고,

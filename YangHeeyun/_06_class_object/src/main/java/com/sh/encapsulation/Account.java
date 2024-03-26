@@ -20,8 +20,8 @@ import java.lang.reflect.Modifier;
  * </pre>
  */
 public class Account {
-    String name;
-    long balance; // 잔액
+    private String name;
+    private long balance; // 잔액
 
     /**
      * 초기값 설정 메소드

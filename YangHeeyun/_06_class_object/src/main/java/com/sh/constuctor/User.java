@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class User {
     private long id;
     private String name;
-    private LocalDate createdAt;
+    private LocalDate createdAt; // LocalDate는 날짜를 표현하는 클래스
 
     /**
      * 기본생성자(매개변수가 없는)
@@ -53,7 +53,7 @@ public class User {
      */
     public User(User other){
         // other는 주소2
-        this.id = other.id;
+        this.id = other.id; // user2의 id를 복제한다.
         this.name = other.name;
         this.createdAt = other.createdAt;
     }
