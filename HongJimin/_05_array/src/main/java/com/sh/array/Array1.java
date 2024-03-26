@@ -28,6 +28,7 @@ public class Array1 {
         //2. 배열 객체 할당 - 크기 지정 필수
         arr = new int[5]; //타입 별 초기 값이 배열에 셋팅됨 -> int이므로 0으로 셋팅됨
         System.out.println(arr); //[I@7a81197d int [] @ 객체식별값(hashCode)
+//        int [] arr = new int[5];
 
 
         //3. 인덱스별 값 대입 및 사용
@@ -60,7 +61,7 @@ public class Array1 {
         darr = new double[10];
 
         //3. 값 사용
-        System.out.println(darr[0]);
+        System.out.println(darr[0]); //0.0
         System.out.println(darr[1]);
         System.out.println(darr[2]);
         System.out.println(darr[3]);
@@ -72,7 +73,7 @@ public class Array1 {
         System.out.println(darr[9]);
 
         //배열 길이 변수(필드)
-        System.out.println(darr.length); //10 -> 배열에 들어갈 수 있는 칸수?
+        System.out.println(darr.length); //10 -> 배열에 들어갈 수 있는 칸수
 
         //배열 객체 식별자 hashCode
         System.out.println(darr.hashCode()); //2055281021
@@ -111,7 +112,7 @@ public class Array1 {
 
         //만약 연속된 값의 규칙이 있다면 반복문을 통해 값 대입을 할 수 있음
         int k = 10;
-        for (int i = 0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             arr[i] = k;
             k += 10;
         }

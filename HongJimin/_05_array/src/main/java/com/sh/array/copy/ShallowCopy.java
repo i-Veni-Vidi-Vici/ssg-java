@@ -12,10 +12,12 @@ public class ShallowCopy {
     public void test1() {
         int[] arr = {1, 2, 3, 4, 5};
         //얕은 복사
-        int[] arr2 = arr; // arr의 주소값을 arr2에 대입
+//        int[] arr2 = arr; // arr의 주소값을 arr2에 대입
+        int[] arr2 = new int[3] ; // arr의 주소값을 arr2에 대입
 
         //hashCode 비교
         System.out.println(arr.hashCode()); //2055281021
+//        System.out.println(arr2.hashCode()); //2055281021
         System.out.println(arr2.hashCode()); //2055281021
 
         //값 변경
@@ -69,4 +71,12 @@ public class ShallowCopy {
      * 이때 배열 생성메소드  genearateArray(from : int, to : int )를 사용하세요
      */
 
+    public int[] generateArray(int from, int to) {
+        int len = to - from + 1;
+        int[] arr = new int[len];
+        for(int i = 0, value = from; i < arr.length; i++, value++) {
+            arr[i] = value;
+        }
+        return arr;
+    }
 }

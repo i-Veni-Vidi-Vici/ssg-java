@@ -3,7 +3,7 @@ package com.sh._02_.member;
 import java.time.LocalDateTime;
 
 public class Member {
-    private long id;
+    private static long id;
     private String username;
     private String password;
     private String name;
