@@ -17,6 +17,7 @@ public class Car {
 
     @Override
     public boolean equals(Object obj) {
+
         // 동일 비교
         if (this == obj)
             return true;
@@ -24,10 +25,12 @@ public class Car {
         if (obj == null)
             return false;
         // 타입 비교
+        // obj가 Car의 객체가 아니면 오류가 남!
         if (!(obj instanceof Car))
             return false;
         // 필드 비교
         Car other = (Car) obj; // downcasting
+        // obj이 Car객체가 아니면 Car필드에 접근할 수도 없고 비교할 수도 없다
         // 참조형 비교
         // Cannot invoke "String.equals(Object)" because "this.title" is null
         if (this.carName == null) {
