@@ -28,16 +28,16 @@ public class CalculatorMain {
             switch (choice) {
                 case "1":
                     System.out.print("첫 번째 숫자를 입력하세요: ");
-                    calculator.getNum1() = sc.nextInt();
+//                    calculator.getNum1() = sc.nextInt();
                     System.out.print("두 번째 숫자를 입력하세요: ");
-                    calculator.getNum2() = sc.nextInt();
+//                    calculator.getNum2() = sc.nextInt();
                     calculate(new Adder(calculator.getNum1(), calculator.getNum2()));
                     break;
                 case "2":
                     System.out.print("첫 번째 숫자를 입력하세요: ");
-                    calculator.getNum1() = sc.nextInt();
+//                    calculator.getNum1() = sc.nextInt();
                     System.out.print("두 번째 숫자를 입력하세요: ");
-                    calculator.getNum2() = sc.nextInt();
+//                    calculator.getNum2() = sc.nextInt();
                     calculate(new Adder(calculator.getNum1(), calculator.getNum2()));
                     break;
                 case "3":
