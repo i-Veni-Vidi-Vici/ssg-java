@@ -37,6 +37,7 @@ public class App2 {
         // indexOf(String) : int (overloading) 대상 문자열에서 검색한 문자열의 인덱스 반환 (없으면 -1 반환)
         String helloworld = "helloworld";
         System.out.println("indexOf : " + helloworld.indexOf('w')); // 5
+        System.out.println("indexOf : " + helloworld.indexOf('l')); // 2
         System.out.println("indexOf : " + helloworld.indexOf('z')); // -1
         System.out.println("indexOf : " + helloworld.indexOf("low")); // 3 // 문자열 찾기 가능
         System.out.println("lastIndexOf : " + helloworld.lastIndexOf('o')); // 뒤에서부터 찾기 (인덱스는 바뀌지 않음)
