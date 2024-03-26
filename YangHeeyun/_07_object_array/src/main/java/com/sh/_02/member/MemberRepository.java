@@ -71,7 +71,7 @@ public class MemberRepository {
         if(index > 0) {
             members = new Member[index];
             for(int i = 0; i < members.length; i++) {
-                members[i] = this.members[i];
+                members[i] = this.members[i]; // index, this.members[i]는 멤버리파지토리 전역변수 뜻함
             }
         }
         return members;
