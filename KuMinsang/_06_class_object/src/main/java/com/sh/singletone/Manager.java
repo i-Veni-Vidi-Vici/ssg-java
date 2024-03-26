@@ -1,7 +1,7 @@
 package com.sh.singletone;
 
 public class Manager {
-    private static Manager instance;
+    private static Manager hello;
     /**
      * private 생성자를 통해 클래스 외부에서 객체 생성 방지
      */
@@ -12,12 +12,13 @@ public class Manager {
 
     private Manager(){}
 
-    public static Manager getInstance(){
+    public static Manager getHello(){
         //최초 1회만 실행
-        if(instance == null){
-            instance = new Manager();
+
+        if(hello == null){
+            hello = new Manager();
         }
-        return instance;
+        return hello;
     }
     public String[] getValues(){
         return this.values;
@@ -45,4 +46,5 @@ public class Manager {
     public void setNum(int num) {
         this.num = num;
     }
+
 }
