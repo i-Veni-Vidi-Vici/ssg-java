@@ -75,21 +75,23 @@ public class Book {
             if(other.title != null) {
                 return false;
             }
-            else{
-                // 오버라이드 된 String#equals 대신 호출
-                if(!this.title.equals(other.title))
-                    return false;
-            }
+
+        }
+        else{
+            // 오버라이드 된 String#equals 대신 호출
+            if(!this.title.equals(other.title))
+                return false;
         }
         // author 필드 비교
         if(this.author == null){
             if(other.author != null){
                 return false;
             }
-            else{
-                if(this.author.equals(other.author));
-                return false;
-            }
+
+        }
+        else{
+            if(this.author.equals(other.author))
+            return false;
         }
         // price 필드(기본형) 비교
        if(this.price != other.price)

@@ -33,7 +33,7 @@ public class App2 {
         // indexOf(int) : int
         // indexOf(String) : int 대상 문자열에서 검색한 문자열의 인덱스 반환 (없으면 -1 반환)
         String helloworld = "helloworld";
-        System.out.println("indexOf : " + helloworld.indexOf('w'));
+        System.out.println("indexOf : " + helloworld.indexOf('l'));
         System.out.println("indexOf : " + helloworld.indexOf('z'));
         System.out.println("indexOf : " + helloworld.indexOf("low"));
         System.out.println("lastIndexOf : " + helloworld.lastIndexOf('o'));
@@ -56,7 +56,7 @@ public class App2 {
         // toUpperCase() : String
         String subject = "Java";
         System.out.println("toLowerCase : " + subject.toLowerCase());
-        System.out.println("toUpperLowerCase : " + subject.toUpperCase());
+        System.out.println("toUpperCase : " + subject.toUpperCase());
         System.out.println("맞습니까? (Y/N) : ");
         //char choice = sc.next().toLowerCase().charAt(0);
         //System.out.println(choice == 'y');
