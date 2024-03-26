@@ -17,7 +17,7 @@ public class StaticMethod {
     //2. 문자열(1)에서 전달받은 인덱스(2)의 문자를 전달받은 문자(3)로 변경하는 static 메소드
     //메소드명 : setChar(String, int, char) : String
     public static String setChar(String str, int num, char chr) {
-//        str.charAt(num) = chr;
+//        str.charAt(num) = chr; // charAt은 읽기 전용, 좌항이 공간이 아니기 때문에 값을 받을 수 없다.
         char[] charArr = new char[str.length()];
         for(int i = 0; i < str.length(); i++){
             charArr[i] = str.charAt(i);
