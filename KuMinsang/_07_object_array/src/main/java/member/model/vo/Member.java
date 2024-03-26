@@ -1,6 +1,6 @@
 package member.model.vo;
 
-public class Member {
+public abstract class Member implements Buyable{
     private String name;
     private String grade;
     private int point;
@@ -38,7 +38,6 @@ public class Member {
         this.point = point;
     }
 
-    public double getEjapoint(){
-        return 0.0;
-    }
+    public abstract double getEjapoint();
+
 }

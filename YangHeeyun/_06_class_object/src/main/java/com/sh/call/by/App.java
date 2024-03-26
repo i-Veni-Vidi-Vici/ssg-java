@@ -34,8 +34,8 @@ public class App {
 
         // String은 참조형이지만, 마치 Call by value처럼 작동한다.
         // - String은 immutable type이다. (값을 변경할 수 없는 타입)
-        // - 더하기 연산시 "Hello world" + "Byebye world"할때, 기존 "Hello world" 변경하지 않는다.
-        // - "Hello world Byebye world"을 새로 만들어 참조한다.
+        // - 더하기 연산시 "Hello world" + "Byebye world"할때, 기존 "Hello world" 변경하지 않고
+        //   "Hello world Byebye world"을 새로 만들어 참조한다.
         String str = "Hello world";
         callByReference.test3(str);
         System.out.println(str); // Hello world Byebye world
