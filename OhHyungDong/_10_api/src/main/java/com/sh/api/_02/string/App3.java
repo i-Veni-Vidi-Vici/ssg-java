@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 public class App3 {
     public static void main(String[] args) {
 
-        String data1 = "100 /홍길동/서울/영업부 ";
+        String data1 = "100/홍길동/서울/영업부 ";
         String data2 = "200/신사임당 //총무부 ";
         String data3 = "300/이순신/ 경기도  ";
 
