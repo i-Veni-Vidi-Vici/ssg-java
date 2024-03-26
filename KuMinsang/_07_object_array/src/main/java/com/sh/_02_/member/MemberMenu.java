@@ -45,20 +45,20 @@ public class MemberMenu {
 
         while (true) {
             System.out.println(menu);
-            String choice = sc.next();
+            String choice = sc.next();  //키보드 입력
 
             switch (choice) {
-                case "1":
+                case "1":   //저장
                     saveManager();
                     break;
-                case "2":
+                case "2":   //멤버 ID로 조회
                     readMemberByID();
                     break;
-                case "3":
+                case "3":   // 읽기
                     readMember();
                     break;
                 case "0":
-                    return;
+                    return; //종료
                 default:
                     System.out.println(">잘못 입력하셨습니다...");
 
@@ -119,7 +119,6 @@ public class MemberMenu {
                     member.getName(),
                     member.getCreateAt());
         }
-
     }
 
 }
