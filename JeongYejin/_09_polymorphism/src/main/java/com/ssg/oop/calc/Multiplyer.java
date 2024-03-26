@@ -1,8 +1,8 @@
 package com.ssg.oop.calc;
 
 public class Multiplyer extends Calculator {
-    int num1;
-    int num2;
+    private int num1;
+    private int num2;
 
     public Multiplyer(int num1, int num2) {
         this.num1 = num1;
