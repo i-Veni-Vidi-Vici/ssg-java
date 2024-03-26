@@ -23,7 +23,7 @@ public class Car {
 
     }
 
-    
+
 
     @Override
     public boolean equals(Object obj) {
