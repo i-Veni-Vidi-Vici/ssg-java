@@ -76,7 +76,9 @@ public class ShallowCopy {
         System.out.print("두번째 정수 입력 : ");
         int end = sc.nextInt();
 
+        // 배열생성
         int[] arr = generateArray(start,end);
+        // 배열 출력
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -91,4 +93,14 @@ public class ShallowCopy {
         }
         return arr;
     }
+
+//    private int[] generateArray(int from, int to) {
+//        int[] arr = new int[to-from+1];
+//        int value=from;
+//
+//        for(int i=0;i<to-from+1;i++){
+//            arr[i] += value++;
+//        }
+//        return arr;
+//    }
 }

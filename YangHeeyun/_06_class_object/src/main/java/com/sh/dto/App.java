@@ -15,6 +15,7 @@ import java.sql.SQLOutput;
 public class App {
     public static void main(String[] args){
         MemberDto memberDto = new MemberDto();
+
         // 객체에 값 작성하기
         memberDto.setId(1);
         memberDto.setName("홍길동");
