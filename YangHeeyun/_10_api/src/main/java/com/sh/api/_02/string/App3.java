@@ -60,7 +60,7 @@ public class App3 {
 
         // 구분자 섞여있는 경우
         String dirtyData = "red/orange,blue yellow green";
-         
+
         StringTokenizer tokenizer4 = new StringTokenizer(dirtyData,"/, "); // 내부적으로 문자단위 구분자사용
         while(tokenizer4.hasMoreTokens())
             System.out.println(tokenizer4.nextToken());
