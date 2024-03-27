@@ -33,7 +33,7 @@ public class App {
     public static void main(String[] args) {
         int i = 20;
 //        Integer i2 = new Integer(20);
-//        'Integer(int)' is deprecated since version 9 and marked for remova
+//        'Integer(int)' is deprecated since version 9 and marked for removal
 //        Integer i3 = Integer.valueOf(20);
 //        System.out.println(i + ", " + i2 + ", " + i3);
         Integer i2 = Integer.valueOf(20);
