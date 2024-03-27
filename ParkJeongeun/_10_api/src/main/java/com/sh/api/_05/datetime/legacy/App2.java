@@ -81,7 +81,5 @@ public class App2 {
         System.out.println(diff); // 2.495760034722222일
         diff = Math.ceil(diff); // 2.xx -> 3.0
         System.out.println("주말은 " + (int) diff + "일 남았습니다.");
-
-
     }
 }

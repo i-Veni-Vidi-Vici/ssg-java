@@ -1,6 +1,4 @@
-package com.ohgiraffer;
-
-import java.util.Arrays;
+package com.ohgiraffer.hw1;
 
 public class App {
     public static void main(String[] args) {
@@ -41,6 +39,6 @@ public class App {
         System.out.println("강말순의 연봉 : " + emp[2].anualSalary() + "원");
         System.out.println("=======================================================================");
 
-
+        System.out.println("직원들의 연봉 평균 : " + (emp[0].anualSalary() + emp[1].anualSalary() + emp[2].anualSalary()) / 3 + "원");
     }
 }

@@ -53,6 +53,5 @@ public class App {
         // wrapper 타입만 사용가능한 경우가 있음 - Generics
 //        List<Integer> list = new ArrayList<Integer>();
 //        List<int> list2 = new ArrayList<int>(); // 꺽새(Generics)에는 기본형 쓸 수 없음
-
     }
 }

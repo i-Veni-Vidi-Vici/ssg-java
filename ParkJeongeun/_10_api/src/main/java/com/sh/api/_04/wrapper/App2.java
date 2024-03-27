@@ -32,10 +32,5 @@ public class App2 {
 
         String inum2 = String.valueOf(123); // 위보다 더 간단
         String inum3 = "" + 123;
-
-
-
-
-
     }
 }

@@ -1,4 +1,4 @@
-package com.ohgiraffer;
+package com.ohgiraffer.hw1;
 
 public class EmployeeDTO {
     private int empNo;

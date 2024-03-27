@@ -26,7 +26,5 @@ public class App1 {
         // Date#getTime():long
         System.out.println(now.getTime());
         System.out.println(now2.getTime());
-
-
     }
 }

@@ -4,7 +4,6 @@ package com.sh.generics._02._method;
  * <pre>
  * 제네릭 메소드
  * - 타입변수를 메소드 레벨에서 선언하고 사용
- *
  * </pre>
  */
 public class App {

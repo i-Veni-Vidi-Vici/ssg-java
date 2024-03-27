@@ -13,7 +13,6 @@ import java.time.*;
  * - java.time.format : 날짜/시각 형식 변환 관련 클래스
  * - java.time.temporal : 날짜/시간 필드 및 단위 관련 클래스
  * - java.time.zone : 지역대 관련
- *
  * </pre>
  */
 public class App {
