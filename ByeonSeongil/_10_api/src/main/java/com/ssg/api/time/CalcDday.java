@@ -18,7 +18,7 @@ public class CalcDday {
         LocalDate localDate = LocalDate.now();
         LocalDate localDate2 = LocalDate.of(year, month, day);
 
-        Period period = Period.between(localDate, localDate2);
+        Period period = Period.between(localDate2,localDate);
         if (period.getDays() > 0) {
             System.out.println(period.getDays() + "일 남았습니다.()");
         }
