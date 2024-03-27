@@ -38,8 +38,8 @@ public class Test1 {
         }else {
             System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
         }
+
         System.out.println("---------------------------------");
         System.out.println(num1 + " " + operator + " " + num2 + "=" + result);
     }
-
 }
