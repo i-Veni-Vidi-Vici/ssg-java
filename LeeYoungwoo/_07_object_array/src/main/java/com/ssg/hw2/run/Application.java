@@ -13,12 +13,12 @@ public class Application {
         // while문을 사용하여 학생들의 정보를 계속 입력 받고
         // 한 명씩 추가 될 때마다 카운트함
         // 계속 추가할 것인지 물어보고, 대소문자 상관없이 ‘y’이면 계속 객체 추가
-        StudentDTO studentDTO ;
-        System.out.println("학생정보를 추가하시겠습니까? (y/n) : ");
-        char yn = sc.next().charAt(0);
-
+        System.out.println("학생정보를 입력하겠습니다. ");
+        char yn ;
         int count = 0;
-        while (yn == 'y' || yn == 'Y') {
+
+        while (count < studentArrs.length) {
+
             System.out.println("학년 입력 : ");
             int grade = sc.nextInt();
             System.out.println("반 입력 : ");
@@ -35,12 +35,27 @@ public class Application {
             studentArrs[count] = new StudentDTO(grade, classroom, name, kor, eng, math);
             count++;
 
-            if (count > 10) {
+            if (count == studentArrs.length) {
                 System.out.println("더이상 추가하실 수 없습니다...");
                 break;
             }
 
+
+            System.out.println("학생정보를 추가하시겠습니까? (y/n) : ");
+            yn = sc.next().charAt(0);
+            if (yn == 'y' || yn == 'Y') {
+                System.out.println("학생정보를 추가합니다...");
+            } else {
+                System.out.println("> 프로그램을 종료합니다...");
+                break;
+            }
+
+
         }
+        for (StudentDTO s : studentArrs) {
+            s.information();
+        }
+
 
         // 3명 정도의 학생 정보를 입력 받아 각 객체에 저장함
 

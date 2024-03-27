@@ -70,6 +70,14 @@ public class StudentDTO {
 
     // 메소드
     public String information() {
+        System.out.println("학년 : " + getGrade() + ", ");
+        System.out.println("반 : " + getClassroom() + ", ");
+        System.out.println("이름 : " + getName() + ", ");
+        System.out.println("국어점수 : " + getKor() + ", ");
+        System.out.println("영어점수 : " + getEng() + ", ");
+        System.out.println("수학점수 : " + getMath() + "\n");
+
+
         return "";
     }
 
