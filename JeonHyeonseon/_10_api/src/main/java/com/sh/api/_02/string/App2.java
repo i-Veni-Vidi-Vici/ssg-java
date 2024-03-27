@@ -66,6 +66,7 @@ public class App2 {
         System.out.println();
 
         // substring(start:int, end:int):String start인덱스부터 end인덱스전까지 문자열을 잘라서 반환
+        // 시작인덱스만 포함하고 끝인덱스는 포함하지 않는다.
         String abc = "abcdefg";
         System.out.println("substring : " + abc.substring(2, 5)); // cde
         System.out.println("substring : " + abc.substring(2)); // cdefg
