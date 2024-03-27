@@ -13,12 +13,6 @@ package com.sh.generics._01._class;
 public class Box<T> {
     private T value;
 
-    public static Box<T> of(int i) {
-        Box<T> box = new Box<>();
-        box.setValue(box.value);
-        return box;
-    }
-
     public void setValue(T value){
         this.value = value;
     }
