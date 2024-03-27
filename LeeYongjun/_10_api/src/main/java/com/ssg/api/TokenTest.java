@@ -32,5 +32,4 @@ public class TokenTest {
         String upper = new String(ch).toUpperCase();
         System.out.println(upper);
     }
-
 }
