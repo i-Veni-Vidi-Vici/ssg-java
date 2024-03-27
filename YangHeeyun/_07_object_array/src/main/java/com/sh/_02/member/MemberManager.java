@@ -19,6 +19,7 @@ package com.sh._02.member;
 public class MemberManager {
     private MemberCreateService memberCreateService = new MemberCreateService();
     private MemberFindService memberFindService = new MemberFindService();
+    private MemberFindByIdService memberFindByIdService = new MemberFindByIdService();
 
     public boolean saveMember(Member member){
         boolean success = memberCreateService.saveMember(member);
@@ -30,4 +31,8 @@ public class MemberManager {
         return members;
     }
 
+    public Member readMemberById(long id) {
+        Member member = memberFindByIdService.readMemberById(id);
+        return member;
+    }
 }

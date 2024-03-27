@@ -58,7 +58,11 @@ public class CalculatorMain {
     private Calculator generateCalculator(String choice) {
         int[] numbers = inputNumbers();
         return switch(choice) {
-            case "1" -> new Adder(numbers[0], numbers[1]);
+            case "1" -> {
+                // 여러줄인 경우, {} + yield
+                Calculator adder = new Adder(numbers[0], numbers[1]);
+                yield adder;
+            }
             case "2" -> new Subtractor(numbers[0], numbers[1]);
             case "3" -> new Multiplyer(numbers[0], numbers[1]);
             case "4" -> new Divider(numbers[0], numbers[1]);
