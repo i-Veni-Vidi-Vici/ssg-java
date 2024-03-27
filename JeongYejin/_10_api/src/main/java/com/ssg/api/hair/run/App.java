@@ -129,20 +129,9 @@ public class App {
         User[] users = new User[arr.length];
         for (int i = 0; i < arr.length; i++) {
             String[] variance = arr[i].split(",", 9);
-            if (variance[0] == "") {
-                variance[0] = "0";
-            }
-            if (variance[5] == "") {
-                variance[5] = "2000/01/01";
-            }
-            if (variance[6] == "") {
-                variance[6] = "2000-01-01";
-            }
-            if (variance[7] == "") {
-                variance[7] = "12:00";
-            }
-            if (variance[8] == "") {
-                variance[8] = "2000-01-01T12:00:00";
+
+            if (variance[5] == "") { // birthday 미입력자 존재
+                variance[5] = "0001/01/01";
             }
             users[i] = new User(Integer.parseInt(variance[0]), variance[1], variance[2], variance[3], variance[4], LocalDate.parse(variance[5], DateTimeFormatter.ofPattern("yyyy/MM/dd")), LocalDate.parse(variance[6]), LocalTime.parse(variance[7],  DateTimeFormatter.ofPattern("H:MM")), LocalDateTime.parse(variance[8]));
             System.out.println(users[i].toString());
