@@ -34,7 +34,7 @@ public class MemberMenu {
                 ===============
                 1. 회원정보 저장
                 2. 회원 아이디로 조회
-                3.전체 회원정보 열람
+                3. 전체 회원정보 열람
                 0. 종료
                 ===============
                 입력 : 
@@ -44,7 +44,8 @@ public class MemberMenu {
             String choice= sc.next();
             switch (choice){
                 case "1": saveMember(); break;
-                case "2": readMember(); break;
+                case "2": searchMember(); break;
+                case "3": readMember(); break;
                 case "0": return;
                 default:
                     System.out.println("> 잘못 입력하셨습니다.");
@@ -52,6 +53,13 @@ public class MemberMenu {
             }
         }
     }
+
+    private void searchMember() {
+        Member[] members = memberManager.searchMember();
+        System.out.println("조회하실 아이디를 입력해주세요.");
+
+    }
+
     private void readMember(){
         Member[] members = memberManager.readMember();
         if(members != null){

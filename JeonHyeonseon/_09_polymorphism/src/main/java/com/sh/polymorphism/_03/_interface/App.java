@@ -59,7 +59,7 @@ public class App {
     public static void test(IProduct product){}
     public static IProduct generateProduct(){
         return new Computer();
-//        return new Monitor();  // 48줄 처럼 49도 가능.
+//        return new Monitor();  // 61줄 처럼 62도 가능.
 //        return new IProduct(); // 인터페이스 자체를 객체화 할 수 없다.
 
     }

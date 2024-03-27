@@ -2,7 +2,7 @@ package com.sh.polymorphism._02._abstract._class;
 
 /**
  * <pre>
- * Product 추사클래스
+ * Product 추상클래스
  *  - Product는 객체화할 수 없다.
  *  - 자식클래스가 구현해야할 내용을 추상메소드로 강제화한다.
  * </pre>

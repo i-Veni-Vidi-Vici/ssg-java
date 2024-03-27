@@ -13,6 +13,6 @@ public class Circle extends Shape {
         System.out.printf("중심점이 (%d, %d)이고, 반지름이 %d인 원을 그린다.", point.getX(), point.getY(), r);
     }
     public double getArea() {
-        return r*r;
+        return r * r * Math.PI;
     }
 }

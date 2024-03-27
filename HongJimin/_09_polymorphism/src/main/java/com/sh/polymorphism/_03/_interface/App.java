@@ -1,7 +1,5 @@
 package com.sh.polymorphism._03._interface;
 
-import com.sh.polymorphism._03.Monitor;
-
 /**
  * <pre>
  *       인터페이스 interface
