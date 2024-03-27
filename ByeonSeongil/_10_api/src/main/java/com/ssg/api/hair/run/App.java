@@ -116,20 +116,17 @@ public class App {
         String[] value = data.split("\n");
         User[] users = new User[value.length-1];
 
-//        String[] splitValue = value[1].split(",");
-//        System.out.println(Arrays.toString(splitValue));
+
 
         for (int i = 1; i < value.length; i++) {
             String[] splitValue = value[i].split(",");
-            String[] splitBirth = splitValue[5].split("/");
             String[] splitTime = splitValue[7].split(":");
 
             users[i - 1] = new User(Integer.parseInt(splitValue[0]), splitValue[1], splitValue[2], splitValue[3],
                     splitValue[4],
-                    splitValue[5].equals("")? null:LocalDate.of(Integer.parseInt(splitBirth[0]), Integer.parseInt(splitBirth[1]),
-                            Integer.parseInt(splitBirth[2])),
-                    LocalDate.parse(splitValue[6]), LocalTime.of(Integer.parseInt(splitTime[0]), Integer.parseInt(splitTime[1])),
-                    LocalDateTime.parse(splitValue[8], DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+                    splitValue[5].equals("")?null:LocalDate.parse(splitValue[5],DateTimeFormatter.ofPattern("yyyy/MM/dd")),
+                    LocalDate.parse(splitValue[6]), LocalTime.parse(splitValue[7], DateTimeFormatter.ofPattern("H:mm")),
+                    LocalDateTime.parse(splitValue[8]));
         }
 
         for (User user : users) {
