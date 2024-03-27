@@ -75,7 +75,7 @@ public class StudentDTO {
         System.out.println("이름 : " + getName() + ", ");
         System.out.println("국어점수 : " + getKor() + ", ");
         System.out.println("영어점수 : " + getEng() + ", ");
-        System.out.println("수학점수 : " + getMath() + "\n");
+        System.out.println("수학점수 : " + getMath() + ", ");
 
 
         return "";

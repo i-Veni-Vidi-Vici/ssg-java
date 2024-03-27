@@ -13,8 +13,9 @@ public class Application {
         // while문을 사용하여 학생들의 정보를 계속 입력 받고
         // 한 명씩 추가 될 때마다 카운트함
         // 계속 추가할 것인지 물어보고, 대소문자 상관없이 ‘y’이면 계속 객체 추가
+        // 3명 정도의 학생 정보를 입력 받아 각 객체에 저장함
         System.out.println("학생정보를 입력하겠습니다. ");
-        char yn ;
+        char yn;
         int count = 0;
 
         while (count < studentArrs.length) {
@@ -49,18 +50,19 @@ public class Application {
                 System.out.println("> 프로그램을 종료합니다...");
                 break;
             }
-
-
         }
-        for (StudentDTO s : studentArrs) {
-            s.information();
-        }
-
-
-        // 3명 정도의 학생 정보를 입력 받아 각 객체에 저장함
 
         // 현재 기록된 학생들의 각각의 점수 평균을 구함
-
         // 학생들의 정보를 모두 출력 (평균 포함)
+        for (StudentDTO s : studentArrs) {
+            if (s == null) {
+                break;
+            }
+
+            int sum = s.getKor() + s.getEng() + s.getMath();
+            int avarage = sum / 3;
+            System.out.println(s.information() + "평균점수 : " + avarage + "\n");
+        }
+
     }
 }
