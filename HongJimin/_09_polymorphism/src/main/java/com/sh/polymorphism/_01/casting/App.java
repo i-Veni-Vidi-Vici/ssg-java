@@ -20,7 +20,7 @@ public class App {
         App app = new App();
 //        app.test1();
 //        app.test2();
-//        app.test3();
+        app.test3();
         app.test4();
 
 
