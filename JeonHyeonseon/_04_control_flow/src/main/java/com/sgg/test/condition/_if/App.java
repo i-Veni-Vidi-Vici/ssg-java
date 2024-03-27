@@ -9,6 +9,6 @@ public class App {
 //        test2.test();
 
         Test3 test3 = new Test3();
-//        test3.test();
+        test3.test();
     }
 }
