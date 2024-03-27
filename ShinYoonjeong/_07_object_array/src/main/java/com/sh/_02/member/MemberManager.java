@@ -19,6 +19,7 @@ import java.util.Scanner;
 public class MemberManager {
     private MemberCreateService memberCreateService = new MemberCreateService();
     private MemberFindService memberFindService= new MemberFindService();
+    private MemberSearchService memberSearchService = new MemberSearchService();
     public boolean saveMember(Member member){
         boolean success = memberCreateService.saveMember(member);
 
@@ -27,5 +28,9 @@ public class MemberManager {
     public Member[] readMember() {
         Member[] members = memberFindService.readMember();
         return members;
+    }
+    public Member[] searchMember(){
+        Member[] members = memberSearchService.searchMember();
+        return null;
     }
 }
