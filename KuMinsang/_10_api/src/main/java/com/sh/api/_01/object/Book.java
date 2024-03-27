@@ -1,4 +1,4 @@
-package com.sh.api_01.object;
+package com.sh.api._01.object;
 
 public class Book {
     private long id;

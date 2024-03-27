@@ -1,4 +1,4 @@
-package com.sh.api_02.string;
+package com.sh.api._02.string;
 
 import org.w3c.dom.ls.LSOutput;
 
