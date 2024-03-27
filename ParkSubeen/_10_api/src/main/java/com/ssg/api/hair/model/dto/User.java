@@ -30,6 +30,10 @@ public class User {
         this.createdAt = createdAt;
     }
 
+    public String printInfo() {
+        return "User{id=" + id + ", firstName='" + firstName +"', lastName='" + lastName + "', email='" + email + "', gender=" + gender + ", birthday=" + birthday + ", reservationDate=" + reservationDate + ", reservationTime=" + reservationTime + ", createdAt=" + createdAt + "}";
+    }
+
     public int getId() {
         return id;
     }
