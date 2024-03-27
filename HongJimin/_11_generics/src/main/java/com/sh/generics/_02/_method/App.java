@@ -28,7 +28,7 @@ public class App {
         //Box.<K>of (K value)
         Box<Integer> box = Box.of(123); //호출했을 때, K가 int타입으로 결정됨
         Integer value = box.getValue();
-        System.out.println(value instanceof Integer);//true
+        System.out.println(value instanceof Integer);//true!
     }
 
 }
