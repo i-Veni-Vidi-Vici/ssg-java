@@ -1,7 +1,5 @@
 package com.ssg.api.object.car;
 
-import com.sh.api._01_object.Book;
-
 import java.util.Objects;
 
 /**
