@@ -54,13 +54,15 @@ public class Application {
 
         // 현재 기록된 학생들의 각각의 점수 평균을 구함
         // 학생들의 정보를 모두 출력 (평균 포함)
+        int sum = 0;
+        int avarage = 0;
         for (StudentDTO s : studentArrs) {
             if (s == null) {
                 break;
             }
 
-            int sum = s.getKor() + s.getEng() + s.getMath();
-            int avarage = sum / 3;
+            sum = s.getKor() + s.getEng() + s.getMath();
+            avarage = sum / 3;
             System.out.println(s.information() + "평균점수 : " + avarage + "\n");
         }
 
