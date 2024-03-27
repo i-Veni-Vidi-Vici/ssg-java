@@ -41,6 +41,6 @@ public class App {
         Box<Integer> box = Box.of(123);
         Integer value = box.getValue();
         System.out.println(value instanceof  Integer);
-        
+
     }
 }
