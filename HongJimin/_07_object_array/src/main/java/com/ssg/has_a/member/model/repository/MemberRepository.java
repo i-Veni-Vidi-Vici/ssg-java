@@ -8,6 +8,7 @@ public class MemberRepository {
     Gold[] golds = new Gold[10];
 
     public void silverInsert(Silver silver) {
+
         for (int i = 0; i < silvers.length; i++) {
             silvers[i] = silver;
         }
@@ -26,6 +27,8 @@ public class MemberRepository {
                 -----------------------------------------------------------------
                 """);
        for (int i = 0; i < silvers.length; i++) {
+           if(silvers[i] ==null) break;
+
            System.out.println(
                    silvers[i].getName() +"\t"
                    + silvers[i].getGrade() +"\t"
