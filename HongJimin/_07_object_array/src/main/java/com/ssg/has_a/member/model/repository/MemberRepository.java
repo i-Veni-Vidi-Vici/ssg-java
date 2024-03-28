@@ -9,10 +9,8 @@ public class MemberRepository {
 
     public void silverInsert(Silver silver) {
         for (int i = 0; i < silvers.length; i++) {
-            if (silvers[i] ==null) {
-                return;
-            }
-
+//            silvers[i] = String.valueOf(Silver silver);
+            silver.getEjapoint();
         }
     }
 
@@ -25,6 +23,9 @@ public class MemberRepository {
                 이름              등급             포인트         이자포인트
                 -----------------------------------------------------------------
                 """);
+       for (int i = 0; i < silvers.length; i++) {
+           System.out.println();
+       }
 
     }
 }
