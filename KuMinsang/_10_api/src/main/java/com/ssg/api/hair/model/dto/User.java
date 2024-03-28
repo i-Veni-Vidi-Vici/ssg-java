@@ -1,6 +1,10 @@
 package com.ssg.api.hair.model.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.StringTokenizer;
 
 public class User {
     private int id;
@@ -10,13 +14,13 @@ public class User {
     private String gender;
     private LocalDate birthday;
     private LocalDate reservationDate;
-    private LocalDate reservationTime;
+    private LocalTime reservationTime;
     private LocalDate createAt;
 
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String gender, LocalDate birthday, LocalDate reservationDate, LocalDate reservationTime, LocalDate createAt) {
+    public User(int id, String firstName, String lastName, String email, String gender, LocalDate birthday, LocalDate reservationDate, LocalTime reservationTime, LocalDate createAt) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,35 +76,50 @@ public class User {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setBirthday(String birthday) {
+        if(!birthday.isEmpty()) {
+            this.birthday = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        }
     }
 
     public LocalDate getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(LocalDate reservationDate) {
-        this.reservationDate = reservationDate;
+    public void setReservationDate(String reservationDate) {
+        if(!reservationDate.isEmpty()) {
+            this.reservationDate = LocalDate.parse(reservationDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        }
     }
 
-    public LocalDate getReservationTime() {
+    public LocalTime getReservationTime() {
         return reservationTime;
     }
 
-    public void setReservationTime(LocalDate reservationTime) {
-        this.reservationTime = reservationTime;
+    public void setReservationTime(String reservationTime) {
+        if(!reservationTime.isEmpty()) {
+            String[] time = reservationTime.split(":");
+            if(Integer.parseInt(time[0])<10){
+                time[0] = '0'+time[0];
+            }
+            this.reservationTime = LocalTime.of(Integer.parseInt(time[0]), Integer.parseInt(time[1]));
+            //this.reservationTime = LocalTime.parse(reservationTime, DateTimeFormatter.ofPattern("HH:mm"));
+        }
     }
 
     public LocalDate getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(LocalDate createAt) {
-        this.createAt = createAt;
+    public void setCreateAt(String createAt) {
+        if(!createAt.isEmpty()) {
+            this.createAt = LocalDate.parse(createAt, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        }
     }
 
-    public void information(){
-
+    @Override
+    public String toString(){
+        return String.format("id=%d, firstName='%s', lastName='%s', email='%s', gender='%s', birthday=%s, reservationDate=%s, reservationTime=%s, createAt=%s", id, firstName, lastName, email, gender, birthday, reservationDate, reservationTime, createAt);
     }
+
 }

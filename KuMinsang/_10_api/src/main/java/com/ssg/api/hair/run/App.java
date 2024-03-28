@@ -114,19 +114,23 @@ public class App {
         String[] datas = data.split("\\n");
         //멤버 서브스트링 파싱 및 멤버 객체 할당
         //멤버 배열 할당
-        User[] user = new User[datas.length];
+        User[] user = new User[datas.length-1];
         for(int i =0; i < user.length; i++){
-            StringTokenizer tokenizer = new StringTokenizer(datas[i], ",");
-            user[i].setId(Integer.parseInt(tokenizer.nextToken()));   //ID
-            user[i].setFirstName(tokenizer.nextToken());
-            user[i].setLastName(tokenizer.nextToken());
-            user[i].setEmail(tokenizer.nextToken());
-            user[i].setGender(tokenizer.nextToken());
+            String[] token = datas[i+1].split(",");
+            user[i] = new User();
+            user[i].setId(Integer.parseInt(token[0]));   //ID
+            user[i].setFirstName(token[1]);    //이름
+            user[i].setLastName(token[2]); //성
+            user[i].setEmail(token[3]);    //이메일
+            user[i].setGender(token[4]);   //성별
+            user[i].setBirthday(token[5]); //생일
+            user[i].setReservationDate(token[6]);   //예약일
+            user[i].setReservationTime(token[7]); //예약시간
+            user[i].setCreateAt(token[8]);//예약신청시간
+        }
 
-            user[i].setReservationDate();   //예약일
-            //예약시간
-            //예약신청시간
-
+        for(int i=1; i< user.length; i++){
+            System.out.println(user[i]);
         }
 
     }
