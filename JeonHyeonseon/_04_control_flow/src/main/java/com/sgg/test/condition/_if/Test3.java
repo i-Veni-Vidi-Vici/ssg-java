@@ -3,6 +3,7 @@ package com.sgg.test.condition._if;
 import java.util.Scanner;
 
 public class Test3 {
+
     public void test() {
         Scanner sc = new Scanner(System.in);
         System.out.print("체중입력(kg) : ");
