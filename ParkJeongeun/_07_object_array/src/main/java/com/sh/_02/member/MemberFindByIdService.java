@@ -6,5 +6,4 @@ public class MemberFindByIdService {
         Member member = memberRepository.readMemberById(id);
         return member;
     }
-
 }
