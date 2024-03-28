@@ -37,4 +37,9 @@ public class Gold {
     public void setPoint(int point) {
         this.point = point;
     }
+
+    public double getEjapoint() {
+        double goldEja = getPoint() * 0.05;
+        return goldEja;
+    }
 }
