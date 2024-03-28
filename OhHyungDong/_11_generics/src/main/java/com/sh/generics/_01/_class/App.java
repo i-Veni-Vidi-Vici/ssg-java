@@ -43,10 +43,10 @@ public class App {
 
         //타입제한을 사용하지 않는다면 - 다양한 자료형이 올 수 있기 때문에 좋은 코드가 아님
         //메소드 호출시 모든 타입을 전달 할 수 있어 제어하기 힘들다.
-        Box box = new Box();
-        box.setValue(true);
-        box.setValue("gg");
-        box.setValue(LocalDateTime.now());
+//        Box box = new Box();
+//        box.setValue(true);
+//        box.setValue("gg");
+//        box.setValue(LocalDateTime.now());
         //리턴 받은 값의 타입이 Object이므로 다운 캐스팅 이후 사용할 수 있다.
         Object value3 = box.getValue();
         LocalDateTime _value3 = (LocalDateTime) value3;
