@@ -19,7 +19,7 @@ public class Member {
 
     public String information()
     {
-        return "no" + memberName + ", "+"name"+ ", "+"height"+ ", "+"weight"+ ", "+birth;
+        return memberNo +" "+memberName+" "+height+" "+weight+" "+birth;
     }
 
     public int getMemberNo() {

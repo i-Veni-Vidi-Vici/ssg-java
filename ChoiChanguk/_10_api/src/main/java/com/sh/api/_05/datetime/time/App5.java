@@ -14,6 +14,7 @@ public class App5 {
         // 1. 날짜/시간 출력
         LocalDate today=LocalDate.now();
         System.out.println(today);
+        System.out.println(today);
         System.out.println(today.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));//2024 03 24
         System.out.println(today.format(DateTimeFormatter.ofPattern("yyyy/M/dd")));// 2024 3 24
         System.out.println(today.format(DateTimeFormatter.ofPattern("yyyy년 M월 dd일")));// 2024 3 24
