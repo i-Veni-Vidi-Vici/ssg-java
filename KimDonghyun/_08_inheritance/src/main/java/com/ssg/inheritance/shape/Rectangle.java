@@ -15,23 +15,25 @@ public class Rectangle extends Shape {
 	 * @param points
 	 */
 	public Rectangle(Point[] points) {
-		super();
+		super(); // 부모생성자 호출 (상속시 자동으로 처리부분)
 		this.points = points;
 		this.width = points[1].getX() - points[0].getX();
 		this.height = points[3].getY() - points[0].getY();
 	}
 
 	public Rectangle(Point leftTop, int width, int height) {
-		points = new Point[4];
-		points[0] = leftTop;
-		points[1] = new Point(leftTop.getX() + width, leftTop.getY());
-		points[2] = new Point(leftTop.getX() + width, leftTop.getY() + height);
-		points[3] = new Point(leftTop.getX(), leftTop.getY() + height);
+		super();
+		this.points = new Point[4];
+		this.points[0] = leftTop;
+		this.points[1] = new Point(leftTop.getX() + width, leftTop.getY());
+		this.points[2] = new Point(leftTop.getX() + width, leftTop.getY() + height);
+		this.points[3] = new Point(leftTop.getX(), leftTop.getY() + height);
 		this.width = width;
 		this.height = height;
 	}
 
 	public Rectangle(Point leftTop, Point rightBottom) {
+		super();
 		this.width = rightBottom.getX() - leftTop.getX();
 		this.height = rightBottom.getY() - leftTop.getY();
 		points = new Point[4];

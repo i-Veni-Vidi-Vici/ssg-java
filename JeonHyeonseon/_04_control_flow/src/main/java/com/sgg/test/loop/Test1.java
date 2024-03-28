@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Test1 {
     public static void main(String[] args) {
-        // 사용자로부터 1부터 입력 받은 정수까지 존재하는 짝수의 합을 출력하세요.
+        /**
+         * 사용자로부터 1부터 입력 받은 정수까지 존재하는 짝수의 합을 출력하세요.
+         */
 
         // 사용자가 입력한 값이 짝수가 되도록 식을 만들기
         // 짝수가 될 수 있도록 만든 식 : num % 2 == 0
