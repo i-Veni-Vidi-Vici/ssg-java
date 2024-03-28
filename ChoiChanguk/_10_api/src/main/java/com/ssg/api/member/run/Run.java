@@ -2,6 +2,8 @@ package com.ssg.api.member.run;
 
 import com.ssg.api.member.model.vo.Member;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class Run {
@@ -10,16 +12,18 @@ public class Run {
         Member[] members=new Member[3];
 
         String[] tempResult=infor.split("[|]");
-        String[] result=new String[3];
-        System.out.println(tempResult.toString());
+        String[] result;
+
 
         for(int i=0;i<3;i++)
         {
-            members[i]=new Member(tempResult[i].split("[,]"));
+            result=tempResult[i].split("[,]");
+            members[i]=new Member(Integer.parseInt(result[0]),result[1],Integer.parseInt(result[2]),
+                    Integer.parseInt(result[3]), LocalDate.parse(result[4],DateTimeFormatter.ofPattern("yyyyMMdd")));
         }
 
-        for(int i=0;i<tempResult.length;i++)
-            System.out.println(tempResult[i]);
+        for(int i=0;i<3;i++)
+            System.out.println(members[i].information());;
 
 
     }
