@@ -34,7 +34,7 @@ public class Student extends Person{
 
     @Override
     public String information() {
-        System.out.print( "   " + getName() + "\t" + getAge() + "\t" + getHeight() + "\t"  + getWeight() + "\t" + getGrade() + "\t");
+        System.out.print( "   " + getName() + "\t" + getAge() + " \t" + getHeight() + "\t"  + getWeight() + "\t" + getGrade() + "\t");
         return getMajor();
     }
 

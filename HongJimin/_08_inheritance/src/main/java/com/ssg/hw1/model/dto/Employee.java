@@ -34,6 +34,7 @@ public class Employee extends Person{
 
     @Override
     public String information() {
-        return null;
+        System.out.print( "   " + getName() + "\t" + getAge() + "\t" + getHeight() + "\t"  + getWeight() + "\t" + getSalary() + "\t");
+        return getDept();
     }
 }
