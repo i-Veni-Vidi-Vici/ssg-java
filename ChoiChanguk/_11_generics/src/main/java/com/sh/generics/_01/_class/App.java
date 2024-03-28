@@ -1,10 +1,7 @@
 package com.sh.generics._01._class;
 
-import javax.print.DocFlavor;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>
