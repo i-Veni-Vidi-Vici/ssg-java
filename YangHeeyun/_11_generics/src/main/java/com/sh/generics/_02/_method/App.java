@@ -1,4 +1,4 @@
-package _02._method;
+package com.sh.generics._02._method;
 
 import com.sh.generics._01._class.Box;
 
