@@ -1,4 +1,4 @@
-package com.sh._class;
+package com.sh.generics._01._class;
 
 /**
  * 타입변수
