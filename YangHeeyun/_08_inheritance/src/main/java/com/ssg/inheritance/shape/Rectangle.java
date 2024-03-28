@@ -8,6 +8,7 @@ public class Rectangle extends Shape{
 
     public Rectangle() {}
     public Rectangle(Point[] points){
+        // super() 부모 Shape쓰려면 자동으로 생김. 생략가능하지만 자동으로 들어가있음
         this.points = points; // this.points배열에 ShapeMain에서 호출한 new point(x,y)값 차례대로 대입
         this.width = points[1].getX() - points[0].getX();
         this.height = points[3].getY() - points[0].getY();
