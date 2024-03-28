@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
  *    (데이터에는 절대 존재하지 않는 값을 구분자로 사용해야한다.)
  *  - "홍길동, 34, 서울시 강남구, 농구/배구/축구"
  *
+ * 처리 방법
  * 1. Sting#split(delimit:String):String[]
  * 2. new StringTokenizer(data:String, delimit:String)
  *
@@ -69,7 +70,7 @@ public class App3 {
 
         // split매개변수는 정규표현식(문자열 검색을 지원하는 표현식)을 인자로 한다.
         // [/, ] 문자하나에 대한 옵션 (/이거나 ,이거나 공백 문자를 가리키는 표현식이다)
-        String[] arr4 = dirtyData.split("/, ");
+        String[] arr4 = dirtyData.split("[/, ]");
         System.out.println(Arrays.toString(arr4));
         System.out.println(arr4.length);
     }

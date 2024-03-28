@@ -18,6 +18,5 @@ public class Test2 {
         else if(num % 2 != 0) {
             System.out.println("홀수다");
         }
-
     }
 }
