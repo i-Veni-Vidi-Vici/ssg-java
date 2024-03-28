@@ -52,7 +52,7 @@ public class Sample {
         // 각 행과 열의 합계
         int rowSum = 0;
         for(int i = 0; i < 3; i ++){ // 행의 합
-            
+
         }
 
     }
