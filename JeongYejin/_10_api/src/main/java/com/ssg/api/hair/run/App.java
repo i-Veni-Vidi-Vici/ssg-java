@@ -128,12 +128,12 @@ public class App {
         String[] arr = data.split("\n");
         User[] users = new User[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            String[] variance = arr[i].split(",", 9);
+            String[] variable = arr[i].split(",", 9);
 
-            if (variance[5] == "") { // birthday 미입력자 존재
-                variance[5] = "0001/01/01";
+            if (variable[5] == "") { // birthday 미입력자 존재
+                variable[5] = "0001/01/01";
             }
-            users[i] = new User(Integer.parseInt(variance[0]), variance[1], variance[2], variance[3], variance[4], LocalDate.parse(variance[5], DateTimeFormatter.ofPattern("yyyy/MM/dd")), LocalDate.parse(variance[6]), LocalTime.parse(variance[7],  DateTimeFormatter.ofPattern("H:MM")), LocalDateTime.parse(variance[8]));
+            users[i] = new User(Integer.parseInt(variable[0]), variable[1], variable[2], variable[3], variable[4], LocalDate.parse(variable[5], DateTimeFormatter.ofPattern("yyyy/MM/dd")), LocalDate.parse(variable[6]), LocalTime.parse(variable[7],  DateTimeFormatter.ofPattern("H:MM")), LocalDateTime.parse(variable[8]));
             System.out.println(users[i].toString());
         }
     }
