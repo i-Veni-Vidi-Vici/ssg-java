@@ -1,4 +1,4 @@
-package com.sh._class;
+package com.sh.generics._01._class;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

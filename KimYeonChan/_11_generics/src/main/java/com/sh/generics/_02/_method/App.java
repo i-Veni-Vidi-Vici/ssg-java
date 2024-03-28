@@ -1,4 +1,4 @@
-package com.sh._method;
+package com.sh.generics._02._method;
 
 /**
  * 제네릭 메소드
