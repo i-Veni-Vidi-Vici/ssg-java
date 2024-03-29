@@ -1,4 +1,4 @@
-package com.sh.collections._01.list;
+package com.sh.collections._03.map;
 
 public class Book {
     private long id;
@@ -8,7 +8,6 @@ public class Book {
 
     @Override
     public String toString() {
-        this.
         return "Book { " +
                 "id = " + id +
                 ", title = '" + title + '\'' +
@@ -17,8 +16,9 @@ public class Book {
                 " }" + "\n";
     }
 
-    public Book() {
 
+
+    public Book() {
     }
 
     public Book(long id, String title, String author, int price) {
@@ -26,7 +26,6 @@ public class Book {
         this.title = title;
         this.author = author;
         this.price = price;
-
     }
 
     public long getId() {

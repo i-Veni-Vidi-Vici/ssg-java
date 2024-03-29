@@ -121,6 +121,10 @@ public class App {
             user[i]=new User(Integer.parseInt(result[0]),result[1],result[2],result[3],result[4],
                     LocalDate.parse(result[5]),LocalDate.parse(result[6]),LocalDate.parse(result[7]),LocalDate.parse(result[7]));
             System.out.println(result[i]);
+            if(user[i].getBirthday()==null)
+            {
+                user[i].setBirthday(null);
+            }
 
         }
         for (int i=0;i<100;i++) {

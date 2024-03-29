@@ -1,5 +1,7 @@
 package com.sh.generics._03._extends;
 
+import com.sh.generics._01._class.Box;
+
 import java.time.LocalDate;
 
 /**
@@ -10,7 +12,13 @@ import java.time.LocalDate;
  *</pre>
  */
 public class App {
+    public void print()
+    {
+        System.out.println("안녕하세요");
+    }
     public static void main(String[] args) {
+        Boo
+
         //RabbitFarm
 //    RabbitFarm<Animal> animalFarm=new RabbitFarm<>(new Mammal());// 다형성
 //    RabbitFarm<Animal> animalFarm2=new RabbitFarm<>(new Reptile());

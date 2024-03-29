@@ -15,7 +15,33 @@ import java.util.*;
  * </pre>
  */
 public class App1 {
+    private long id;
+    private String title;
+    private String author;
+    private int price;
+    @Override
+    public String toString() {
+        return "Book { " +
+                "id = " + id +
+                ", title = '" + title + '\'' +
+                ", author = '" + author + '\'' +
+                ", price = " + price +
+                " }" + "\n";
+    }
+
+    public App1() {
+
+    }
+
+    public App1(long id, String title, String author, int price) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
     public static void main(String[] args) {
+
 //        ArrayList list1=new ArrayList();
 //        List list2=new ArrayList(); //이걸 많이들 쓴다, List에 추상메소드가 ArrayList에 있으니
 //        Collection list3=new ArrayList();

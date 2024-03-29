@@ -15,6 +15,9 @@ import java.util.Arrays;
  */
 public class App0 {
     public static void main(String[] args) {
+        Book book=new Book();
+        book.setTitle("123123");
+        System.out.println(book.getTitle());
         Book[] books=new Book[]{
                 new Book(100l,"홍길동", "허균",15000)
         ,new Book(100l,"신사동 가로수길","신사임당",30000)
