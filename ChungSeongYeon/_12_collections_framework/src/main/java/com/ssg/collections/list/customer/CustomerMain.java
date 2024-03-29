@@ -1,6 +1,7 @@
 package com.ssg.collections.list.customer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class CustomerMain {
@@ -22,12 +23,12 @@ public class CustomerMain {
 		this.list.add(new Customer("신사임당", 43, '여', 2300.9));
 		System.out.println("1번 : " + this.list);
 	}
-	
+
 	private void test2() {
 		this.list.add(0, new Customer("이황", 66, '남', 9999.9)); // 데이터 추가
 		System.out.println("2번 : " + this.list);
 	}
-	
+
 	private void test3() {
 		this.list.sort((c1, c2) -> c1.getName().compareTo(c2.getName())); // 이름 가나다 오름차순
 		System.out.println("3번 : " + this.list);
@@ -40,6 +41,14 @@ public class CustomerMain {
 				return (int) (o1.getAge() - o2.getAge()); // 나이 오름차순
 			}
 		});
+
+//		Collections.sort(list, new Comparator<Customer>() {
+//			@Override
+//			public int compare(Customer o1, Customer o2) {
+//				return (int) (o1.getAge() - o2.getAge());
+//			}
+//		}); // this.list.sort랑 비슷
+
 		System.out.println("4번 : " + this.list);
 	}
 
