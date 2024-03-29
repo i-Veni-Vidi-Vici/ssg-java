@@ -9,10 +9,10 @@ public class Run {
 
 		// rect1
 		Point[] points = {
-				new Point(0,0),
-				new Point(200,0),
-				new Point(200,100),
-				new Point(0,100)
+				new Point(0,0), // left top
+				new Point(200,0), // right top
+				new Point(200,100), // right bottom
+				new Point(0,100) // left bottom
 		};
 		Rectangle rect = new Rectangle(points);
 		rect.draw();

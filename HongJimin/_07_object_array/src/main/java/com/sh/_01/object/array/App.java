@@ -48,7 +48,6 @@ public class App {
         Car[] cars2 = new Car[]{
                 new Car("그랜져", 250),
                 new Car("모닝", 150),
-
         };
 
         for (Car car : cars2) {
