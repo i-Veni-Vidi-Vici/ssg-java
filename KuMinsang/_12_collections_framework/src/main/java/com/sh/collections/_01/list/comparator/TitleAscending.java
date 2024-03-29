@@ -1,10 +1,5 @@
 package com.sh.collections._01.list.comparator;
-
-<<<<<<< HEAD
-public class TitleAscending {
-=======
 import com.sh.collections._01.list.Book;
-
 import java.util.Comparator;
 
 public class TitleAscending implements Comparator<Book> {
@@ -24,5 +19,4 @@ public class TitleAscending implements Comparator<Book> {
         // o1책제목이 사전등재순이 빠르다면 음수 반환
         return o1.getTitle().compareTo(o2.getTitle());
     }
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
 }

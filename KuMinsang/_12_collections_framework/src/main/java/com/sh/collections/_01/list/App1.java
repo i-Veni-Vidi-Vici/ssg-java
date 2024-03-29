@@ -26,35 +26,6 @@ import java.util.*;
  */
 public class App1 {
     public static void main(String[] args) {
-<<<<<<< HEAD
-        ArrayList list1 = new ArrayList();
-//        List list2 = new ArrayList();
-//        Collection list3 = new ArrayList();
-        List list = new ArrayList<>();
-
-        //요소 추가
-        list.add("123");
-        list.add(123);
-        list.add(123.456);
-        list.add(LocalDate.now());
-
-        System.out.println(list.get(0));
-
-        //삽입 add(int, E)
-        System.out.println(list.get(2));
-        System.out.println(list.size());
-        list.add(2, "zzz"); //123.456이 밀려남
-        System.out.println(list.get(2));
-        System.out.println(list.size());
-        System.out.println(list.get(3));
-
-//        list.remove(2);
-//        list.remove(1);
- //       Collections.sort(list); //기본적으로 오름차순 정렬로 작동
-
-
-
-=======
 //        ArrayList list1 = new ArrayList();
 //        List list2 = new ArrayList();
 //        Collection list3 = new ArrayList();
@@ -132,6 +103,5 @@ public class App1 {
         // new ArrayList<>(Collection) - list/set을 그대로 새로운 리스트로 복사할 수 있다.
         List<String> list2 = new ArrayList<>(list);
         System.out.println(list2);
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
     }
 }

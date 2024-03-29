@@ -6,8 +6,6 @@ public class Book {
     private String author;
     private int price;
 
-<<<<<<< HEAD
-=======
     public Book() {
     }
 
@@ -18,7 +16,6 @@ public class Book {
         this.price = price;
     }
 
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
     public long getId() {
         return id;
     }
@@ -51,21 +48,6 @@ public class Book {
         this.price = price;
     }
 
-<<<<<<< HEAD
-    public Book() {
-    }
-
-    public Book(long id, String title, String author, int price) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("{id = %d, title = %s, author = %s, price = %d}", id, title, author, price);
-=======
     @Override
     public String toString() {
         return "Book{" +
@@ -74,6 +56,5 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", price=" + price +
                 '}';
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
     }
 }
