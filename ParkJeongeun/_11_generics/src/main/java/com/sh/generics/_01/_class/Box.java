@@ -17,4 +17,9 @@ public class Box<T> {
     public T getValue(){
         return this.value;
     }
+    public static <K> Box<K> of(K value) {
+        Box<K> box = new Box<>();
+        box.setValue(value);
+        return box;
+    }
 }

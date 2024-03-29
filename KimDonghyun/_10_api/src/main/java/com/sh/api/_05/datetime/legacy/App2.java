@@ -28,7 +28,7 @@ public class App2 {
 
         // 년,월,일,시,분,초 getter
         int year = sometime.get(Calendar.YEAR);
-        int month = sometime.get(Calendar.MONTH);
+        int month = sometime.get(Calendar.MONTH); // 0 ~ 11월
         int dayOfMonth = sometime.get(Calendar.DAY_OF_MONTH);
         int hour = sometime.get(Calendar.HOUR_OF_DAY);
         int minute = sometime.get(Calendar.MINUTE);
@@ -45,7 +45,10 @@ public class App2 {
         System.out.println("amPm = " + amPm);
 
         String weekday = switch(dayOfWeek) {
-            case 1 -> "일";
+            case 1 -> {
+                // ...  어쩌구 저쩌구
+                yield "일";
+            }
             case 2 -> "월";
             case 3 -> "화";
             case 4 -> "수";

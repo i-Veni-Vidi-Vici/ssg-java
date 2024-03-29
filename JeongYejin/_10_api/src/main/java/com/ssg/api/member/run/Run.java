@@ -11,8 +11,8 @@ public class Run {
         String[] arr = str.split("\\|");
         Member[] members = new Member[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            String[] variance = arr[i].split(",");
-            members[i] = new Member(Integer.parseInt(variance[0]), variance[1], Integer.parseInt(variance[2]), Integer.parseInt(variance[3]), LocalDate.parse(variance[4], DateTimeFormatter.ofPattern("yyyyMMdd")));
+            String[] variable = arr[i].split(",");
+            members[i] = new Member(Integer.parseInt(variable[0]), variable[1], Integer.parseInt(variable[2]), Integer.parseInt(variable[3]), LocalDate.parse(variable[4], DateTimeFormatter.ofPattern("yyyyMMdd")));
             System.out.println(members[i].information());
         }
     }

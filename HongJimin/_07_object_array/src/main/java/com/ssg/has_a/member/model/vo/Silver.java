@@ -38,8 +38,8 @@ public class Silver {
         this.point = point;
     }
 
-    public int getEjapoint() {
-        int silverEja =
+    public double getEjapoint() {
+        double silverEja = getPoint() * 0.02;
         return silverEja;
     }
 }
