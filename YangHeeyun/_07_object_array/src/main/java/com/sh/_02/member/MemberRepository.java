@@ -71,9 +71,19 @@ public class MemberRepository {
         if(index > 0) {
             members = new Member[index];
             for(int i = 0; i < members.length; i++) {
-                members[i] = this.members[i];
+                members[i] = this.members[i]; // index, this.members[i]는 멤버리파지토리 전역변수 뜻함
             }
         }
         return members;
+    }
+
+    public Member readMemberById(long id) {
+        for(int i=0;i<index;i++){
+            Member member = members[i];
+            if(member.getId() == id){
+                return member; // 동일한 id의 회원을 찾으면, 즉시 반환
+            }
+        }
+        return null;
     }
 }
