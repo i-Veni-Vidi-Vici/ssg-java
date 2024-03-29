@@ -22,23 +22,30 @@ public class App3 {
 
         Calendar cal = new GregorianCalendar(birthYear, birthMonth - 1, birthDay);
 //        System.out.println(cal);
+        //(모범답안)
         char[] daysOfWeek = {'일','월','화','수','목','금','토'};
 
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH) + 1;
-        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        System.out.printf("당신의 생일은 %d년 %d월 %d일 %s요일입니다.",
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH)+1,
+                cal.get(Calendar.DAY_OF_MONTH),
+                daysOfWeek[cal.get(Calendar.DAY_OF_WEEK) - 1]);
+
+        //(나)
+//        int year = cal.get(Calendar.YEAR);
+//        int month = cal.get(Calendar.MONTH) + 1;
+//        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
 //        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-//        daysOfWeek[cal.get(Calendar.DAY_OF_WEEK) - 1];
-//        String weekday = switch (dayOfWeek){
-//            case 1 -> "일";
-//            case 2 -> "월";
-//            case 3 -> "화";
-//            case 4 -> "수";
-//            case 5 -> "목";
-//            case 6 -> "금";
-//            case 7 -> "토";
-//            default -> "";
-//        };
+////        String weekday = switch (dayOfWeek){
+////            case 1 -> "일";
+////            case 2 -> "월";
+////            case 3 -> "화";
+////            case 4 -> "수";
+////            case 5 -> "목";
+////            case 6 -> "금";
+////            case 7 -> "토";
+////            default -> "";
+////        };
 
 //        System.out.println("당신의 생일은 " + year + "년 " + month + "월 " + dayOfMonth + "일 " + weekday + "요일입니다.");
     }

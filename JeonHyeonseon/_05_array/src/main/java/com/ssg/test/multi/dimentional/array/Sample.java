@@ -45,15 +45,27 @@ public class Sample {
         // 0행0열부터 2행2열까지 1부터 100사이의 임의의 정수값 기록
         for(int i = 0; i < arr.length; i++){ // 행
             for(int j = 0; j < 3; j++){  // 열
-                arr[i][j] = (int)(Math.random()*100) + 1;
+                arr[i][j] = (int)(Math.random()*100) + 1;  // 합계
+                arr[i][3] += arr[i][j]; // 각 행의 합계 구하는 식
+                System.out.print(arr[i][3] + " ");
             }
+            System.out.println();
         }
 
+<<<<<<< HEAD
         // 각 행과 열의 합계
         int rowSum = 0;
         for(int i = 0; i < 3; i ++){ // 행의 합
-            
+
         }
 
+=======
+        // 각 열의 합계
+//        for(int i = 0; i < arr[i].length; i++) {
+//            arr[3][i] += (int)(Math.random()*100) + 1;
+//            System.out.print(arr[3][i] + " ");
+//        }
+//        System.out.println();
+>>>>>>> 784195d5e2915b4e70aea710d73438485ce03a17
     }
 }
