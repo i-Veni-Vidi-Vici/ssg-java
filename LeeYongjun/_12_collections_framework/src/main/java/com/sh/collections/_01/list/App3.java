@@ -1,4 +1,4 @@
-package com.sh.collections._01.list.comparator;
+package com.sh.collections._01.list;
 
 import java.util.ArrayList;
 import java.util.Iterator;
