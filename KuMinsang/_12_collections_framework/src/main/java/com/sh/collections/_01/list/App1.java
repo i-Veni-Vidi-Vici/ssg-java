@@ -1,8 +1,4 @@
 package com.sh.collections._01.list;
-<<<<<<< HEAD
-=======
-
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
 import java.time.LocalDate;
 import java.util.*;
 
