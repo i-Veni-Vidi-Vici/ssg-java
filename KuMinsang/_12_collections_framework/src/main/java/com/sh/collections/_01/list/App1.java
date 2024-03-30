@@ -1,23 +1,16 @@
 package com.sh.collections._01.list;
+
 import java.time.LocalDate;
 import java.util.*;
 
 /**
  * <pre>
-<<<<<<< HEAD
- *     Collection
- *     - List
- *      - ArrayList(대표)
- *      - LinkedList
- *      ArrayList객체 안에는 데이털르 관리할 배열을 가지고 있다.
-=======
  * Collection
  *  - List
  *      - ArrayList (대표)
  *      - LinkedList
  *
  * ArrayList객체안에는 데이터를 관리할 배열을 가지고 있다.
->>>>>>> 97aa7183c9fb127e3cf611ff187d772054906c64
  * </pre>
  */
 public class App1 {

@@ -1,41 +1,60 @@
 package com.sh.collections._01.list;
-import com.sh.collections._01.list.comparator.PriceAscending;
 
-import java.util.*;
+import java.util.Stack;
 
 /**
- *
+ * <pre>
+ * Stack 
+ * - 후입선출 Last In First Out LIFO 구조의 리스트 객체
+ * - 메모리 콜스택, 웹브라우져의 뒤로가기/앞으로가기
+ * </pre>
  */
 public class App4 {
     public static void main(String[] args) {
-        List<Book> list = new ArrayList<>();
-        list.add(new Book(100L, "홍길동", "허균", 15000));
-        list.add(new Book(200L, "넛지", "제러드", 15000));
-        list.add(new Book(300L, "이기적유전자", "엣킨슨", 15000));
+        Stack<Integer> stack = new Stack<>();
+        // push 요소추가
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
 
-        //2권추가
-        list.add(new Book(400L, "한글2", "세종대왕", 20000));
-        System.out.println(list);
-        //1권 삭제(중간 2번지 데이터 삭제)
-        list.remove(2);
-        System.out.println(list);
-        //중간에 2벉에 1권 추가
-        list.add(2 ,new Book(500L, "해상왕", "지중왕", 25000));
-        System.out.println(list);
+        // peek 가장위의 요소 읽기(제거하지 않음)
+        System.out.println("peek : " + stack.peek());
 
-        Collections.sort(list, new PriceAscending());
-        System.out.println(list);
+        // pop 요소 가져오기(제거)
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop()); // java.util.EmptyStackException
+        while(!stack.isEmpty()) {
+            System.out.println(stack.pop());
+            System.out.println(stack);
+        }
 
-        Comparator authorAscending = new Comparator<Book>(){
-            @Override
-            public int compare(Book o1, Book o2){
-                return o1.getAuthor().compareTo(o2.getAuthor());
-            }
-        };
-        Collections.sort(list, authorAscending);
-        System.out.println(list);
+        // 메모리 콜스택
+        // - call 콜스택에 push
+        // - return 콜스택에서 pop
+        System.out.println("main");
+        App4 app = new App4();
+        app.a();
+        app.c();
 
-        //
+    }
 
+    private void a() {
+        System.out.println("a");
+        this.b();
+        this.c();
+    }
+
+    private void c() {
+        System.out.println("c");
+    }
+
+    private void b() {
+        System.out.println("b");
     }
 }

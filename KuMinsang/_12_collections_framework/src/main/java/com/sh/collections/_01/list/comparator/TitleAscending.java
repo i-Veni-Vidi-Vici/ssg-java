@@ -1,5 +1,7 @@
 package com.sh.collections._01.list.comparator;
+
 import com.sh.collections._01.list.Book;
+
 import java.util.Comparator;
 
 public class TitleAscending implements Comparator<Book> {

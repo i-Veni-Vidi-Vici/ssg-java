@@ -6,7 +6,6 @@ import java.util.Comparator;
 
 public class PriceAscending implements Comparator<Book> {
     @Override
-
     public int compare(Book o1, Book o2) {
 //        int price1 = o1.getPrice();
 //        int price2 = o2.getPrice();

@@ -1,4 +1,5 @@
 package com.sh.collections._01.list;
+
 import java.util.Arrays;
 
 /**
