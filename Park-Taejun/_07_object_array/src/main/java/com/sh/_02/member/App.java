@@ -39,6 +39,8 @@ package com.sh._02.member;
 
 public class App {
     public static void main(String[] args) {
+        //메인 메소드 안에서 시작점이기도 함
+
         MemberMenu memberMenu = new MemberMenu();
         memberMenu.menu();
     }

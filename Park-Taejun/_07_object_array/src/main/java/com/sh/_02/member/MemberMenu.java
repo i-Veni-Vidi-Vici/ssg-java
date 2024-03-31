@@ -10,8 +10,10 @@ import java.util.Scanner;
 
 public class MemberMenu {//필드로 선언하면 여러 메소드에서 동시에 이용 가능
     private Scanner sc = new Scanner(System.in);
-    private MemberManager memberManager;
-    private MemberRepsitory memberRepsitory; // 알고 있어야 멤버 리파지 토리 호출 등등 할 수 있음
+
+    //회원 정보를 저장하고 열람하려면 멤버레포지토리를 알고 있어야 할 것임.
+
+    private MemberRepository memberRepository;
 
     public void menu() {
         String menu = """
@@ -29,12 +31,8 @@ public class MemberMenu {//필드로 선언하면 여러 메소드에서 동시�
             System.out.println(menu);
             String choice = sc.next();
             switch (choice) {
-                case "1":
-                    saveMember();
-                    break;
-                case "2":
-                    readMember();
-                    break;
+                case "1": saveMembxer();break;
+                case "2": readMember(); break;
                 case "0":
                     return;
                 default:
@@ -45,34 +43,10 @@ public class MemberMenu {//필드로 선언하면 여러 메소드에서 동시�
     }
 
     private void readMember() {
-        Member[] members = memberManager.readMember();
-
-        if(members!= null) {
-            for(Member member : members){
-            System.out.printf("%d %s %s %s\n",
-                    member.getId(),
-                    member.getUsername(),
-                    member.getPassword(),
-                    member.getName(),
-                    member.getCreatAT());
-
-
-        }
-        }
     }
 
-    /**
-     * 1. 사용자 입력값으로 Member 객체를 생성
-     * 2. MemberManager 객체
-     */
-    private void saveMember() {
-        Member[] members = new Member[3];
-        members[0] = new Member(1L,"hongge", "1234", "홍길동", LocalDateTime.now());
-        members[1] = new Member(2L,"sinsa", "1234", "신사임당", LocalDateTime.now());
-        members[2] = new Member(3L,"leess", "1234", "이순신", LocalDateTime.now());
-        boolean success = memberManager.saveMember(members);
-        System.out.println( success ? " > 회원 정보를 성공적 저장 " :
-                                            "> 회원 정보 저장 실패");
-        // 멤버 매니저를 통해서 readMember 하고 멤버 매니저를 통해서 read 매니저 하게됨
+    private void saveMembxer() {
+        
     }
 }
+
