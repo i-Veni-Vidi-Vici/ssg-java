@@ -1,6 +1,6 @@
 package com.ssg.test1;
 
-public class RandomNumGenerator {
+public class RandomNumGenerator_Re {
     public void generate() {
         int num = (int)(Math.random() * 1000) + 1;
 
