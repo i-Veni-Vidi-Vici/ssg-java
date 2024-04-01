@@ -1,6 +1,12 @@
 package com.ssg.collections.list.customer;
 
 public class Customer {
+
+    //이름
+    //나이
+    //성별
+    //포인트
+
     private String name;
     private int age;
     private char gender;
@@ -52,4 +58,5 @@ public class Customer {
     public String toString() {
         return String.format("%s %d %c %.1f", name, age, gender, point);
     }
+
 }

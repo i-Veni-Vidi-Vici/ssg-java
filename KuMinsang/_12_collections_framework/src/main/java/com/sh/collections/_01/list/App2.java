@@ -1,9 +1,9 @@
 package com.sh.collections._01.list;
 
-import com.sh.collections._01.list.comparator.PriceAscending;
-import com.sh.collections._01.list.comparator.TitleAscending;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * <pre>
@@ -59,7 +59,8 @@ public class App2 {
         
         // 람다식(인터페이스 추상메소드가 딱 하나인 경우) 작성도 가능하다.
         Collections.sort(list, (Book o1, Book o2) -> o1.getAuthor().compareTo(o2.getAuthor()));
-        
+        Collections.sort(list, (o1, o2) -> o1.getAuthor().compareTo(o2.getAuthor()));
+
         System.out.println(list);
     }
 }
