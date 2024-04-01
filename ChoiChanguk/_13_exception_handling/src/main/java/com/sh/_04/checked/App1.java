@@ -4,7 +4,7 @@ package com.sh._04.checked;
 
 /**
  * Exception구분
- * 1. Checked Exception // 클래스가 잇는건 아니다
+ * 1. Checked Exception // 클래스가 잇는 건 아니다
  *  - RuntimeException계열을 제외한 모든 예외클래스
  *  - 예외처리(try..catch)를 강제화함. 예외처리 안하면 compile 오류 발생
  * 2. Unchecked Exception :// 개발자가 자유롭게 하려고, 개발자 재량

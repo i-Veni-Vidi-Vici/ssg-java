@@ -19,9 +19,6 @@ public class App {
     public static void main(String[] args) {
         ExceptionTest exceptionTest=new ExceptionTest();
 
-
-
-
         try {
             exceptionTest.checkEnoughMoney(30000, -20000);
             System.out.println("구매 가능합니다...");

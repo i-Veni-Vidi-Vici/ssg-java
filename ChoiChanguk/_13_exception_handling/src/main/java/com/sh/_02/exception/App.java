@@ -39,6 +39,14 @@ public class App {
             System.out.println("문자열이 초기화 되지 않았습니다");
         }
 
+        try {
+
+        }
+        catch (Exception e)
+        {
+
+        }
+
 
 
         //Scanner사용시 입력값 오류
