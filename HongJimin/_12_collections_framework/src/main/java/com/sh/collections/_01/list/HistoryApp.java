@@ -79,5 +79,4 @@ public class HistoryApp {
         System.out.println("앞으로가기 stack : " + forwardStack);
         System.out.println("----------------");
     }
-
 }
