@@ -28,11 +28,12 @@ public class App {
 
         RabbitFarm<Bunny> bunnyRabbitFarm = new RabbitFarm<>(new Bunny());
         RabbitFarm<Bunny> bunnyRabbitFarm2 = new RabbitFarm<>(new DrunkenBunny());
-        
+
         RabbitFarm<DrunkenBunny> drunkenBunnyRabbitFarm = new RabbitFarm<>(new DrunkenBunny());
 
         Rabbit rabbit = rabbitFarm.getRabbit();
         rabbit.cry();
+
         Rabbit rabbit2 = rabbitFarm2.getRabbit();
         rabbit2.cry(); // 상속/다형성 & 오버라이드 -> 동적바인딩
 
