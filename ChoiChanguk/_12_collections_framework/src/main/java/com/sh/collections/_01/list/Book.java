@@ -8,7 +8,6 @@ public class Book {
 
     @Override
     public String toString() {
-        this.
         return "Book { " +
                 "id = " + id +
                 ", title = '" + title + '\'' +

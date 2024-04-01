@@ -46,19 +46,19 @@ public class App1 {
 //        List list2=new ArrayList(); //이걸 많이들 쓴다, List에 추상메소드가 ArrayList에 있으니
 //        Collection list3=new ArrayList();
 
-        List list = new ArrayList(); //이 경우는 슈퍼클래스 Object다 = 사실 이렇게 잘 안쓴다
-        List<String> list1=new ArrayList<>(); // String 형식의 리스트 객체를 만든다
+        //List list = new ArrayList(); //이 경우는 슈퍼클래스 Object다 = 사실 이렇게 잘 안쓴다
+        List<String> list=new ArrayList<>(); // String 형식의 리스트 객체를 만든다
 
         list.add("asb");// 여기서부터는 형식을 정해주지 않아 Object로 등록이 된다
-        list.add(123123);
-        list.add(168 + 234234);
+        //list.add(123123);
+        //list.add(168 + 234234);
         list.add("오늘은");
         list.add("비가");
         list.add("추적추적 온다");
 
         // 등록과 반환을 Object로 했기 때문에 인트로는 안된다 + 다운캐스팅을 해주면 가능하다
         //int a = list.get(1)+123;
-        list.add(LocalDate.now());
+        //list.add(LocalDate.now());
 
         System.out.println(list);
 
