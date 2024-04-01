@@ -4,7 +4,7 @@ public class App {
     public static void main(String[] args) {
         Player player = new Player();
         //1턴 - 이동
-        int num = player.rollDice(new Dice6);
+        int num = player.rollDice(new Dice6());
         System.out.println("주사위 결과는" + num + "이 나왔습니다...");
         player.move(num);
 
