@@ -1,20 +1,19 @@
-package com.ssg.collections.list.book.run;
+package com.ssg.collections.map.book;
 
-import com.ssg.collections.list.book.controller.BookListManager;
 import com.ssg.collections.list.book.model.vo.Book;
+import com.ssg.collections.map.book.controller.BookMapManager;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class TestBookManager {
-    BookListManager bookListManager = new BookListManager();
     Scanner sc = new Scanner(System.in);
+    BookMapManager bMM = new BookMapManager();
 
     public static void main(String[] args) {
         TestBookManager test = new TestBookManager();
         test.menu();
     }
-
     public String inputBookTitle() {
         sc.nextLine();
         System.out.print("> 도서 제목 입력 : ");
@@ -56,28 +55,34 @@ public class TestBookManager {
         0. 끝내기
         --------------------
         메뉴선택 : """;
-
         while(true) {
             System.out.print(menu);
             String choice = sc.next();
             System.out.println();
-            switch(choice) {
-                case "1": bookListManager.addBook(inputBook()); break;
+            switch (choice) {
+                case "1":
+                    bMM.addBook(inputBook());
+                    break;
                 case "2":
-                    bookListManager.printBookList(bookListManager.sortedBookListByNo());
+                    bMM.printBookMap(bMM.sortedBookListByNo());
                     break;
                 case "3":
-                    bookListManager.printBookList(bookListManager.sortedBookListByCategory());
+                    bMM.printBookMap(bMM.sortedBookListByCategory());
                     break;
                 case "4":
-                    bookListManager.deleteBook(bookListManager.searchBook(inputBookTitle()));
+                    bMM.deleteBook(bMM.searchBook(inputBookTitle()));
                     break;
                 case "5":
-                    bookListManager.printBook(bookListManager.searchBook(inputBookTitle()));
+                    bMM.printBook(bMM.searchBook(inputBookTitle()));
                     break;
-                case "6": bookListManager.printAll(); break;
-                case "0": return;
-                default: System.out.println("잘못 입력하셨습니다."); break;
+                case "6":
+                    bMM.printAll();
+                    break;
+                case "0":
+                    return;
+                default:
+                    System.out.println("잘못 입력하셨습니다.");
+                    break;
             }
             System.out.println();
         }
