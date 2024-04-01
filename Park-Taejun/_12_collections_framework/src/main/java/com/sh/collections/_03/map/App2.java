@@ -50,6 +50,5 @@ public class App2 {
             System.out.println(value);
         }
 
-
     }
 }
