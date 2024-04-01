@@ -3,6 +3,7 @@ package com.ssg.collections.list.book.run;
 import com.ssg.collections.list.book.controller.BookManager;
 import com.ssg.collections.list.book.model.vo.Book;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,7 +36,10 @@ public class TestBookManager {
 			String selected = sc.next();
 			switch (selected) {
 			case "1" : bm.addBook(inputBook()); break;
-			case "2" : bm.printBookList(bm.sortedBookListByNo()); break;
+			case "2" :
+				List<Book> sortedBooks = bm.sortedBookListByNo();
+				bm.printBookList(sortedBooks);
+				break;
 			case "3" : bm.printBookList(bm.sortedBookListByCategory()); break;
 			case "4" : bm.deleteBook(bm.searchBook(inputBookTitle())); break;
 			case "5" : bm.printBook(bm.searchBook(inputBookTitle())); break;
