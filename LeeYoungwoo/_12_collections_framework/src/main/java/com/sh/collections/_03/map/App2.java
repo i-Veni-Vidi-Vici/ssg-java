@@ -9,6 +9,7 @@ import java.util.*;
  *
  * 1. keySet() 이용
  * 2. entrySet() 이용
+ * 3. values()
  * </pre>
  */
 public class App2 {
