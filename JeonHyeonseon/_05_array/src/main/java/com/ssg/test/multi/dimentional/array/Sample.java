@@ -51,21 +51,5 @@ public class Sample {
             }
             System.out.println();
         }
-
-<<<<<<< HEAD
-        // 각 행과 열의 합계
-        int rowSum = 0;
-        for(int i = 0; i < 3; i ++){ // 행의 합
-
-        }
-
-=======
-        // 각 열의 합계
-//        for(int i = 0; i < arr[i].length; i++) {
-//            arr[3][i] += (int)(Math.random()*100) + 1;
-//            System.out.print(arr[3][i] + " ");
-//        }
-//        System.out.println();
->>>>>>> 784195d5e2915b4e70aea710d73438485ce03a17
     }
 }

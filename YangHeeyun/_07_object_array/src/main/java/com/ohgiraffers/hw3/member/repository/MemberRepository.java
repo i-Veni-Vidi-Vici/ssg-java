@@ -6,10 +6,10 @@ import com.ohgiraffers.hw3.member.model.vo.VVip;
 import com.ohgiraffers.hw3.member.model.vo.Vip;
 
 public class MemberRepository {
-    Silver[] silver = new Silver[10];
-    Gold[] gold = new Gold[10];
-    Vip[] vip = new Vip[10];
-    VVip[] vvip = new VVip[10];
+    Silver[] silver = new Silver[];
+    Gold[] gold = new Gold[];
+    Vip[] vip = new Vip[];
+    VVip[] vvip = new VVip[];
 
     int silverIndex = 0;
     int goldIndex = 0;

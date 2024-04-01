@@ -9,6 +9,6 @@ public class RandomUtils {
         int num = rnd.nextInt(1000) + 1;
         // 난수출력, 홀수인지 짝수인지 출력
         System.out.println(num);
-        System.out.println(num / 2 == 0  ? "짝수" : "홀수");
+        System.out.println(num / 2 == 0 ? "짝수" : "홀수");
     }
 }
