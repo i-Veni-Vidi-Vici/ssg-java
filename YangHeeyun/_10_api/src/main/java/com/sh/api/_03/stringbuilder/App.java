@@ -21,7 +21,7 @@ package com.sh.api._03.stringbuilder;
 public class App {
     public static void main(String[] args) {
         // String 더하기 연산
-        // jdk1.5 이후에는 문자열의 더하기연산은 Stin=inger
+        // jdk1.5 이후에는 문자열의 더하기연산은 String=integer
 //        String str = "";
 //        for(int i=0;i<26;i++){
 //            str += (char)('a' + i);
@@ -45,12 +45,12 @@ public class App {
         System.out.println(sb); // abghi
 
         // insert(offset:int, String)
-        // - offset 시작인덱스(건너뛸 요소수)
+        // - offset 시작인덱스(건너뛸 요소 수)
         sb.insert(2,"xyz");
         System.out.println(sb); // abxyzghi
 
         // reverse(): StringBuilder 원본문자열 직접 변경
         sb.reverse();
-        System.out.println(sb);
+        System.out.println(sb); // ihgzyxba
     }
 }
