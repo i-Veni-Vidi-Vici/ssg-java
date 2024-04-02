@@ -9,6 +9,7 @@ import java.util.*;
  * 
  * 1. keySet()를 이용
  * 2. entrySet()를 이용
+ * 3. values()
  *
  * </pre>
  */
@@ -62,6 +63,7 @@ public class App2 {
         for(Double value : values) {
             System.out.println(value);
         }
+
 
     }
 }

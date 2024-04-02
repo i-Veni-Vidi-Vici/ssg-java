@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookManager {
-	private ArrayList<Book> bookList = new ArrayList<>();
+	private List<Book> bookList = new ArrayList<>();
 	{
 		bookList.add(new Book("A3B2C1", 2, "나미야 잡화점의 기적", "히가시노 게이고"));
 		bookList.add(new Book("35LK23", 3, "파리의 아파트", "기욤 뮈소"));
@@ -68,8 +68,11 @@ public class BookManager {
 	 * @return
 	 */
 	public List<Book> sortedBookListByNo() {
-		List<Book> copied = (List<Book>) bookList.clone(); // 동적바인딩 
-		copied.sort(null);
+		// List -> ArrayList 다운캐스팅 (clone사용을 위해서)
+		// Object -> List 다운캐스팅
+		List<Book> copied = (List<Book>) ((ArrayList<Book>) bookList).clone(); // 동적바인딩
+		// Collections.sort(List, Comparator), List#sort(Comparator);
+		copied.sort(null); // Comparator가 null인 경우, Comparable#compareTo를 통해 정렬한다.
 		return copied;
 	}
 

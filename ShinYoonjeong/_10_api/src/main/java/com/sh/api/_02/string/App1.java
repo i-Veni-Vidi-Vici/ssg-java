@@ -26,8 +26,9 @@ public class App1 {
         System.out.println(str3.hashCode());
         System.out.println(str4.hashCode());
         // 특정문자열 더하기 연산
-        str2 +="ssg";
+        str2 += "ssg";
         System.out.println(str1.equals(str2));
         System.out.println(str2.equals(str3));
+
     }
 }

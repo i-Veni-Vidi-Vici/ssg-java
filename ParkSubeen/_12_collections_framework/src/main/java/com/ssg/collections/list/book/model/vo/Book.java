@@ -57,4 +57,9 @@ public class Book {
                 ", author='" + author + '\'' +
                 '}';
     }
+
+//    @Override
+//    public int compareTo(Book other) {
+//        return this.no.compareTo(other.no); // no(String) 오름차순(사전 등재순)
+//    }
 }
