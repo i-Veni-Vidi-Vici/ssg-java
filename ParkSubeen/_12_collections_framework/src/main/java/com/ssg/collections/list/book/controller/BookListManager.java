@@ -16,6 +16,7 @@ public class BookListManager {
         bookList.add(new Book("K0DR0S", 2, "미중전쟁", "김진명"));
         bookList.add(new Book("5KOSR3", 1, "JAVA 삽질하기", "김동현"));
     }
+
     public void addBook(Book book) {
         bookList.add(book);
     }

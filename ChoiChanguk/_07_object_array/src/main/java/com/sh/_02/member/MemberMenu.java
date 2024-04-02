@@ -47,7 +47,7 @@ public class MemberMenu {
 
             switch(choice) {
                 case "1":
-                    saveMember();
+                    saveMember();//asdfasdfasdfasdf
                     break;
                 case "2":
                     readMemberById();
