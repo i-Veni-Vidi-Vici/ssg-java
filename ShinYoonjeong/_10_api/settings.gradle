@@ -1,2 +1,3 @@
 rootProject.name = '_10_api'
+include '_11_generics'
 

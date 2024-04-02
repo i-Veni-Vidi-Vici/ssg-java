@@ -21,7 +21,7 @@ public class Car {
     @Override
     public int hashCode() {
         int result = 1;
-        final int PRIME_NUMBER = 31;
+        final int PRIME_NUMBER = 31; //다른 소수들 중에 값이 가장 많이 나온다
         if (carName != null)
             result = result * PRIME_NUMBER + carName.hashCode();
         if(carColor!=null)
