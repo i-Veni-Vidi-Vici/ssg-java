@@ -76,9 +76,11 @@ public class Book {
             return false;
         // 필드비교
         Book other = (Book) obj; // 다운캐스팅
+
         // id필드(기본형) 비교
         if(this.id != other.id)
             return false;
+
         // title필드(참조형) 비교
         if(this.title == null){
             // 현재객체의 title이 null인데, other객체의 title이 null이 아닌 경우
@@ -99,6 +101,7 @@ public class Book {
                  return false;
             }
         }
+
         // price필드(기본형) 비교
         if(this.price != other.price)
             return false;
