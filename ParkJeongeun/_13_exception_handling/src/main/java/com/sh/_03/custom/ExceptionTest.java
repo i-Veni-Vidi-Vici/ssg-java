@@ -16,6 +16,7 @@ public class ExceptionTest {
      */
     public void checkEnoughMoney(int price, int money) {
         if (price < 0) {
+//            throw new IllegalArgumentException(String.valueOf(price)); // jdk제공 exception
             throw new PriceNegativeException("구매가격은 음수일 수 없음 : " + price);
         }
         if (money < 0) {
