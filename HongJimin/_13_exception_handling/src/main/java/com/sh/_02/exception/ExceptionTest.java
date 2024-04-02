@@ -15,8 +15,8 @@ public class ExceptionTest {
      * @param price
      * @param money
      */
-    public void checkEnoughMoney2(int price, int money) throws Exception{
+    public void checkEnoughMoney2(int price, int money) throws Exception{ //여기서의 throws는 설명문 같은 것, 3인칭 동사역할
         if (money < price)
-            throw new Exception();
+            throw new Exception(); //명령어여서 throw !
     }
 }
