@@ -8,7 +8,6 @@ public class CharacterProcess {
             if ((c >= 'a' && c <= 'z') || c >= 'A' && c <= 'Z') {
                 count++;
             } else if (c == ' ') {
-
                 throw new CharCheckException("체크할 문자열 안에 공백 포함 불가");
             }
 
