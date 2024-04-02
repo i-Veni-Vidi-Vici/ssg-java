@@ -12,7 +12,7 @@ public class ExceptionTest {
     /**
      * 호출부로 예외처리 위임
      */
-    public void checked() throws Exception{
+    public void checked() throws Exception{//이 예외처리에 대한 책임은 호출부에 있음!
         throw new Exception("체킷아웃!");
     }
 }
