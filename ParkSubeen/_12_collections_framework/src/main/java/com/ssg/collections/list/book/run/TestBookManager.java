@@ -56,6 +56,7 @@ public class TestBookManager {
         0. 끝내기
         --------------------
         메뉴선택 : """;
+
         while(true) {
             System.out.print(menu);
             String choice = sc.next();
