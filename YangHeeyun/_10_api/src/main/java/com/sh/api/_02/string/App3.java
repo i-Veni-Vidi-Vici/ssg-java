@@ -26,6 +26,7 @@ public class App3 {
         System.out.println(Arrays.toString(arr1)); // ["100", "홍길동", "서울", "영업부"]
         String[] arr2 = data2.split("/");
         System.out.println(Arrays.toString(arr2)); // ["200", "신사임당", "", "총무부"]
+//        String[] arr3 = data3.split("/"); // 마지막 요소 처리안됨
         String[] arr3 = data3.split("/",-1); // 요소개수 제한없음 ["300", "이순신", "경기도",""]
         System.out.println(Arrays.toString(arr3));
 
@@ -43,7 +44,7 @@ public class App3 {
         }
         System.out.println();
 
-        // StringTokenizer특징 : 비어있는 문자열 요소는 제거하낟,
+        // StringTokenizer특징 : 비어있는 문자열 요소는 제거함
         StringTokenizer tokenizer2 = new StringTokenizer(data2,"/");
         System.out.println("현재 토큰수 : " + tokenizer2.countTokens());
         while(tokenizer2.hasMoreTokens()){

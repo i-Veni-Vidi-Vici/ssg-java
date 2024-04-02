@@ -1,5 +1,14 @@
 package com.ssg.collections.list.book.model.vo;
 
+/**
+ * <pre>
+ * Comparable 인터페이스 구현
+ * - 정렬을 구현하는 다른 한가지 방법
+ * - DTO클래스에서 직접 구현
+ * - Comparable<T>구현, compareTo(T):int 메서드 오버라이드
+ * - 특정클래스의 기본정렬(한가지)를 작성해둔다.
+ * </pre>
+ */
 public class Book {
     private String no;
     private int category;

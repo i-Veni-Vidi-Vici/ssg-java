@@ -40,7 +40,7 @@ public class App2 {
         Book book6 = new Book(2L,null,"정약용",30000);
         System.out.println(book5.equals(book2)); // false
         System.out.println(book2.equals(book5)); // false
-        System.out.println(book5.equals(book6)); // false
+        System.out.println(book5.equals(book6)); // true
         //                 this         other
 
         // hashCode확인

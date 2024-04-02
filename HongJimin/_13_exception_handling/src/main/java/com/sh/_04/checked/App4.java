@@ -24,7 +24,6 @@ public class App4 {
             int data = fr.read();
             System.out.println(data);
 
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -35,7 +34,6 @@ public class App4 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         System.out.println("프로그램 정상 종료!");
     }
