@@ -13,6 +13,7 @@ import java.util.Arrays;
  * - \" 쌍따옴표
  * - \' 홑따옴표
  * - \\ 역슬래쉬
+ * - \\$  \$ 전달
  * </pre>
  */
 public class App4 {
@@ -30,7 +31,7 @@ public class App4 {
         System.out.println("\"C:\\Workspaces\\java_workspace\""); // 문자열 안에서 붙여넣기 하면 자동 이스케이핑 처리된다.
 
         String data = "abc$def$xyz"; //$가 구분자인 csv데이터
-        String[] arr = data.split("\\$"); // $는 끝을 의미한느 정규표현식 와일드카드
+        String[] arr = data.split("\\$"); // $는 끝을 의미하는 정규표현식 와일드카드
         // \$를 전달하기 위해 \\로 작성해야 한다.
         System.out.println(Arrays.toString(arr));
         System.out.println(arr.length);
