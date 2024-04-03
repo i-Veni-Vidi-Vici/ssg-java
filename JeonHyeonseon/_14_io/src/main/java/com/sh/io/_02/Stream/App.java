@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * <pre>
- * 입출력 스트림 구붐
+ * 입출력 스트림 구분
  *  - JVM에서 외부데이터를 읽거나, 쓰기 위한 클래스를 스트림클래스라고 한다.
  *  - OS의 자원을 할당받아 읽기/쓰기 작업을 수행하고, 사용후에는 반드시 자원반납을 해야 한다.
  *
@@ -32,7 +32,8 @@ public class App {
             fis = new FileInputStream(ROOT + "helloworld.txt");
             System.out.println("helloworld.txt와 연결된 FileInputStream객체를 생성했습니다.");
 
-//            int data = fis.read(); // byte단위(0~255)로 읽어서 int로 반환(-1 다 읽었음 신호까지 표현하기 위해서)
+//            int data = fis.read(); // byte단위(0~255)로 읽어서 int로 반환(-1, 다 읽었음
+//            신호까지 표현하기 위해서)
 //            System.out.println((char)data);
 
 //            int data = 0;
