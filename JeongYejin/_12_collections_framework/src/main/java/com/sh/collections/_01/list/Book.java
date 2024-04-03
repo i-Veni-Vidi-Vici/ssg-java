@@ -1,5 +1,7 @@
 package com.sh.collections._01.list;
 
+import java.util.Objects;
+
 public class Book {
     private long id;
     private String title;

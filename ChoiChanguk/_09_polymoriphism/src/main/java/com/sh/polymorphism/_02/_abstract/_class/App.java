@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) {
 
         SmartPhone smartPhone=new SmartPhone("ss-0123","갤럭시24",1_000_000,"skt");
-        smartPhone.printInfo();
+        smartPhone.
 
         Keyboard keyboard=new Keyboard("a123","비싼키보드",500_000,"machine");
         keyboard.printInfo();

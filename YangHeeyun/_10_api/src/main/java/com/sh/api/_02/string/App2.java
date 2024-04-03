@@ -45,10 +45,11 @@ public class App2 {
         System.out.println();
 
         // contains(String) : boolean
-        System.out.println("contains : " + helloworld.contains("hell"));
-        System.out.println("contains : " + helloworld.contains("ㅋㅋㅋ"));
-        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("hell") > -1));
-        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("ㅋㅋㅋ") > -1));
+        System.out.println("contains : " + helloworld.contains("hell")); // true
+        System.out.println("contains : " + helloworld.contains("ㅋㅋㅋ")); // false
+        // contains를 indexof로 바꿔 쓰기가는ㅇ
+        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("hell") > -1)); // true
+        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("ㅋㅋㅋ") > -1)); // false
         System.out.println();
 
         // trim(): String 앞뒤의 공백 제거하고 새문자열 반환
@@ -59,15 +60,15 @@ public class App2 {
         // toLowerCase(): String 소문자로 바꿔줌
         // toUpperCase(): String 대문자로 바꿔줌
         String subject = "Java";
-        System.out.println("toLowerCase : " + subject.toLowerCase());
-        System.out.println("toUpperCase : " + subject.toUpperCase());
+        System.out.println("toLowerCase : " + subject.toLowerCase()); // java
+        System.out.println("toUpperCase : " + subject.toUpperCase()); // JAVA
         System.out.println("맞습니까? (Y/N) : ");
 //        char choice = sc.next().toLowerCase().charAt(0);
 //        System.out.println(choice == 'y');
 
         // substring(start:int, end:int): String start인덱스부터 end인덱스전까지 문자열을 잘라서 반환
         String abc = "abcdefg";
-        System.out.println("substring: " + abc.substring(2, 5)); // cde end미포함
+        System.out.println("substring: " + abc.substring(2, 5)); // cde, end 인덱스 미포함
         System.out.println("substring: " + abc.substring(2)); // cdefg end값 안주면 자동으로 끝까지
         System.out.println("substring: " + abc.substring(2, abc.length())); //cdefg
         System.out.println("abc = " + abc); // 원본 문자열이 바뀌지 않는다
