@@ -20,11 +20,14 @@ public class App {
 //            exceptionTest.checkEnoughMoney(-30_000, 25_000);
             exceptionTest.checkEnoughMoney(-30_000, -25_000);
             System.out.println("구매 가능합니다..");
+
         } catch (NotEnoughMoneyException e) {
             System.out.println("구매 불가능합니다 : " + e.getMessage());
+
         } catch (NegativeException e) { //MoneyNegativeException, PriceNegativeException처럼
             System.out.println("입력값 오류 : " + e.getMessage());
             e.printStackTrace(); //예외가 발생한 순간의 callstack 정보 출력
+
         } catch (Exception e) {
             //다형성을 통한 예외 처리(부모 예외 클래스가 catch절의 뒤에 위치해야 함
             System.out.println("알 수 없는 오류가 발생했습니다.. : " + e.getMessage());
@@ -35,7 +38,7 @@ public class App {
         try {
             exceptionTest.checkEnoughMoney(30_000, -25_000);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); //exception하나로 퉁 치는 방법
         }
 
         System.out.println("프로그램 정상 종료..");
