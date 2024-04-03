@@ -21,8 +21,10 @@ public class App4 {
 
             List<User> users = new ArrayList<>();
             users.add(new User(1L, "honggd", "1234", "홍길동", 'M', new Phone("01012341234"), 1000, LocalDateTime.now(),  true));
-            users.add(new User(2L, "sinsa", "1234", "신사임당", 'F', new Phone("01012341234"), 1000, LocalDateTime.now(),  true));
-            users.add(new User(3L, "leess", "1234", "이순신", 'M', new Phone("01012341234"), 1000, LocalDateTime.now(),  true));
+            users.add(new User(2L, "sinsa", "1234", "신사임당", 'F', new Phone("01033334444"), 1000, LocalDateTime.now(),  false));
+            users.add(new User(3L, "leess", "1234", "이순신", 'M', new Phone("01055556666"), 1000, LocalDateTime.now(),  true));
+            System.out.println("쓰기전 : " + users);
+            oos.writeObject(users);
         }catch (IOException e){
             e.printStackTrace();
         }
