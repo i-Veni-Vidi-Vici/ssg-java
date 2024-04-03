@@ -9,8 +9,9 @@ package com.sh._02.exception;
  */
 public class App2 {
     public static void main(String[] args) {
-        // 1. if문으로 흐름 분기
         ExceptionTest exceptionTest = new ExceptionTest();
+
+        // 1. if문으로 흐름 분기
 //        boolean bool = exceptionTest.checkEnoughMoney(30000, 50000);
 //        boolean bool = exceptionTest.checkEnoughMoney(30000, 25000);
 //        if(bool)
