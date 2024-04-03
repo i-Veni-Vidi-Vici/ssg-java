@@ -18,7 +18,7 @@ public class App2 {
 //        RabbitFarm<?> rabbitFarm2 = new RabbitFarm<>(new Snake()); : rabbit으로 상한이 걸려있기 때문에 Rabbit을 상속하는 클래스만 가능함.
 
         // ? extends Bunny : RabbitFarm<T extends Rabbit>를 다시한번 상한제한 -> Bunny를 상한제한으로 수정함
-        RabbitFarm<? extends Bunny> bunnyFarm = new RabbitFarm<>(new Bunny());
+        RabbitFarm<? extends Bunny> bunnyFarm = new RabbitFarm<Bunny>(new Bunny());
         Bunny bunny = bunnyFarm.getRabbit();
 
         // ? super Bunny : Bunny의 부모 클래스만 허용
