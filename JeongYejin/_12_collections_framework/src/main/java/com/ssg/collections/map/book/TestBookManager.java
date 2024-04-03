@@ -1,23 +1,17 @@
-package com.ssg.collections.list.book.run;
+package com.ssg.collections.map.book;
 
-import com.ssg.collections.list.book.controller.BookListManager;
 import com.ssg.collections.list.book.model.vo.Book;
+import com.ssg.collections.map.book.controller.BookMapManager;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TestBookManager {
+    BookMapManager bookMapManager = new BookMapManager();
     Scanner sc = new Scanner(System.in);
-    BookListManager bookListManager = new BookListManager();
 
-    public static void main(String[] args) {
-        TestBookManager testBookManager = new TestBookManager();
-        testBookManager.menu();
-//        testBookManager.generateNo();
-//        System.out.println(testBookManager.generateNo());
-    }
-
-    public void menu() {
+    public void main() {
         String menu = """
                 *** 도서 관리 프로그램 ***
                 1. 새 도서 추가
@@ -36,32 +30,32 @@ public class TestBookManager {
             String selected = sc.next();
             switch (selected) {
                 case "1":
-                    bookListManager.addBook(inputBook());
+                    bookMapManager.addBook(inputBook());
                     break;
                 case "2":
-                    System.out.println(bookListManager.sortedBookListByNo());
+                    System.out.println(bookMapManager.sortedBookListByNo());
                     break;
                 case "3":
-                    System.out.println(bookListManager.sortedBookListByCategory());
+                    System.out.println(bookMapManager.sortedBookListByCategory());
                     break;
                 case "4":
                     System.out.print("삭제할 ");
-                    int index = bookListManager.searchBook(inputBookTitle());
-                    if (index == -1) {
+                    String index = bookMapManager.searchBook(inputBookTitle());
+                    if (index == null) {
                         System.out.println("삭제 대상이 없습니다!");
                     }
-                    bookListManager.deleteBook(index);
+                    bookMapManager.deleteBook(index);
                     break;
                 case "5":
                     System.out.print("검색할 ");
-                    int index2 = bookListManager.searchBook(inputBookTitle());
-                    if (index2 == -1) {
+                    String index2 = bookMapManager.searchBook(inputBookTitle());
+                    if (index2 == null) {
                         System.out.println("검색 대상이 없습니다!");
                     }
-                    bookListManager.printBook(index2);
+                    bookMapManager.printBook(index2);
                     break;
                 case "6":
-                    bookListManager.printAll();
+                    bookMapManager.printAll();
                     break;
                 case "0":
                     loop = false;

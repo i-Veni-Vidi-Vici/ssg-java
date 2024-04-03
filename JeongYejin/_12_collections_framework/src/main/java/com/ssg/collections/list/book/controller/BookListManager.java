@@ -56,6 +56,7 @@ public class BookListManager {
         Collections.sort(sortedByNo, sortByNo);
         return sortedByNo;
     }
+    // List has a Comparator interface
 
     public List<Book> sortedBookListByCategory() {
         List<Book> sortedByCategory = bookList;
