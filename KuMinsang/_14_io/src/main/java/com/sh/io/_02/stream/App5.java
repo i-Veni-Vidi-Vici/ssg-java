@@ -1,28 +1,60 @@
 package com.sh.io._02.stream;
 
-import javax.annotation.processing.Filer;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * <pre>
- *     1. copyme.txt 파일을 읽어서 콘솔에 출력합니다
- *     2. 프로젝트루트에 pasted.txt 파일로 쓰기하세요
+ * 1. copyme.txt 파일을 읽어서 콘솔에 출력하세요.
+ * 2. 프로젝트루트에 pasted.txt파일로 출력하세요.
+ *
+ * "C:\Users\TECH5-30\copyme.txt"
  * </pre>
  */
 public class App5 {
-    public static void main(String[] args){
-        //FileWriter fw=null;
-        try(FileReader fr = new FileReader("C:/Users/i/Documents/copyme.txt") ; FileWriter fw = new FileWriter(App.ROOT+"pasted.txt")){
-            int len = (int) new File("C:/Users/i/Documents/copyme.txt").length();
-            char [] chars = new char[len];
-            int readleng = fr.read(chars);
-            fw.write(chars,0,readleng);
-        } catch (IOException e){
+    public static void main(String[] args) {
+        try (
+            FileReader fr = new FileReader("C:/Users/TECH5-30/copyme.txt");
+            FileWriter fw = new FileWriter(App.ROOT + "pasted.txt");
+        ) {
+            int data = 0;
+            while((data = fr.read()) != -1) {
+                // 데이터를 콘솔에 출력
+                System.out.print((char) data);
+                // 데이터를 파일에 출력
+                fw.write(data);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void test() {
+        FileReader fr= null;
+        FileWriter fw = null;
+        try {
+            fr = new FileReader("읽어올 파일");
+            fw = new FileWriter("쓸 파일");
+            // 입출력 ....
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
