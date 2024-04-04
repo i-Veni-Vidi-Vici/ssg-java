@@ -14,7 +14,7 @@ import java.io.IOException;
 public class App3 {
     public static void main(String[] args) {
         //try...with...resource 절 : jdk1.7에 추가. () 안에 선언된 n개의 스트림 객체를 자동으로 반환함
-        try (FileOutputStream fos = new FileOutputStream(App.ROOT + "byeworld.txt");) {
+        try (FileOutputStream fos = new FileOutputStream(App.ROOT + "byeworld.txt");) { //try() -> close(); 생략 가능
 //            fos.write(97);
             byte [] bytes = new byte[]{97, 98, 99, 100, 101};
             fos.write(bytes);

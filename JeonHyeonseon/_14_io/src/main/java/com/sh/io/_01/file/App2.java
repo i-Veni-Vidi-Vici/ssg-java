@@ -30,6 +30,7 @@ public class App2 {
             System.out.println("abc디렉토리가 존재합니다.");
         else {
             boolean bool = myDir.mkdir();
+//            boolean bool = myDir.mkdirs(); // 디렉토리를 여러 개 동시 생성 가능
             System.out.println(bool ? "abc디렉토리를 생성했습니다." : "abc디렉토리를 생성하지 못했습니다.");
         }
     }
