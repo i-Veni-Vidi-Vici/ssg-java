@@ -13,14 +13,18 @@ import java.io.IOException;
 public class App {
     public static final String ROOT = "KimDonghyun/_14_io/"; // 프로젝트루트 (상대경로)
     public static void main(String[] args) {
-        File file = new File(ROOT + "test.txt");
+        File file = new File(ROOT + "test.txt"); // 프로젝트루트부터 시작하는 상대경로
+//        File file = new File(ROOT, "test.txt"); // 부모디렉토리, 파일명
+//        File file = new File("C:\\Workspaces\\java_workspace\\KimDonghyun\\_14_io"); // 절대경로(윈도우)
+//        File file = new File("/Users/kim-yeonchan/Projects/study_bootcamp/etc/copyme.txt"); // 절대경로(맥)
+
         System.out.println(file); // KimDonghyun\_14_io\test.txt 파일경로로 toString 오버라이드 되어 있음.
         System.out.println(file.getParent()); // KimDonghyun\_14_io
         System.out.println(file.getName()); // test.txt
         System.out.println(file.exists()); // false -> true
         System.out.println(file.isFile()); // false -> true
         System.out.println(file.isDirectory()); // false
-        System.out.println(file.length()); // 0 -> 37
+        System.out.println(file.length()); // 0 -> 37 byte
 
         // 파일 생성
         try {

@@ -26,8 +26,6 @@ public class App {
         } catch (NegativeException e) { // MoneyNegativeException, PriceNegativeException 둘다 처리가능하게
             System.out.println("입력값 오류 : " + e.getMessage());
             e.printStackTrace(); // 예외가 발생한 순간의 callstack 정보 출력
-//        } catch (MoneyNegativeException e) {
-//            System.out.println("현재금액 오류 : " + e.getMessage());
         } catch (Exception e) {
             // 다형성을 통한 예외처리 (부모 예외클래스가 catch절의 뒤에 위치해야 한다.)
             // catch에 적은 예외를 위에서 부터 차례대로 검사하기 때문에 Exception은 제일 밑에 와야됨
