@@ -12,7 +12,7 @@ public enum DevType {
     IOS(3333),
     ANDROID(7777);
 
-    private int code;
+    private final int code;
 
     DevType(int code) {
         this.code = code;
