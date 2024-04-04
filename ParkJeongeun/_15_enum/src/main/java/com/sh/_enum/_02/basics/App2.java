@@ -25,7 +25,5 @@ public class App2 {
 
         // 추가 메소드를 선언 후 사용 가능
         System.out.println(SubjectType.HTML.toLowerCase()); // html
-
-
     }
 }

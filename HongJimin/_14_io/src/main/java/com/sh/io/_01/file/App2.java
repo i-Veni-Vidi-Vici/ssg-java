@@ -30,7 +30,8 @@ public class App2 {
         if (myDir.exists())
             System.out.println("abc 디렉토리가 존재합니다.");
         else {
-            boolean bool = myDir.mkdir();
+            boolean bool = myDir.mkdir(); //디렉토리 하나만 만들 수 있음
+//            boolean bool = myDir.mkdirs(); //디렉토리 여러개 만들 수 있음
             System.out.println(bool? "abc디렉토리를 생성했습니다" : "abc 디렉토리 생성에 실패했습니다.");
         }
     }

@@ -21,8 +21,8 @@ public class App2 {
             br = new BufferedReader(new InputStreamReader(System.in));
             System.out.print("아무 정수 입력 : ");
             String data = br.readLine(); //받아들이기
-
             System.out.println(data);
+
             int n = Integer.parseInt(data);
             System.out.println(n + 100); //정수로서 연산 가능
         } catch (IOException e) {
