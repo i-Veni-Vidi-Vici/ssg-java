@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) {
         ExceptionTest exceptionTest = new ExceptionTest();
 
-        // uncheked 예외가 발생해도 프로그램은 비정상 종료된다.
+        // uncheked : 예외가 발생해도 프로그램은 비정상 종료된다.
         // 다만 try..catch 작성을 강제화 하지 않을 뿐이다.
         try {
             exceptionTest.unchecked();
