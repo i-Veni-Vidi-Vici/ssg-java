@@ -14,6 +14,10 @@ public class Employee extends Person {
         this.dept = dept;
     }
 
+    @Override
+    public String information(){
+        return super.information() + "\t" + this.salary + "\t" + this.dept;
+    }
     public int getSalary() {
         return salary;
     }

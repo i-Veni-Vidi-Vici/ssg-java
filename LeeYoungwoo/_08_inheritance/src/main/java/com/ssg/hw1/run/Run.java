@@ -3,6 +3,8 @@ package com.ssg.hw1.run;
 import com.ssg.hw1.model.dto.Employee;
 import com.ssg.hw1.model.dto.Student;
 
+import java.util.Scanner;
+
 public class Run {
     public static void main(String[] args) {
         // 3명의 학생 정보를 기록할 수 있게 객체 배열 할당
@@ -24,10 +26,43 @@ public class Run {
         // 계속 추가할 것인지 물어보고, 대소문자 상관없이 ‘y’이면 계속 객체 추가
         // 한 명씩 추가 될 때마다 카운트함
         Employee[] employees = new Employee[10];
+        Scanner sc = new Scanner(System.in);
+        char yn;
+        int count = 0;
+        while (true) {
+            System.out.println("이름 입력 : ");
+            String name = sc.next();
+            System.out.println("나이 입력 : ");
+            int age = sc.nextInt();
+            System.out.println("키 입력 : ");
+            double height = sc.nextDouble();
+            System.out.println("몸무게 입력 : ");
+            double weight = sc.nextDouble();
+            System.out.println("급여 입력 : ");
+            int salary = sc.nextInt();
+            System.out.println("부서 입력");
+            String dept = sc.next();
+
+            employees[count] = new Employee(name, age, height, weight, salary, dept);
+            count++;
+
+            System.out.println("계속 추가하시겠습니까? (y/n) : ");
+            yn = sc.next().charAt(0);
+            if (yn == 'n' || yn == 'N') {
+                break;
+            }
+        }
 
 
 
         // 2명 정도의 사원 정보를 입력 받아 객체 배열에 저장
         // 현재 기록된 사원들의 정보를 모두 출력
+
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
+                break;
+            }
+            System.out.println(employees[i].information());
+        }
     }
 }
