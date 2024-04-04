@@ -12,7 +12,9 @@ package com.sh.polymorphism._03._interface;
  *
  * </pre>
  */
-public class App {
+public class
+
+App {
     public static void main(String[] args) {
         // 인터페이스도 부모클래스와 같이 사용가능하다.
         // Computer객체는 IProduct타입으로 제어가 가능하다.
