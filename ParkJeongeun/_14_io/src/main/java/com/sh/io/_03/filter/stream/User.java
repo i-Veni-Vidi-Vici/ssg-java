@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class User implements Serializable {
     private long id;
     private String username;
-    private String password; // 직렬화 시 해당 값 제외
+    private transient String password; // 직렬화 시 해당 값 제외
     private String name;
     private char gender;
     private int point;
@@ -87,6 +87,14 @@ public class User implements Serializable {
 
     public void setGender(char gender) {
         this.gender = gender;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 
     public int getPoint() {

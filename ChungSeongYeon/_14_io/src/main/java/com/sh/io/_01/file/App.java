@@ -14,6 +14,10 @@ public class App {
     public static final String ROOT = "ChungSeongYeon/_14_io/"; // 프로젝트 루트 (상대경로)
     public static void main(String[] args) {
         File file = new File(ROOT + "test.txt");
+        //        File file = new File(ROOT, "test.txt"); // 부모디렉토리, 파일명
+//        File file = new File("C:\\Workspaces\\java_workspace\\KimDonghyun\\_14_io"); // 절대경로(윈도우)
+//        File file = new File("/Users/kim-yeonchan/Projects/study_bootcamp/etc/copyme.txt"); // 절대경로(맥)
+
         System.out.println(file); //ChungSeongYeon/_14_io/test.txt 파일경로로 toString 오버라이드 되어있음
         System.out.println(file.getParent()); //ChungSeongYeon/_14_io
         System.out.println(file.getName()); // test.txt
