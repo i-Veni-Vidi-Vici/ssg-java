@@ -5,6 +5,7 @@ public class Member {
     public static final String ADMIN_ROLE = "A";
     public static final String GENDER_MALE = "M";
     public static final String GENDER_FEMALE = "F";
+
     private String username;
     private String role; // M, A
     private String gender; // M, F
