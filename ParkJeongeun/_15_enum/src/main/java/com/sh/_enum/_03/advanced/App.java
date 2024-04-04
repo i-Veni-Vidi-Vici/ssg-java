@@ -38,8 +38,9 @@ public class App {
 
         // UserRole.valueOf(String)
 //        UserRole userRole = UserRole.valueOf("사용자"); // UserRole에서 desc받는 valueOf 메소드 오버로딩 필요
-        UserRole userRole1 = UserRole.of("사용자");
-//        System.out.println(userRole);
+        UserRole userRole1 = UserRole.valueOf("USER");
+        UserRole userRole2 = UserRole.of("사용자");
         System.out.println(userRole1); // USER
+        System.out.println(userRole2); // USER
     }
 }
