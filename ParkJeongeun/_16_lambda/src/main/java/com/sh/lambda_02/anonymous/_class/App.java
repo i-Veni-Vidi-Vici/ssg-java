@@ -1,0 +1,71 @@
+package com.sh.lambda_02.anonymous._class;
+
+/**
+ * <pre>
+ * 인터페이스를 구현하는 3가지 방법
+ * 1. 직접 구현클래스를 작성하고 추상메소드를 재작성
+ * 2. 익명클래스 작성하고 추상메소드 재작성
+ * 3. 람다식 이용해서 추상메소드 간결하게 작성
+ *
+ * 람다식
+ * - 수학 람다식을 프로그래밍에 적용한 케이스
+ * - f(x, y) = x * y => (x, y) -> x * y
+ *
+ * 문법
+ * - 구현할 인터페이스에 추상메소드가 딱 하나만 존재해야함
+ *   - 자바에서 메소드는 단독으로 선언될 수 없음
+ *   - 람다식이 메소드 하나처럼 보여도, 무조건 객체 하나임(인터페이스 구현체)
+ *   - @FunctionalInterface 유효성검사 어노테이션 제공
+ * - 추상메소드의 매개변수부를 화살표 좌측에, 메소드 구현부를 오른쪽 블럭에 작성
+ *   (int x, int y) -> {...}
+ * - 매개변수부의 자료형은 생략 가능\
+ *   (x, y) -> {return x * y}
+ * - 우측블럭이 리턴절 한줄인 경우, {}, return 키워드를 생략 가능
+ *   (x, y) -> x * y
+ * - 우측블럭이 실행코드 한줄만 가진 경우, {} 생략 가능
+ *   (k) -> {System.out.println(k);}
+ *   (k) -> System.out.println(k)
+ * - 매개변수가 하나뿐인 경우, 소괄호 생략가능
+ *   k -> System.out.println(k)
+ * </pre>
+ */
+
+public class App {
+    public static void main(String[] args) {
+        // 인터페이스 - 구현클래스 작성
+        Calculator plusCalculator = new PlusCalculator();
+        int result = plusCalculator.calc(10,20);
+        System.out.println(result);
+
+        // 익명클래스 - 클래스 선언 + 객체 생성 동시에 처리
+        // - 인터페이스, 추상클래스 앞에 new 연산자 사용 + 몸통 작성(메소드 작성)
+        Calculator minusCalculator = new Calculator() {
+            @Override
+            public int calc(int a, int b) {
+                return a - b;
+            }
+        };
+        result = minusCalculator.calc(50, 25);
+        System.out.println(result);
+
+        // 익명클래스로 곱하기 계산기 객체 만들기
+        Calculator multiplyCalculator = new Calculator() {
+            @Override
+            public int calc(int a, int b) {
+                return a * b;
+            }
+        };
+        result = multiplyCalculator.calc(5,3);
+        System.out.println(result);
+
+        // 람다식 활용해서 나누기 계산기 객체 만들기
+//        Calculator divideCalculator = (a, b) -> a / b; // 가능
+        Calculator divideCalculator = (int a, int b) -> {return a / b;};
+        result = divideCalculator.calc(10,2);
+        System.out.println(result);
+
+        // 다음 람다식을 사용하려면
+        Printer printer = String str -> System.out.println(str);
+        printer.print("안녕");
+    }
+}
