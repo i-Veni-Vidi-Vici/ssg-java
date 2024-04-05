@@ -5,7 +5,12 @@ import java.io.*;
 /**
  * <pre>
  *     BufferedReader, BufferedWriter 보조스트림 클래스
- *     -
+ *      - 문자 기반의 주 스트림과 반드시 함께 사용한다.
+ *      - 주 스트림이 대상(파일, 콘솔)과 직접 연결되고, 보조 스트림이 부가 기능을 제공한다.
+ *      - 주 스트림 객체를 보조 스트림 객체로 감싸서 제어하는 형태로써, 이후에는 보조스트림 객체만 제어함
+ *          - 보조스트림.read( );
+ *          - 보조스트림.write( );
+ *          - 보조스트림.close( ); - 주 스트림객체까지 모두 반납한다.
  * </pre>
  */
 public class App {
@@ -17,7 +22,7 @@ public class App {
             bw = new BufferedWriter(new FileWriter(ROOT + "testBuffered.txt"));//Filewriter를 BufferWriter에 적용하는 것
             bw.write("안녕~ 일어나 밥먹어야지~\n"); //내부 버퍼에 기록. 버퍼가 가득 다 차면, 자동으로 쓰기 처리 함
             bw.write("잘가~ 내일봐~\n");
-//            bw.flush(); //즉시 쓰기 처리
+//            bw.flush(); //즉시 쓰기 처리 -> 닫기만 잘해주면 필요 없음!
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
