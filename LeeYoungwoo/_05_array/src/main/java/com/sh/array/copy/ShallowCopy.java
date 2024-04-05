@@ -101,4 +101,13 @@ public class ShallowCopy {
             return arr;
         }
     }
+
+//    public int[] generateArray(int from, int to) {
+//        int len = to - from + 1;
+//        int[] arr = new int[len];
+//        for(int i = 0, value = from; i < arr.length; i++, value++) {
+//            arr[i] = value;
+//        }
+//        return arr;
+//    }
 }
