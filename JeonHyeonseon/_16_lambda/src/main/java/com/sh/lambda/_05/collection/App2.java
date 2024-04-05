@@ -11,6 +11,7 @@ import java.util.Map;
 public class App2 {
     public static void main(String[] args) {
         // 불변한 Map 객체 생성(K, V 모두 null값을 허용하지 않는다)
+        // Map.of, List.of, Set.of 등이 jdk9부터 추가되었다. 따라서 jdk8에서는 사용 불가 Unmodifiable Collectior(읽기전용 컬렉션) 반환
 //        Map<Integer, String> map = Map.of(1,"홍길동", 2, "신사임당", 3, "이순신");
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "홍길동");
