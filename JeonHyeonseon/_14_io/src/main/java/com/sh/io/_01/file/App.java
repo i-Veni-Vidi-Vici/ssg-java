@@ -13,14 +13,18 @@ import java.io.IOException;
 public class App {
     public static final String ROOT = "JeonHyeonseon/_14_io/"; // ROOT는 프로젝트 루트를 의미한다(상대경로)
     public static void main(String[] args) {
-        File file = new File(ROOT + "test.txt");
+        File file = new File(ROOT + "test.txt"); // 프로젝트 루트부터 시작하는 상대경로
+//        File file = new File(ROOT,"test.txt");  // 부모디렉토리, 파일명
+//        File file = new File("C:\\Workspaces\\java_workspace\\JeonHyeonseon\\_14_io"); // 절대경로(윈도우버전)
+//        File file = new File("/Users/kim-yeonchan/Projects/study_bootcamp/etc/copyme.txt"); // 절대경로(맥 버전)
+
         System.out.println(file); // JeonHyeonseon\_14_io\test.txt 파일 경로로 toString 오버라이드 되어 있다.
         System.out.println(file.getParent()); // JeonHyeonseon\_14_io
         System.out.println(file.getName()); // test.txt
         System.out.println(file.exists()); // false -> true
         System.out.println(file.isFile()); // false -> true
         System.out.println(file.isDirectory()); // false
-        System.out.println(file.length()); // 파일의 크키, 0 -> 30
+        System.out.println(file.length()); // 파일의 크키, 0 -> 30 byte
 
         // 파일 생성
         try {
