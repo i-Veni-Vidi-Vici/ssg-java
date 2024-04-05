@@ -26,7 +26,8 @@ public class App {
 
     public static void main(String[] args) {
         //파일을 1byte 기반으로 읽어오기 FileInputStream
-        FileInputStream fis = null;
+        FileInputStream fis = null; //try, finally 부분에서도 접근하기 위해 밖에서 선언함
+
         try {
             fis = new FileInputStream(ROOT + "helloworld.txt");
             System.out.println("helloworld.txt와 연결된 FileInputStream 객체를 생성했습니다.");
@@ -37,7 +38,7 @@ public class App {
 //                System.out.println(data + " " + (char)data);
 //            }
 
-            //byte []로 한번에 읽어오기
+            //byte []로 한번에 읽어오기 -> 😮한글 깨져서 출력됨
             int len = (int) new File(ROOT, "helloworld.txt").length();
             byte[] bytes = new byte[len];
 
