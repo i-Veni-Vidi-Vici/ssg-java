@@ -32,12 +32,12 @@ package com.sh.lambda._02.anonymous.clazz;
 public class App {
     public static void main(String[] args) {
         
-        // 인터페이스 - 구현클래스 작성
+        // 1. 인터페이스 - 구현클래스 작성
         Calculator plusCalculator = new PlusCalculator();
         int result = plusCalculator.calc(10, 20);
         System.out.println(result); // 30
         
-        // 익명클래스 - 클래스 선언 + 객체 생성 동시에 처리
+        // 2. 익명클래스 - 클래스 선언 + 객체 생성 동시에 처리
         // - 인터페이스, 추상클래스 앞에 new 연산자 + 몸통 작성(메소드 작성)
         Calculator minusCalculator = new Calculator() {
             @Override
@@ -58,7 +58,7 @@ public class App {
         result = multiplyCalculator.calc(20, 3);
         System.out.println(result); // 60
 
-        // 람다식을 활용해서 나누기계산기객체 만들기
+        // 3. 람다식을 활용해서 나누기계산기객체 만들기
         Calculator divideCalculator = (int a, int b) -> {
             return a / b;
         };

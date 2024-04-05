@@ -16,7 +16,7 @@ public class App4 {
 
         try{
             // 불러오기 new FileReader() throws FileNotFoundException
-            FileReader fr = new FileReader("YangHeeyun/_13_exception_handling/helloworld.txt");
+            fr = new FileReader("YangHeeyun/_13_exception_handling/helloworld.txt");
             System.out.println("파일을 찾았습니다.");
 
             // 읽기
