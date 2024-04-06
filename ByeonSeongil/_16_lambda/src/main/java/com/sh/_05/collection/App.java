@@ -22,5 +22,9 @@ public class App {
         // List#removeIf(Predicate<T>)
         list.removeIf((n) -> n == 20);
         System.out.println(list);
+
+        // List#replaceAll(UnaryOperator<T>)
+        list.replaceAll((n) -> n * 10);
+        System.out.println(list);// [100, 300]
     }
 }
