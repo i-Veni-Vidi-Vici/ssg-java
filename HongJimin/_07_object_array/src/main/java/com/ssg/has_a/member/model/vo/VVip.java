@@ -1,14 +1,14 @@
 package com.ssg.has_a.member.model.vo;
 
-public class Gold {
+public class VVip {
     private String name;
     private String grade;
     private int point;
 
-    public Gold() {
+    public VVip() {
     }
 
-    public Gold(String name, String grade, int point) {
+    public VVip(String name, String grade, int point) {
         this.name = name;
         this.grade = grade;
         this.point = point;
@@ -39,6 +39,6 @@ public class Gold {
     }
 
     public double getEjapoint() {
-        return point * 0.05;
+        return point * 0.15;
     }
 }
