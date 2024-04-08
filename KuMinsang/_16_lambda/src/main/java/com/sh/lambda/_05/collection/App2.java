@@ -17,14 +17,14 @@ public class App2 {
         map.put(1, "홍길동");
         map.put(2, "신사임당");
         map.put(3, "이순신");
-        
+
         // forEach(BiConsumer<K, V>)
         map.forEach((k, v) -> System.out.println(k + " = " + v));
 
         // computeIfAbsent(K, Function<K, V>)
         map.computeIfAbsent(10, (k) -> "세종대왕");
         map.computeIfAbsent(3, (k) -> "이순신순신");
-        
+
         // computeIfPresend(K, BiFunction<K, V, V>)
         map.computeIfPresent(2, (k, v) -> v + "사임당");
 
