@@ -31,5 +31,13 @@ public class CustomerMain {
         for(Customer customer : customerList){
             System.out.print(customer);
         }
+
+        System.out.println("=============================");
+        System.out.println("✅ 포인트 내림차순 정렬");
+        System.out.println("=============================");
+        Collections.sort(customerList, new PointDescending().reversed());
+        for(Customer customer : customerList){
+            System.out.print(customer);
+        }
     }
 }
