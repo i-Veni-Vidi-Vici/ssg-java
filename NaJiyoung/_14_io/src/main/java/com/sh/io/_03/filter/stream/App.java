@@ -19,8 +19,8 @@ public class App {
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(ROOT + "testBuffered.txt"));
-            bw.write("안녕~ 일어나~ 밥 먹어야지~\n"); // 내부버퍼에 기록. 버퍼가 가득하면, 자동으로 쓰기처리
-            bw.write("잘가~ 내일봐~\n"); // 내부버퍼에 기록. 버퍼가 가득하면, 자동으로 쓰기처리
+            bw.write("안녕~ 일어나~ 밥 먹어야지~\n"); // 내부버퍼에 기록. 버퍼가 가득차면, 자동으로 쓰기처리
+            bw.write("잘가~ 내일봐~\n");
 //            bw.flush(); // 즉시쓰기처리
         } catch (IOException e) {
             e.printStackTrace();
