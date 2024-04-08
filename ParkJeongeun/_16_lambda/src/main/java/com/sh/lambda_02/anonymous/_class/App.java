@@ -65,7 +65,16 @@ public class App {
         System.out.println(result);
 
         // 다음 람다식을 사용하려면
-        Printer printer = String str -> System.out.println(str);
+        Printer printer = (str) -> System.out.println(str + " " + str); // String -> void
         printer.print("안녕");
+
+        Func.IntFunc square = (n) -> n * n; // (int) -> int
+        System.out.println(square.calc(10)); // 100
+
+        Func.IntFunc square3 = (n) -> n * n * n;
+        System.out.println(square3.calc(10)); // 1000
+
+        Func.DoubleFunc square2 = (n) -> n * n;
+        System.out.println(square2.calc(0.5)); // 0.25
     }
 }

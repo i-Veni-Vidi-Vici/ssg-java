@@ -1,9 +1,6 @@
 package com.sh._enum._02.basics;
 
 public enum MemberRole {
-    A, M
-    /*
-    public static final String M = "M";
-    public static final String A = "A";
-    */
+    M, // 일반회원
+    A // 관리자
 }

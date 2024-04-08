@@ -33,7 +33,7 @@ public class App {
         Function<String, Integer> function = (string) -> string.length();
         System.out.println("helloworld : " + function.apply("helloworld"));
 
-        // 매개변수를 받아서, 논리값을 반환하는 람다 : predicate
+        // 매개변수를 받아서, 논리값을 반환하는 람다 : predicate (조건자)
         Predicate<Integer> predicate = (n) -> n % 2 == 0;
         System.out.println(predicate.test(20));
         System.out.println(predicate.test(33));
