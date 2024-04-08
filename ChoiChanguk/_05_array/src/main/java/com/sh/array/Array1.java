@@ -4,10 +4,11 @@ public class Array1 {
     public void test()
     {
         //1. 선언
-        int[] arr;
+        int[] arr= new int[5];
+        int cnt=0;
+        arr[cnt];
 
         //2. 배열 객체 할당 - !! 필수 크기지정 필수
-        arr = new int[5];
         System.out.println(arr);//[I@7a81197d int[] @객체식별값(hashcode)
 
         System.out.println(arr[0]);
