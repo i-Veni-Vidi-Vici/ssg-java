@@ -7,12 +7,8 @@ public enum UserRole {
 
     private final String desc;
 
-    UserRole(String desc){
+    UserRole(String desc) {
         this.desc = desc;
-    }
-
-    public String getDesc(){
-        return this.desc;
     }
 
     public static UserRole of(String desc){
@@ -20,7 +16,11 @@ public enum UserRole {
             case "사용자" -> USER;
             case "관리자" -> ADMIN;
             case "슈퍼관리자" -> SUPER_ADMIN;
-            default -> throw new IllegalArgumentException("존재하지 않는 코드입니다" + desc);
+            default -> throw new IllegalArgumentException("존재하지 않는 desc입니다. : " + desc);
         };
+    }
+
+    public String getDesc(){
+        return this.desc;
     }
 }

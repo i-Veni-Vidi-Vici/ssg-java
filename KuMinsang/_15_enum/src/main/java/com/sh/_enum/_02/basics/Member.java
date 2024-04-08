@@ -5,14 +5,45 @@ public class Member {
     private MemberRole role;
     private Gender gender;
 
+    public Member() {
+    }
+
     public Member(String username, MemberRole role, Gender gender) {
         this.username = username;
         this.role = role;
         this.gender = gender;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public MemberRole getRole() {
+        return role;
+    }
+
+    public void setRole(MemberRole role) {
+        this.role = role;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
-        return String.format("{username = %s , role = %s, gender = %s}", username, role, gender);
+        return "Member{" +
+                "username='" + username + '\'' +
+                ", role=" + role +
+                ", gender=" + gender +
+                '}';
     }
 }

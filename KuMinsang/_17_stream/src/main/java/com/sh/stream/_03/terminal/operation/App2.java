@@ -28,14 +28,15 @@ public class App2 {
         System.out.println(oldestPerson.get());
 
         // 이웃들의 평균나이를 출력
-        /*
-        Arrays.asList(
-                new Person("홍길동", 33),
-                new Person("신사임당", 40),
-                new Person("이순신", 27),
-                new Person("장영실", 55)
-        )
-
-         */
+        double avgAge = Arrays.asList(
+            new Person("홍길동", 33),
+            new Person("신사임당", 40),
+            new Person("이순신", 27),
+            new Person("장영실", 55)
+        ).stream()
+            .mapToInt(Person::getAge)
+            .average()
+            .getAsDouble();
+        System.out.println(avgAge);
     }
 }

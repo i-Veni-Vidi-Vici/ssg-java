@@ -17,9 +17,14 @@ public class App3 {
     public static void main(String[] args) {
         List<Integer> intList = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> intList2 = intList.stream()
-                .map((n) -> n * 10)
+                .map((n) -> n * 10) // Stream<Integer>
                 .collect(Collectors.toList());
         System.out.println(intList2);
+
+        List<Integer> intList3 = intList.stream()
+                .mapToInt((n) -> n * 10) // IntStream
+                .boxed() // String<Integer>
+                .collect(Collectors.toList());
 
         Set<Integer> intSet = List.of(1, 2, 3, 2, 2, 3, 2, 1, 3, 4).stream()
                 .collect(Collectors.toSet());
@@ -52,10 +57,9 @@ public class App3 {
             new Person("홍길동", 33)
         ).stream()
                 .map(Person::getName)
-                .distinct() //중복제거
+                .distinct()
                 .sorted()
                 .collect(Collectors.joining(", "));
         System.out.println(result2);
-
     }
 }

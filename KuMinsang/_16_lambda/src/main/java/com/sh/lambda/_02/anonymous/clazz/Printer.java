@@ -1,5 +1,6 @@
 package com.sh.lambda._02.anonymous.clazz;
 
+@FunctionalInterface
 public interface Printer {
-    public void print(String str);
+    void print(String s);
 }

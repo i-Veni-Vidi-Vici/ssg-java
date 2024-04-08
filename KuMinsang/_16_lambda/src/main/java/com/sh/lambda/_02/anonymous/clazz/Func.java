@@ -1,14 +1,17 @@
 package com.sh.lambda._02.anonymous.clazz;
 
-public class Func {
+public interface Func {
 
+    /**
+     * 인터페이스 하위에는 static 내부인터페이스만 가능!
+     */
     @FunctionalInterface
-    public interface IntFunc{
-        public int calc(int num);
+    static interface IntFunc {
+        int calc(int x);
     }
 
     @FunctionalInterface
-    public interface DoubleFunc{
-        public double calc(double num);
+    interface DoubleFunc {
+        double calc (double d);
     }
 }
