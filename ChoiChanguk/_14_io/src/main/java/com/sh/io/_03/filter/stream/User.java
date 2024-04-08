@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 /**
  * 직렬화(Seriazlizable) 인터페이스 구현 필수
- *  - 필드정보를 직겨화 처리하기 위한 인터페이스
+ *  - 필드정보를 직렬화 처리하기 위한 인터페이스
  */
 public class User implements Serializable {
     //Serializable 이건 추상메소드가 없다, 계층구조를 보려고 쓰는거나

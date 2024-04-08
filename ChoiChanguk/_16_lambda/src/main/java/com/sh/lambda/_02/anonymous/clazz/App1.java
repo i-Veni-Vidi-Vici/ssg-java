@@ -1,6 +1,8 @@
 package com.sh.lambda._02.anonymous.clazz;
 
 
+import com.sh.lambda._01.inner.clazz.Member;
+
 /**
  * <pre>
  * 인터페이스를 구현하는 3가지 방법
@@ -50,6 +52,7 @@ public class App1 {
         result=minusCalculator.calc(10,20);
         System.out.println(result);
 
+
         //곱하기 계산기객체 - 익명클래스
         Calculator multiCalculator=new Calculator() {
             @Override
@@ -86,6 +89,8 @@ public class App1 {
         StringMethod stringMethod=(a,b)->a.equals(b);
         boolean rs=stringMethod.stringPlus("asd","asdww");
         System.out.println(rs);
+
+
 
     }
 

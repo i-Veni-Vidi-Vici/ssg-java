@@ -16,8 +16,6 @@ public class App3 {
             dos.writeChar('k');
             dos.writeDouble(123.45);
             dos.writeUTF("helloworld");
-
-
         }
         catch (IOException e)
         {
