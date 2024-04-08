@@ -28,7 +28,7 @@ public class TestBookManager {
 //                1. 새 도서 추가
                     manager.addBook(testBookManager.inputBook());
                     break;
-                case 2 :
+                case 2 :`
 //                2. 도서정보 출력(책번호 오름차순)
                     System.out.println("도서정보를 번호 오름차순으로 출력");
                     manager.printBookList(manager.sortedBookListByNo());

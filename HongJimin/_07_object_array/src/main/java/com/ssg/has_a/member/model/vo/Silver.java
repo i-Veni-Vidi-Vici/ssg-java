@@ -39,7 +39,6 @@ public class Silver {
     }
 
     public double getEjapoint() {
-        double silverEja = getPoint() * 0.02;
-        return silverEja;
+        return point * 0.02;
     }
 }
