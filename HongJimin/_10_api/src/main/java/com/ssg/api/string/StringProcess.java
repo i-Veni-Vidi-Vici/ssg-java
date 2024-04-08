@@ -18,6 +18,5 @@ public class StringProcess {
             }
         }
         return count;
-
     }
 }
