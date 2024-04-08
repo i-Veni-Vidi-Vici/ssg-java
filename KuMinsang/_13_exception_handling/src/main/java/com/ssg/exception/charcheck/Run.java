@@ -3,21 +3,25 @@ package com.ssg.exception.charcheck;
 import java.util.Scanner;
 
 public class Run {
-    Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
-        Run run1 = new Run();
-        run1.test1();
-    }
-    public void test1(){
-        CharacterProcess characterProcess = new CharacterProcess();
-        while(true){
-            try {
-                System.out.println("검사할 문자열을 입력하세요");
-                System.out.println("알파뱃 개수: " + characterProcess.countAlpha(sc.nextLine()));
-                break;
-            } catch (CharCheckException e){
-                System.out.println(e.getMessage());
-            }
-        }
-    }
+
+	public static void main(String[] args) {
+		new Run().test();
+	}
+
+	public void test() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열을 입력하세요 : ");
+		try {
+			String s = sc.nextLine();
+
+			CharacterProcess cp = new CharacterProcess();
+			System.out.println(cp.countAlpha(s));
+
+		} catch (CharCheckException e) {
+			// 에러메세지만 출력!
+			System.err.println(e.getMessage());
+		}
+
+	}
+
 }
