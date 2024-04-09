@@ -17,6 +17,9 @@ public class App {
         System.out.println(sum);
 
         // Optional : null일 수 있는 값을 감싼 객체. null처리 지원 메소드 제공. 갯수가 1개인 Stream이다.
+        // - null일 수 있는 값을 감싼 객체
+        // - null처리 메소드 제공
+        // - 개수가 1개인 Stream이다.
         OptionalDouble average = IntStream.of(1,2,3,4,5,6,7,8,9,10).average();
         System.out.println(average.getAsDouble());
 
@@ -26,5 +29,7 @@ public class App {
         OptionalInt min = IntStream.of(1,2,3,4,5,6,7,8,9,10).min();
         System.out.println(min.getAsInt());
 
+        long count = IntStream.of(1,2,3,4,5,6,7,8,9,10).count();
+        System.out.println(count);
     }
 }
