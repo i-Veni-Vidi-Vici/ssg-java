@@ -13,6 +13,8 @@ import java.util.stream.Stream;
  * - 람다식을 인자로 해서 간결하게 반복처리 가능
  * - 병렬처리 (동시처리)도 쉽게 가능
  * 쓰는 이유 일관된 처리, 병렬처리, 람다처리 하고 싶어서
+ *
+ * List.of    Arrays.asList = 수정불가 리스트
  * </pre>
  */
 public class App1 {

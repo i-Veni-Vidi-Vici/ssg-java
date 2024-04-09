@@ -21,6 +21,7 @@ public class App1 {
         IntStream.rangeClosed(1,10).
                 filter((n)->n%2==0).forEach(System.out::println);
 
+        //중복 제거
         IntStream.of(1,3,4,5,7,7,8,3,34,89)
                 .distinct().forEach(System.out::println);
 
