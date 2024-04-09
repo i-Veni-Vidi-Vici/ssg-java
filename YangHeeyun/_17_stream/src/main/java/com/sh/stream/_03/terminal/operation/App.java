@@ -26,5 +26,9 @@ public class App {
         // 최소값
         OptionalInt min = IntStream.of(1,2,3,4,5,6,7,8,9,10).min();
         System.out.println(min.getAsInt());
+
+        // 개수 카운트
+        long count = IntStream.of(1,2,3,4,5,6,7,8,9,10).count();
+        System.out.println(count);
     }
 }
