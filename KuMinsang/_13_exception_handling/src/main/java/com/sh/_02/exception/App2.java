@@ -20,10 +20,12 @@ public class App2 {
 
         // 2. 예외처리로 흐름 분기
         try {
+            // 정상흐름
 //            exceptionTest.checkEnoughMoney2(30_000, 50_000);
             exceptionTest.checkEnoughMoney2(30_000, 25_000);
             System.out.println("구매 가능합니다...");
         } catch(Exception e) {
+            // 예외흐름
             System.out.println("구매할 수 없습니다...");
         }
         

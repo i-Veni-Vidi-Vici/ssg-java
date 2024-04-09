@@ -12,7 +12,7 @@ import java.util.Scanner;
  * 1. 예외 던지기 throw new NullPointerException();
  * 2. 예외제어 // 던져진 예외를 제어하는 방법 2가지
  *  - 예외회피 : 메소드 선언에 throw 구문을 작성하는 것임. public void Test() throw SomeException {}
- *  - 예외처리 : try..catcj절을 통해서 예외발생 시 처리구문을 작성(정상흐름 복구)
+ *  - 예외처리 : try..catch절을 통해서 예외발생 시 처리구문을 작성(정상흐름 복구)
  */
 public class App {
     public static void main(String[] args) {

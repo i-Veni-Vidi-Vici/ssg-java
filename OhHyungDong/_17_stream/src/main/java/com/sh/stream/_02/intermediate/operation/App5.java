@@ -1,0 +1,14 @@
+package com.sh.stream._02.intermediate.operation;
+
+import java.util.stream.IntStream;
+
+/**
+ * Boxed 중간연산
+ * - 기본 스트림을 wrapper 스트림으로 변환
+ */
+public class App5 {
+    public static void main(String[] args) {
+        IntStream.of(1,2,3,4,5)
+                .forEach(System.out::println);
+    }
+}
