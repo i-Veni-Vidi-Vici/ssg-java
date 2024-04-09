@@ -39,7 +39,6 @@ public class Gold {
     }
 
     public double getEjapoint() {
-        double goldEja = getPoint() * 0.05;
-        return goldEja;
+        return point * 0.05;
     }
 }

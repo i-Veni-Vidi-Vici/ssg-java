@@ -32,7 +32,8 @@ public class App {
             fis = new FileInputStream(ROOT + "helloworld.txt");
             System.out.println("helloworld.txt와 연결된 FileInputStream객체를 생성했습니다.");
 
-//            int data = fis.read(); // byte단위(0~255)로 읽어서 int로 반환(-1로 표현, 다 읽었다는 신호까지 표현하기 위해서)
+//            int data = fis.read(); // byte단위(0~255)로 읽어서 int로 반환(-1, 다 읽었음
+//            신호까지 표현하기 위해서)
 //            System.out.println((char)data);
 
 //            int data = 0;
