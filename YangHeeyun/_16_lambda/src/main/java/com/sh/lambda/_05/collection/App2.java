@@ -11,6 +11,7 @@ import java.util.Map;
 public class App2 {
     public static void main(String[] args) {
         // 불변한 맵 객체 생성 (k, v 모두 null값을 허용하지 않는다)
+        // Map.of, List of, Set of jdk9부터 추가 Unmodifiable Collection반환 (읽기전용 컬렉션)
 //        Map<Integer, String> map = Map.of(1,"홍길동",2,"신사임당",3,"이순신"); // 읽기전용으로 만들고 싶다면 이런식으로
         Map<Integer, String> map = new HashMap<>(); // 수정가능하게
         map.put(1,"홍길동");
