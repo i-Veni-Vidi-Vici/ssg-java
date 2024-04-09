@@ -22,5 +22,9 @@ public class App {
         //List#removeIf(Predicate<T>)
         list.removeIf((n) -> n== 20); //이 메소드도 모든 리스트 의 인덱스를 살펴보면서 진행됨!
         System.out.println(list); //[10, 30]
+
+        //List#replaceAll(UnaryOperator<T>)
+        list.replaceAll((n) -> n * 10);
+        System.out.println(list); //[100, 300]
     }
 }

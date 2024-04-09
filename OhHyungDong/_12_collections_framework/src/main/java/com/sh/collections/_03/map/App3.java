@@ -18,7 +18,7 @@ public class App3 {
         bookMap.put(100L, new Book(100L, "홍길동전", "허균", 150000));
         bookMap.put(100L, new Book(200L, "신사동 가로수길", "신사임당", 35000));
        // bookMap.keySet().add(new com.sh.collections._01.list.Book(300L, "해시계 파헤치기", "장영실", 40000));
-
+        System.out.println(bookMap.get(100L));
         //2권 추가 (내부적으로 관리되는 배열의 크기를 신경쓰지 않아도 된다.)
 //        bookMap.keySet().add(new com.sh.collections._01.list.Book(400L, "한글2", "세종대왕", 20000));
 //        bookMap.keySet().add(new com.sh.collections._01.list.Book(500L, "잠수왕", "논개", 120000));))
@@ -37,6 +37,7 @@ public class App3 {
             int value = bookSaleMap.get(hongBook);
             bookSaleMap.put(hongBook, value + 5);
         }
+        System.out.println(bookSaleMap);
 
 
     }
