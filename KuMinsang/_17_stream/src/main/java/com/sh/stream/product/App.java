@@ -1,5 +1,6 @@
 package com.sh.stream.product;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -35,6 +36,8 @@ public class App {
         app.test3();
         app.test4();
         app.test5();
+        app.test6();
+
     }
 
     //전자기기류만 모두 출력
@@ -61,7 +64,7 @@ public class App {
     public void test3(){
         System.out.println("상품 이름 변경");
         Stream<Product> stream = list.stream();
-        List<Product> list2 = stream.filter((product) -> product.getBrand().equals("디초코")).peek(product -> product.setBrand("dechocolatecoffee")).collect(Collectors.toList());
+        List<Product> list2 = stream.filter((product) -> product.getBrand().equals("디초코")).peek(product -> product.setBrand("dechocolatecoffee")).toList();
         list2.forEach(System.out::println);
 
     }
@@ -76,8 +79,18 @@ public class App {
 
     public void test5(){
     //   상품이름순으로 정렬후 출력하세요. (sorted(Comparator)메소드 이용)
-        Stream<Product> stream = list.stream();
-        stream.sorted()
+        System.out.println("상품 이름순으로 정렬 후 출력");
+        Comparator<Product> nameCompare = Comparator.comparing(Product::getProductName);
+        List<Product> sortedList = list.stream().sorted(nameCompare).toList();
+        sortedList.forEach(System.out::println);
+    }
+
+    public void test6(){
+//        6.가격순으로 내림차순정렬후 출력하세요.
+        System.out.println("가격 순으로 내림차순 정렬");
+        Comparator<Product> productComparator = Comparator.comparing(Product::getPrice).reversed();
+        list.stream().sorted(productComparator).forEach(System.out::println);
+
     }
 
 }
