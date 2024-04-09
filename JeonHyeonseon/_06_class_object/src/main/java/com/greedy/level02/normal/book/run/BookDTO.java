@@ -14,11 +14,11 @@ public class BookDTO {
         this.author = author;
     }
 
-    public BookDTO(String title, String publisher, String author, int price, double discountRate) {
+    public BookDTO(String title, String publisher, String author, int price, double discountRate) { // 모든 필드
         this(title, publisher, author);
-//        this.title = title;
-//        this.publisher = publisher;
-//        this.author = author;
+//        this.title = title;  // 필드생성자에서 중복되는 title
+//        this.publisher = publisher; // 필드생성자에서 중복되는 publisher
+//        this.author = author; // 필드생성자에서 중복되는 author
         this.price = price;
         this.discountRate = discountRate;
     }

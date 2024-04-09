@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <pre>
- * jdk가 제공하는 함수형 인터페이스 5가지
+ * jdk가 제공하는 함수형 인터페이스 5가지 이거 다 뭔지 설명할 수 있을 정도가 되야된다!
  *
  * 1. Runnable#run()
  * 2. Consumer#accept(P): void

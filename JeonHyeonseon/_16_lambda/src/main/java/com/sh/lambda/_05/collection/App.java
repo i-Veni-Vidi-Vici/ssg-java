@@ -21,6 +21,10 @@ public class App {
 
         // List#removeIf(Predicate<T>)
         list.removeIf((n) -> n == 20);  // n이 20이면 지워라 라는 의미.
-        System.out.println(list);
+        System.out.println(list); // [10, 30]
+
+        // List#replaceAll(UnaryOperator<T>)
+        list.replaceAll((n) -> n * 10);
+        System.out.println(list); // [100, 300]
     }
 }

@@ -47,7 +47,7 @@ public class App3 {
         int dan = 8;
         IntStream stream5 = IntStream.rangeClosed(1, 9);
         stream5.forEach((n) -> System.out.println(dan + " * " + n + " = " + dan * n));
-        
+
         IntStream.rangeClosed(2, 9)
                 .forEach((d) -> { // 바깥(단) 반복문
                     System.out.println();
