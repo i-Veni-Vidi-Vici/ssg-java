@@ -1,8 +1,15 @@
 package com.sh.collections._01.list;
 
 import com.sh.collections._01.list.comparator.PriceAscending;
+import com.sh.collections._01.list.comparator.TitleAscending;
 
 import java.util.*;
+
+/**
+ * <pre>
+ *     배열 대신 List로 관리하기
+ * </pre>
+ */
 
 public class App2 {
     public static void main(String[] args) {
@@ -36,13 +43,13 @@ public class App2 {
 
         //익명 클래스 - ✨클래스 선언 + 객체 생성을 동시에✨ 하는 방법, 클래스 이름이 없음, 1회용
         //인터페이스/추상클래스 자식 객체를 즉석에서 생성가능
-        Comparator<Book> priceAscendingComparator = new Comparator<Book>() {
-            @Override
-            public int compare(Book o1, Book o2) {
-                return o1.getPrice() - o2.getPrice();
-            }
-        };
-        Collections.sort(list, priceAscendingComparator);
+//        Comparator<Book> priceAscendingComparator = new Comparator<Book>() {
+//            @Override
+//            public int compare(Book o1, Book o2) {
+//                return o1.getPrice() - o2.getPrice();
+//            }
+//        };
+//        Collections.sort(list, priceAscendingComparator);
 
         //저자 이름오름차순 정렬(익명 클래스 방식)
 //        Collections.sort(list, new Comparator<Book>() {

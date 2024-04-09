@@ -1,4 +1,4 @@
-package member.repository;
+ package member.repository;
 
 import member.model.vo.Gold;
 import member.model.vo.Silver;

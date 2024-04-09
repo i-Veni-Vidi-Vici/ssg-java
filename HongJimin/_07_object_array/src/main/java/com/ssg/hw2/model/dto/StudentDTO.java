@@ -68,17 +68,13 @@ public class StudentDTO {
         this.math = math;
     }
 
-    public String information() {
-
-        System.out.println(
-                getGrade() + "학년" +
+    public void information() {
+        System.out.println(getGrade() + "학년 " +
                 getClassroom() + "반, " +
-                getName() + "의 " +
-                "국어점수 " + getKor() + "점, " +
-                "영어점수 " + getEng() + "점, " +
-                "수학점수 " + getMath() + "점");
-        return name;
-
+                getName() + " : " +
+                "국어 : " + getKor() + "점, " +
+                "영어 : " + getEng() + "점, " +
+                "수학 : " + getMath() + "점");
     }
 }
 
