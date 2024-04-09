@@ -17,6 +17,8 @@ public class App3 {
         Runnable runnable2 = new MyRunnable('-');
         Thread th1 = new Thread(runnable1);
         Thread th2 = new Thread(runnable2);
+        th1.setName("일꾼1"); // name은 default: main, Thread-0, Thread-1
+        th2.setName("일꾼2");
         th1.start(); // 각 쓰레드별 새 콜스택을 할당 받아서 작업을 시작
         th2.start();
         System.out.print(Thread.currentThread().getName());
