@@ -32,14 +32,14 @@ public class App3 {
 
         Map<String, Integer> map = List.of("홍길동", "신사임당", "홍길동", "이순신", "홍길동").stream()
                 .collect(Collectors.toMap(
-                        (name) -> name,
-                        (name) -> 1,
-                        (v1, v2) -> v1 + v2
+                        (name) -> name, // keyFunction
+                        (name) -> 1, // valueFunction
+                        (v1, v2) -> v1 + v2 // mergeFunction
                 )); // keyFunction, valueFunction, mergeFunction
         System.out.println(map);
 
         // 배열 반환
-        Object[] arr = List.of(1, 2, 3, 2, 2, 3, 2, 1, 3, 4).stream().toArray();
+        Object[] arr = List.of(1, 2, 3, 2, 2, 3, 2, 1, 3, 4).stream().toArray(); // Object[]
         System.out.println(Arrays.toString(arr));
 
         // 문자열 조합
