@@ -7,6 +7,13 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * <pre>
+ *  ### 웹 요청을 처리하는 웹 서버 작성
+ * - http://localhost : 80 요청
+ * - 응답 메세지 html로 전송
+ * </pre>
+ */
 public class WebServerApp {
     public static void main(String[] args) {
         int port = 80; // http 프로토콜의 기본 port 80(https -> 443)
@@ -43,10 +50,7 @@ public class WebServerApp {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }).start();
-
-
             }
         } catch (IOException e) {
             e.printStackTrace();
