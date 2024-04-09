@@ -1,15 +1,10 @@
-package com.sh.lambda_04.method.reference;
+package com.sh.stream._03.terminal.operation;
 
 public class Person {
-    private long id;
     private String name;
     private int age;
 
     public Person() {
-    }
-
-    public Person(long id) {
-        this.id = id;
     }
 
     public Person(String name, int age) {
@@ -17,17 +12,26 @@ public class Person {
         this.age = age;
     }
 
-    public Person(long id, String name, int age) {
-        this.id = id;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
