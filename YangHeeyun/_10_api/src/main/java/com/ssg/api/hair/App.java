@@ -119,7 +119,7 @@ public class App {
         for(int i=0;i<arr.length;i++){
             if(i==0) continue;
             String[] userData = arr[i].split(",",9); // arr을 ,로 나눈 각 변수값
-            
+
             int id = Integer.parseInt(userData[0]);
             String first_name = userData[1];
             String last_name = userData[2];
