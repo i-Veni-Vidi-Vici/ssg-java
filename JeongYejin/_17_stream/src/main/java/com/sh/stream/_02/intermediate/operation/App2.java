@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * - 변환된 결과에 따라서 Stream타입이 변경될 수 있다.
  *
  * String.valueOf
- * Integer.parseOf
+ * Integer.parseInt
  * </pre>
  */
 public class App2 {

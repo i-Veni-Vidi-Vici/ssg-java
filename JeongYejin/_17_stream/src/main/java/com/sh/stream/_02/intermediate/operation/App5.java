@@ -12,6 +12,7 @@ import java.util.stream.IntStream;
 public class App5 {
     public static void main(String[] args) {
         IntStream.of(1, 2, 3, 4, 5)
+                .distinct()
                 .boxed()
                 .mapToInt(n -> n)
                 // unboxing
