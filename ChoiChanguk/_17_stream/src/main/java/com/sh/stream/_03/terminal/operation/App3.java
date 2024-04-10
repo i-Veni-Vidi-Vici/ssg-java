@@ -18,7 +18,7 @@ public class App3 {
         List<Integer> intList1=List.of(1,2,3,4,5,6,7,8,9,10);
         List<Integer> intLiset2= intList1.stream()
                 .map((n)->n*10)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());// 이런 형태로 사용
         System.out.println(intLiset2);
 
         Set<Integer> intSet=List.of(1,2,3,4,5,66,66,34,23,21,2,3)
@@ -31,8 +31,8 @@ public class App3 {
                 .stream()
                 .collect(Collectors.toMap(
                         (name)->name,//List.of안에 있는 스트링을 name으로 받겟다
-                        (name)->1,
-                        (v1,v2)->v1+v2
+                        (name)->1,// value
+                        (v1,v2)->v1+v2//키값이 동일할 때 value
                         ));// keyFunction, valueFunction, mergeFunction
 
         // 배열 변환
