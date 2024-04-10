@@ -9,6 +9,7 @@ public class App {
         // non-static 내부클래스 객체 생성
         Outer outer = new Outer();
         Outer.Inner2 instance2 = outer.new Inner2();
+//        Outer.Inner2 instance2 = new Outer().new Inner2();
         instance2.a();
 
         // 외부에서 지역내부클래스에 접근하는 방법은 없다.
