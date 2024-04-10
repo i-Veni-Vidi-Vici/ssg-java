@@ -1,4 +1,4 @@
-package com.sh.stream.product;
+package com.ssg.stream.product;
 
 public class Product {
     private String productName;

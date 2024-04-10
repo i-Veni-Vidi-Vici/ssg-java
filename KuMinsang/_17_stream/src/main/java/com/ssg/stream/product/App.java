@@ -1,4 +1,4 @@
-package com.sh.stream.product;
+package com.ssg.stream.product;
 
 import java.util.Comparator;
 import java.util.List;
