@@ -12,6 +12,7 @@ import java.util.stream.IntStream;
  */
 public class App2 {
     public static void main(String[] args) {
+        //1. 초기값(identity), BinaryOperator-> 초기값과 동일한 타입을 반환해줍니다
         int result=IntStream.rangeClosed(1,100)
                 //아래 뜻은 int sum=50; 여기부터 1~100을 더한다고 생각하면 된다
                 .reduce(50,(sum,b)-> {

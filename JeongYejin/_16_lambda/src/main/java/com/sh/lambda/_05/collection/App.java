@@ -17,7 +17,10 @@ public class App {
         list.add(30);
 
 
-        //
+        //List#forEach(Consumer<T>)
+        list.forEach(System.out::println);
+
+        // list.forEach((n) -> System.out.println(n));
         list.forEach((n) -> {
             System.out.println(n);
         });
@@ -26,6 +29,10 @@ public class App {
 
         // List#removeIf(Predicate<T>)
         list.removeIf((n) -> n == 20);
+        System.out.println(list); // [10, 30]
+
+        // List#replaceAll(UnaryOperator<T>)
+        list.replaceAll((n) -> n * 10);
         System.out.println(list);
     }
 }

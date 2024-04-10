@@ -2,6 +2,7 @@ package com.sh.thread._01.basic;
 
 /**
  * 싱글쓰레드 앱 구현
+ * start를 호출해야 새로운 콜스택을 만든다
  */
 public class App1 {
     public static void main(String[] args) {

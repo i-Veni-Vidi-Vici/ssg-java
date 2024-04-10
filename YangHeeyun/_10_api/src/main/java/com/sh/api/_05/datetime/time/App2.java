@@ -12,16 +12,16 @@ public class App2 {
     public static void main(String[] args) {
         LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println("년도 : " + localDateTime.getYear());
-        System.out.println("월(enum) : " + localDateTime.getMonth());
-        System.out.println("월(value) : " + localDateTime.getMonthValue());
+        System.out.println("월(enum) : " + localDateTime.getMonth()); // MARCCH
+        System.out.println("월(value) : " + localDateTime.getMonthValue()); // 3
         System.out.println("일 : " + localDateTime.getDayOfMonth());
 
         System.out.println("시 : " + localDateTime.getHour());
         System.out.println("분 : " + localDateTime.getMinute());
         System.out.println("초 : " + localDateTime.getSecond());
 
-        System.out.println("요일 : " + localDateTime.getDayOfWeek()); // WEDNESDAY
-        System.out.println("요일(value) : " + localDateTime.getDayOfWeek().getValue()); //3
+        System.out.println("요일(enum) : " + localDateTime.getDayOfWeek()); // WEDNESDAY
+        System.out.println("요일(value) : " + localDateTime.getDayOfWeek().getValue()); //3 (수요일이 value값으로 나옴)
         int value = localDateTime.getDayOfWeek().getValue();
         // value값으로 한글변환
         String dayOfWeek = switch(value){
@@ -31,7 +31,7 @@ public class App2 {
             case 4 -> "목";
             case 5 -> "금";
             case 6 -> "토";
-            case 7 -> "월일";
+            case 7 -> "일";
             default -> "";
         };
         System.out.println("요일(한글) : " + dayOfWeek);

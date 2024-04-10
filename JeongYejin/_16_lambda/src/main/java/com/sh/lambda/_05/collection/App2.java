@@ -2,6 +2,7 @@ package com.sh.lambda._05.collection;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiFunction;
 
 /**
@@ -12,6 +13,7 @@ import java.util.function.BiFunction;
 public class App2 {
     public static void main(String[] args) {
         //불변한 맵 객체 생성 (k, v 모두 null값을 허용하지 않는다.)
+        // Map.of, List.of, Set.of jdk9부터 추가. Unmodifiable Collection반환
 //        Map<Integer, String> map = Map.of(1, "홍길동", 2, "신사임당", 3, "이순신");
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "홍길동");
