@@ -17,9 +17,9 @@ public class App1 {
 //        ArrayList list1 = new ArrayList();
 //        List list2 = new ArrayList();
 //        Collection list3 = new ArrayList();
+//        List list4 = new ArrayList();
+//        List<String> list5 = new ArrayList<String>();
 
-//        List list = new ArrayList();
-//        List<String> list = new ArrayList<String>();
         List<String> list = new ArrayList<>(); // 타입추론 (1.7)
 
         // 요소 추가

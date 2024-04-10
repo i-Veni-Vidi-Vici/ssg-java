@@ -18,27 +18,28 @@ import java.util.stream.Stream;
 public class App {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 4, 2, 3, 5);
-        Stream<Integer> stream1 = list.stream();
+        Stream<Integer> stream1 = list.stream(); // list를 스트림으로 변환
         stream1.sorted().forEach((n) -> System.out.println(n));
         System.out.println(list);
 
         int[] arr = {3, 2, 4, 1, 5};
-        IntStream stream2 = Arrays.stream(arr);
+        IntStream stream2 = Arrays.stream(arr); // 객체배열을 list로 바꾸지 않고 바로 스트림으로 변환
         stream2.sorted()
                 .forEach((n) -> System.out.println(n));
         System.out.println(Arrays.toString(arr));
 
-        Set<Integer> set = Set.of(3, 2, 4, 1, 3);
-//        IntStream 3 = Arrays.stream(arr);
+//        Set<Integer> set = Set.of(3, 2, 4, 1, 3); // 중복이 있을시 컴파일 오류!
+        Set<Integer> set = Set.of(3, 2, 4, 1);
+//        IntStream stream3 = Arrays.stream(arr);
         set.stream()
                 .sorted()
                 .forEach(System.out::println);
-        System.out.println(set);
+        System.out.println(set); // 정렬 X 매번 다른 순서
 
         // 병렬처리
         List<String> subjects = Arrays.asList("java", "mysql", "jdvc", "him", "js");
-//        subjects.stream().forEach(System.out::println); // 싱글 쓰레드
-        subjects.stream().forEach(System.out::println);
+        subjects.stream().forEach(System.out::println); // 싱글 쓰레드
+//        subjects.stream().forEach(System.out::println);
         subjects.parallelStream().forEach(System.out::println);  // 멀티 쓰레드 (병렬처리)
     }
 }

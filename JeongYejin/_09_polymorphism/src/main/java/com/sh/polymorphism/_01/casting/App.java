@@ -42,6 +42,7 @@ public class App {
         rabbit.eat(); // Animal#eat으로 정적바인딩 -> 실행시간(runtime)에 Rabbit#eat으로 동적바인딩
         rabbit.run();
         rabbit.cry();
+//        rabbit.jump();
     }
 
     /**
@@ -54,13 +55,13 @@ public class App {
         Animal animal = new Rabbit();
         System.out.println(animal instanceof Rabbit); // Animal 타입객체가 Rabbit로 제어 가능하니? true;
         if (animal instanceof Rabbit) {
-            Rabbit rabbit = (Rabbit) animal; // Animal -> Rabbit downcasting
+            Rabbit rabbit = (Rabbit) animal; // Animal animal -> Rabbit animal로 downcasting
             // ...
         }
         System.out.println(animal instanceof Animal); // Animal 타입객체가 Animal로 제어 가능하니? true;
         System.out.println(animal instanceof Object); // Animal 타입객체가 Object로 제어 가능하니? true;
         if (animal instanceof Object) {
-            Object object = animal; // Animal -> Object upcasting
+            Object object = animal; // Animal animal -> Object object로 upcasting
         }
         System.out.println(animal instanceof Tiger); // Animal 타입객체가 Tiger로 제어 가능하니? false;
         if (animal instanceof Tiger) {
