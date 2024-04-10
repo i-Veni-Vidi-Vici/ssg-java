@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
  *
  * - 제네릭프로그래밍은 데이터 형식에 의존하지 않고,
  *   하나의 값이 여러타입을 가질수 있는 기술에 중점을 두고있다.
- *   재사용성으로 높이는 프로그래밍 방식이다.
+ *   재사용성을 높이는 프로그래밍 방식이다.
  *
  * </pre>
  */
@@ -25,16 +25,15 @@ public class App {
         intBox.setValue(123);
 //        intBox.setValue("ㅋㅋㅋㅋ"); // Integer가 아닌 타입은 사용할수 없다.
         Integer value = intBox.getValue(); // Integer외의 타입을 반환할 수 없다.
-        System.out.println(value);
+        System.out.println(value); // 123
 
         // jdk7부터 타입추론을 통해 생성자쪽 타입은 생략가능하다.
 //        Box<String> strBox = new Box<String>();
         Box<String> strBox = new Box<>();
-
         strBox.setValue("ㅋㅋㅋ");
 //        strBox.setValue(123); // String이 아닌 타입을 사용할 수 없다.
         String value2 = strBox.getValue();
-        System.out.println(value2);
+        System.out.println(value2); //ㅋㅋㅋ
 
         // 타입제한을 사용하지 않는다면...
         Box box = new Box();
@@ -42,7 +41,7 @@ public class App {
         box.setValue(true);
         box.setValue("ㅎㅎㅎㅎ");
         box.setValue(LocalDateTime.now());
-        // 리턴받은 값의 타입이 Object이므로 다운캐스팅이후 사용할수 있다.
+        // 리턴받은 값의 타입이 Object이므로 다운캐스팅 이후 사용할수 있다.
         Object value3 = box.getValue();
         LocalDateTime _value3 = (LocalDateTime) value3;
         System.out.println(_value3.format(DateTimeFormatter.BASIC_ISO_DATE));
