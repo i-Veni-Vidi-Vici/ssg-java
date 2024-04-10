@@ -20,7 +20,7 @@ public class App4 {
         }
         System.out.println(Thread.currentThread().getName()); // main쓰레드 작동했다는 의미
 
-        // 1. 1초에 한 번씩 🍕를 10번 출력하는 쓰레드 생성하
+        // 1. 1초에 한 번씩 🍕를 10번 출력하는 쓰레드 생성하기
         // extends Thread
         Thread thread1 = new Thread();
         thread1.start();
