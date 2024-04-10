@@ -29,7 +29,7 @@ public class App4 {
         LocalDate localDate = LocalDate.now();
         LocalDate localDAte2 = LocalDate.of(2025,4,1);
         Period period = Period.between(localDate,localDAte2);
-        System.out.println(period); // P1Y5D
+        System.out.println(period); // P1Y5D 1년5일 차이
         System.out.println("년도 차이 : " + period.getYears());
         System.out.println("월 차이 : " + period.getMonths());
         System.out.println("일 차이 : " + period.getDays());

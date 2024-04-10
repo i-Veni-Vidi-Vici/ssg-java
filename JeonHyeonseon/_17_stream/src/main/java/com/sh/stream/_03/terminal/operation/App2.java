@@ -13,14 +13,16 @@ import java.util.stream.IntStream;
  */
 public class App2 {
     public static void main(String[] args) {
+        // 1. 초기값(identity), BinaryOperator -> 초기값과 동일한 타입을 반환
         int result = IntStream.rangeClosed(1, 100)
                 // n은 스트림의 요소이다.
-                .reduce(0, (sum, n) -> {
+                .reduce(0, (sum, n) -> { // int
                     System.out.println(sum + ", " + n);
-                    return sum + n;
+                    return sum + n;  // int 반환
                 });
         System.out.println(result);
 
+        // 2. BinaryOperator
         Optional<Person> oldestPerson = Arrays.asList(
                 new Person("홍길동", 33),
                 new Person("신사임당", 40),
