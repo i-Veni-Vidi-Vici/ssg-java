@@ -9,6 +9,7 @@ import java.util.*;
  *
  * 1. keySet()를 이용
  * 2. entrySet()를 이용
+ * 3. values()를 이용
  *
  * </pre>
  */
@@ -57,9 +58,16 @@ public class App2 {
             System.out.println(key + " = " + value);
         }
 
-        // value만 순회하기
+        // 3. value만 순회하기
         Collection<Double> values = map.values(); // list, set
+        // 3-1. foreach
         for(Double value : values) {
+            System.out.println(value);
+        }
+        // 3-2. iterator
+        Iterator<Double> iter2 = values.iterator();
+        while(iter2.hasNext()) {
+            double value = iter2.next();
             System.out.println(value);
         }
     }
