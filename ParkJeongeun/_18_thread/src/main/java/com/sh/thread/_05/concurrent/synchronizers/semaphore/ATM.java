@@ -1,4 +1,4 @@
-package com.sh.thread._02.synchronization.withdraw;
+package com.sh.thread._05.concurrent.synchronizers.semaphore;
 
 public class ATM implements Runnable{
     private Account account;
