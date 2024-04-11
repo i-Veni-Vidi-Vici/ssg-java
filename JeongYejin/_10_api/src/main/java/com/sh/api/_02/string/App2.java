@@ -25,7 +25,8 @@ public class App2 {
         System.out.println("compareTo : " + txt2.compareTo(txt3)); // 32
         System.out.println("compareTo : " + txt3.compareTo(txt2)); // -32
         System.out.println("compareTo : " + txt2.compareTo(txt4)); // -9 j가 s보다 9개 더 앞서있다.
-        System.out.println("compareToIgnoreCase : " + txt1.compareToIgnoreCase(txt3)); // 대소문자 구분 X
+        System.out.println("compareToIgnoreCase : " + txt1.compareToIgnoreCase(txt3)); // 대소문자 구분 X // 0
+        System.out.println("compareToIgnoreCase : " + txt1.compareToIgnoreCase(txt4)); // 대소문자 구분 X 숫자 의미 X // - 9
         System.out.println();
 
         // concat(String):String 문자열 연결연산이후 새 문자열 반환
@@ -38,16 +39,16 @@ public class App2 {
         String helloworld = "helloworld";
         System.out.println("indexOf : " + helloworld.indexOf('w')); // 5
         System.out.println("indexOf : " + helloworld.indexOf('l')); // 2
-        System.out.println("indexOf : " + helloworld.indexOf('z')); // -1
+        System.out.println("indexOf : " + helloworld.indexOf('z')); // -1 // 인덱스가 없어서 음수이다
         System.out.println("indexOf : " + helloworld.indexOf("low")); // 3 // 문자열 찾기 가능
-        System.out.println("lastIndexOf : " + helloworld.lastIndexOf('o')); // 뒤에서부터 찾기 (인덱스는 바뀌지 않음)
+        System.out.println("lastIndexOf : " + helloworld.lastIndexOf('o')); // 뒤에서부터 찾기 (인덱스는 바뀌지 않음) // 6
         System.out.println();
 
         // contains(String) : boolean
-        System.out.println("contains : " + helloworld.contains("hell"));
-        System.out.println("contains : " + helloworld.contains("ㅋㅋㅋㅋ"));
-        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("hell") > -1));
-        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("ㅋㅋㅋ") > -1));
+        System.out.println("contains : " + helloworld.contains("hell")); // true
+        System.out.println("contains : " + helloworld.contains("ㅋㅋㅋㅋ")); // false
+        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("hell") > -1)); // true
+        System.out.println("indexOf -> boolean : " + (helloworld.indexOf("ㅋㅋㅋ") > -1)); // false // 인덱스가 없으면 음수이기 때문에
         System.out.println();
 
         // trim() : String 앞뒤의 공백을 제거하고 새 문자열을 반환
@@ -83,6 +84,8 @@ public class App2 {
         System.out.println("isEmpty : " + "".isEmpty()); // true
         System.out.println("isEmpty : " + "abc".isEmpty()); // false
         System.out.println("isEmpty : " + "         ".isEmpty()); // false
+        String nullString;
+//        System.out.println("isEmpty : " + nullString.isEmpty()); // 초기화되지 않은 null String은 컴파일 오류!
         System.out.println();
 
         // isBlank(): boolean 공백문자열인가? ("", "   " 모두 공백문자열이다)

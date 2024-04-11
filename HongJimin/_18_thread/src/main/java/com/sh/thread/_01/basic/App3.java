@@ -11,9 +11,11 @@ public class App3 {
         Runnable runnable2 = new MyRunnable('-');
         Thread th1 = new Thread(runnable1); //Thread 객체에 runnable 전달
         Thread th2 = new Thread(runnable2); //Thread 객체에 runnable 전달
+        th1.setName("일꾼 1");
+        th2.setName("일꾼 2");
         th1.start(); //각 쓰레드별 새 콜스택을 할당받아서 작업을 시작함!
         th2.start();
-        System.out.print(Thread.currentThread().getName());
+        System.out.print(Thread.currentThread().getName()); //현재 쓰레드 이름
     }
 
     public void print(char ch) {

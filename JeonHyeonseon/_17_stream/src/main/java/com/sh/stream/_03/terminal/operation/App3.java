@@ -32,7 +32,7 @@ public class App3 {
         Map<String, Integer> map = List.of("홍길동", "신사임당", "홍길동", "이순신", "홍길동").stream()
                 .collect(Collectors.toMap(
                         (name) -> name,    // keyFunction
-                        (name) -> 1,       // mapFunction
+                        (name) -> 1,       // valueFunction
                         (v1, v2) -> v1 + v2  // mergeFunction
                 ));// keyFunction, valueFunction, mergeFunction
         System.out.println(map);

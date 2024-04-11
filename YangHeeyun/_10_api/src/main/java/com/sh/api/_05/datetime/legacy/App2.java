@@ -33,7 +33,7 @@ public class App2 {
         int hour = sometime.get(Calendar.HOUR_OF_DAY);
         int minute = sometime.get(Calendar.MINUTE);
         int second = sometime.get(Calendar.SECOND);
-        int dayOfWeek = sometime.get(Calendar.DAY_OF_WEEK); // 일(1) ~ 토(7)
+        int dayOfWeek = sometime.get(Calendar.DAY_OF_WEEK); // 요일 일(1) ~ 토(7)
         int amPm = sometime.get(Calendar.AM_PM); // 오전(0), 오후(1)
         System.out.println("year = " + year);
         System.out.println("month = " + (month + 1));
