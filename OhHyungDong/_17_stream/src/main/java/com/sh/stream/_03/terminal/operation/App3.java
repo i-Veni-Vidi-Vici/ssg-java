@@ -29,7 +29,7 @@ public class App3 {
                 .stream().collect(Collectors.toMap(
                         (name) -> name, // key 값
                         (name) -> 1, // vaule값
-                        (v1,v2) -> v1 + v2
+                        (v1,v2) -> v1 + v2 //v1 = 기존 value값, v2 = 수정될 value값
                 ));
 
         //배열 변환
@@ -47,9 +47,9 @@ public class App3 {
                         new Person("이순신", 27),
                         new Person("장영실", 55),
                         new Person("홍길동", 55)) .stream()
-               .map(Person::getName)
-                .distinct()
-                .sorted();
+               .map(person -> person.getName());
+//                .distinct()
+//                .sorted();
 
 
 
