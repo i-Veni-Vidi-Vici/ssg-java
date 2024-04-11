@@ -6,7 +6,7 @@ package com.sh._03.custom.exception;
  *  - UncheckedException 만들기 - extends RunTimeException
  * </pre>
  */
-public class NotEnoughMoneyException extends RuntimeException {
+public class  NotEnoughMoneyException extends RuntimeException {
     public NotEnoughMoneyException(String message) {
         super(message);
     }
