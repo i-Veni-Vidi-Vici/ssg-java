@@ -28,13 +28,13 @@ public class App3 {
 
         Set<String> stringSet = List.of("홍길동", "신사임당", "홍길동", "이순신", "홍길동")
                 .stream().collect(Collectors.toSet());
-        System.out.println();
+        System.out.println(stringSet);
 
         Map<String, Integer> map = List.of("홍길동", "신사임당", "홍길동", "이순신", "홍길동").stream()
                 .collect(Collectors.toMap(
                         (name) -> name, // keyFunction
-                        (name) -> 1, // valueFunction
-                        (v1, v2) -> v1 + v2 // mergeFunction
+                        (value) -> 2, // valueFunction
+                        (v1, v2) -> 5 // mergeFunction
                 )); // keyFunction, valueFunction, mergeFunction
         System.out.println(map);
 

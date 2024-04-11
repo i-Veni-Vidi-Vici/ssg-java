@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class App3 {
     public static void main(String[] args) {
         List<Integer> intList = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+//        intList.set(0, intList.get(0) * 10);
         List<Integer> intList2 = intList.stream()
                 .map((n) -> n * 10) // Stream<Integer>
                 .collect(Collectors.toList());
@@ -33,9 +34,9 @@ public class App3 {
         // Map<String, Integer>
         Map<String, Integer> map = List.of("홍길동", "신사임당", "홍길동", "이순신", "홍길동").stream()
                 .collect(Collectors.toMap(
-                        (name) -> name,
-                        (name) -> 1,
-                        (v1, v2) -> v1 + v2
+                        (name) -> name, //키값 설정
+                        (name) -> 1,    //벨류 설정
+                        (v1, v2) -> v1 + v2 //중복된 값 처리
                 ));// keyFunction, valueFunction, mergeFunction
         System.out.println(map);
 

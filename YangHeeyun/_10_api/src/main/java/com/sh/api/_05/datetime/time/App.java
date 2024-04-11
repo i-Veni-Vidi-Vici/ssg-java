@@ -19,7 +19,7 @@ import java.time.*;
 public class App {
     public static void main(String[] args) {
         // LocalDate 날짜
-        LocalDate localDate1 = LocalDate.now();
+        LocalDate localDate1 = LocalDate.now(); // 현재시간
         LocalDate localDate2 = LocalDate.of(2024, 3, 27);
         System.out.println(localDate1); // 2024-03-27
         System.out.println(localDate2); // 2024-03-27
@@ -42,6 +42,7 @@ public class App {
         ZoneId zoneId = ZoneId.of("America/New_York");
         ZonedDateTime zonedDateTime2 =
                 ZonedDateTime.of(2024, 3, 4, 12, 30, 10, 0, zoneId);
+        // 자리 맞추기 힘드니까 아래처럼 자주 사용함
         ZonedDateTime zonedDateTime3 = ZonedDateTime.of(localDateTime, ZoneId.of("Asia/Seoul"));
         System.out.println(zonedDateTime); // 2024-03-27T12:25:49.394297100+09:00[Asia/Seoul]
         System.out.println(zonedDateTime2); // 2024-03-04T12:30:10-05:00[America/New_York]
