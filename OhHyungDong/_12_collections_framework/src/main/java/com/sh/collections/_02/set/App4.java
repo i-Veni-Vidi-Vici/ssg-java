@@ -23,6 +23,7 @@ public class App4 {
         set2.add("Americano");
         set2.add("Latte");
         set2.add("Flat White");
+        set2.add("Latte");
         System.out.println(set2);
 
 

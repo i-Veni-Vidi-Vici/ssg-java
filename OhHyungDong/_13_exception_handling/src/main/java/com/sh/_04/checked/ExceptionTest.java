@@ -13,7 +13,7 @@ public class ExceptionTest {
      * 호출부로 예외처리 위임
      */
     public void checked() throws  Exception{
-        new Exception("예외처리");
+        throw new Exception("hi");
         }
     }
 
