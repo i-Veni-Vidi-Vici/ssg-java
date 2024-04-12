@@ -20,7 +20,7 @@ public class App2 {
         myThread.start(); // 새 쓰레드에 새 콜스텍을 할당해서 run메소드를 실행
         myThread2.start();
 
-        System.out.println(Thread.currentThread().getName()); // Thread-1
+        System.out.print(Thread.currentThread().getName()); // main
     }
 
     public void print(char ch) {
@@ -43,7 +43,7 @@ public class App2 {
         @Override
         public void run() {
             new App2().print(ch);
-            System.out.print(Thread.currentThread().getName()); // Thread-0
+            System.out.print(Thread.currentThread().getName());
         }
     }
 }

@@ -44,6 +44,7 @@ public class App {
         System.out.println(map.size());
 
         //remove(K) : Value 삭제
+        System.out.println("홍길동 삭제");
         System.out.println(map.remove("홍길동")); // key값으로 삭제하면 value값이 반환되고, 요소에서는 아예 삭제가 이루어짐
         System.out.println(map);// false 반환
 

@@ -12,8 +12,25 @@ public class Student extends Person{
         this.grade = grade;
         this.major = major;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + super.getAge() +
+                ", height=" + super.getHeight() +
+                ", weight=" + super.getWeight() +
+                ", grade=" + grade +
+                ", major='" + major + '\'' +
+                '}';
+    }
+
     public String information(){
-        return null;
+        String result = """
+                이름    나이   신장    몸무게     학년    전공
+                %s    %d   %.1f    %.1f     %d    %s
+                """.formatted(name, getAge(), getHeight(), getWeight(), grade, major);
+        return result;
     }
 
     public int getGrade() {

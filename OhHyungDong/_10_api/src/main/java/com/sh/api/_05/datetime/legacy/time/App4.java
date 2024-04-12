@@ -46,5 +46,9 @@ public class App4 {
         System.out.println("시간  차이 : " + ChronoUnit.HOURS.between(past,future));
         System.out.println("분  차이 : " + ChronoUnit.MINUTES.between(past,future));
         System.out.println("초  차이 : " + ChronoUnit.SECONDS.between(past,future));
+
+        //Period -> 날짜 간격
+        //Duration -> 시간 간격
+        //ChronoUnit -> 날짜 , 시간 둘다
     }
 }
