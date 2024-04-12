@@ -1,7 +1,5 @@
 package com.sh.collections._01.list;
 
-import com.sh.collections.App;
-
 import java.util.Stack;
 
 /**
