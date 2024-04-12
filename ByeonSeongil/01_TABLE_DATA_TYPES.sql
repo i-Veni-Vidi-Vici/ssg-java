@@ -131,8 +131,8 @@ from tbl_data_types_number;
 -- TIME HH:MM:SS.SSSSSS 형식으로 관리
 -- DATETIME YYYY-MM-DD HH:MM:SS 형식으로 관리
 -- TIMESTAMP YYYY-MM-DD HH:MM:SS 형식으로 관리
-    -- 지역대정보를 제거하고 UTC로 관리, 불러올때는 지역대정보를 적용해서 보여줌
-    -- 국제화가 필요한 앱에 적합하다.
+-- 지역대정보를 제거하고 UTC로 관리, 불러올때는 지역대정보를 적용해서 보여줌
+-- 국제화가 필요한 앱에 적합하다.
 -- YEAR YYYY형식으로 관리
 
 -- now() 현재 시스템시각을 DATETIME형식으로 제공
@@ -160,8 +160,16 @@ from tbl_data_types_date;
 -- 지역대 정보가 변경되면, timestamp타입은 그에 알맞게 변환해서 불러온다.
 select @@session.time_zone; -- SYSTEM
 set time_zone = '+09:00'; -- KST +09:00
-set time_zone = '-04:00'; -- NewYork -04:00
+set time_zone = '-04:00';
+-- NewYork -04:00
 
--- ================================
--- DQL
--- ================================
+
+
+
+
+
+
+
+
+
+
