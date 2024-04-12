@@ -136,4 +136,3 @@ select * from tbl_data_types_date;
 select @@session.time_zone; -- SYSTEM // 시스템이란 DB 서버가 돌아가고 있는 OS를 말한다.
 set time_zone = '+09:00'; -- KST // 우리나라 시간은 실제 UTC 대비해서 9 시간 빠르다.
 set time_zone = '-04:00'; -- NewYork -04:00 // 뉴옥 시간을 실제 UTC 대비해서 4 시간 느리다.
-
