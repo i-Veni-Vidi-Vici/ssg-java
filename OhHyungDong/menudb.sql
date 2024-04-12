@@ -1,3 +1,4 @@
+use menudb;
 -- 테이블 삭제
 DROP TABLE IF EXISTS tbl_payment_order CASCADE;
 DROP TABLE IF EXISTS tbl_payment CASCADE;
