@@ -125,7 +125,3 @@ select @@session.time_zone; -- SYSTEM
 set time_zone = '+09:00'; -- KST +09:00
 set time_zone = '-04:00'; -- NewYork -04:00
 
--- ----------------------------------
--- DQL
--- ----------------------------------
-
