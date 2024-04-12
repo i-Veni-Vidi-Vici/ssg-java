@@ -74,6 +74,6 @@ select
     EMP_NAME,
     HIRE_DATE,
     QUIT_DATE,
-    datediff(ifnull(null, now()), HIRE_DATE) as 근무일
+    datediff(ifnull(QUIT_DATE, now()), HIRE_DATE) as 근무일
 from
     employee;
