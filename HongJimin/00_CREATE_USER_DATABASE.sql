@@ -12,7 +12,7 @@
   -- 일반 사용자 생성
   -- '사용자명'@' 접속위치'%로 지정하면 외부접속 허용한다.
   -- localhost로 지정하면 내 컴퓨터에섬나 접근이 가능하다.
-  create user 'sh'@'%' identified by 'sh';
+create user 'sh'@'%' identified by 'sh';
 
 -- 사용자 확인
 show databases;
