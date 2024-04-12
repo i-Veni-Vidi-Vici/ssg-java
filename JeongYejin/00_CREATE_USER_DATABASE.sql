@@ -38,3 +38,9 @@ grant all privileges on menudb.* to 'sh'@'%';
 # sh 사용자에게 부여된 권한 확인
 show grants for 'sh'@'%';;
 # 그 안에 테이블을 추가하고, 테이블의 데이터 값들을 변경하는 게 가능해진다.
+
+CREATE database empdb;
+
+grant all privileges on empdb.* to 'sh'@'%';
+
+show grants for 'sh'@'%';
