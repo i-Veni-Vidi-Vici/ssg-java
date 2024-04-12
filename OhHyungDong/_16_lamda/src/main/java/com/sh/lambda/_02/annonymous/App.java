@@ -72,7 +72,7 @@ public class App
         Printer printer = (str) -> System.out.println(str);
         printer.print ("안녕");
 
-        Func.IntFunc square = (n) -> n * n;
+        Func.IntFunc square = (n) -> n * n; // n -> 매개변수 -> n * n (리턴값)
         System.out.println(square.calc(10));
     }
 }
