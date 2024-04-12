@@ -270,7 +270,7 @@ from
     tbl_menu
 where
 #     not (category_code between 4 and 6);
-    
+
 #     category_code != 4
 #     and
 #     category_code != 5
