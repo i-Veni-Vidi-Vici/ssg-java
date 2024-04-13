@@ -26,7 +26,7 @@ public class App1
         App1 app1 = new App1(); // 클래스명 변수명 = new 클래스명();
 
         // 2. 객체를 통해 호출
-        app1.a();
+        app1.a(); // a 메소드는 static 메소드여서 객체를 통해 호출하지 않고 그냥 호출해도된다.
         app1.b();
         System.out.println("main end..");
     }

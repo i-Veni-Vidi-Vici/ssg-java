@@ -26,7 +26,7 @@ public class App2 {
         Stream<String> stream2 = Arrays.stream(names, 0, 3);
         stream2.forEach(System.out::println);
 
-        // 컬렉션을 스트림으로 생성
+        // 컬렉션을 스트림으로 생성 , list or set
         Stream<String >stream3=Arrays.asList("A","B","C").stream();
         Stream<Integer> stream4= Set.of(1,2,3).stream();
 

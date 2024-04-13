@@ -27,6 +27,8 @@ public class WepServerApp {
                 new Thread(() -> {
                     try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         PrintWriter pw = new PrintWriter(socket.getOutputStream());
+                        // 같은 소켓에 대해 쓰고 읽기를 동시에 하면 충돌 이슈들이 있다.
+                         // 버퍼드리더 먼저! 하고 프린트라이터를 다음에 위치시키기.
                     ){
                         // 웹요청 확인
 //                        String data = null;
