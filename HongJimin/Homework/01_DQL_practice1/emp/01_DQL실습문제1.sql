@@ -36,8 +36,19 @@ where
   and SALARY >= 2700000;
 
 -- 4. tbl_escape_watch 테이블에서 description 컬럼에 99.99% 라는 글자가 들어있는 행만 추출하세요.
+select * from tbl_escape_watch
+where
+    description like '%99.99\%%';
 
 -- 5. EMPLOYEE 테이블에서 현재 근무중인 사원을 이름 오름차순으로 정렬해서 출력하세요.
+select * from employee
+order by EMP_NAME asc;
+
 
 -- 6. 사원별 입사일, 퇴사일, 근무기간을 조회하세요. 퇴사자 역시 조회되어야 합니다.
-
+select HIRE_DATE,
+       QUIT_DATE,
+       DATEDIFF('2024-04-13',HIRE_DATE) '근무기간',
+       '일'
+from employee
+where QUIT_YN = 'Y' || QUIT_YN = 'N';

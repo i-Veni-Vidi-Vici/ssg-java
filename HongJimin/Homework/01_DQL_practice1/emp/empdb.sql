@@ -211,3 +211,15 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-04-10 16:45:25
+-- 테이블 및 데이터 등록후 문제풀이
+create table tbl_escape_watch (
+                                  watch_name varchar(100)
+    ,description varchar(1000)
+);
+-- drop table tbl_escape_watch;
+insert into tbl_escape_watch values('금시계', '순금 99.99% 함유 고급시계');
+insert into tbl_escape_watch values('은시계', '고객 만족도 99.99점를 획득한 고급시계');
+commit;
+select * from tbl_escape_watch;
+
+
