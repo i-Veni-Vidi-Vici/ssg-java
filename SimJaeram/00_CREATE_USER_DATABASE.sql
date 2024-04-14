@@ -9,7 +9,7 @@
 
 -- 일반사용자 생성
 -- '사용자명'@'접속위치'
---  - %로 지정하면 외부접속 허용한다.
+--  - %로 지정하면 외부접속 허용한다. // 접속 IP를 특정하지 않는다.
 --  - localhost로 지정하면 내 컴퓨터에서만 접근 가능하다.
 create user 'sh'@'%' identified by 'sh';
 
@@ -26,7 +26,7 @@ create schema menudb;
 
 -- sh사용자에게 menudb를 사용할수 있는 권한을 부여한다.
 -- 사용자 user와 database(schema)는 별개의 객체이다.
--- 한 사용자 n개의 db를 사용할 수 도 있고, 한 db를 여러명의 사용자가 제어할 수 도 없다.
+-- 한 사용자 n개의 db를 사용할 수 도 있고, 한 db를 여러명의 사용자가 제어할 수 도 있다.
 grant all privileges on menudb.* to 'sh'@'%';
 
 -- sh사용자에게 부여된 권한 확인
