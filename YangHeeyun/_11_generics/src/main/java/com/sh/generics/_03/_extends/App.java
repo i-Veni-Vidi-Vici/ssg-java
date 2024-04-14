@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * <pre>
  *  Generics 상한/하한 제한
  *  <A extends B> B를 상속한 A타입만 가능 (상한 제한)
- *  타입문자
+ *  타입문자    실제 클래스  자리
  *  <A super B> B의 부모클래스인 A타입만 가능(하한 제한)
  * </pre>
  */
