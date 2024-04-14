@@ -22,7 +22,7 @@ public class App0 {
 
         // 2권 추가 ( 배열은 크기 변경이 불가능하다.)
         Book[] books2 = new Book[100]; // 불필요한 공간을 미리 할당 (공간 낭비)
-        System.arraycopy(books,0,books2,0,books.length);
+        System.arraycopy(books,0,books2,0,books.length); // books의 데이터 books2로 옮기기
         books2[3] = new Book(400L,"한글2", "세종대왕",20000);
         books2[4] = new Book(500L,"장수왕", "논개",12000);
         System.out.println(Arrays.toString(books2));

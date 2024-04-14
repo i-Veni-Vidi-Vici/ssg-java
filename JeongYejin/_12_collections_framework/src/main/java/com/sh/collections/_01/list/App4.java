@@ -21,10 +21,22 @@ public class App4 {
 
         System.out.println(stack);
 
+        stack.set(1, 3);
+        stack.add(1, 5);
+
+        System.out.println(stack);
+        System.out.println(stack.indexOf(3));
+        System.out.println(stack.get(0));
+
+
         // peek 가장위의 요소 읽기(제거하지 않음)
         System.out.println("peek : " + stack.peek());
 
         // pop 요소 가져오기(제거)
+//        stack.clear();
+
+        System.out.println(stack.contains(4));
+        System.out.println();
 //        System.out.println(stack.pop());
 //        System.out.println(stack.pop());
 //        System.out.println(stack.pop());
