@@ -20,6 +20,7 @@ public class App3 {
         stream2.forEach(System.out::println);
         // 난수 생성
         IntStream stream3 = new Random().ints(10, 1, 10);
+//        IntStream stream3 = new Random().ints(10);
         stream3.forEach(System.out::println);
         // 수열 생성
         Stream<Integer> stream4 = Stream.iterate(10, v -> v * 2).limit(10);
