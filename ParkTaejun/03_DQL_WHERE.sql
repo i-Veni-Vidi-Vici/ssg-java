@@ -151,8 +151,7 @@ where
 select
     *
     from
-        tbl_menu
-where
+        tbl_menu;
 
 #     menu_name = '마늘'; -- 정확히 마늘 조회
 #     menu_name like '%마늘%'; -- 마늘을 포함 조회/
