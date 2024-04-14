@@ -1,0 +1,30 @@
+/* 1번 정답
+select EMP_NAME from EMPLOYEE
+where EMP_NAME LIKE '%연';
+*/
+/* 2번 정답
+select EMP_NAME, PHONE from EMPLOYEE
+where PHONE NOT LIKE '010%'
+*/
+/* 3번 정답
+SELECT *
+FROM EMPLOYEE
+WHERE CHAR_LENGTH(LEFT(EMAIL, LOCATE('@', EMAIL) - 1)) = 4
+AND (DEPT_CODE = 'D9' OR DEPT_CODE = 'D5')
+AND (HIRE_DATE BETWEEN '1990-01-01' AND '2001-12-31')
+AND SALARY > 2700000;
+*/
+/* 4번 정답
+SELECT *
+FROM tbl_escape_watch
+WHERE description LIKE '%99\.99\%%';
+*/
+/*5번 정답
+select EMP_NAME from EMPLOYEE
+order by EMP_NAME ASC
+*/
+/* 6번 정답
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, QUIT_DATE, 
+       DATEDIFF(QUIT_DATE, HIRE_DATE) AS WORKING_DAYS
+FROM EMPLOYEE;
+*/
