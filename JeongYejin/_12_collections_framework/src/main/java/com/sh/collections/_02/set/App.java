@@ -31,6 +31,7 @@ public class App {
 
         // 중복저장
         set.add("java");
+        set.remove("java");
         System.out.println(set.add("java")); // boolean값 반환
 
         // 전체 요소 수
