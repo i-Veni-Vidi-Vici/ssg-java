@@ -1,44 +1,22 @@
 package com.ssg.has_a.member.model.vo;
 
-public class Gold {
-    private String name;
-    private String grade;
-    private int point;
+import java.io.Serializable;
 
+public class Gold extends Member implements Buyable {
     public Gold() {
     }
 
     public Gold(String name, String grade, int point) {
-        this.name = name;
-        this.grade = grade;
-        this.point = point;
+        super(name, grade, point);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
+    @Override
     public double getEjapoint() {
-        return point * 0.05;
+        return this.getPoint() * 0.05;
     }
+
+    @Override
+    public int buy(int price){
+        return (int) (price * 0.05);
+    };
 }

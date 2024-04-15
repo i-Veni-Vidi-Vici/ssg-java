@@ -31,7 +31,7 @@ public class ServerApp {
             while (true) {
                 System.out.println("[서버 대기중...]");
                 // ServerSocket#accept() 클라이언트 요청이 올 때까지 대기.
-                // 요청이 들어오면, 새로운 소켓을 생성해 반환
+                // 요청이 들어오면, 새로운 클라이언트 소켓을 생성해 반환
                 Socket socket = serverSocket.accept();
                 System.out.println(socket.getInetAddress().getHostAddress() + "로부터 요청...");
                 // 요청별로 쓰레드를 만들어서 응답처리

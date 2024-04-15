@@ -36,7 +36,7 @@ public class App {
         System.out.println("removed = " + removed);
 
         // toString
-        System.out.println(map); // {신사임당=40, 홍길동=23}
+        System.out.println(map); // {신사임당=40, 홍길동=33}
 
         // get(K):V 요소 가져오기
         Integer value = map.get("홍길동");
