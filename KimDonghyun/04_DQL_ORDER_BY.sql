@@ -27,6 +27,7 @@ order by
     category_code asc,
     menu_price desc;
 
+
 -- select 절의 컬럼순서로 지정가능
 select
     menu_name,
