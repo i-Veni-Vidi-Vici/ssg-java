@@ -9,20 +9,21 @@
 
   -- 일반 사용자 생성
   -- '사용자명'@'접속위치'
-  -- %로 지정하면 외부접속 허용.
+  -- %로 지정하면 외부접속 허용. = 다른 컴퓨터에서도 접속 가능
   -- localhost로 지정하면 내 컴퓨터에서만 접근 가능
 create user 'sh'@'%' identified by 'sh';
 
 -- 사용자 확인
 show databases;
-use mysql;
+use mysql; -- db를 선택하고 아래 select을 쓴다
 
-select * from user;
+select * from user; -- 이 말은 mysql선택이 되고 mysql안에 user테이블을 본다
+--
 
 -- 데이터베이스(테이블 등의 객체가 보관되는 장소) 추가
 -- mysql에서는 schema와 database가 같은 의미로 사용된다.
 
-create database menudb;
+create database menudb; -- create schema menudb; 똑같다
 create schema menudb;
 
 -- sh 사용자에게 menudb를 사용할 수 있는 권한을 부여한다.
