@@ -1,3 +1,5 @@
+use empdb;
+
 select * from employee; -- 사원테이블
 -- 사원아이디, 사원네임, 사원번호, 사원이메일,사원연락처, 사원부서코드, 사원직급코드, ...
 select * from job; -- 직급테이블
