@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * <pre>
  * Collection
- * - List
+ *  - List
  *      -ArrayList (대표)
  *      -LinkedList
  *
