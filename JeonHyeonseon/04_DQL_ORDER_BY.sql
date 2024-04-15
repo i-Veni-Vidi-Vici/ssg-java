@@ -65,7 +65,7 @@ order by
     menu_price * category_code;
 
 -- 특정 컬럼값을 변환해서 기준으로 사용.
--- field(src, val1, val2, val3, .....) : 일치하는 값의 인덱스 반환(scr가 몇 번지에 있는 값과 같아?라는 의미)
+-- field(src, val1, val2, val3, .....) : 일치하는 값의 인덱스 반환(src가 몇 번지에 있는 값과 같아?라는 의미)
 select
     field('A', 'A', 'B', 'C'), -- 1
     field('B', 'A', 'B', 'C'), -- 2
