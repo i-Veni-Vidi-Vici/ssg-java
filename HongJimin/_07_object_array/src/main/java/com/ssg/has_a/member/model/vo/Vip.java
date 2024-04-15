@@ -1,44 +1,21 @@
 package com.ssg.has_a.member.model.vo;
 
-public class Vip {
-    private String name;
-    private String grade;
-    private int point;
+public class Vip extends Member implements Buyable {
 
     public Vip() {
     }
 
     public Vip(String name, String grade, int point) {
-        this.name = name;
-        this.grade = grade;
-        this.point = point;
+        super(name, grade, point);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
+    @Override
     public double getEjapoint() {
-        return point * 0.1;
+        return this.getPoint() * 0.1;
     }
+
+    @Override
+    public int buy(int price){
+        return (int) (price * 0.1);
+    };
 }
