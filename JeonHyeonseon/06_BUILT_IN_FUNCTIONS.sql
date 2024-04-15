@@ -166,8 +166,8 @@ select
 -- trim(방향 문자 from 대상문자열) : leading(좌)/trailing(우)/both 방향지정후 해당문자 제거
 select
     concat('(', ltrim('   안녕'), ')'),
-    concat('(', ltrim('안녕   '), ')'),
-    concat('(', ltrim('   안녕   '), ')');
+    concat('(', rtrim('안녕   '), ')'),
+    concat('(', trim('   안녕   '), ')');
 
 -- 공백외의 문자도 방향과 함께 제거 가능
 select
