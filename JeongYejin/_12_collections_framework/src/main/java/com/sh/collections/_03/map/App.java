@@ -9,7 +9,7 @@ import java.util.Map;
  * - key/value를 쌍으로 하나의 요소로써 저장한다.
  * - key란? 요소를 찾기위한 식별자 역할
  *      1. key는 중복을 허용하지 않는다.
- *      2. key가 중복된 값을 저장하면, 기족값이 덮어써진다.
+ *      2. key가 중복된 값을 저장하면, 기존값이 덮어써진다.
  * - value란? key식별자와 연결된 값. key가 다르다면 value는 중복 가능하다.
  *
  * - 구현클래스 HashMap, LinkedHashMap, TreeMap

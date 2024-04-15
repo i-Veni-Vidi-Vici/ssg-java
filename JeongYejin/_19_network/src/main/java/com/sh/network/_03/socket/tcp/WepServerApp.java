@@ -16,7 +16,7 @@ import java.net.Socket;
  */
 public class WepServerApp {
     public static void main(String[] args) {
-        int port = 80; // http 프로토콜의 기본 port 80 (https -> 443)
+        int port = 8080; // http 프로토콜의 기본 port 80 (https -> 443)
         try(ServerSocket serverSocket = new ServerSocket(port)) {
             // 반복적으로 client요청을 처리
             while (true) {
@@ -48,6 +48,7 @@ public class WepServerApp {
                         pw.println(header);
                         pw.println(); // 공란 header/body 구분자 필수!
                         pw.println(body);
+
                     }  catch (IOException e) {
                         e.printStackTrace();
                     }

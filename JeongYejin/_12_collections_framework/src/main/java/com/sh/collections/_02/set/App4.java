@@ -22,6 +22,8 @@ public class App4 {
             System.out.println(name);
         }
 
+        set1.contains("라떼");
+
         Set<String> set2 = new TreeSet<>();
         set2.add("Latte");
         set2.add("Americano");

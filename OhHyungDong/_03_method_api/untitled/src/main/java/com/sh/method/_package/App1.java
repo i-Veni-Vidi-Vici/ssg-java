@@ -15,7 +15,8 @@ import java.lang.String;
  *  - 도메인(naver.com -> com.naver)을 뒤집어서 3레벨 이상 사용하는 것을 권장한다.
  * </pre>
  */
-public class App1 {
+public class
+App1 {
     public static void main(String[] args) {
         App1 app = new App1();
         //com.sh._package.App1 app = new com.sh._package.App1();
