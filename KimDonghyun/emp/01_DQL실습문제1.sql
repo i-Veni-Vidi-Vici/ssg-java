@@ -6,6 +6,13 @@ GRANT ALL PRIVILEGES ON empdb.* TO 'sh'@'%';
 -- sh계정으로 다음 실행
 use empdb;
 
+select * from employee; -- 사원테이블
+select * from job; -- 직급테이블
+select * from department; -- 부서테이블
+select * from location; -- 지역테이블
+select * from nation; -- 국가테이블
+select * from sal_grade; -- 급여등급테이블
+
 -- 1. employee 테이블에서 이름 끝이 연으로 끝나는 사원의 이름을 출력하시오
 select
     emp_name
@@ -40,8 +47,8 @@ where
 -- 4. tbl_escape_watch 테이블에서 description 컬럼에 99.99% 라는 글자가 들어있는 행만 추출하세요.
 -- 테이블 및 데이터 등록후 문제풀이
 create table tb_escape_watch(
-                                watch_name   varchar(100),
-                                description    varchar(1000)
+    watch_name   varchar(100),
+    description    varchar(1000)
 );
 -- drop table tb_escape_watch;
 insert into tb_escape_watch values('금시계', '순금 99.99% 함유 고급시계');
@@ -68,6 +75,9 @@ order by
     emp_name;
 
 -- 6. 사원별 입사일, 퇴사일, 근무기간(일)을 조회하세요. 퇴사자 역시 조회되어야 합니다.
+select datediff(now(), '2024/04/01'); -- 14
+select ifnull(null, now()), ifnull('2024/04/01', now());
+
 select
     emp_name,
     hire_date,
