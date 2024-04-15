@@ -1,5 +1,6 @@
 package com.sh.collections._01.list;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,8 +16,11 @@ import java.util.List;
 public class App3 {
     public static void main(String[] args) {
         List<Integer> list = new LinkedList<>();
+        List<Integer> list2 = new ArrayList<>();
+
         list.add(Integer.valueOf(100));
         list.add(100);
+//        System.out.println("boolan:" + list.add(100));
         list.add(200);
         list.add(300);
         list.add(200);

@@ -16,7 +16,7 @@ public class App3 {
         System.out.println(set);
 
         // set -> List
-        List<String> list = new ArrayList<>((set));
+        List<String> list = new ArrayList<>(set);
         Collections.sort(list);
         System.out.println(list);
 

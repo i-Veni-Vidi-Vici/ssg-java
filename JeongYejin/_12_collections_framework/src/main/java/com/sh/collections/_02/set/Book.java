@@ -64,8 +64,8 @@ public class Book {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
+        if (o == null || getClass() != o.getClass()) return false; // 아예 다른 클래스면 false 주기
+        Book book = (Book) o; // 모든 타입의 객체를 자식 객체로 downcasting
         return id == book.id && price == book.price && Objects.equals(title, book.title) && Objects.equals(author, book.author);
     }
 

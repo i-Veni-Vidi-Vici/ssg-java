@@ -26,11 +26,12 @@ public class App2 {
         bookSet.add(book6);
 
         // equals/hashCode 비교후 동일할 때 같은 객체로 간주한다.
-        System.out.println(book5.equals(book6)); // false
-        System.out.println(book5.hashCode() == book6.hashCode()); // false
+        System.out.println(book5.equals(book6)); // false // 오버라이드 후 true
+        System.out.println(book5.hashCode() == book6.hashCode()); // false // true
 
 
         // 동일한 내용의 Book객체 추가
+        System.out.println(bookSet.add(new Book(500L, "잠수왕", "논개", 12000)));
         bookSet.add(new Book(500L, "잠수왕", "논개", 12000));
         // Set이라서 같은 객체가 저장이 안될것같으나 저장이된다
         // 객체가 다른 객체라서 그렇다.

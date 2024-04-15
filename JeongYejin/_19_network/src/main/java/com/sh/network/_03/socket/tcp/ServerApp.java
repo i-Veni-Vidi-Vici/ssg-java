@@ -24,12 +24,13 @@ import java.net.Socket;
  */
 public class ServerApp {
     public static void main(String[] args) {
+        String host = "localhost"; // 192.168.0.20
         int port = 9999; // 0 ~ 1024 well-known port 구간은 피해서 지정
         try (ServerSocket serverSocket = new ServerSocket(port)) {
 
-            while (true) {
+            while (true) { // 여러번의 요청을 처리하기 위해 무한반복
                 System.out.println("[서버 대기중...]");
-                Socket socket = serverSocket.accept();
+                Socket socket = serverSocket.accept(); // 새로운 소켓을 만들어서 반환해줌
                 // ServerSocket#accept() 클라이언트 요청이 올때까지 대기
                 // 요청이 들어오면, 새로운 소켓을 생성해 반환
                 System.out.println(socket.getInetAddress().getHostAddress() + "로부터 요청...");

@@ -1,5 +1,7 @@
 package com.sh._04.checked;
 
+import java.util.Scanner;
+
 /**
  * <pre>
  *  Exception 구분
@@ -16,13 +18,16 @@ public class App {
     public static void main(String[] args) {
         ExceptionTest exceptionTest = new ExceptionTest();
 
+        //exceptionTest.unchecked();
         //Unchecked 예외가 발생해도 프로그램은 비정상 종료된다.
-        //다만 try..catch작성을 강제화 하지 않을 뿐
+        //RT다만 try..catch작성을 강제화 하지 않을 뿐
 //        try {
 //            exceptionTest.unchecked();
 //        } catch(Exception e){
 //            System.out.println("예외처리 성공 ");
 //        }
+
+
 
         //checked 예외
         try {

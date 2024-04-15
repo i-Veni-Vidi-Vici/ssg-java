@@ -1,6 +1,9 @@
 package com.sh.lambda._03.functional._interface;
 
+import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Predicate 함수형 인터페이스 관련
@@ -17,5 +20,6 @@ public class App6 {
         //IntPredicate#test(int):boolean
         //LongPredicate#test(long):boolean
         //DoublePredicate#test(double):boolean
+
     }
 }
