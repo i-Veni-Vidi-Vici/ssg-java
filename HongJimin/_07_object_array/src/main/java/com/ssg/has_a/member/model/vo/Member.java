@@ -5,6 +5,7 @@ public abstract class Member {
     private String grade;
     private int point;
     public abstract double getEjapoint();
+    public int price;
 
     public Member() {
     }
@@ -37,5 +38,13 @@ public abstract class Member {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
