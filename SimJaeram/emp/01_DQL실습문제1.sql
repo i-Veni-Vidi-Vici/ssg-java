@@ -74,5 +74,6 @@ select
     HIRE_DATE,
     QUIT_DATE,
     concat(if(QUIT_YN = 'Y', DATEDIFF(QUIT_DATE, HIRE_DATE), DATEDIFF(now(), HIRE_DATE)), '일')
+    # datediff(ifnull(quit_date, now()), hire_date)
     as 근무기간
 from employee;
