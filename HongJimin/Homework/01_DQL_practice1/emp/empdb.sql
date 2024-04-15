@@ -222,4 +222,14 @@ insert into tbl_escape_watch values('은시계', '고객 만족도 99.99점를 �
 commit;
 select * from tbl_escape_watch;
 
-
+-- 테이블/데이터 설정
+create table tbl_files (
+                           file_no bigint,
+                           file_path varchar(500)
+);
+-- drop table tbl_files
+insert into tbl_files values(1, 'c:\\abc\\deft\\salesinfo.xls');
+insert into tbl_files values(2, 'c:\\music.mp3');
+insert into tbl_files values(3, 'c:\\documents\\resume.hwp');
+commit;
+select * from tbl_files;
