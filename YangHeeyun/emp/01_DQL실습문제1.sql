@@ -45,3 +45,4 @@ select
     emp_name, HIRE_DATE, QUIT_DATE,
     concat(if(QUIT_YN = 'Y', DATEDIFF(QUIT_DATE,HIRE_DATE),DATEDIFF(now(),HIRE_DATE)),'일')
 from employee;
+
