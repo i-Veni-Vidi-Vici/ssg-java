@@ -22,7 +22,7 @@ select * from user;
 -- 데이터베이스(테이블 등의 객체가 보관되는 장소) 추가
 -- mysql에서는 schema와 database가 같은 의미로 사용된다.
 create database menudb;
-create schema menudb;
+-- create schema menudb;
 
 -- sh사용자에게 menudb를 사용할 수 있는 권한을 부여한다.
 -- 사용자 user와 database(schema)는 별개의 객체이다.
