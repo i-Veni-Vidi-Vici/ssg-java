@@ -29,8 +29,9 @@ WHERE PHONE NOT LIKE '010%';
 SELECT *
 FROM employee
 WHERE
-    EMAIL LIKE '____%' AND (DEPT_CODE = 'D9' || DEPT_CODE = 'D5')
-AND HIRE_DATE BETWEEN '1990-01-01' AND '2001-12-31' && SALARY >=2700000;
+    EMAIL LIKE '____%' # '____\_%' = asdf_sefasdf 이런경우 앞에 4글자 _경우를 뽑아라
+        AND (DEPT_CODE = 'D9' || DEPT_CODE = 'D5')
+        AND HIRE_DATE BETWEEN '90-01-01' AND '01-12-31' && SALARY >=2700000;
 
 # 4. tbl_escape_watch 테이블에서 description 컬럼에 99.99% 라는 글자가 들어있는 행만 추출하세요.
 SELECT *
