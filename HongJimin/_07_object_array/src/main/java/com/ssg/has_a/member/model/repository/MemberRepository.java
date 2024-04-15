@@ -4,17 +4,19 @@ import com.ssg.has_a.member.model.vo.*;
 
 
 
-public class MemberRepository {
+public class MemberRepository{
     Silver[] silvers = new Silver[10];
     Gold[] golds = new Gold[10];
     Vip[] vips = new Vip[10];
     VVip[] vVips = new VVip[10];
+    Ruby[] rubies = new Ruby[10];
     Member[] members = new Member[40];
 
     int silverCount = 0;
     int goldCount = 0;
     int vipCount = 0;
     int vvipCount = 0;
+    int rubyCount = 0;
     int memberCount = 0;
     public void silverInsert(Silver silver) {
         silvers[silverCount] = silver;
@@ -61,13 +63,16 @@ public class MemberRepository {
     }
 
     public void printBuyInfo(int price){
+
         for(int i = 0; i < memberCount; i++){
             if(members[i] == null) break;
+
             System.out.println(
-                    members[i].getGrade() + "등급회원" +
+                    members[i].getGrade() + "등급회원 " +
                     members[i].getName() + "는 10000원 상품을" +
-                    members[i].price + "원에 구매합니다."
+                     " 원에 구매합니다."
             );
         }
     }
+
 }
