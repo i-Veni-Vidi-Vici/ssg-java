@@ -57,4 +57,4 @@ limit 15, 5;
 select *
 from tbl_menu
 order by menu_name
-limit 20, 2;
+limit 20, 5;
