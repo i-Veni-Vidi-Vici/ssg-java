@@ -276,3 +276,12 @@ order by EMP_NAME ASC ;
 
 select HIRE_DATE as "입사일", QUIT_DATE "퇴사일", IF(QUIT_DATE is null, DATEDIFF(now(),HIRE_DATE), DATEDIFF(QUIT_DATE,HIRE_DATE)) AS "근무기한"
 from employee;
+
+#강사님 방법
+select
+    EMP_NAME,
+    HIRE_DATE,
+    QUIT_DATE,
+    datediff(ifnull(QUIT_DATE,now()),HIRE_DATE),
+    QUIT_YN
+from employee;
