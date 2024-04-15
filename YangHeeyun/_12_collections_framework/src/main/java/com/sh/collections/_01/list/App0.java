@@ -26,7 +26,7 @@ public class App0 {
         books2[3] = new Book(400L,"한글2", "세종대왕",20000);
         books2[4] = new Book(500L,"장수왕", "논개",12000);
         System.out.println(Arrays.toString(books2));
-
+        
         // 1권 삭제(중간의 데이터 삭제)
 //        books2[2] = null; // 중간에 데이터를 비워두지 않는다.
         books2[2] = books2[3];
