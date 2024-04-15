@@ -126,8 +126,7 @@ create table tbl_data_types_date (
 select * from tbl_data_types_date;
 
 insert into tbl_data_types_date
-    values (now(), now(), now(), now(), now()
-); -- 자료형대로 알아서 들어감
+    values (now(), now(), now(), now(), now()); -- 자료형대로 알아서 들어감
 
 -- 지역대 정보가 변경되면, timestamp타입은 그에 알맞게 변환해서 불러온다.
 select @@session.time_zone; -- SYSTEM
