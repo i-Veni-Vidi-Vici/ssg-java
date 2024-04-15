@@ -15,6 +15,7 @@ create user 'sh'@'%' identified  by 'sh';
 show databases;
 use mysql;
 
+
 select * from user;
 
 create database menudb;

@@ -18,8 +18,8 @@
 
 # 사용자 확인
 show databases;
-use mysql;
-select * from user;
+use mysql; # 사용할 데이터베이스 지정
+select * from user; # 요구하는 데이터를 가져오는 구문
 
 -- 데이터베이스(테이블 등의 객체가 보관되는 장소) 추가
 # mysql에서는 schema와 database가 같은 의미로 사용된다.
@@ -34,3 +34,5 @@ grant all privileges on menudb.* to 'sh'@'%';
 
 # sh사용자에게 부여된 권한 확인
 show grants for 'sh'@'%';
+
+show TABLE STATUS;
