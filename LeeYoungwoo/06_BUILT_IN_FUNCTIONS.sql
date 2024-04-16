@@ -583,6 +583,7 @@ select
 #     menu_name, -- 같이 사용 불가
     sum(menu_price) -- 235500
 from tbl_menu;
+
 # avg
 -- 특정 컬럼의 평균값 반환
 select
@@ -602,6 +603,7 @@ select
     count(*)
 from tbl_menu
 where category_code is not null;
+
 # max / min
 -- 특정 컬럼의 최소/최대값을 반환
 -- 숫자/문자(사전등재순 맨먼저 ~ 맨뒤)/날짜(과거 ~ 미래)에 대해서 적용가능
