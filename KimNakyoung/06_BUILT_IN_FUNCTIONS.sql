@@ -275,6 +275,386 @@ select
 select
     floor(rand() * 10 + 1); -- 1 ~ 11 미만
 
+-- ---------------------------------------
+-- 날짜/시간 처리 함수
+-- ---------------------------------------
+-- 날짜 연산
+-- adddate(날짜,일수) : 연산된 날짜 반환
+-- adddate(날짜, interval n 단위) : 연산된 날짜 반환
+-- 지원하는 단위 year month day hour minute seconde ...
+
+select
+    now(), # 2024-04-16 09:47:09
+    adddate(now(),1), # 2024-04-17 09:47:09
+    adddate(now(),interval  1 day ), # 2024-04-17 09:48:09 3 interval은 하나의 함수에서 하나만 더 쓸려면 중첩하기
+    adddate(now(),interval  1 month ), # 2024-05-16 09:48:48
+    adddate(now(),interval  1 year ); # 2025-04-16 09:48:48
+
+select
+    adddate('2024-01-31',interval 1 month ), # 한달 더하면 원래는 계산이 안되지만 자동으로 계산해준다.
+    adddate(now(), interval -1 day),
+    subdate(now(), 1); # adddate(now(), interval -1 day) 랑 같음
+
+-- addtime(날짜시간, 시간)
+-- addtime(날짜시간, interval n 단위)
+select
+    now(),
+    adddate(now(),'1:2:3'),
+    subdate(now(),'1:2:3'),
+    adddate(now(),interval 2 hour); # 지금으로부터 두시간뒤
+
+-- 연산자 + - 연산자로 처리하기
+
+select
+    now() + interval 1 hour,
+    now() + interval 1 month ,
+    now() - interval 1 hour;
+
+select
+    now() + interval 1 hour + interval +2 minute + interval 3 second ; # 1h 1m 3s 뒤
+
+-- 현재 날짜
+-- cudate(), current_date(), current_date
+select
+    curdate(), -- 2024-04-16
+    current_date(), -- 2024-04-16
+    current_date; -- 2024-04-16
+
+-- 현재 시각
+-- curtime() ,current_time(), current_time
+select
+    curtime(), -- 10:16:54
+    current_time(), -- 10:16:54
+    current_time; -- 10:16:54
 
 
+-- 현재 날짜/시각
+-- now(), sysdate(), localtime(), localtime(), localtime, localtimestamp(), localtimestamp
+
+select
+    now(), -- 2024-04-16 10:18:57
+    sysdate(),-- 2024-04-16 10:18:57
+    localtime(),-- 2024-04-16 10:18:57
+    localtimestamp(),-- 2024-04-16 10:18:57
+    localtimestamp;-- 2024-04-16 10:18:57
+
+-- 년월일시분초 단위별로 추출
+-- year(날짜)
+-- month(날짜)
+-- dayofmonth(날짜)
+-- hour(시각)
+-- minute(시각)
+-- second(시각)
+
+select
+    year(now()), -- 2024
+    month(now()), -- 4
+    day(now()), -- 16
+    dayofmonth(now()); -- 16
+
+select
+    hour(now()), -- 10
+    minute(now()), -- 22
+    second(now()); -- 33
+
+select
+    date(now()),-- date타입으로 반환 2024-04-16
+    time(now()); -- time 타입으로 반환 10:23:10
+
+-- extract (단위 from 날짜시각) : 해당단위의 숫자반환
+
+select
+    extract(year from now()), -- 2024
+    extract(month from now()), -- 4
+    extract(day from now()), -- 16
+    extract(hour from now()), -- 10
+    extract(minute from now()), -- 26
+    extract(second from now()); -- 3
+
+-- 날짜/시간 차이 구하기
+-- datediff (미래날짜, 과거날짜)
+-- timediff (미래시각, 과거시각)
+select
+    datediff('2024/04/20' , now()),
+    datediff(now(), '2024/04/20'  ), # 날짜 할때 '' 작은따옴표로 꼭.. 감싸줘라
+    datediff(now(), '2024-04-20'  ); # 이래도 날짜 가능
+
+select
+    timediff('12:50:00', '10:30:00'); -- 02:20:00
+
+
+-- 수료일 d-day 계산쿼리
+
+select
+    datediff('2024-09-04', now());
+
+-- 날짜정보 관련
+-- dayofweek(날짜) : 요일에 해당하는 !인덱스! 반환 (일요일 : 1 ~ 토 : 7) sql인덱스는 1부터 시작임
+-- monthname(날짜) : 월이름 반환
+-- dayofyear(날짜) : 해당년도 몇번째 날인지 반환
+
+select
+    dayofweek(now()), -- 3
+    monthname(now()), -- April
+    dayofyear(now()); -- 107
+
+-- 말일계산
+-- lastday(날짜) : 말일에 해당하는 날짜 반환
+select
+    last_day(now()), -- 2024-04-30
+    last_day('2024-02-01'); -- 2024-02-29
+
+
+-- 다음달 말일은 어떻게 계산?
+select
+    last_day(now() + interval 1 month); -- 2024-05-31 # 언제 실행해도 다음달 말일임
+
+-- 날찌/시각 생성하기
+-- makedate(년, 일수) : 해당년도 일수번째 날짜 반환
+-- maketime(시, 분, 초) : 시각 반환
+
+select
+    makedate(2024,32), -- 올해의 32번째날이 뭐야? -- 2024-02-01  date!
+    maketime(10,12,13); --  10:12:13 time타입으로 반환
+
+
+-- 기간계산
+-- period_add(년원, 개월수) : 연산된 년월 반환 ( '' 이걸로 하면 안됨.. 숫자타입임)
+-- period_diff(미래년월, 과거년월) : 개월수차이 반환
+
+select
+    period_add(202404,18), -- 202510 근데 숫자 타임..? 이네
+    period_diff(202510,202404); -- 18 숫자
+
+
+-- 분기 확인
+-- quarter(날짜) : 1,2,3,4분기 반환
+select
+    quarter(now()), -- 2
+    quarter('2024-03-03'), -- 1
+    quarter('2024-08-08'), -- 3
+    quarter('2024-11-08'); -- 4
+
+# 분기별로 입사자들 그룹핑 한다던지~ 이럴때 쿼터 씀
+-- time_to_sec(시간) : 초로 변환
+select
+    time_to_sec('1:0:0'); -- 3600
+
+-- 날짜시각을 특정형식으로 출력하기
+-- date_format(날짜/시각, 형식문자열) : 지정된 형식의 문자열 반환
+-- 형식
+-- %Y %y 연도4자리/연도2자리
+-- %m 월
+-- %d 일
+-- %H/%h 시간(24시간) / 시간(12시간)
+-- %i 분
+-- %s 초
+-- %W/%w 요일명 / 요일 숫자반환 (일(0) ~ 토(6)) 이때는 0부터 시작!!!!
+
+select
+    date_format(now(), '%y/%m/%d'),
+    date_format(now(), '%H:%i:%s'),
+    date_format(now(),'%y년 %m월 %d일(%W)');
+
+-- 지역 변경
+select @@lc_time_names; -- en_US
+set @@lc_time_names = 'ko_KR';
+
+-- -----------------------
+-- 형변환 함수
+-- -----------------------
+-- mysql에서는 암묵적/명시적 형변환 모두 지원한다.
+
+# 명시적 형변환
+-- cast(값 as 자료형)
+-- convert(값, 자료형)
+-- binary,char,date,datetime,time
+-- decimal,signed/unsigined integer등을 지원한다.
+
+select
+    123,
+    cast(123 as char); # 문자열 왼쪽정렬
+
+# signed -> 부호 있
+# unsigned -> 부호 없
+
+select
+    123.456,
+    cast(123.456 as signed integer),
+    convert(123.456, signed integer );
+
+# 암묵적 형변환
+select '1' + '2'; # sql에서 더하기는 산술연산밖에 안됨 -- 숫자 변환 후 1 + 2 = 3 처리됨.
+select '1' + 'ㅋㅋㅋ'; # -- 1 숫자로 변환불가한 문자열은 0으로 변환후  1 + 0 계산
+select concat(1,2,3, '원'); # 123원 숫자가 문자열로 자동변환후 연결 '1' '2' '3' '원' 문자열
+select adddate('2024-04-01', 1); -- date형 먼저 변환후 1일 더하기 처리
+
+select '1' + '3만원'; -- 4 앞에서부터 변환가능한 숫자는 변환함 숫자로 시작되는 문자열은 숫자부분만 변환
+select '1' + '내가가진3만원'; -- 1 +0 왜냐? 숫자로 시작 안되서 숫자인지 모름요
+
+select 3 > '오'; -- 1 (true) '오'는 0으로 암묵적변환 true -> 1
+select 3 > '5오오오오오'; -- 0 (false) '5오오오오'는 5로 변환 후 크기 비교. false -> 0
+
+-- ------------------------
+-- 기타 함수
+-- ------------------------
+# null 처리함수
+-- ifnull(값,null일때값) : 값이 null이 아니면, 값을 사용, 값이 null이면 null일때값 사용
+select
+    ifnull('abc','xyz'), -- abc / 널이 아니니까
+    ifnull(null,'xyz'); -- xyz / 널이니까 xyz
+
+-- 메뉴테이블에서 메뉴명, 카테고리번호(null일 경우 '카테고리없음') 조회
+select menu_name,
+       category_code, # 숫자형
+       ifnull(category_code,'카테고리없음') as '카테고리' # 문자형
+    from tbl_menu;
+
+-- null이 아닌 값 찾기
+-- coalesce(값1,값2, ...) null이 아닌 첫번째 값 반환
+select
+    coalesce('a','b','c',null), -- a
+    coalesce(null,null,'a','b','c',null); -- a
+
+    # 실제로는 사용자의 값중엣 널이 아닌 첫번째값 반환
+
+-- 삼항연산처리
+-- if(조건식,참일때값, 거짓일때값)
+select
+    if(3 > 2, 3, 2), -- 3 참이라서
+    if(3 < 2 , 3 ,2); -- 2 거짓이라서
+
+-- 메뉴테이블에서 메뉴명, 가격, 주문가능여부(주문가능 | 주문불가)
+
+select menu_name as '메뉴명',
+       menu_price as '가격',
+       if(orderable_status = 'Y', '주문가능','주문불가능') as '주문가능여부'
+    from tbl_menu;
+
+select *
+from tbl_menu;
+
+# isnull(값) null 여부 반환 -> 이거 널이야?
+select
+    isnull('zz'), -- 0 (false)
+    isnull(null);-- 1 (true)
+
+
+-- if + isnull()
+
+-- null이면 트루라서 기존과 반대로 써야함
+select
+    menu_name,
+    if(isnull(category_code),'카테고리없음',category_code) 카테고리
+from
+    tbl_menu;
+
+# 선택함수 case !! 중요합니다아
+--  다양한 케이스에 따라 분기처리를 지원하는 함수 근데 호출은 아님요 근데 결과값 있음요
+
+-- (타입1) if .. else if
+
+-- case
+--     when 조건 1 then 값1
+--     when 조건 2 then 값2
+--     ...
+--     else 기본값
+
+-- end
+
+-- (타입2)
+
+-- 싼거 5000원 미만
+-- 적당한거 5000원 ~ 10000원
+-- 좀비싼거 10000원 이상 ~ 20000원 이하
+-- 겁나 비싼거 20000원 이상
+
+select
+    menu_name,
+    menu_price,
+    case
+        when menu_price < 5000 then '싼거'
+        when menu_price between 5000 and 10000 then '적당한거'
+        when menu_price between 10000 and 20000 then '좀비싼거'
+        else '겁나비싼거'
+    end as "menu_label"
+from
+    tbl_menu;
+
+select
+    menu_name,
+    menu_price,
+    (case
+        when isnull(category_code) then '카테고리 없음'
+        when !isnull(category_code) then category_code
+    end  ) category_code,
+    case orderable_status
+        when 'Y' then '주문가능'
+#         when 'N' then '주문불가'
+        else '주문불가'
+    end as 'orderable'
+    from tbl_menu;
+
+
+select
+    menu_name,
+    menu_price,
+    (case
+         when ((isnull(category_code)) = 1) then '카테고리 없음'
+         when ((isnull(category_code)) = 0) then category_code
+        end  ) category_code,
+    case orderable_status
+        when 'Y' then '주문가능'
+        when 'N' then '주문불가'
+        end as 'orderable'
+from tbl_menu;
+
+
+-- ---------------------
+-- 그룹 함수
+-- ---------------------
+-- 하나이상의 행을 그룹으로 묶고, 그룹당 하나의 결과값을 반환하는 함수
+-- group by를 사용하지 않는다면, 전체(모든 행)를 하나의 그룹으로 간주한다.
+-- group by를 사용한다면, group by 그룹별로 하나의 결과를 반환한다.
+-- 그룹함수의 결과와 일반컬럼은 동시에 사용할 수 없다!!
+
+# sum
+-- 특정 컬럼의 합을 계산해서 반환
+select
+#     menu_price,
+    sum(menu_price)
+from
+    tbl_menu;
+# avg
+-- 특정 컬럼의 평균값 반환
+select
+    avg(menu_price),
+    truncate(avg(menu_price), 1)
+from tbl_menu;
+
+# count
+-- 특정컬럼의 값의 개수를 세어 반환. null 값은 처리하지 않는다.
+select
+    count(*), -- * 행(모든 컬럼)의 수
+    count(category_code)
+from
+    tbl_menu; -- 21 왜냐 카테고리 코드가 null이 있기에 제외함
+
+select
+    count(*) -- * 행(모든 컬럼)의 수
+from
+    tbl_menu
+where
+    category_code is not null; -- 전체 테이블에서 카테고리코드가 널이 아닌애
+
+# max / min
+-- 특정 칼럼의 최대/최소값을 반환
+-- 숫자/문자(사전등재순 맨먼저 ~ 맨뒤)/날짜(과거 ~ 미래)에 대해서 적용가능
+
+select
+    min(menu_price),
+    max(menu_price),
+    min(menu_name), -- 가장 앞선 글자 가
+    max(menu_name) -- 가장 먼 글자 힣
+    from tbl_menu;
 
