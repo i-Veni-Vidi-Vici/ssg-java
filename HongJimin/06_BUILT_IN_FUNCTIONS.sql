@@ -274,6 +274,358 @@ select
     rand(),
     floor(rand() * 10 + 1); -- 1.0이상 ~ 11.0미만 정수값이 나오게 됨
 
+-- ---------------------------------------
+-- 날짜/ 시간 처리 함수
+-- ---------------------------------------
+-- 날짜 연산
+-- adddate(날짜, 일수) : 연산된 날짜 반환
+-- adddate(날짜, interval n 단위) : 연산된 날짜 반환
+-- 지원하는 단위 year month day hour minute second …
+
+select now(),                                  -- 지금 날짜 시간 출력
+       adddate(now(), 1),                      -- 지금 날짜, 시간에서 하루 더한 만큼 나옴!
+       adddate(now(), interval 1 day)   day,   -- 지금 날짜, 시간에서 하루 더한 만큼 나옴
+       adddate(now(), interval 1 month) month, -- 지금 날짜, 시간에서 한달 더한 만큼 출력
+       adddate(now(), interval 1 year)  year; -- 지금 날짜, 시간에서 일년 더한 만큼 출력
+
+select adddate('2024-01-31', interval 1 month); -- 2024-02-29, ⛳2024-02-29로 알아서 계산해줌! 2월은 31일이 없으니까~
+
+select subdate(now(), 1),              -- 2024-04-15 10:06:41
+       subdate(now(), interval 1 day), -- 2024-04-15 10:06:41
+       adddate(now(), -1),             -- 2024-04-15 10:06:41
+       adddate(now(), interval -1 day);-- 2024-04-15 10:06:41 -> 네개다 동일
+
+-- addtime(날짜 시간, 시간)
+-- addtime(날짜 시간, interval n 단위)
+select now(),
+       addtime(now(), '1:2:3'), -- 1시간, 2분 3초를 더한 현재 날짜 + 시간 출력
+       adddate(now(), interval 2 hour);-- 두 시간 뒤를 출력
+
+-- subtime(날짜 시간, 시간)
+select now(),
+       addtime(now(), '1:2:3'),
+       subdate(now(), '1:2:3'),
+       adddate(now(), interval 2 hour);
+
+-- + - 연산자로 처리하기
+select now() + interval 1 hour,
+       now() + interval 1 month,
+       now() - interval 1 hour,
+       now() - interval 1 month,
+       now() + interval 1 year;
+
+select now() + interval 1 hour + interval + 2 minute + interval 3 second; -- 1시간 2분 3초 뒤 시간 출력
+
+-- 현재 날짜
+-- cudate(), current_date(), current_date
+select curdate(),
+       current_date(),
+       current_date;
+
+-- 현재 시각
+-- curtime(), current_time(), current_time
+select curtime(),
+       current_time(),
+       current_time;
+
+-- 현재 날짜/시각
+-- now(), sysdate(), localtime(), localtime, localtimestamp(), localtimestamp
+select
+    now(),
+    sysdate(),
+    localtime(),
+    localtime,
+    localtimestamp(),
+    localtimestamp;
+
+-- 년월일시분초 단위별로 추출
+-- year(날짜)
+-- month(날짜)
+-- day(날짜) | dayofmonth(날짜)
+-- hour(시각)
+-- minute(시각)
+-- second(시각)
+
+select
+    year(now()), -- 2024
+    month(now()), -- 4
+    day(now()), -- 16
+    dayofmonth(now()); -- 16
+
+select
+    hour(now()), -- 10
+    minute(now()), -- 22
+    second(now()); -- 3
+
+select
+    date(now()), -- 2024-04-16
+    time(now()); -- 10:23:17
+
+-- extract(단위 from 날짜/시각) : 해당 단위의 숫자 반환
+select
+    extract(year from now()), -- 2024
+    extract(month from now()), -- 4
+    extract(day from now()), -- 16
+    extract(hour from now()), -- 10
+    extract(minute from now()), -- 25
+    extract(second from now()); -- 30
+
+-- 날짜/시간 차이 구하기
+-- datediff(미래날짜, 과거날짜)
+-- timediff(미래시각, 과거 시각)
+select
+    datediff('2024/04/20', now()), -- 4
+    datediff(now(), '2024/04/20'); -- 4
+
+select
+    timediff('12:50:00', '10:30:00'); -- 02:20:00
+
+-- 수료일 d-day 계산 쿼리
+select
+    datediff('2024/09/03', now()); -- 140일 남았다~~
+
+-- 날짜 정보 관련
+-- dayofweek(날짜) : 요일에 해당하는 인덱스 반환(일요일 - 1 ~ 토요일 - 7)
+-- monthname(날짜) : 월이름반환
+-- dayofyear(날짜) : 해당 년도의 몇번재 날인지 반환
+select
+    dayofweek(now()), -- 3(화요일)
+    monthname(now()), -- April
+    dayofyear(now()); -- 107
+
+-- 말일계산
+-- lastday(날짜) : 말일에 해당하는 날짜 바환
+select
+    last_day(now()), -- 2024-04-30
+    last_day('2024-02-01'); -- 2024-02-29
+
+-- 다음달 말일은?
+select
+    last_day(now() + interval 1 month), -- 2024-05-31
+    last_day('2024-05-31' + interval 1 month) ;-- 2024-05-31
+
+-- 날짜/시각 생성하기
+-- makedate(년, 일수) : 해당 년도 일수 번째 날짜 반환
+-- maketime(시, 분, 초) : 시각 반환
+select
+    makedate(2024, 32), -- 2024-02-01 date
+    maketime(10,12,13); -- 10:12:13 time
+
+-- 기간 계산
+-- period_add(년월, 개월수) : 연산된 년월 반환
+-- period_diff(미래년월, 과거년월) : 개월수 차이를 반환
+select
+    period_add(202404, 18), -- 202510
+    period_diff(202510, 202404); -- 18
+
+-- 분기 확인
+-- quarter(날짜) : 1, 2, 3, 4분기 반환
+select
+    quarter(now()), -- 2
+    quarter('2024-03-03'), -- 1
+    quarter('2024-08-08'), -- 3
+    quarter('2024-11-08'); -- 4
+
+-- 초 계산
+-- time_to_sec(시간) : 초로 변환
+select
+    time_to_sec('1:0:0'); -- 3600
+
+-- 날짜시각을 특정 형식으로 출력하기 - ⛳많이 쓰임!
+-- date_format(날짜/시각, 형식문자열) : 지정된 형식의 문자열 반환
+-- 형식
+-- %Y%y 연도 4자리/연도 2자리
+-- %m 월
+-- %d 일
+-- %H/%h 시간(24시간) / 시간(12시간)
+-- %i 분
+-- %s 초
+-- %W/ %w 요일명/ 요일숫자 반환(일(0) ~ 토(6))
+select
+    date_format(now(), '%Y/%m/%d'), -- 현재 년도/월/일
+    date_format(now(), '%H:%i:%s'), -- 현재 시간/분/초
+    date_format(now(), '%y년 %m월 %d일 (%a)'); -- 24년 04월 16일
+
+-- 지역 변경
+select @@lc_time_names; -- en_US -> ko_KR -> ⛳위의 %W의 출력값인 Tuesday도 화요일로 바뀜!
+set @@lc_time_names = 'ko_KR';
+
+-- ---------------------------------------
+-- 형변환 함수
+-- ---------------------------------------
+-- mysql에서는 암묵적/명시적 형변환 모두 지원한다.
+-- 명시적 형변환
+-- cast(값 as 자료형)
+-- convert(값, 자료형)
+
+-- 사용 가능 자료형
+-- binary, char, date, datetime, time,
+-- decimal, signed/unsigned integer 등을 지원한다
+
+select
+    123,
+    cast(123 as char),
+    convert(123, char);
+
+select
+    123.456,
+    cast(123.456 as signed integer), -- 123
+    convert(123.456, signed integer ); -- 123
+
+-- 암묵적 형변환
+select '1' + '2'; -- 3,  숫자 변환후 1 + 2 = 3 처리됨
+select '1' + 'ㅋㅋㅋ'; -- 1, 숫자로 변환 불가한 문자열은 0으로 변환후 1 + 0 = 1처리됨
+select concat(1, 2, 3, '원'); -- 123원, 숫자가 문자열로 자동변환후 연결 '1' '2' '3' '원'
+select adddate('2024-04-01', 1); -- 2024-04-02, date형 먼저 변환후, 1일 더하기 처리
+
+select '1' + '3만원'; -- 1 + 3,  숫자로 시작되는 문자열은 숫자 부분만 변환
+select '1' + '내가 가진 3만원'; -- 1 + 0, 숫자로 시작되지 않은 문자열이라서 0으로 처리됨
+
+select 3 > '오'; -- 1(true) , 오는 0으로 암묵적변환이 이뤄져서 연산이 true가 됨
+select 3 > '5오오오';-- 0 (false), '5오오오'는 5로 변환후 크기 비교, false -> 0
+
+-- ---------------------------------------
+-- 형변환 함수
+-- ---------------------------------------
+# null 처리 함수
+-- ifnull(값, null일때 값) : 값이 null이 아니면, 값을 사용, 값이 null이면 null일 때 값 사용
+
+select
+    ifnull('abc', 'xyz'), -- abc
+    ifnull(null, 'xyz'); -- xyz
+
+-- 메뉴 테이블에서 메뉴명, 카테고리번호(null일 경우, '카테고리 없음') 조회
+select
+    menu_name,
+    category_code, -- ⛳오른쪽 정렬 -> 숫자형
+    ifnull(category_code, '카테고리 없음') category_code -- ⛳왼쪽 정렬 ->'카테고리 없음'을 추가해서 문자형으로 형변환이 됨
+from tbl_menu;
+
+-- null이 아닌 값 찾기
+-- coalesce(값1, 값2, …) null이 아닌 첫번재 값 반환
+select
+    coalesce('a', 'b', 'c', null),
+    coalesce(null, null, 'a', 'b', 'c', null);
+
+# 삼항연산 처리
+-- if(조건식, 참일때 값, 거짓일 때 값)
+select
+    if(3 > 2, 3, 2), -- 3
+    if(3 < 2, 3, 2); -- 2
+
+-- 메뉴 테이블 명에서 메뉴명, 가격, 주문 가능 여부(주문가능 | 주문불가)
+select
+    menu_name,
+    menu_price,
+    if(orderable_status = 'Y', '주문가능⭕', '주문불가❌') 주문가능여부
+from tbl_menu;
+
+# isnull(값) null여부 반환
+select
+    isnull('ㅋㅋㅋ'), -- 0(true)
+    isnull(null); -- 1 (false)
+
+-- if + isnull()
+select
+    menu_name,
+    if(isnull(category_code), '카테고리 없음', category_code) category_code
+from tbl_menu;
+
+# 선택함수  case
+-- 다양한 케이스에 따라 분기처리를 지원하는 함수(결과값)
+-- (타입 1) → if … else if 랑 비슷
+-- case
+--    when 조건1 then 값1
+--	  when 조건2 then 값2
+--	  ...
+--	  else 기본 값
+-- end
 
 
 
+-- 싼거 5000원 미만
+-- 적당한거 5000원 이상 ~ 10000원 이하
+-- 좀 비싼거 10000원 이상 ~ 20000원 이하
+-- 겁나비싼거 20000원 이상
+select
+    menu_name,
+    menu_price,
+    case
+        when menu_price < 5000 then '싼거'
+        when menu_price between 5000 and 10000 then '적당한 거'
+        when menu_price between 10000 and 20000 then '좀 비싼거'
+        else '겁~~~나비싼거'
+    end as "menu_label"
+from tbl_menu;
+
+-- (타입 2) → switch와 비슷
+-- case 표현식
+	--	when 값1 then 결과값 1
+	--	when 값2 then 결과값 2
+	--	...
+	--	else 기본값
+-- end
+
+select
+    menu_name,
+    menu_price,
+    case
+        when isnull(category_code) then '카테고리 없음'
+        when !isnull(category_code) then category_code
+    end category_code,
+    case orderable_status
+        when 'Y' then '주문가능⭕'
+        when 'N' then '주문불가❌'
+        else '주문불가'
+    end orerable
+from tbl_menu;
+
+-- ---------------------------------------
+-- 그룹 함수
+-- ---------------------------------------
+-- 하나 이상의 행을 그룹으로 묶고, 그룹당 하나의 결과값을 반환하는 함수
+-- group by를 사용하지 않는다면, 전체(모든 행)을 하나의 그룹으로 간주함
+-- group by를 사용한다면, group by 그룹 별로 하나의 결과를 반환함 ->
+
+# sum
+-- 특정 컬럼의 합을 계산해서 반환
+select
+#     menu_name, -- In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'menudb.tbl_menu.menu_name'; this is incompatible with sql_mode=only_full_group_by
+    sum(menu_price) -- 235500
+from
+    tbl_menu;
+
+# avg
+-- 특정 컬럼의 평균값 반환
+select
+    avg(menu_price),
+    truncate(avg(menu_price), 1)
+from
+    tbl_menu;
+
+# count
+-- 특정 컬럼의 값의 개수를 세어 반환, null값은 처리하지 않는다.
+select
+    count(*), -- 22, * 행(모든 컬럼)의 수
+    count(category_code) -- 21, 찰순대쥬스 카테고리 코드 없음!
+from
+    tbl_menu;
+
+select
+    count(*) -- 21
+from
+     tbl_menu
+where
+    category_code is not null;
+
+# max / min
+-- 특정 컬럼의 최대/최소 값을 반환
+-- 숫자 / 문자 (사전등재순 맨 먼저 ~ 맨뒤) / 날짜(과거 ~ 미래)에 대해서 적용 가능
+
+select
+    min(menu_price),
+    max(menu_price),
+    min(menu_name),
+    max(menu_name)
+from
+    tbl_menu
