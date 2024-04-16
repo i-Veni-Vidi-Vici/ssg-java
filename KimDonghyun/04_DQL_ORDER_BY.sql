@@ -28,7 +28,7 @@ order by
     menu_price desc;
 
 
--- select 절의 컬럼순서로 지정가능
+-- select 절의 컬럼순서(1-based index)로 지정가능
 select
     menu_name,
     menu_code,
@@ -77,7 +77,7 @@ select
 from
     tbl_menu
 order by
-    field(orderable_status, 'N', 'Y');
+    field(orderable_status, 'Y', 'N');
 
 -- null관련
 -- 오름차순 정렬에서 NULL값은 기본적으로 맨 위에 온다.
@@ -106,3 +106,12 @@ from
 order by
     category_code is null desc, -- is null desc에서는 null값이 가장 먼저 나온다.
     category_code desc;
+
+-- order by에서 특정행만 끌어올리기 위한 용도로 find_in_set 사용가능
+select
+    *
+from
+    tbl_menu
+order by
+    find_in_set(menu_code, '10') desc,
+    find_in_set(menu_code, '20') desc;
