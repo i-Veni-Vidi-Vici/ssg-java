@@ -460,7 +460,7 @@ set @@lc_time_names = 'ko_KR';
 
 -- 사용 가능 자료형
 -- binary, char, date, datetime, time,
--- decimal, signed/unsigned integer 등을 지원한다
+-- decimal, signed/unsigned (integer) 등을 지원한다
 
 select
     123,
@@ -540,7 +540,6 @@ from tbl_menu;
 --	  ...
 --	  else 기본 값
 -- end
-
 
 
 -- 싼거 5000원 미만
