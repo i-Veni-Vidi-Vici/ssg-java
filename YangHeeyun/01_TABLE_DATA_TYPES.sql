@@ -13,11 +13,11 @@ select * from tbl_payment_order; -- 결제-주문-연동데이터
 -- TABLE 구조
 -- ==================================
 -- mysql의 table은 항상 특정 database(schema) 하위에 존재한다.
--- 특정 dayabase에 접근권한이 있는 사용자만 table을 관리할 수 있다.
+-- 특정 database에 접근권한이 있는 사용자만 table을 관리할 수 있다.
 
 -- RDBMS에서 구분
 -- 1. table (entitiy, relation) 실제 data가 보관되는 주체
--- 2. column 열(field, attribute) table의 구조, 컬렴별로 자료형 가질 수 있다.
+-- 2. column 열(field, attribute) table의 구조, 컬럼별로 자료형 가질 수 있다.
 -- 3. row 행(record, tuple) 실제 data가 관리되는 단위
 -- 4. domain 하나의 속성(열)에서 가질 수 있는 값의 집합
 
@@ -94,10 +94,10 @@ select * from tbl_data_types_number;
 -- DATETIME YYYY-MM-DD HH:MM:SS.SSSSSS형식으로 관리
 -- TIMESTAMP YYYY-MM-DD HH:MM:SS.SSSSSS형식으로 관리.
 --      지역대정보를 제거하고 UTC로 관리. 불러올때는 지역대정보를 적용해서 보여줌.
---      국화가 필요한 앱에 적합하다.
+--      국제화가 필요한 앱에 적합하다.
 -- YEAR YYYY형식으로 관리
 
--- now() 현재 시스테미각을 DATETIME형식으로 제공
+-- now() 현재 시스템시각을 DATETIME형식으로 제공
 select now(); -- 특정테이블 참조없이 사용 가능
 
 create table tbl_data_types_date(

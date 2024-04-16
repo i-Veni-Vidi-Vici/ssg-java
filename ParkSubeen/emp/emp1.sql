@@ -65,6 +65,8 @@ where
 
 
 -- 6. 사원별 입사일, 퇴사일, 근무기간을 조회하세요. 퇴사자 역시 조회되어야 합니다.
+select datediff(now(), '2024/04/01'); -- 14
+select ifnull(null, now()), ifnull('2024/04/01', now());
 select
     EMP_NAME 이름,
     HIRE_DATE as 입사일,

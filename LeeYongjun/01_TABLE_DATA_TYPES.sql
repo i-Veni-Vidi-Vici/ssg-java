@@ -54,7 +54,7 @@ insert into tbl_data_types_char values ('12345678901','12345678901'); -- [22001]
 
 select a,length(a),char_length(a),
        b,length(b),char_length(b)
-from tbl_data_types_char
+from tbl_data_types_char;
 
 -- --------------------------------------
 -- 숫자형
