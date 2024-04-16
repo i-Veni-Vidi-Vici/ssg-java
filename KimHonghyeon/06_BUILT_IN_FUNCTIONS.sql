@@ -115,3 +115,86 @@ SELECT
 
 SELECT
     FLOOR(RAND()*10+1);
+
+SELECT
+    DATEDIFF('2024.04.20', NOW());
+
+SELECT
+    CONCAT('D-', DATEDIFF('2024.09.04', NOW()));
+
+SELECT
+    LAST_DAY(NOW()),
+    LAST_DAY(ADDDATE(LAST_DAY(NOW()), INTERVAL 1 DAY));
+
+SELECT
+    QUARTER(NOW());
+
+select
+    date_format(localtime(),'%Y년 %m월 %d일 %H:%i:%s %W');
+
+select
+    cast(123.12 as signed integer),
+    cast(-123 as unsigned int),
+    convert(-123, unsigned int);
+
+select
+    '1'%'2',
+    '1'/'zzz';
+
+select
+    menu_name,
+    ifnull(category_code, '카테고리 없음')
+from
+    tbl_menu;
+
+select
+    coalesce(null, 'a', 'b',null);
+
+select
+    menu_name,
+    menu_price,
+    if(orderable_status='Y', '주문가능','주문불가능')
+from tbl_menu;
+
+select
+    menu_name,
+    menu_price,
+    case
+        when menu_price <5000 then '싼거'
+        when menu_price between 5000 and 10000 then '적당한 것'
+        when menu_price between 10000 and 20000 then '좀 비싼 것'
+        else '겁나 비싼 것'
+    end as "menu_label"
+from
+    tbl_menu;
+
+select
+    menu_name,
+    menu_price,
+    case orderable_status
+        when 'Y' then '주문가능'
+        when 'N' then '주문불가'
+    end
+from tbl_menu;
+
+select
+    menu_name,
+    menu_price,
+    case
+        when isnull(category_code) then '카테고리없음'
+        else category_code
+    end as "category status"
+from tbl_menu;
+
+select
+    SUM(menu_price),
+    truncate(AVG(menu_price),0),
+    count(*)
+from tbl_menu;
+
+select
+    max(menu_price),
+    min(menu_price),
+    max(menu_name),
+    min(menu_name)
+from tbl_menu;
