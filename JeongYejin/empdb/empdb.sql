@@ -213,3 +213,14 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-04-10 16:45:25
+
+-- 테이블/데이터 설정
+create table tbl_files (
+                           file_no bigint,
+                           file_path varchar(500)
+);
+-- drop table tbl_files
+insert into tbl_files values(1, 'c:\\abc\\deft\\salesinfo.xls');
+insert into tbl_files values(2, 'c:\\music.mp3');
+insert into tbl_files values(3, 'c:\\documents\\resume.hwp');
+commit;
