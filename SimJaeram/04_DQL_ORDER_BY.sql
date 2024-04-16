@@ -97,3 +97,11 @@ order by
 category_code is null desc, -- is null asc에서는 null값이 가장 위에 온다. -- true가 1, false가 0이다.
 category_code desc;
 
+-- order by에서 특정행만 끌어올리기 위한 용도로 사용가능
+select
+    *
+from
+    tbl_menu
+order by
+    find_in_set(menu_code, '10') desc, -- true는 1이므로, asc인 경우 맨 아래로 갈 것이다.
+    find_in_set(menu_code, '20') desc; -- true는 1이므로, asc인 경우 맨 아래로 갈 것이다.
