@@ -456,7 +456,7 @@ select date_format(now(), '%Y년 %m월 %d일 (%a)'); -- 2024년 04월 16일 (화
 # 명시적 형변환
 -- cast(값 as 자료형)
 -- convert(값, 자료형)
--- 사용가능 자료형 binary, char, date, time, datetime, decimal, signed/unsigned integer 등
+-- 사용가능 자료형 binary, char, date, time, datetime, decimal, signed/unsigned [integer] (integer생략가능) 등
 -- signed 부호가 있는
 select
     123,
