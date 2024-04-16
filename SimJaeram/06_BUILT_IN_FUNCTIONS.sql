@@ -72,6 +72,7 @@ select
 select
     find_in_set('딸기', '사과,딸기,바나나'), -- 2
     find_in_set('아보카도', '사과,딸기,바나나'); -- 0
+
 -- order by에서 특정행만 끌어올리기 위한 용도로 사용가능
 select
     *
@@ -136,7 +137,7 @@ select
     left('Hello world!', 3), -- Hel
     right('Hello world!', 3); -- ld!
 
--- substring(대상문자열, 시작인덱스, 길이): 잘라낸 문자열 반환
+-- substring(대상문자열, 시작인덱스[, 길이]): 잘라낸 문자열 반환
 select
     substring('안녕하세요, 반갑습니다~', 8, 2), -- 반갑
     substring('안녕하세요, 반갑습니다~', 8); -- 반갑습니다~ // 길이 지정하지 않으면, 끝까지 잘라냄

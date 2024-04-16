@@ -5,7 +5,7 @@
 -- Top-N분석, 페이징처리등에 사용된다.
 
 # 문법
--- LIMIT offset, row_count;
+-- LIMIT [offset,] row_count; // 문법 설명할 때, []는 배열이라는 뜻이 아니라 옵션이라는 뜻
 -- 1. offset 건너뛸 행수 (생략가능)
 -- 2. row_count 가져올 행수 (필수)
 
