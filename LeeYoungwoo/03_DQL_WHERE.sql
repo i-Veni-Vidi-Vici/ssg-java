@@ -171,7 +171,7 @@ from tbl_menu
 # where !(menu_name like '%마늘%');
 where menu_name not like '%마늘%';
 
--- nill비교 - 카테고리번호가 null인 메뉴 조회
+-- null비교 - 카테고리번호가 null인 메뉴 조회
 select *
 from
     tbl_menu

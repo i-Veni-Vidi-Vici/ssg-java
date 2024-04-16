@@ -51,7 +51,7 @@ select
     6 * 4,
     6 / 4, -- 1.5000
     6 div 4, -- 몫만 구하기
-        6 % 4,
+    6 % 4,
     6 mod 4;
 
 # SELECT 컬럼별칭
@@ -105,6 +105,6 @@ select
     menu_name,
     # menu_price + '원' -- "+"는 항상 산술연산을 의미. 숫자로 변경불가한 문자열은 0으로 처리됨.
     menu_price,
-        concat('￦', menu_price, '원') -- 문자열로 나옴 '4500원' , 문자열은 왼쪽정렬됨
+        concat('￦', menu_price, '원') -- 문자열로 나옴 '￦4500원' , 문자열은 왼쪽정렬됨
 from
     tbl_menu;
