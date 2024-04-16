@@ -84,6 +84,13 @@ group by
     menu_price
 with rollup;
 
+select category_code, menu_price, count(*)
+from tbl_menu
+group by
+    menu_price,
+    category_code
+with rollup;
+
 # grouping 함수
 -- 실제데이터와 집계데이터(with rollup)를 구분해주는 함수
 -- 실제데이터는 0을 반환
