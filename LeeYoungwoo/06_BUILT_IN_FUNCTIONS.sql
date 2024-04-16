@@ -446,7 +446,7 @@ set @@lc_time_names = 'ko_KR';
 -- mysql에서는 암묵적/명시적 형변환 모두 지원한다.
  # 명시적 형변환
 -- cast(값 as 자료형)
--- convert(값 as 자료형)
+-- convert(값 , 자료형)
 
 -- 사용가능 자료형
 -- binary, char, date, datetime, time
