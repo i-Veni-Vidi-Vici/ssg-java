@@ -236,3 +236,318 @@ select
 -- 내림(rand() * 경우의 수 + 최소값)
 select
     rand()*3+1; # 이건 자바랑 같다
+;
+#0416 화요일
+-- -----------------------------------
+-- 문자처리 함수
+-- -----------------------------------
+-- 날짜 연산
+-- adddate(날짜, 일수) : 연산된 날짜 반환
+-- adddate(날짜, interval n 단위) : 연산된 날짜 반환
+-- 지원하는 단위 year, month, day, hour, minute, seconds ....
+-- subdate(날짜, 일수) : 연산된 날짜 반환
+-- subdate(날짜, interval n 단위) : 연산된 날짜 반환
+
+select
+    now() as 현재,
+    adddate(now(),10) as 10일_후,
+adddate(now(), interval 10 day ) as 10일_후,
+adddate(now(), interval 1 month ) as 10개월_후,
+adddate(now(), interval 10 year ) as 10년_후;
+
+select adddate('2024-01-31', interval 1 month ) as 1월에서_한달_후;
+
+select
+    subdate(now(),1),
+    adddate(now(),-1);# 이렇게 해도 같다
+
+-- addtime(날짜, 시간) : 연산된 날짜 반환
+-- subtime(날짜, 일수) : 연산된 날짜 반환
+
+select
+    now(),
+    addtime(now(),'1:2:3'),
+    adddate(now(),interval 1 day );
+
+select now()-interval 1 day as 내일 ;
+
+select now() + interval 1 hour +interval 10 minute +interval 3 second;
+
+-- 현재 날짜
+-- curdate(), current_date(), current_date
+select
+    curdate(),
+    current_date(),
+    current_date;
+
+-- 현재 시각
+-- curtime(), current_time(), current_time
+select
+    curtime(),
+    current_time(),
+    current_time;
+
+-- 현재 날짜/시각
+-- now(), sysdate(), localtime(), localtime, localtimestamp
+select
+    now(),
+    sysdate(),
+    localtime(6),
+    localtimestamp(6), # 백만분의 1초
+    localtimestamp;
+
+-- 각 년도, 월, 일, 요소 뽑느다
+select
+    year(now()),
+    month(now()),
+    day(now()),
+    dayofmonth(now());
+
+select
+    now(),
+    hour(now()),
+    minute(now()),
+    second(now());
+
+select
+    date(now()),
+    time(now());
+
+select
+    extract(year from now()),
+    extract(month from now()),
+    extract(day from now()),
+    extract(hour from now()),
+    extract(minute from now()),
+    extract(second from now());
+
+-- 날짜/시간 차이 구하기
+-- datediff(미래날짜, 과거날짜)
+-- timediff(미래시각, 과거시각)
+
+# 흔히 쓰는 날짜 문자열은 알아서 처리 해준다
+# yyyy-mm-dd = yyyy/mm/dd = yyyy$mm$dd
+
+select
+    datediff('2024-04-20',now()),
+    datediff('2024$04$20',now()),
+    datediff('2024/04/20',now()),
+    datediff('2024/04/20',now());
+
+-- 날짜정보 관련
+-- dayofweek(날짜) : 요일에 해당하는 인덱스 반환(일요일 -1~토요일-7)
+-- monthname(날짜) : 월이름 반환
+-- dayofyear(날짜) : 해당년도 몇번째 날인지 반환
+
+select
+    dayofweek(now()),
+    monthname(now()),
+    dayofyear(now());
+
+-- 말일계산
+-- last_day
+select
+    last_day(now());
+
+-- 다음달 말일은?
+select
+    last_day(now()+interval 1 month ) 다음달_말일,
+    last_day('2024-05-31' +interval 1 month ) 30일_더하기_1달은;
+
+-- 날짜/시각 생성하기
+-- makedate(년, 일수) : 해당년도 일수번째 날짜 반환
+-- maketime(시, 분, 초) : 시각 반환
+select
+    makedate(2024,80),# 2024년도에 80일은 언제야??
+    maketime(16,12,13); # 이걸 시간으로 반환
+
+-- 시간계산
+-- period_add(년월, 개월 수)
+-- period_diff(미래 년월, 과거 년월) 개월 수 차이
+select
+    period_add(202404,18), # 년월에서 +개월수 = 년월
+    period_diff(202510,202404); # 미래년월 - 과거년월 = 몇개월
+;
+-- 분기 확인
+-- quarter(날짜) : 1,2,3,4분기 반환
+select
+    quarter(now()),
+    quarter('2024-03-03');
+
+-- 초계산
+-- time_to_sec(시간) : 초로 반환
+select time_to_sec(now());
+
+-- 날짜시각을 특정형식으로 출력하기
+-- date_format(날짜/시각, 형식문자열) : 지정된 형식의 문자열 반환
+/*
+%Y/%y 년도4자리/년도2자리
+%m 일
+%d 일
+%H/%h 시간(24시간)/시간(12시간)
+%i 분
+%s 초
+%w 요일 숫자반환
+*/
+select
+    now(),
+    date_format(now(),'%y-%m-%d-%h:%i:%s-%w');
+
+-- 지역 변경
+select @@lc_time_names;
+select @@lc_time_names='kr_KR';
+
+-- -----------------------------------
+-- 형변환 함수
+-- -----------------------------------
+-- mysql에서는 암묵적/명시적 형변환 모두 지원한다
+
+# 명시적 형변환
+-- cast(값 as 자료형)
+-- convert(값, 자료형)
+
+-- 사용가능 자료형
+-- binary, char, date, datetime, time
+-- decimal,
+
+select 123,
+       cast(123 as char),
+       convert(123, char);
+
+select
+    123.456,
+    cast(123.456 as signed integer ),
+    convert(123.456 , signed),
+    convert(-123.456 , signed);
+
+# 암묵적 형변환
+select
+    '1'+'2'; -- 숫자 변환 후 1+2+3+4 처리됨
+select '1'+'zzzz'; -- 숫자로 변환불가 문자열은 0으로 처리
+select concat(1,2,3,'원'); -- 문자열로 자동변환
+select adddate('2024-04-04',1);-- date형 먼저 변환 후 1일 더하기 처리
+
+select '1'+'3만원'; -- 숫자로 시작되는 문자열은 숫자부분만 변환
+select '1'+'내가가진3만원';
+
+select 3>'오'; -- 숫자로 변환 불가이니 0으로 처리
+
+;
+-- -----------------------------------
+-- 기타 함수
+-- -----------------------------------
+# null 처리 함수
+-- ifnull(값, null 일떄 값) : 값이 null이 아니면, 값을 사용, 값이 null이면 null일 때 값 사용
+select
+    ifnull('abc','asdf'),
+    ifnull(null,'asdf');
+
+-- 메뉴테이블에서 메뉴명, 카테고리번호(null = 카테고리 없음) 조회
+select menu_name as 메뉴이름, ifnull(category_code,'카테고리없음') as 카테고리
+from tbl_menu;
+
+-- null이 아닌 값 찾기
+-- coalesce(값1, 값2, ...)null이 아닌 첫번째 값 반환
+select
+    coalesce('a','b',null),
+    coalesce(null,null,'a');
+
+-- 삼항연산자
+-- if(조건식, 참일떄, 거짓일떄)
+select
+    if(3>2,'a','b');
+
+-- 메뉴테이블에서 메뉴명, 가격, 주문가능여부(가능\불가) 조회
+select menu_name as 메뉴명, menu_price as 가격, if(orderable_status='Y','가능','불가능') as 주문_가능여부
+from tbl_menu;
+
+-- isnull(값) null이네?? 그럼 트루1, 값이 있네??  그럼 펄스0
+select
+    isnull('zzzzz'),
+    isnull(null);
+
+select if(isnull(category_code),'카테고리 없음','카테고리 있음') as category_code
+from tbl_menu;
+
+# 선택함수 case
+-- 다양한 케이스에 따라 분기처리를 지원하는 함수 (결과값을 반환)
+/*
+(타입1)
+case
+    when 조건1 then 값1
+    when 조건2 then 값2
+    ...
+    else 기본값
+end
+
+
+(타입2)
+case 표현식
+    when 값1 then 결과값1
+    when 값2 then 결과값2
+    ....
+    else 기본값
+end
+*/
+
+-- 싼거, 적당한거, 좀 비싼거, 겁나비산
+-- 5000미만, 5000~10000, 10000이상~20000미만, 20000이상
+select
+    menu_name,
+    menu_price,
+    case
+        when menu_price<5000 then '싼거'
+        when menu_price>=5000 && menu_price<=10000 then '적당'
+        when menu_price>=10000 && menu_price<20000 then '좀 비싼'
+        else '겁나 비싼'
+end as 'menu_label'
+from tbl_menu;
+
+select menu_name,
+       menu_price,
+       case orderable_status
+           when 'Y' then '주문가능'
+#            when 'N' then '주문준가'
+           else '주문불가'
+           end
+from tbl_menu;
+
+-- -----------------------------------
+-- 그룹함수
+-- -----------------------------------
+-- 하나이상의 행을 그룹으로 묶는다, 그룹당 한 번의 하나의 결과값을 반환하는 함수
+-- group by를 사용하지 않는다면, 전체(모든 행)를 하나의 그룹으로 간주한다
+-- group by를 사용한다면, group by 그룹별로 하나의 결과를 반환한다.
+-- 중요!!!!!!!!@~!@~!@ 그룹함수의 결과와 일반컬럼은 동시에 사용할 수 없다
+#sum
+-- 특정 컬럼의 합을 계산해서 반환
+    #이거 에러남
+# select menu_name,
+#        sum(menu_price)
+# from tbl_menu;
+
+#avg
+-- 특정 컬럼의 평균값
+select
+    avg(menu_price),
+    truncate(avg(menu_price),1)
+from
+    tbl_menu;
+
+#count
+-- 특정컬럼의 값의 개수를 세어 반환, null값은 처리하지 않는다
+select
+    count(category_code),
+    count(*)
+from tbl_menu;
+
+-- max/min
+-- 특정 컬럼의 최소/최대값을 반환
+-- 숫자/문자(사전등새준 맨먼저~ 맨뒤)/날싸(과거~미래)에 대해서 적용가능
+
+select
+    min(menu_price) min,
+    max(menu_price) max,
+    max(menu_name) max,
+    min(menu_name) min
+from tbl_menu;

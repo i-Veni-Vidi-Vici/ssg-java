@@ -1,13 +1,15 @@
 -- 1. EMPLOYEE 테이블에서 남자만 사원번호, 사원명, 주민번호, 연봉을 나타내세요.
 -- 단, 주민번호의 뒷6자리는 `*`처리하세요.
 select
-    EMP_ID, EMP_NAME,
-    insert(EMP_NO, 9, 6, '******'),
-    SALARY
+    EMP_ID as 사원번호,
+    EMP_NAME as 사원명,
+    insert(EMP_NO, 9, 6, '******') as 주민번호,
+    format((SALARY+(SALARY * ifnull(BONUS, 0)))*12, 0) as 연봉
 from
     employee
 where
     EMP_NO like '%-1%' or EMP_NO like '%-3%';
+
 
 select
     *
