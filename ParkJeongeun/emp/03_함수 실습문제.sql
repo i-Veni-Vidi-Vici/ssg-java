@@ -60,17 +60,25 @@ select
               concat('20', left(EMP_NO, 2), '년')),
            concat(substring(EMP_NO, 3, 2), '월'),
            concat(substring(EMP_NO, 5, 2), '일')
-    ) 생년월일,
+    ) 생년월일
 #    year(if(substring(EMP_NO, 8, 1) in (1, 2),
 #                 concat('19', left(EMP_NO, 2), '년'),
 #                 concat('20', left(EMP_NO, 2), '년'),
 #              concat(substring(EMP_NO, 3, 2), '월')))
 from employee;
 
-select *
-from employee;
+select
+    if(year(HIRE_DATE) = 1998, count(*))
+from employee
+group by year(HIRE_DATE);
 
 select
-    year(cast(left(EMP_NO, 6) as date))
-#    now() - '1995-03-31'
-from employee;
+    DEPT_CODE,
+    case DEPT_CODE
+        when 'D5' then '총무부'
+        when 'D6' then '기획부'
+        else '영업부'
+    end 부서
+from employee
+group by DEPT_CODE
+having DEPT_CODE in ('D5', 'D6', 'D9');

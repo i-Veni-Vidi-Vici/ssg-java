@@ -50,8 +50,7 @@ desc tbl_data_types_char;
 insert into tbl_data_types_char values ('korea','korea');
 insert into tbl_data_types_char values ('개구리','개구리');
 insert into tbl_data_types_char values ('1234567890','1234567890');
-insert into tbl_data_types_char values ('12345678901','12345678901');
-
+# insert into tbl_data_types_char values ('12345678901','12345678901');
 
 select
     a, length(a), char_length(a),
