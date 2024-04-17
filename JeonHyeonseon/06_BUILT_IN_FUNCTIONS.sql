@@ -454,6 +454,12 @@ select
 select @@lc_time_names; -- en_US -> ko_KR
 set @@lc_time_names = 'ko_KR';
 
+-- 문자열을 날짜로 변환하기
+-- str_to_date('날짜', 형식)
+select
+    str_to_date('19990909', '%Y%m%d'), -- 1999-09-09
+    str_to_date('630909', '%y%m%d'); -- 2063-09-09
+
 -- --------------------------------------
 -- 형변환 함수
 -- --------------------------------------
@@ -491,7 +497,7 @@ select 3 > '5오오오오'; -- 0(false) '5오오오오'는 5로 변환후 크기
 -- 기타 함수
 -- --------------------------------------
 # null처리함수
--- ifnull(값, null일때 값) : 값이 null이 아니면, 값을 사용한다. 값이 null이면 null일때값 가용한다.
+-- ifnull(값, null일때 값) : 값이 null이 아니면, 값을 사용한다. 값이 null이면 null일때값 사용한다.
 select
     ifnull('abc', 'xyz'), -- abc
     ifnull(null, 'xyz'); -- xyz
