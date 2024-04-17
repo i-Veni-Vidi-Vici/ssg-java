@@ -32,10 +32,11 @@ public class App4 {
         System.out.println(set2); // [Americano, Flat White, Latte]
 
         // 로또 번호 생성하기 (1~45사이의 중복없는 숫자 6개를 오름차순 정렬해서 출력)
-        Set<Integer> lottoSet = new TreeSet<>();
-        while(lottoSet.size()<6)
-            lottoSet.add((int) (Math.random() * 45) + 1);
-        System.out.println(lottoSet);
+        Set<Integer> lotto = new TreeSet<>();
+        while(lotto.size() < 6){
+            lotto.add((int) (Math.random() * 45) + 1);
+        }
+        System.out.println(lotto);
     }
 
 }
