@@ -79,9 +79,9 @@ select
 from employee;
 
 #select
-#    count(if(year(HIRE_DATE) = 1998, 1, 0)) 1998년,
-#    count(if(year(HIRE_DATE) = 1999, 1, 0)) 1999년,
-#    count(if(year(HIRE_DATE) = 2000, 1, 0)) 2000년
+#    sum(if(year(HIRE_DATE) = 1998, 1, 0)) 1998년,
+#    sum(if(year(HIRE_DATE) = 1999, 1, 0)) 1999년,
+#    sum(if(year(HIRE_DATE) = 2000, 1, 0)) 2000년
 #from employee
 #where QUIT_YN = 'N';
 
