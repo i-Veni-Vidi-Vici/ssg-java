@@ -110,8 +110,3 @@ from
 group by
     category_code with rollup;
 
-
-
-
-
-

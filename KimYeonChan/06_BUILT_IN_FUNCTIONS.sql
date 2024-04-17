@@ -456,6 +456,9 @@ select
 select @@lc_time_names; -- en_US -> ko_KR
 set @@lc_time_names = 'ko_KR';
 
+-- 문자열을 날짜로 변환하기
+-- str_to_date('날짜', 형식)
+
 -- ---------------------------
 -- 형변환 함수
 -- ---------------------------
