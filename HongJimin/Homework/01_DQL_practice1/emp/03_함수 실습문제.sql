@@ -88,6 +88,8 @@ from employee;
 -- ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 -- 한국 나이 : 현재 년도 - 출생년도  + 1
 -- 만나이 : 생일 기준 truncate(dateDiff(오늘, 생일) / 365)
+-- ⛳⛳⛳1970년생 이하는 년 월 일로 출력이 안됨!
+
 select
     EMP_NAME,
     DEPT_CODE,
@@ -99,32 +101,61 @@ select
         when (substring(EMP_NO, 1, 2)) > 70
             then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
         when (substring(EMP_NO, 1, 2)) <= 69
-            then str_to_date(substring(EMP_NO,1, 6) + 19000000, '%Y %m %d') -- ⛳1970년생 이하는 춝력되는데, 년 월 일로 출력이 안됨!
+            then str_to_date(substring(EMP_NO,1, 6) + 19000000, '%Y %m %d')
     end as '생년월일',
     case
         when (substring(EMP_NO, 8, 1)) = 3
             or
              (substring(EMP_NO, 8, 1)) = 4
-            then datediff(extract(EMP_NO, 1, 4), year from now())
+            then year(now()) - (substring(EMP_NO, 1, 2) + 2000)
         when (substring(EMP_NO, 1, 2)) > 70
-            then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
+            then year(now()) - (substring(EMP_NO, 1, 2) + 1900)
         when (substring(EMP_NO, 1, 2)) <= 69
-            then str_to_date(substring(EMP_NO,1, 6) + 19000000, '%Y %m %d') -- ⛳1970년생 이하는 춝력되는데, 년 월 일로 출력이 안됨!
+            then year(now()) - (substring(EMP_NO, 1, 2) + 1900)
         end as 나이
 from
     employee;
 
+-- ⛳⛳⛳1998 ~ 2004년도 사이 입사자 없는 년도에 0 만들기!
 -- 11. 직원들의 입사일로 부터 년도만 가지고, 각 년도별 입사인원수를 구하시오.
 -- 아래형식으로 해당년도에 입사한 인원수를 조회하시오. (퇴사자 제외)
 -- 마지막으로 전체직원수도 구하시오 (decode, sum 사용)
 select
-    decode(count(*), 0, 0, sum(HIRE_DATE) )
+    year(HIRE_DATE) 입사년도,
+    concat(count(*), '명') 입사인원수
+
 from
     employee
 where
-    substring(HIRE_DATE, 1, 4) between 1998 and 2004
+    year(HIRE_DATE) between 1998 and 2004
 group by
-    substring(HIRE_DATE, 1, 4) with rollup;
+    year(HIRE_DATE) with rollup
+order by
+    year(HIRE_DATE);
+
+-- 12.부서코드가 D5이면 총무부, D6이면 기획부, D9이면 영업부로 처리하시오. (case 사용)
+-- 단, 부서코드가 D5, D6, D9 인 직원의 정보만 조회하고, 부서코드 기준으로 오름차순 정렬함.
+select
+    EMP_ID,
+    EMP_NAME,
+    EMP_NO,
+    EMAIL,
+    PHONE,
+    case
+        when DEPT_CODE = 'D5' then '총무부'
+        when DEPT_CODE = 'D6' then '기획부'
+        when DEPT_CODE = 'D9' then '영업부'
+    end '부서코드'
+from
+    employee
+where
+    (DEPT_CODE = 'D5'
+   or
+    DEPT_CODE = 'D6'
+   or
+    DEPT_CODE = 'D9')
+order by
+    DEPT_CODE;
 
 select *
-from employee
+from employee;
