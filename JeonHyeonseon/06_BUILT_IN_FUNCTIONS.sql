@@ -497,7 +497,7 @@ select 3 > '5오오오오'; -- 0(false) '5오오오오'는 5로 변환후 크기
 -- 기타 함수
 -- --------------------------------------
 # null처리함수
--- ifnull(값, null일때 값) : 값이 null이 아니면, 값을 사용한다. 값이 null이면 null일때값 가용한다.
+-- ifnull(값, null일때 값) : 값이 null이 아니면, 값을 사용한다. 값이 null이면 null일때값 사용한다.
 select
     ifnull('abc', 'xyz'), -- abc
     ifnull(null, 'xyz'); -- xyz
