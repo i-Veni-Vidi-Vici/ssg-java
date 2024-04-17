@@ -52,7 +52,7 @@ where category_code = 4;
 select
     category_name -- 테이블 별칭을 생략가능하나 되도록 작성한다.
 from
-    menudb.tbl_menu a join tbl_category b
+    tbl_menu a join tbl_category b
         on a.category_code = b.category_code -- 테이블 별칭 생략 불가
 where
     menu_name = '한우딸기국밥';
