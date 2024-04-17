@@ -1,3 +1,5 @@
+use empdb;
+
 select
     JOB_CODE 직급,
     count(*) '직급별 사원수',
