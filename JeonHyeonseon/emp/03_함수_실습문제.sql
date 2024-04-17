@@ -35,11 +35,11 @@ where
 -- 5. 직원명과 입사년월을 출력하시오. 단, 아래와 같이 출력되도록 만들어 보시오
 select
     EMP_NAME 직원명,
+    year(HIRE_DATE),
+    month(HIRE_DATE),
     date_format(HIRE_DATE, '%Y년%m월') 입사년월
 from
-    employee
-where
-    EMP_NAME like '전%';
+    employee;
 
 -- 6. 직원명과 주민번호를 조회하시오
 -- 단, 주민번호 9번째 자리부터 끝까지는 '' 문자로 채워서출력 하시오
@@ -88,6 +88,8 @@ from
 --     단, 생년월일은 주민번호에서 추출해서,
 --     ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 --     나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산함
+-- 한국나이 : 현재년도 - 출생년도 + 1
+-- 만나이 : 생일기준 truncate(datediff(오늘, 생일) / 365)
 select
     EMP_NAME 직원명,
     DEPT_CODE 부서코드,
@@ -95,8 +97,20 @@ select
     concat(substring(EMP_NO, 1, 2) + if(substring(EMP_NO, 1, 1), 1900, 2000), '년',
     substring(EMP_NO, 3, 2), '월',
     substring(EMP_NO, 5, 2), '일') 생년월일,
-
-    year(now() )
+    datediff(
+            now(),
+            concat(
+                    case
+                        substring(EMP_NO, 8, 1)
+                        when '1' then 1900
+                        when '2' then 1900
+                        else 2000
+                        end + substring(EMP_NO, 1, 2),
+                    substring(EMP_NO, 3, 2),
+                    substring(EMP_NO, 5, 2)
+            ) / 365
+    , 0) 만나이
+-- (올해 - 생년) - if(생일이 지났는가?, 0, 1)
 from
     employee;
 
@@ -106,11 +120,23 @@ from
 # 1998년 1999년 2000년 2001년 2002년 2003년 2004년 전체직원수
 # ----------------------------------------------------------
 # 0	     3	    1	     3	    0	     0	   1	     23
+
+-- 세로로 구하기
 select
 #    EMP_NAME,
-    date_format(HIRE_DATE, '%Y년'),
+    year(HIRE_DATE) year,
     count(HIRE_DATE)
 from
     employee
 group by
-    HIRE_DATE;
+    year(HIRE_DATE) with rollup -- 전체 수
+order by
+    year is null,
+    1;
+
+-- 가상컬럼 데이터 준비
+select
+    EMP_NAME,
+    HIRE_DATE
+from
+    employee;
