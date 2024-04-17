@@ -121,17 +121,17 @@ from
 -- 아래형식으로 해당년도에 입사한 인원수를 조회하시오. (퇴사자 제외)
 -- 마지막으로 전체직원수도 구하시오 (decode, sum 사용)
 select
-    year(HIRE_DATE) 입사년도,
-    concat(count(*), '명') 입사인원수
-
+    year(hire_date) year,
+    count(*)
 from
     employee
 where
     year(HIRE_DATE) between 1998 and 2004
 group by
-    year(HIRE_DATE) with rollup
+    year(hire_date) with rollup
 order by
-    year(HIRE_DATE);
+    year is null,
+    year;
 
 -- 12.부서코드가 D5이면 총무부, D6이면 기획부, D9이면 영업부로 처리하시오. (case 사용)
 -- 단, 부서코드가 D5, D6, D9 인 직원의 정보만 조회하고, 부서코드 기준으로 오름차순 정렬함.
