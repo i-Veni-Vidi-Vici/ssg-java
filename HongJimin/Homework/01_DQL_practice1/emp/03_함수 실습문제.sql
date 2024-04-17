@@ -90,7 +90,17 @@ from employee;
 -- 만나이 : 생일 기준 truncate(dateDiff(오늘, 생일) / 365)
 select
     EMP_NAME,
-    DEPT_CODE
+    DEPT_CODE,
+    case
+        when (substring(EMP_NO, 8, 1)) = 3
+            or
+             (substring(EMP_NO, 8, 1)) = 4
+            then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
+        when (substring(EMP_NO, 1, 2)) > 70
+            then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
+        when (substring(EMP_NO, 1, 2)) <= 69
+            then str_to_date(substring(EMP_NO,1, 6) + 19000000, '%Y %m %d') -- ⛳1970년생 이하는 춝력되는데, 년 월 일로 출력이 안됨!
+end as '생년월일'
 from
     employee;
 
