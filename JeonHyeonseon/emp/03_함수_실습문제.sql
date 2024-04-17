@@ -88,7 +88,7 @@ from
 --     단, 생년월일은 주민번호에서 추출해서,
 --     ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 --     나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산함
--- 한국나이 : 현재년도 - 출생년도 + 1
+-- 한국나이 : 현재년도(now()) - 출생년도 + 1
 -- 만나이 : 생일기준 truncate(datediff(오늘, 생일) / 365)
 select
     EMP_NAME 직원명,
@@ -97,20 +97,22 @@ select
     concat(substring(EMP_NO, 1, 2) + if(substring(EMP_NO, 1, 1), 1900, 2000), '년',
     substring(EMP_NO, 3, 2), '월',
     substring(EMP_NO, 5, 2), '일') 생년월일,
-    datediff(
+
+    truncate(
+        datediff(
             now(),
             concat(
-                    case
-                        substring(EMP_NO, 8, 1)
-                        when '1' then 1900
-                        when '2' then 1900
-                        else 2000
-                        end + substring(EMP_NO, 1, 2),
-                    substring(EMP_NO, 3, 2),
-                    substring(EMP_NO, 5, 2)
-            ) / 365
-    , 0) 만나이
--- (올해 - 생년) - if(생일이 지났는가?, 0, 1)
+                case
+                    substring(EMP_NO, 8, 1)
+                    when '1' then 1900
+                    when '2' then 1900
+                    else 2000
+                    end + substring(EMP_NO, 1, 2),
+                substring(EMP_NO, 3, 2),
+                substring(EMP_NO, 5, 2)
+            )
+        ) / 365
+    , 0)
 from
     employee;
 
@@ -125,14 +127,16 @@ from
 select
 #    EMP_NAME,
     year(HIRE_DATE) year,
-    count(HIRE_DATE)
+    count(HIRE_DATE),
+    case
+        when count(HIRE_DATE) then '1998'
 from
     employee
 group by
-    year(HIRE_DATE) with rollup -- 전체 수
-order by
-    year is null,
-    1;
+    year(HIRE_DATE) with rollup; -- 전체 수
+# order by
+#     year is null,
+#     1;
 
 -- 가상컬럼 데이터 준비
 select
@@ -140,3 +144,20 @@ select
     HIRE_DATE
 from
     employee;
+
+-- 12. 부서코드가 D5이면 총무부, D6이면 기획부, D9이면 영업부로 처리하시오. (case 사용)
+-- 단, 부서코드가 D5, D6, D9 인 직원의 정보만 조회하고, 부서코드 기준으로 오름차순 정렬함.
+select
+    EMP_NAME,
+    DEPT_CODE,
+    case
+        when DEPT_CODE = 'D5' then '총무부'
+        when DEPT_CODE = 'D6' then '기획부'
+        when DEPT_CODE = 'D9' then '영업부'
+    end as '부서코드'
+from
+    employee
+where
+    Dept_code in ('D5', 'D6', 'D9')
+order by
+    DEPT_CODE;
