@@ -222,8 +222,7 @@ select ceiling(1234.56), -- 1235
 select floor(12.34),       -- 12
        truncate(12.34, 0), -- 12
        floor(-0.6),        -- -1
-       truncate(-0.6, 0);
--- 0
+       truncate(-0.6, 0); -- 0
 
 
 -- 나누기/나머지 연산
