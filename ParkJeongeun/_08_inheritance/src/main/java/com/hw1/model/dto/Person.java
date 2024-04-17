@@ -14,6 +14,17 @@ public class Person {
         this.height = height;
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
+
     public String information(){
         return null;
     }

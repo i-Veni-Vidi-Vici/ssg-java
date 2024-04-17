@@ -28,9 +28,15 @@ public class App5 {
         // Collection#contains는 사용가능하다.
         System.out.println(queue.contains(2));
         queue.remove(2); // index가 아닌 Object를 인자
-        queue.remove(Integer.valueOf(2));
+        System.out.println(queue);
+        queue.remove(Integer.valueOf(5));
+        System.out.println(queue);
+        queue.add(4);
+        System.out.println("4추가? " + queue);
 
         // poll():E 맨앞의 요소 제거
+        System.out.println(queue.poll());
+        System.out.println(queue);
         System.out.println(queue.poll());
         System.out.println(queue);
         System.out.println(queue.poll());
@@ -38,7 +44,7 @@ public class App5 {
 
         // Peek():E 맨앞의 요소 읽어오기(제거X)
         System.out.println(queue.peek());
-        System.out.println(queue);
+        System.out.println("제거?" + queue);
 
         queue.clear();
         System.out.println(queue);

@@ -29,7 +29,9 @@ public class App2 {
 
         // 중간에 1번지에 1권 추가
         // new Book(150L, "골목대장", "윤봉준", 27000);
-//        list.add(1,new Book(150L, "골목대장", "윤봉준", 27000));
+        list.add(1,new Book(150L, "골목대장", "윤봉준", 27000));
+
+        // 중간에 1번지에 덮어쓰기
         list.set(1,new Book(150L, "골목대장", "윤봉준", 27000));
 
         // 1번지요소의 필드값 변경
@@ -37,6 +39,7 @@ public class App2 {
         book.setTitle("대로변 대장");
 
         // 커스텀 클래스 정렬 - 정렬기준 Comparator를 제공
+
 //        Collections.sort(list, new TitleAscending()); // 제목 오름차순
         Collections.sort(list, new PriceAscending()); // 가격 오름차순
         Collections.sort(list, new PriceAscending().reversed()); // 가격 내림차순

@@ -44,6 +44,7 @@ public class App {
         //forEach문은 Consumer이기 때문에 람다식으로 표현 할 수 있다. Consumer은 매개변수 값은 있지만 리턴값은 없다.
         stream2.sorted().forEach((n) -> System.out.println(n));
 
+        //map -> Function인터페이스 : 매개변수 + 리턴값 둘다 가지고 있음.
         Stream<String> stringStream = names.stream().map((name) -> (name.toUpperCase()));
         stringStream.sorted().forEach((n) -> System.out.println(n));
 
