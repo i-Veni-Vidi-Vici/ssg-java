@@ -85,7 +85,7 @@ from
 
 # using (컬럼)
 -- 조인테이블의 기준 컬럼명이 동일한 경우 사용 가능하다.
--- inner, outter 조인 둘다에서 사용 가능하다.
+-- inner, outer 조인 둘다에서 사용 가능하다.
 select
     a.menu_name,
     a.menu_code,
