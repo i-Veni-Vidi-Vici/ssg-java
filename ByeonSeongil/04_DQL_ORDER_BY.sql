@@ -85,3 +85,8 @@ select *
 from tbl_menu
 order by category_code is null desc, -- is null desc에서는 null값이 가장 먼저 나온다.
          category_code desc;
+
+-- order by에서 특정행만 끌어올리기 위한 용도로 사용가능
+select *
+from tbl_menu
+order by find_in_set(menu_code, '10') desc;

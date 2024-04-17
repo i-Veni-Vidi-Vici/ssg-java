@@ -81,6 +81,44 @@ SELECT
     FROM
         employee;
 
+-- 1. EMPLOYEE 테이블에서 남자만 사원번호, 사원명,주민번호,연봉을 나타내세요
+
+SELECT
+    EMP_ID 사원번호,
+    EMP_NAME 사원이름,
+    SALARY 연봉,
+    insert(EMP_NO, 9, 6, '******')
+FROM
+    employee
+where substr(EMP_NO,8,1) = 1 || substr(EMP_NO, 8,1) =3;
+
+-- EMPLOYEE 테이블에서 사원명, 아이디(이메일 @ 앞부분)을 조회하세요
+select
+    EMP_NAME 사원이름,
+    substring_index(EMAIL, '@', 1) 이메일
+from
+    employee;
+
+-- 3. 파일경로를 제외하고 파일명만 아래와 같이 출력하세요
+
+
+create table tbl_files (
+                           file_no bigint,
+                           file_path varchar(500)
+);
+-- drop table tbl_files
+insert into tbl_files values(1, 'c:\\abc\\deft\\salesinfo.xls');
+insert into tbl_files values(2, 'c:\\music.mp3');
+insert into tbl_files values(3, 'c:\\documents\\resume.hwp');
+commit;
+select * from tbl_files;
+
+SELECT
+    file_no 파일번호,
+    substring_index(file_path, '\\', -1) 파일명
+FROM
+    tbl_files
+
 
 
 
