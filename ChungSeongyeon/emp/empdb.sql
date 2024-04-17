@@ -24,7 +24,7 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 # SET @@SESSION.SQL_LOG_BIN= 0;
 
 --
--- GTID state at the beginning of the backup 
+-- GTID state at the beginning of the backup
 --
 
 #SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '94354f81-ddca-11ee-a8a5-f220cd67b23d:1-342';
@@ -37,11 +37,11 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DEPARTMENT` (
-  `DEPT_ID` varchar(10) NOT NULL,
-  `DEPT_TITLE` varchar(100) DEFAULT NULL COMMENT '부서명',
-  `LOCATION_ID` varchar(100) NOT NULL,
-  PRIMARY KEY (`DEPT_ID`),
-  UNIQUE KEY `IDX_DEPARTMENT_DEPT_ID_PK` (`DEPT_ID`)
+                              `DEPT_ID` varchar(10) NOT NULL,
+                              `DEPT_TITLE` varchar(100) DEFAULT NULL COMMENT '부서명',
+                              `LOCATION_ID` varchar(100) NOT NULL,
+                              PRIMARY KEY (`DEPT_ID`),
+                              UNIQUE KEY `IDX_DEPARTMENT_DEPT_ID_PK` (`DEPT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='부서';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -63,28 +63,28 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `EMPLOYEE` (
-  `EMP_ID` varchar(3) NOT NULL,
-  `EMP_NAME` varchar(20) NOT NULL,
-  `EMP_NO` char(14) NOT NULL,
-  `EMAIL` varchar(25) DEFAULT NULL COMMENT '이메일',
-  `PHONE` varchar(12) DEFAULT NULL COMMENT '전화번호',
-  `DEPT_CODE` varchar(10) DEFAULT NULL COMMENT '부서코드',
-  `JOB_CODE` varchar(10) NOT NULL,
-  `SAL_LEVEL` char(2) NOT NULL,
-  `SALARY` double DEFAULT NULL COMMENT '급여',
-  `BONUS` double DEFAULT NULL COMMENT '보너스율',
-  `MANAGER_ID` varchar(3) DEFAULT NULL COMMENT '관리자사번',
-  `HIRE_DATE` datetime DEFAULT NULL COMMENT '입사일',
-  `QUIT_DATE` datetime DEFAULT NULL COMMENT '퇴사일',
-  `QUIT_YN` char(1) DEFAULT 'N' COMMENT '재직여부',
-  PRIMARY KEY (`EMP_ID`),
-  UNIQUE KEY `IDX_EMPLOYEE_EMP_ID_PK` (`EMP_ID`),
-  UNIQUE KEY `UQ_EMPLOYEE_EMP_NO` (`EMP_NO`),
+                            `EMP_ID` varchar(3) NOT NULL,
+                            `EMP_NAME` varchar(20) NOT NULL,
+                            `EMP_NO` char(14) NOT NULL,
+                            `EMAIL` varchar(25) DEFAULT NULL COMMENT '이메일',
+                            `PHONE` varchar(12) DEFAULT NULL COMMENT '전화번호',
+                            `DEPT_CODE` varchar(10) DEFAULT NULL COMMENT '부서코드',
+                            `JOB_CODE` varchar(10) NOT NULL,
+                            `SAL_LEVEL` char(2) NOT NULL,
+                            `SALARY` double DEFAULT NULL COMMENT '급여',
+                            `BONUS` double DEFAULT NULL COMMENT '보너스율',
+                            `MANAGER_ID` varchar(3) DEFAULT NULL COMMENT '관리자사번',
+                            `HIRE_DATE` datetime DEFAULT NULL COMMENT '입사일',
+                            `QUIT_DATE` datetime DEFAULT NULL COMMENT '퇴사일',
+                            `QUIT_YN` char(1) DEFAULT 'N' COMMENT '재직여부',
+                            PRIMARY KEY (`EMP_ID`),
+                            UNIQUE KEY `IDX_EMPLOYEE_EMP_ID_PK` (`EMP_ID`),
+                            UNIQUE KEY `UQ_EMPLOYEE_EMP_NO` (`EMP_NO`),
 #   KEY `FK_EMPLOYEE_DEPARTMENT` (`DEPT_CODE`),
-  KEY `FK_EMPLOYEE_JOB` (`JOB_CODE`),
-  CONSTRAINT `FK_EMPLOYEE_DEPARTMENT` FOREIGN KEY (`DEPT_CODE`) REFERENCES `DEPARTMENT` (`DEPT_ID`),
-  CONSTRAINT `FK_EMPLOYEE_JOB` FOREIGN KEY (`JOB_CODE`) REFERENCES `JOB` (`JOB_CODE`),
-  CONSTRAINT `CK_EMPLOYEE_QUIT_YN` CHECK ((`QUIT_YN` in (_utf8mb4'Y',_utf8mb4'N')))
+                            KEY `FK_EMPLOYEE_JOB` (`JOB_CODE`),
+                            CONSTRAINT `FK_EMPLOYEE_DEPARTMENT` FOREIGN KEY (`DEPT_CODE`) REFERENCES `DEPARTMENT` (`DEPT_ID`),
+                            CONSTRAINT `FK_EMPLOYEE_JOB` FOREIGN KEY (`JOB_CODE`) REFERENCES `JOB` (`JOB_CODE`),
+                            CONSTRAINT `CK_EMPLOYEE_QUIT_YN` CHECK ((`QUIT_YN` in (_utf8mb4'Y',_utf8mb4'N')))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='사원';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,10 +106,10 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `JOB` (
-  `JOB_CODE` varchar(10) NOT NULL,
-  `JOB_NAME` varchar(35) DEFAULT NULL COMMENT '직급명',
-  PRIMARY KEY (`JOB_CODE`),
-  UNIQUE KEY `IDX_JOB_CODE_PK` (`JOB_CODE`)
+                       `JOB_CODE` varchar(10) NOT NULL,
+                       `JOB_NAME` varchar(35) DEFAULT NULL COMMENT '직급명',
+                       PRIMARY KEY (`JOB_CODE`),
+                       UNIQUE KEY `IDX_JOB_CODE_PK` (`JOB_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='직급';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -131,11 +131,11 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `LOCATION` (
-  `LOCAL_CODE` char(2) NOT NULL,
-  `NATIONAL_CODE` char(2) NOT NULL,
-  `LOCAL_NAME` varchar(40) DEFAULT NULL COMMENT '지역명',
-  PRIMARY KEY (`LOCAL_CODE`),
-  UNIQUE KEY `IDX_LOCATION_LOCAL_CODE_PK` (`LOCAL_CODE`)
+                            `LOCAL_CODE` char(2) NOT NULL,
+                            `NATIONAL_CODE` char(2) NOT NULL,
+                            `LOCAL_NAME` varchar(40) DEFAULT NULL COMMENT '지역명',
+                            PRIMARY KEY (`LOCAL_CODE`),
+                            UNIQUE KEY `IDX_LOCATION_LOCAL_CODE_PK` (`LOCAL_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='지역';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -157,10 +157,10 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `NATION` (
-  `NATIONAL_CODE` char(2) NOT NULL,
-  `NATIONAL_NAME` varchar(35) DEFAULT NULL COMMENT '국가명',
-  PRIMARY KEY (`NATIONAL_CODE`),
-  UNIQUE KEY `IDX_NATION_NATIONAL_CODE_PK` (`NATIONAL_CODE`)
+                          `NATIONAL_CODE` char(2) NOT NULL,
+                          `NATIONAL_NAME` varchar(35) DEFAULT NULL COMMENT '국가명',
+                          PRIMARY KEY (`NATIONAL_CODE`),
+                          UNIQUE KEY `IDX_NATION_NATIONAL_CODE_PK` (`NATIONAL_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='국가';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,11 +182,11 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `SAL_GRADE` (
-  `SAL_LEVEL` char(2) NOT NULL,
-  `MIN_SAL` double DEFAULT NULL COMMENT '최소급여',
-  `MAX_SAL` double DEFAULT NULL COMMENT '최대급여',
-  PRIMARY KEY (`SAL_LEVEL`),
-  UNIQUE KEY `IDX_SAL_GRADE_SAL_LEVEL_PK` (`SAL_LEVEL`)
+                             `SAL_LEVEL` char(2) NOT NULL,
+                             `MIN_SAL` double DEFAULT NULL COMMENT '최소급여',
+                             `MAX_SAL` double DEFAULT NULL COMMENT '최대급여',
+                             PRIMARY KEY (`SAL_LEVEL`),
+                             UNIQUE KEY `IDX_SAL_GRADE_SAL_LEVEL_PK` (`SAL_LEVEL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='급여등급';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -218,10 +218,10 @@ from employee;
 -- 1. EMPLOYEE 테이블에서 남자만 사원번호, 사원명, 주민번호, 연봉을 나타내세요.
 -- 단, 주민번호의 뒷6자리는 `*`처리하세요.
 
-select EMP_ID AS 사원번호,
-       EMP_NAME AS 사원명,
+select EMP_ID                                    AS 사원번호,
+       EMP_NAME                                  AS 사원명,
        concat(substring(EMP_NO, 1, 8), '******') as 주민번호,
-       SALARY AS 연봉
+       SALARY                                    AS 연봉
 from employee
 where substring(EMP_NO, 8, 1) in ('1', '3');
 
@@ -247,3 +247,213 @@ select file_no as 파일번호,
        SUBSTRING_INDEX(file_path, '\\', -1) as 파일명
 from tbl_files;
 
+-- ---------------------------
+-- 조인실습문제1 #131
+-- ---------------------------
+
+# 1. 2020년 12월 25일이 무슨 요일인지 조회하시오.
+SET @@lc_time_names = 'ko_KR';
+select dayname('2020-12-25') 요일;
+-- 금요일
+
+# 2. 주민번호가 1970년대생이면서 성별이 여자이고, 성이 전씨인 직원들의 사원명, 주민번호, 부서명, 직급명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    EMP_NO 주민번호,
+    DEPT_TITLE 부서명,
+    JOB_NAME 직급명
+from
+    employee e
+        left join department d
+                  on e.DEPT_CODE = d.DEPT_ID
+        left join job j
+                  on e.JOB_CODE = j.JOB_CODE
+where
+    substring(EMP_NO, 1, 2) between '70' and '79' -- 70년대생
+  and substring(EMP_NO, 8, 1) in ('2', '4')       -- 여자 주민번호 뒤에 2 or 4
+  and EMP_NAME like '전%'; -- 전으로 시작하는 이름
+
+-- 전지연,770808-2665412,인사관리부,대리
+
+# 3. 가장 나이가 적은 직원의 사번, 사원명, 나이, 부서명, 직급명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+-- -----------------------
+select
+    EMP_ID 사번,
+    EMP_NAME 사원명,
+    year(now()) - (cast(concat('19', substring(EMP_NO, 1, 2)) as unsigned)
+        + if(substring(EMP_NO, 8, 1) = '1' or substring(EMP_NO, 8, 1) = '2', 0, 100))
+        - (date_format(now(), '%m%d') < concat(substring(EMP_NO, 3, 2), substring(EMP_NO, 5, 2))) 나이,
+    DEPT_TITLE 부서명,
+    JOB_NAME 직급명
+from
+    employee e
+        left join department d
+                  on e.DEPT_CODE = d.DEPT_ID
+        left join job j
+                  on e.JOB_CODE = j.JOB_CODE
+order by 나이 asc
+limit 1;
+-- 203,송은희,16,해외영업2부,차장
+
+# 4. 이름에 '형'자가 들어가는 직원들의 사번, 사원명, 부서명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+-- -----------------------
+select
+    EMP_ID 사번,
+    EMP_NAME 사원명,
+    DEPT_TITLE 부서명
+from
+    employee e
+        left join department d
+                  on e.DEPT_CODE = d.DEPT_id
+where
+    EMP_NAME like '%형%';
+-- 211,전형돈,기술지원부
+
+# 5. 해외영업부에 근무하는 사원명, 직급명, 부서코드, 부서명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    JOB_NAME 직급명,
+    DEPT_ID 부서코드,
+    DEPT_TITLE 부서명
+from employee e
+         left join department d
+                   on e.DEPT_CODE = d.DEPT_ID
+         left join job j
+                   on e.JOB_CODE = j.JOB_CODE
+where
+    DEPT_TITLE like '해외영업%';
+
+# 6. 보너스포인트를 받는 직원들의 사원명, 보너스포인트, 부서명, 근무지역명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+select * from location;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    BONUS 보너스포인트,
+    DEPT_TITLE 부서명,
+    LOCAL_NAME 근무지역명
+from employee e
+         left join department d
+                   on e.DEPT_CODE = d.DEPT_ID
+         left join location l
+                   on d.LOCATION_ID = l.LOCAL_CODE
+where BONUS is not null;
+
+# 7. 부서코드가 D2인 직원들의 사원명, 직급명, 부서명, 근무지역명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+select * from location;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    JOB_NAME 직급명,
+    DEPT_TITLE 부서명,
+    LOCAL_NAME 근무지역명
+from
+    employee e
+        left join department d
+                  on e.DEPT_CODE = d.DEPT_ID
+        left join location l
+                  on d.LOCATION_ID = l.LOCAL_CODE
+        left join job j
+                  on e.JOB_CODE = j.JOB_CODE
+where
+    DEPT_CODE = 'D2';
+
+# 8. 급여등급테이블 sal_grade의 등급별 최대급여(MAX_SAL)보다 많이 받는 직원들의 사원명, 직급명, 급여, 연봉을 조회하시오.
+#     (사원테이블과 급여등급테이블을 SAL_LEVEL컬럼기준으로 동등(등가) 조인할 것)
+select * from employee;
+select * from department;
+select * from job;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    JOB_NAME 직급명,
+    SALARY 급여,
+    (salary + salary * ifnull(bonus, 0)) * 12 연봉
+#     ,MAX_SAL 최대급여
+from
+    employee e
+        left join job j
+                  on e.JOB_CODE = j.JOB_CODE
+        left join SAL_GRADE sg
+                  on e.SAL_LEVEL = sg.SAL_LEVEL
+where
+    e.SALARY > sg.MAX_SAL;
+
+# 9. 한국(KO)과 일본(JP)에 근무하는 직원들의 사원명, 부서명, 지역명, 국가명을 조회하시오.
+select * from employee;
+select * from department;
+select * from job;
+select * from location;
+select * from NATION;
+-- -----------------------
+select
+    EMP_NAME 사원명,
+    DEPT_TITLE 부서명,
+    LOCAL_NAME 지역명,
+    NATIONAL_NAME 국가명
+from
+    employee e
+        left join department d
+                  on e.DEPT_CODE = d.DEPT_ID
+        left join location l
+                  on d.LOCATION_ID = l.LOCAL_CODE
+        left join nation n
+                  on l.NATIONAL_CODE = n.NATIONAL_CODE
+where
+    NATIONAL_NAME in ('한국','일본');   # n.NATIONAL_CODE IN ('KO', 'JP');
+
+# 10. 같은 부서에 근무하는 직원들의 사원명, 부서명, 동료이름을 조회하시오. (self join 사용)
+select * from employee;
+select * from department;
+-- -----------------------
+select
+    e1.EMP_NAME 사원명,
+    DEPT_TITLE 부서명,
+    e2.EMP_NAME 동료사원명
+from
+    employee e1
+        join employee e2
+             on (e1.DEPT_CODE = e2.DEPT_CODE)
+        left join department d
+                  on e1.DEPT_CODE = DEPT_ID
+where
+    e1.EMP_NAME <> e2.EMP_NAME
+order by 1;
+
+# 11. 보너스포인트가 없는 직원들 중에서 직급이 차장과 사원인 직원들의 사원명, 직급명, 급여를 조회하시오. 단, join과 in 연산자 사용할 것
+select
+    e.EMP_NAME 사원명,
+    j.JOB_NAME 직급명,
+    e.SALARY 급여
+from
+    employee e
+        left join job j
+                  on e.JOB_CODE = j.JOB_CODE
+where
+    e.BONUS is null and j.JOB_NAME in ('차장', '사원');
+
+# 12. 재직중인 직원과 퇴사한 직원의 수를 조회하시오.
+select
+    sum(if(QUIT_YN = 'N', 1, 0)) 재직중인_직원수,
+    sum(if(QUIT_YN = 'Y', 1, 0)) 퇴사한_직원수
+from
+    employee;
