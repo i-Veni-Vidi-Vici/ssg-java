@@ -395,7 +395,7 @@ select
 
 -- 지역 변경
 select @@lc_time_names;
-select @@lc_time_names='kr_KR';
+set @@lc_time_names='ko_KR';
 
 -- -----------------------------------
 -- 형변환 함수
