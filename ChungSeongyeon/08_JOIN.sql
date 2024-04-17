@@ -298,4 +298,3 @@ from employee e
               on d.LOCATION_ID = l.LOCAL_CODE;
 -- left join 다음 join 한번 더 할 때 그냥 join말고 left join를 연달아 써줘야 하동운, 이오리 가 null인 값들을 가진 채 보여짐.
 
- 
