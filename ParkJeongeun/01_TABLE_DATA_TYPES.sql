@@ -50,8 +50,7 @@ desc tbl_data_types_char;
 insert into tbl_data_types_char values ('korea','korea');
 insert into tbl_data_types_char values ('개구리','개구리');
 insert into tbl_data_types_char values ('1234567890','1234567890');
-insert into tbl_data_types_char values ('12345678901','12345678901');
-
+# insert into tbl_data_types_char values ('12345678901','12345678901');
 
 select
     a, length(a), char_length(a),
@@ -93,6 +92,7 @@ select * from tbl_data_types_number;
 -- DATETIME : YYYY-MM-DD HH:MM:SS 형식
 -- TIMESTAMP : YYYY-MM-DD HH:MM:SS 형식
 -- - 지역대 정보를 제거하고 UTC로 관리. 불러올때는 지역대정보 적용해서 보여줌
+-- - 국제화가 필요한 앱에 적합
 -- YEAR : YYYY 형식
 
 -- now() : 현재 시스템 시각을 DATETIME 형식으로 제공
