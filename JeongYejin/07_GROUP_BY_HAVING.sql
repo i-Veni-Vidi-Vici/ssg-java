@@ -76,7 +76,7 @@ group by
 -- 카테고리, 가격으로 그룹 조회
 -- with rollup : group by category행 추가, 모든행 한그룹으로 행 추가
 -- with rollup은 group by에 대해 단방향 소계(앞선 컬럼기준)를 제공한다.
--- with rollup사용시에는 group bu의 컬럼 작성순서가 중요하다.
+-- with rollup사용시에는 group by의 컬럼 작성순서가 중요하다.
 select category_code, menu_price, count(*)
 from tbl_menu
 group by
@@ -103,3 +103,4 @@ from
     tbl_menu
 group by
     category_code with rollup;
+
