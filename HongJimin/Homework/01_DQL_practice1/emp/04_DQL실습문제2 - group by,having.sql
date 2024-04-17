@@ -12,15 +12,15 @@ group by
 
 -- 2. EMPLOYEE테이블에서 직급이 J1을 제외하고, 입사년도별 인원수를 조회해서, 입사년 기준으로 오름차순 정렬하세요.
 select
-    extract(year from HIRE_DATE),
-    count(*)
-from
-    employee
+    year(HIRE_DATE) 입사년도,
+    concat(count(*), '명') 인원수
+from employee
 where
     JOB_CODE != 'J1'
 group by
-    extract(year from HIRE_DATE) ASC;
--- ⛳⛳⛳오름차순 정렬 기능 해야함!!
+    year(HIRE_DATE)
+order by
+    year(HIRE_DATE) ;
 
 -- 3. 성별 급여의 평균(정수처리), 급여의 합계, 인원수를 조회한 뒤 인원수로 내림차순을 정렬 하시오.
 select
@@ -44,4 +44,7 @@ group by
 having
     count(*) >= 3;
 
+SELECT
+    *
+FROM employee
 
