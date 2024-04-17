@@ -58,11 +58,12 @@ where
     menu_name = '한우딸기국밥';
 
 -- 테이블 별칭
--- 테이블 이름 as "별칭" -> as 와 ""는 생략이 가능
--- join 테이블에서 컬럼명이 같은 경우 반드시 테이블 별칭으로 컬럼을 참조해야 한다.
-
+-- 테이블 as "별칭" -> as "" 생략이 가능
+-- 조인테이블에서 컬럼명이 같은 경우 반드시 테이블별칭으로 컬럼을 참조해야 한다. ([23000][1052] Column 'category_code' in on clause is ambiguous)
 select
-    m.menu_name, m.menu_name
+    m.menu_name,
+    m.menu_price,
+    m.category_code
 from
     tbl_menu as m;
 
