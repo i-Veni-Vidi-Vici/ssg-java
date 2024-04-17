@@ -11,11 +11,11 @@ select
     -- [42000][1055] Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'menudb.tbl_menu.menu_name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
     category_code,
-       count(*),
-       sum(menu_price), -- 그룹별로 합을 구함
-       avg(menu_price),
-       max(menu_price),
-       min(menu_price)
+    count(*),
+    sum(menu_price), -- 그룹별로 합을 구함
+    avg(menu_price),
+    max(menu_price),
+    min(menu_price)
 from tbl_menu
 group by category_code;
 
