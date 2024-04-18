@@ -41,7 +41,28 @@ order by
 -- 3. 재직 중인 직원들을 대상으로 부서별 인원, 급여 합계, 급여 평균을 출력하고,
 --    마지막에는 전체 인원과 전체 직원의 급여 합계 및 평균이 출력되도록 하세요.
 --    단, 출력되는 데이터의 헤더는 컬럼명이 아닌 ‘부서명’, ‘인원’, ‘급여합계’, ‘급여평균’으로 출력되도록 하세요
-# 부서별 인원, 급여
+select * from employee;
+select * from department;
+select
+    d.DEPT_TITLE '부서명',
+    count(*) '부서별인원',
+    format(sum(e.SALARY), 0) 급여합계,
+    format(avg(e.SALARY), 0) 급여평균
+from employee e
+    join department d
+        on e.DEPT_CODE = d.DEPT_ID
+where
+    QUIT_YN = 'N'
+group by
+    e.DEPT_CODE
+union
+select
+    '전체',
+    count(*) '전체 인원',
+    format(sum(SALARY), 0) '전체 직원의 급여 합계',
+    format(avg(SALARY), 0) '전체 직원의 급여 평균'
+from
+    employee;
 
 -- 4. 전체 직원의 직원명, 주민등록번호, 전화번호, 부서명, 직급명을 출력하세요.
 --    단, 입사일을 기준으로 오름차순 정렬되도록 출력하세요.
@@ -76,9 +97,23 @@ where
 select * from employee;
 select
     e1.EMP_NAME 직원명,
-    e2.EMP_NAME '관리자의 직원명'
+    ifnull(e2.EMP_NAME, '관리자 없음') '관리자의 직원명'
 from employee e1
     left join employee e2
-        on e1.EMP_NAME = e2.EMP_NAME
-where
-    e1.EMP_NAME != e2.EMP_NAME;
+        on e1.EMP_ID = e2.MANAGER_ID;
+
+-- 7. 관리자가 존재하는 직원의 직원명, 부서명, 관리자의 직원명, 관리자의 부서명을 출력하세요.
+select * from employee;
+select * from department;
+select
+    ifnull(e1.EMP_NAME, '관리자 없음') '관리자가 존재하는 직원의 직원명',
+    d1.DEPT_TITLE 부서명,
+    e2.EMP_NAME '관리자의 직원명',
+    d2.DEPT_TITLE '관리자의 부서명'
+from employee e1
+    join employee e2
+        on e1.EMP_ID = e2.MANAGER_ID
+    join department d1
+        on e1.DEPT_CODE = d1.DEPT_ID
+    join department d2
+        on e2.DEPT_CODE = d2.DEPT_ID;
