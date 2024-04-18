@@ -7,10 +7,10 @@ show grants for 'sh'@'%';
 -- 3. sh계정으로 스키마 chundb 선택 후, chundb.sql 전체실행
 -- 4. 쿼리를 통해 table 구조 파악
 use chundb;
-select * from tb_department;
-select * from tb_student;
-select * from tb_professor;
-select * from tb_class;
-select * from tb_class_professor;
-select * from tb_grade;
-
+select * from TB_DEPARTMENT; --  학과테이블
+select * from TB_STUDENT; -- 학생테이블
+select * from TB_PROFESSOR; -- 교수테이블
+select * from TB_CLASS; -- 수업테이블
+select * from TB_CLASS_PROFESSOR; -- 수업교수테이블
+select * from TB_GRADE; -- 학점테이블
+-- -----------------------------------------------------------
