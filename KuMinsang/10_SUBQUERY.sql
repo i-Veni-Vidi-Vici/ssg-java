@@ -61,3 +61,6 @@ where
 
 select * from tbl_menu;
 select * from tbl_category;
+
+select
+    extract(year_month from now())
