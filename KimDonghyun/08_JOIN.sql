@@ -201,6 +201,12 @@ select
 from
     tbl_menu m cross join tbl_category c;
 
+
+select
+    *
+from
+    tbl_menu m, tbl_category c;
+
 -- --------------------------------
 -- SELF JOIN
 -- --------------------------------
