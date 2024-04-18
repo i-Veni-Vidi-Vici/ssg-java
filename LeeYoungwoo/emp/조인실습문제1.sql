@@ -15,13 +15,13 @@ select
         when dayofweek('2020-12-25') = 5 then '목요일'
         when dayofweek('2020-12-25') = 6 then '금요일'
         else '토요일'
-    end;
+    end 요일;
 
 -- 2. 주민번호가 1970년대생이면서 성별이 여자이고, 성이 전씨인 직원들의 사원명, 주민번호, 부서명, 직급명을 조회하시오.
 select e.EMP_NAME 사원명,
        e.EMP_NO 주민번호,
-       d.DEPT_TITLE,
-       j.JOB_NAME
+       d.DEPT_TITLE 부서명,
+       j.JOB_NAME 직급명
 from employee e left join department d
     on e.DEPT_CODE = d.DEPT_ID
     left join job j
@@ -31,6 +31,7 @@ where (substring(EMP_NO, 1, 2) between 70 and 79)
   and EMP_NAME like '전%';
 
 -- 3. 가장 나이가 적은 직원의 사번, 사원명, 나이, 부서명, 직급명을 조회하시오.
+
 select
     e.EMP_ID 사번,
     e.EMP_NAME 사원명,
@@ -43,19 +44,16 @@ select
     j.JOB_NAME 직급명
 from employee e join department d on e.DEPT_CODE = d.DEPT_ID
     join job j on e.JOB_CODE = j.JOB_CODE
-order by datediff(now(),
-                  case
-                      when substring(EMP_NO, 8, 1) <= 2 then concat('19', substring(EMP_NO, 1, 6))
-                      else concat('20', substring(EMP_NO, 1, 6))
-                      end)
+order by 나이
 limit 1;
 
 -- 4. 이름에 '형'자가 들어가는 직원들의 사번, 사원명, 부서명을 조회하시오.
+-- inner join : 부서코드 미지정된 사원 제외된다.
+-- left outer join : 부서코드 미지정된 사원 포함된다.
 select e.EMP_ID 사번,
        e.EMP_NAME 사원명,
        d.DEPT_TITLE 부서명
-from employee e join department d on e.DEPT_CODE = d.DEPT_ID
-
+from employee e left join department d on e.DEPT_CODE = d.DEPT_ID
 where EMP_NAME like '%형%';
 
 -- 5. 해외영업부에 근무하는 사원명, 직급명, 부서코드, 부서명을 조회하시오.
@@ -101,18 +99,21 @@ select e.EMP_NAME 사원명,
        d.DEPT_TITLE 부서명,
        l.LOCAL_NAME 지역명,
        n.NATIONAL_NAME 국가명
-from employee e join department d on e.DEPT_CODE = d.DEPT_ID
-    join location l on d.LOCATION_ID = l.LOCAL_CODE
-    join nation n on l.NATIONAL_CODE = n.NATIONAL_CODE
+from employee e left join department d on e.DEPT_CODE = d.DEPT_ID
+    left join location l on d.LOCATION_ID = l.LOCAL_CODE
+    left join nation n on l.NATIONAL_CODE = n.NATIONAL_CODE
 where l.NATIONAL_CODE = 'KO' or l.NATIONAL_CODE = 'JP';
 
 -- 10. 같은 부서에 근무하는 직원들의 사원명, 부서명, 동료이름을 조회하시오. (self join 사용)
-select *
-from employee e1 left join employee e2 on e1.EMP_ID = e2.MANAGER_ID;
-
-select DEPT_CODE
-from employee
-group by DEPT_CODE;
+-- 같은 부서 다른 사원 아이디 행과 연결
+-- 부서코드 미지정 사원은 제외된다 (inner join)
+select e.EMP_NAME 사원명,
+       d.DEPT_TITLE 부서명,
+       c.EMP_NAME 동료이름
+from employee e
+    join employee c on e.DEPT_CODE = c.DEPT_CODE and e.EMP_ID != c.EMP_ID
+    join department d on e.DEPT_CODE = d.DEPT_ID
+order by 1;
 
 -- 11. 보너스포인트가 없는 직원들 중에서 직급이 차장과 사원인 직원들의 사원명, 직급명, 급여를 조회하시오. 단, join과 in 연산자 사용할 것
 select e.EMP_NAME 사원명,
@@ -134,3 +135,11 @@ group by
         when isnull(QUIT_DATE) then '재직중인 직원'
         else '퇴사한 직원'
     end;
+
+-- group by 안쓰기
+select
+    count(if(QUIT_YN = 'N', 1, null)) 재직자,
+    count(if(QUIT_YN = 'Y', 1, null)) 퇴직자,
+    sum(if(QUIT_YN = 'N', 1, null)) 재직자,
+    sum(if(QUIT_YN = 'Y', 1, null)) 퇴직자
+from employee;
