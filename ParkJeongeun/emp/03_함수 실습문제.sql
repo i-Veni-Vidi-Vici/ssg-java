@@ -1,3 +1,5 @@
+use empdb;
+
 select
     EMP_NAME 직원명,
     EMAIL 이메일,
@@ -60,17 +62,43 @@ select
               concat('20', left(EMP_NO, 2), '년')),
            concat(substring(EMP_NO, 3, 2), '월'),
            concat(substring(EMP_NO, 5, 2), '일')
-    ) 생년월일
-#    year(if(substring(EMP_NO, 8, 1) in (1, 2),
-#                 concat('19', left(EMP_NO, 2), '년'),
-#                 concat('20', left(EMP_NO, 2), '년'),
-#              concat(substring(EMP_NO, 3, 2), '월')))
+    ) 생년월일,
+    truncate(
+            datediff(now(),
+                     concat(
+                             case substr(EMP_NO, 8, 1)
+                                 when '1' then 1900
+                                 when '2' then 1900
+                                 else 2000
+                                 end + substr(EMP_NO, 1, 2),
+                             substr(EMP_NO, 3, 2),
+                             substr(EMP_NO, 5, 2)
+                     )
+            ) / 365
+    , 0) 만나이
 from employee;
 
+#select
+#    sum(if(year(HIRE_DATE) = 1998, 1, 0)) 1998년,
+#    sum(if(year(HIRE_DATE) = 1999, 1, 0)) 1999년,
+#    sum(if(year(HIRE_DATE) = 2000, 1, 0)) 2000년
+#from employee
+#where QUIT_YN = 'N';
+
 select
-    if(year(HIRE_DATE) = 1998, count(*))
+    count(case year(HIRE_DATE) when 1998 then 1 end) 1998년,
+    count(case year(HIRE_DATE) when 1999 then 1 end) 1999년,
+    count(case year(HIRE_DATE) when 2000 then 1 end) 2000년,
+    count(case year(HIRE_DATE) when 2001 then 1 end) 2001년,
+    count(case year(HIRE_DATE) when 2002 then 1 end) 2002년,
+    count(case year(HIRE_DATE) when 2003 then 1 end) 2003년,
+    count(case year(HIRE_DATE) when 2004 then 1 end) 2004년,
+    count(*)
 from employee
-group by year(HIRE_DATE);
+where QUIT_YN = 'N';
+
+select *
+from employee;
 
 select
     DEPT_CODE,

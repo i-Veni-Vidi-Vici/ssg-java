@@ -22,10 +22,12 @@ SElect * from user;
 create database menudb;
 create schema menudb;
 
+create database empdb;
 -- sh사용자에게 menudb를 사용할수 있는 권한을 부여한다.
 -- 사용자 user와 database(schema)는 별개의 객체이다
 -- 한 사용자 n개의 db를 사용할 수 도 있고, 한 db를 여러명의 사용자가 제어할 수 도 있다.
 grant all privileges on menudb.* to 'sh'@'%';
+grant all privileges on empdb.* to 'sh'@'%';
 # grant all privileges on menudb.* to sh;
 
 -- sh사용자에게 부여된 권한 확인

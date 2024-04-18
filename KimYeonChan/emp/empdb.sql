@@ -1,4 +1,3 @@
-use empdb;
 -- MySQL dump 10.13  Distrib 8.2.0, for macos13.5 (arm64)
 --
 -- Host: db-ltr10.pub-cdb.ntruss.com    Database: empdb
@@ -212,4 +211,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-04-10 16:45:25
-

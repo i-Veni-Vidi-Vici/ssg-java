@@ -192,7 +192,7 @@ select
 select
     replace('마이SQL', '마이', 'My');
 
-select replace(menu_name, '쥬스', '주우스') menu_name
+select replace(menu_name, '쥬스', '주우스') as menu_name
 from tbl_menu
 where menu_name like '%쥬스';
 
@@ -453,6 +453,10 @@ select
     date_format(now(), '%H:%i:%s'),
     date_format(now(), '%Y년 %m월 %d일 (%W)');
 
+select
+    str_to_date('19990909', '%Y%m%d'),
+    str_to_date('630909', '%y%m%d');
+
 -- 지역 변경
 select @@lc_time_names; -- en_US -> ko_KR
 set @@lc_time_names = 'ko_KR';
@@ -510,7 +514,7 @@ select
     ifnull(null, 'xyz'); -- xyz
 
 -- 메뉴테이블에서 메뉴명, 카테고리번호(null일 경우 '카테고리없음') 조회
-select menu_name, ifnull(category_code, '카테고리없음') category_code
+select menu_name, ifnull(category_code, '카테고리없음') as category_code
 -- 같은 열 안에서 다른 자료형을 쓸 수 없기 때문에 문자열 자료형으로 바뀐다
 from tbl_menu;
 

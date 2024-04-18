@@ -1,4 +1,3 @@
-use empdb;
 -- MySQL dump 10.13  Distrib 8.2.0, for macos13.5 (arm64)
 --
 -- Host: db-ltr10.pub-cdb.ntruss.com    Database: empdb
@@ -23,7 +22,6 @@ DROP TABLE IF EXISTS `SAL_GRADE`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 # SET @@SESSION.SQL_LOG_BIN= 0;
-
 --
 -- GTID state at the beginning of the backup 
 --
@@ -211,5 +209,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-10 16:45:25
 
+-- Dump completed on 2024-04-10 16:45:25

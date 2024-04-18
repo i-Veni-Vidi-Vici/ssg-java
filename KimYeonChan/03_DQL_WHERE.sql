@@ -47,7 +47,7 @@ where
 #     orderable_status <> 'Y';
 #     orderable_status = 'N';
 #     orderable_status = 'n'; -- 비교수행시 대소문자 구분없이 처리
-    binary orderable_status = 'n';
+binary orderable_status = 'n';
 
 -- 크기비교
 -- 10000원 이하 메뉴만 조회
@@ -74,7 +74,7 @@ from
 where
     category_code = 10
 #   and
-  &&
+        &&
     orderable_status = 'Y';
 
 -- 카테코리코드가 10번 또는 주문가능한 메뉴 조회
@@ -85,7 +85,7 @@ from
 where
     category_code = 10
 #   or
-  ||
+        ||
     orderable_status = 'Y';
 
 -- 카테고리코드가 4번 또는 가격이 9000원이면서 메뉴번호가 10번보다 큰 메뉴 조회
@@ -105,7 +105,7 @@ from
     tbl_menu
 where
     category_code = 4
-  or
+   or
     (menu_price = 9000 and menu_code > 10);
 
 # between 연산자
@@ -143,7 +143,7 @@ from
 where
 #     menu_price not between 10000 and 25000;
 #     not menu_price between 10000 and 25000;
-    !(menu_price between 10000 and 25000);
+!(menu_price between 10000 and 25000);
 
 select
     *
@@ -151,7 +151,7 @@ from
     tbl_menu
 where
     menu_price < 10000
-  or
+   or
     menu_price > 25000;
 
 # LIKE 문자열 패턴 연산자
@@ -171,7 +171,7 @@ where
 #     menu_name like '%마늘%'; -- 마늘을 포함 조회
 #     menu_name like '마늘%'; -- 마늘로 시작하는지 조회
 #     menu_name like '%마늘'; -- 마늘로 끝나는지 조회
-    menu_name like '_마늘%'; -- 마늘앞에 한글자가 반드시 존재하고, 마늘 다음에는 0개이상의 문자열 존재하는지
+menu_name like '_마늘%'; -- 마늘앞에 한글자가 반드시 존재하고, 마늘 다음에는 0개이상의 문자열 존재하는지
 
 -- 쥬스 메뉴만 조회
 select
@@ -208,7 +208,7 @@ from
     tbl_menu
 where
 #     menu_name not like '%마늘%';
-    not menu_name like '%마늘%';
+not menu_name like '%마늘%';
 
 -- null비교 - 카테고리번호가 null인 메뉴 조회
 select
@@ -217,7 +217,7 @@ from
     tbl_menu
 where
 #      category_code = null; -- null값 연산 불가
-    category_code is null;
+category_code is null;
 
 -- 카테고리가 null이 아닌 메뉴 조회
 select
@@ -226,7 +226,7 @@ from
     tbl_menu
 where
 #     category_code is not null;
-    not category_code is null;
+not category_code is null;
 
 -- null처리함수(null은 동등비교할 수 없으므로, 다른 값으로 대체후에 비교)
 -- ifnull(nullableValue, value if null)
@@ -251,8 +251,7 @@ select
 from
     tbl_menu
 where
-#     category_code in (4, 5, 6);
-    category_code not in (4, 5, 6);
+    category_code in (4, 5, 6);
 
 select
     *
@@ -265,13 +264,23 @@ where
    or
     category_code = 6;
 
+-- 부정 4, 5, 6번이 아닌경우
 select
     *
 from
     tbl_menu
 where
-    not (category_code = 4
-   or
-    category_code = 5
-   or
-    category_code = 6);
+#     category_code not in (4, 5, 6);
+not category_code in (4, 5, 6);
+
+select
+    *
+from
+    tbl_menu
+where
+#     category_code != 4
+#    and
+#     category_code != 5
+#    and
+#     category_code != 6;
+not (category_code = 4 or category_code = 5 or category_code = 6);
