@@ -5,6 +5,7 @@ use empdb;
 grant all privileges on empdb.* to'sh'@'%';
 show grants for 'sh'@'%';
 
+
 select * from employee; -- 사원테이블
 select * from job; -- 직급테이블
 select * from department; -- 부서테이블

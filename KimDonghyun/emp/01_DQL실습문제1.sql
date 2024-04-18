@@ -38,9 +38,9 @@ from
 where
     (email like '____\_%')
   and
-    (dept_code='D9' or dept_code='D6')
+    (dept_code='D9' or dept_code='D5')
   and
-    (hire_date between '90/01/01' and '00/12/01')
+    (hire_date between '90/01/01' and '01/12/01')
   and
     salary >= 2700000;
 
