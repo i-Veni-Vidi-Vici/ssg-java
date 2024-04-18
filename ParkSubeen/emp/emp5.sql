@@ -54,12 +54,14 @@ limit
     1;
 
 -- 4. 이름에 '형'자가 들어가는 직원들의 사번, 사원명, 부서명을 조회하시오.
+-- inner join 부서코드 미지정된 사원 제외
+-- left outer join 부서코드 미지정된 사원 포함
 select
     e.EMP_ID 사번,
     e.EMP_NAME 사원명,
     d.DEPT_TITLE 부서명
 from
-    employee e join department d
+    employee e left join department d
         on e.DEPT_CODE = d.DEPT_ID
 where
     EMP_NAME like '%형%';
@@ -135,16 +137,19 @@ select
     n.NATIONAL_NAME 국가명
 from
     employee e
-        join department d
+        left join department d
             on e.DEPT_CODE = d.DEPT_ID
-        join location l
+        left join location l
             on d.LOCATION_ID = l.LOCAL_CODE
-        join nation n
+        left join nation n
             on l.NATIONAL_CODE = n.NATIONAL_CODE
 where
     n.NATIONAL_CODE in ('KO', 'JP');
 
 -- 10. 같은 부서에 근무하는 직원들의 사원명, 부서명, 동료이름을 조회하시오. (self join 사용)
+
+-- 같은 부서 다른 사원아이디 행과 연결
+-- 부서코드 미지정 사원은 제외 (inner join)
 select
     e.EMP_NAME 사원명,
     d.DEPT_TITLE 부서명,
@@ -156,7 +161,8 @@ from
         join employee emps
              on e.DEPT_CODE = emps.DEPT_CODE
 where
-    e.EMP_NAME != emps.EMP_NAME;
+#     e.EMP_NAME != emps.EMP_NAME;
+    e.EMP_ID != emps.EMP_ID; -- 이름은 같을 수 있으니 알아볼 수 있도록 ID를 사용하는 것이 더 좋다
 
 -- 11. 보너스포인트가 없는 직원들 중에서 직급이 차장과 사원인 직원들의 사원명, 직급명, 급여를 조회하시오. 단, join과 in 연산자 사용할 것
 select
@@ -182,3 +188,11 @@ from
     employee
 group by
     QUIT_YN;
+
+-- 전체를 하나의 그룹으로 처리
+select
+    count(if(QUIT_YN = 'N', 1, null)) 재직자, -- null값이 아닌 레코드 수 센다.
+    count(if(QUIT_YN = 'Y', 1, null)) 퇴사자,
+    count(if(QUIT_YN = 'N', 1, null)) 재직자, -- null값이 아닌 컬럼값의 합계를 구한다.
+    count(if(QUIT_YN = 'Y', 1, null)) 퇴사자
+from employee;
