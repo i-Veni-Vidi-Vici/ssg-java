@@ -1,0 +1,23 @@
+#1
+SET lc_time_names = 'ko_KR';
+SELECT DAYNAME('2020-12-25') AS '요일';
+
+#2
+SELECT e.EMP_NAME AS '사원명', e.EMP_NO AS '주민번호', d.DEPT_TITLE AS '부서명', j.JOB_NAME AS '직급명'
+FROM EMPLOYEE e
+         JOIN DEPARTMENT d ON e.DEPT_CODE = d.DEPT_ID
+         JOIN JOB j ON e.JOB_CODE = j.JOB_CODE
+WHERE YEAR(SUBSTRING(e.EMP_NO, 1, 6)) BETWEEN 1970 AND 1979
+  AND SUBSTRING(e.EMP_NO, 8, 1) = '2' OR SUBSTRING(e.EMP_NO, 8, 1) = '4'
+  AND e.EMP_NAME LIKE '전%';
+
+select *from employee;
+#3
+SELECT e.EMP_ID AS '사번', e.EMP_NAME AS '사원명',
+       YEAR(CURDATE()) - YEAR(SUBSTRING(e.EMP_NO, 1, 6)) -
+       IF(RIGHT(CURDATE(), 5) < RIGHT(SUBSTRING(e.EMP_NO, 1, 6), 5), 1, 0) AS '나이',
+       d.DEPT_TITLE AS '부서명', j.JOB_NAME AS '직급명'
+FROM EMPLOYEE e
+         JOIN DEPARTMENT d ON e.DEPT_CODE = d.DEPT_ID
+         JOIN JOB j ON e.JOB_CODE = j.JOB_CODE
+LIMIT 1;
