@@ -101,3 +101,8 @@ where e.BONUS IS NULL and (j.JOB_NAME = '차장' or j.JOB_NAME = '사원');
 select if(QUIT_YN = 'Y', '퇴사', '재직') YN, count(*)
 from employee
 group by QUIT_YN;
+
+select
+    count(if(QUIT_YN='Y', 1, null)) 퇴사,
+    count(if(QUIT_YN='N', 1, null)) 재직
+from employee;
