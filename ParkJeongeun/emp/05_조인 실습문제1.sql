@@ -1,3 +1,5 @@
+# use user;
+
 # 1.
 select date_format('2020-12-25', '%W'); -- Friday
 
@@ -15,18 +17,26 @@ where substr(EMP_NO, 1, 1) in (7) &&
       substr(EMP_NO, 8, 1) in (2, 4) &&
       EMP_NAME like '전%';
 
-################ 3.
+# 3.
 select
-    case substr(EMP_NO, 8, 1)
-        when 1 then 1900
-        when 2 then 1900
-        else 2000
-        end
-        + substr(EMP_NO, 1, 2) EMP_NO,
+    EMP_ID,
     EMP_NAME,
-    DEPT_TITLE
+    year(now()) -
+        (case substr(EMP_NO, 8, 1)
+             when 1 then 1900
+             when 2 then 1900
+             else 2000
+             end
+            + substr(EMP_NO, 1, 2)
+    ) age,
+    DEPT_TITLE,
+    JOB_NAME
 from employee join department
-     on employee.DEPT_CODE = department.DEPT_ID;
+     on employee.DEPT_CODE = department.DEPT_ID
+     join job
+     on employee.JOB_CODE = job.JOB_CODE
+order by age
+limit 1;
 
 # 4.
 select

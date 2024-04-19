@@ -176,7 +176,7 @@ select
         when 1998 then 1
         else null
     end "1998",
-    case extract(year from hire_date) when 1999 then 1 end "1999",
+    case extract(year from hire_date) when 1999 then 1 else null end "1999",
     case extract(year from hire_date) when 2000 then 1 end "2000",
     case extract(year from hire_date) when 2001 then 1 end "2001",
     case extract(year from hire_date) when 2002 then 1 end "2002",
@@ -185,8 +185,15 @@ select
 from
     employee;
 
+select
+    count(*),
+    count(bonus)
+from
+    employee;
+
+
 -- 해당조건을 만족하면 해당row에 값 1을 준다. (null이 아닌 어떤 값이라도 좋다.)
--- 설명 : count변수(특정컬럼을 센다)가 하나 있고, 매행마다, null이 아니라면 ++1 해줌.
+-- 설명 : count(가상컬럼)을 통해 매행마다, null이 아니라면 ++1 해준다.
 select
     count(case extract(year from hire_date) when 1998 then 1 end) "1998",
     count(case extract(year from hire_date) when 1999 then 1 end) "1999",

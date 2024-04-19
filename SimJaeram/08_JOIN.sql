@@ -98,7 +98,7 @@ from tbl_menu a inner join tbl_category b
 #     on a.category_code = b.category_code;
 
 -- ---------------------------
--- OUTTER JOIN
+-- OUTER JOIN
 -- ---------------------------
 -- 외부조인. 좌/우측 테이블을 기준으로 조인.
 -- 기준이 된 테이블은 누락되는 행이 없다. // 무조건 원래 테이블 행 다 가져다 놓음
@@ -289,7 +289,7 @@ from
 -- ---------------------------
 -- 다중조인
 -- 여러테이블을 조인해 relation을 생성
--- 한번에 두개씩 연달아 조인 처리
+-- 한 번에 두개씩 연달아 조인 처리
 
 -- 사원 - 부서 - 지역
 select * from employee;
