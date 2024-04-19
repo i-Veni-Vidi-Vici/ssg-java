@@ -22,12 +22,12 @@ from
 --	ex) 송은희	    1963  	    0
 select
     emp_name as 직원명,
-    concat(19, substr(emp_no,1,2)) as 년생,
-    ifnull(bonus,0) as 보너스
+    concat(19, substr(emp_no, 1, 2)) as 년생,
+    ifnull(bonus, 0) as 보너스
 from
     employee
 where
-    substr(emp_no,1,2) between 60 and 69;
+    substr(emp_no, 1, 2) between 60 and 69;
 
 -- 4. '010' 핸드폰 번호를 쓰지 않는 사람의 수를 출력하시오 (뒤에 단위는 명을 붙이시오)
 --	   인원
@@ -47,6 +47,8 @@ where
 
 select
     emp_name,
+    year(hire_date),
+    month(hire_date),
     concat(extract(year from hire_date),'년 ', extract(month from hire_date), '월') as 입사년월
 from
     employee;
@@ -92,7 +94,7 @@ select
     emp_name,
     hire_date,
     quit_date,
-    truncate(datediff(ifnull(quit_date, now()), hire_date), 0) as 근무일수
+    datediff(ifnull(quit_date, now()), hire_date) as 근무일수
 from
     employee;
 
@@ -104,34 +106,45 @@ from
 --   나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산함
 
 -- 한국나이 : 현재년도 - 출생년도 + 1
--- 만나이 : 생일기준  truncate((오늘, 생일) / 365)
+-- 만나이 : 생일기준  truncate(datediff(오늘, 생일) / 365)
 select
     emp_name,
     dept_code,
+    emp_no,
+#     substr(emp_no, 1, 6),
+#     date(substr(emp_no, 1, 6)), -- 'yymmdd' -> 'yyyymmdd'  1970 ~ 2069 사이에서 년도 유추
+#     cast(substr(emp_no, 1, 6) as date),
     concat(
             case
                 substr(emp_no, 8, 1)
                 when '1' then 1900
                 when '2' then 1900
                 else 2000
-                end + substr(emp_no, 1, 2), '년 ',
+            end + substr(emp_no, 1, 2), '년 ',
             substr(emp_no, 3, 2), '월 ',
             substr(emp_no, 5, 2), '일 ') 생년월일,
     truncate(
-            datediff(
-                    now(),
-                    concat(
-                            case
-                                substr(emp_no, 8, 1)
-                                when '1' then 1900
-                                when '2' then 1900
-                                else 2000
-                                end + substr(emp_no, 1, 2),
-                            substr(emp_no, 3, 2),
-                            substr(emp_no, 5, 2)
-                    )
-            ) / 365
-        , 0)
+        datediff(
+            now(),
+            concat(
+                case
+                    substr(emp_no, 8, 1)
+                    when '1' then 1900
+                    when '2' then 1900
+                    else 2000
+                end + substr(emp_no, 1, 2),
+                substr(emp_no, 3, 2),
+                substr(emp_no, 5, 2)
+            )
+        ) / 365
+    , 0) 만나이,
+    -- (올해 - 생년) - if(생일이 지났는가?, 0, 1)
+    year(curdate())
+        - (if(substr(emp_no, 8, 1) in (1, 2), 1900, 2000) + substr(emp_no, 1, 2))
+            - if(
+                month(curdate()) >= substr(emp_no, 3, 2) && day(curdate()) >= substr(emp_no, 5, 2)
+                , 0
+                , 1) 만나이
 from
     employee;
 
@@ -143,12 +156,27 @@ from
 --	 1998년   1999년   2000년   2001년   2002년   2003년   2004년  전체직원수
 --	----------------------------------------------------------------------------------------------------------
 
+-- 세로로 구하기
+select
+    year(hire_date) year,
+    count(*)
+from
+    employee
+group by
+    year(hire_date) with rollup
+order by
+    year is null,
+    year;
+
 -- 가상컬럼 생성해서 데이터 준비
 select
     emp_name,
     hire_date,
-    case extract(year from hire_date) when 1998 then 1 end "1998",
-    case extract(year from hire_date) when 1999 then 1 end "1999",
+    case extract(year from hire_date)
+        when 1998 then 1
+        else null
+    end "1998",
+    case extract(year from hire_date) when 1999 then 1 else null end "1999",
     case extract(year from hire_date) when 2000 then 1 end "2000",
     case extract(year from hire_date) when 2001 then 1 end "2001",
     case extract(year from hire_date) when 2002 then 1 end "2002",
@@ -157,8 +185,15 @@ select
 from
     employee;
 
+select
+    count(*),
+    count(bonus)
+from
+    employee;
+
+
 -- 해당조건을 만족하면 해당row에 값 1을 준다. (null이 아닌 어떤 값이라도 좋다.)
--- 설명 : count변수(특정컬럼을 센다)가 하나 있고, 매행마다, null이 아니라면 ++1 해줌.
+-- 설명 : count(가상컬럼)을 통해 매행마다, null이 아니라면 ++1 해준다.
 select
     count(case extract(year from hire_date) when 1998 then 1 end) "1998",
     count(case extract(year from hire_date) when 1999 then 1 end) "1999",
