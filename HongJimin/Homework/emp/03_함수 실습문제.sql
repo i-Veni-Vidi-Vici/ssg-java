@@ -88,24 +88,31 @@ from employee;
 -- ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 -- 한국 나이 : 현재 년도 - 출생년도  + 1
 -- 만나이 : 생일 기준 truncate(dateDiff(오늘, 생일) / 365)
--- ⛳⛳⛳1970년생 이하는 년 월 일로 출력이 안됨! 💖💖💖생년월일 다시 해보기!!
-
 select
     EMP_NAME,
     DEPT_CODE,
-
+    concat(
+            case
+                substring(EMP_NO, 8, 1)
+                when '3' then 2000
+                when '4' then 2000
+                else 1900
+            end + substr(EMP_NO, 1, 2), '년 ',
+            substr(EMP_NO, 3, 2), '월 ',
+            substr(EMP_NO, 5, 2), '일') 생년월일,
     case
-        when (substring(EMP_NO, 8, 1)) = 3
+        when substring(EMP_NO, 8, 1) = 3
             or
              (substring(EMP_NO, 8, 1)) = 4
             then year(now()) - (substring(EMP_NO, 1, 2) + 2000)
-        when (substring(EMP_NO, 1, 2)) > 70
-            then year(now()) - (substring(EMP_NO, 1, 2) + 1900)
-        when (substring(EMP_NO, 1, 2)) <= 69
-            then year(now()) - (substring(EMP_NO, 1, 2) + 1900)
+    else
+        year(now()) - (substring(EMP_NO, 1, 2) + 1900)
         end as 나이
 from
     employee;
+
+select *
+from employee;
 
 -- ⛳⛳⛳1998 ~ 2004년도 사이 입사자 없는 년도에 0 만들기!
 -- 11. 직원들의 입사일로 부터 년도만 가지고, 각 년도별 입사인원수를 구하시오.
