@@ -1,3 +1,4 @@
+use empdb;
 
 # 1. 재직 중이고 휴대폰 마지막 자리가 2인 직원 중 입사일이 가장 최근인 직원 3명의 사원번호, 직원명, 전화번호, 입사일, 퇴직여부를 출력하세요.
 select
@@ -75,7 +76,7 @@ select
 from
     employee
 where
-    MANAGER_ID is not null
+    MANAGER_ID is not null;
 
 # 6. 모든 직원의 직원명과 관리자의 직원명을 출력하세요.
 # 참고. ‘모든 직원’이므로 관리자가 존재하지 않는 직원도 출력되어야 합니다.
@@ -95,5 +96,6 @@ select
 from
     employee e1 join employee e2 on e1.MANAGER_ID = e2.EMP_ID
     left join department d1 on e1.DEPT_CODE = d1.DEPT_ID
-    left join department d2 on e2.DEPT_CODE = d2.DEPT_ID;
-
+    left join department d2 on e2.DEPT_CODE = d2.DEPT_ID
+order by
+    e1.EMP_NAME;
