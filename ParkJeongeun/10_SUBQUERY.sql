@@ -90,39 +90,46 @@ select
 from tbl_menu
 group by category_code;
 
-select *
-from tbl_menu m join (select
-                          category_code,
-                          max(menu_price) max_menu_price
-                      from tbl_menu
-                      group by category_code) c
-    on m.category_code = c.category_code
-where m.menu_price = c.max_menu_price;
+-- inner join (category_code가 null인 그룹 제외)
+select
+    m.*
+from
+    tbl_menu m join (
+        select
+            category_code,
+            max(menu_price) max_menu_price
+        from
+            tbl_menu
+        group by
+            category_code
+    ) c
+                    on m.category_code = c.category_code
+where
+    m.menu_price = c.max_menu_price
+order by
+    m.category_code;
 
--- inner join
-
-
-
-
-
-
-
-
-
-
-
-
-select *
-from tbl_menu m join (select
-                          category_code,
-                          max(menu_price) max_menu_price
-                      from tbl_menu
-                      group by category_code) c
-                     on ifnull(m.category_code, 0) = ifnull(c.category_code, 0)
-where m.menu_price = c.max_menu_price;
+-- outer join (category_code가 null인 그룹도 포함)
+select
+    *
+from
+    tbl_menu m left join (
+        select
+            category_code,
+            max(menu_price) max_menu_price
+        from
+            tbl_menu
+        group by
+            category_code
+    ) c
+        -- null끼리 동일비교 할수 없으므로, ifnull함수를 이용해서 특정 값으로 변환후 비교
+                         on ifnull(m.category_code, 1000) = ifnull(c.category_code, 1000)
+where
+    m.menu_price = c.max_menu_price
+order by
+    m.category_code;
 
 -- 2. 상관 서브쿼리로 해결
---
 select *
 from tbl_menu m
 where menu_price = (select max(menu_price) from tbl_menu where category_code = m.category_code);
