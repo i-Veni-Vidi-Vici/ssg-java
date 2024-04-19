@@ -579,7 +579,7 @@ select
     avg(tbl_menu.menu_price),
     truncate(avg(tbl_menu.menu_price),1)
 from
-    tbl_menu
+    tbl_menu;
 # count
 -- 특정 컬럼의 값의 개수를 세어 반환. null값은 처리하지 않는다.
 select

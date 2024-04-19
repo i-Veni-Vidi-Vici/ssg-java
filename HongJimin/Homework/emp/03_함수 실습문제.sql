@@ -88,21 +88,12 @@ from employee;
 -- ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 -- 한국 나이 : 현재 년도 - 출생년도  + 1
 -- 만나이 : 생일 기준 truncate(dateDiff(오늘, 생일) / 365)
--- ⛳⛳⛳1970년생 이하는 년 월 일로 출력이 안됨!
+-- ⛳⛳⛳1970년생 이하는 년 월 일로 출력이 안됨! 💖💖💖생년월일 다시 해보기!!
 
 select
     EMP_NAME,
     DEPT_CODE,
-    case
-        when (substring(EMP_NO, 8, 1)) = 3
-            or
-             (substring(EMP_NO, 8, 1)) = 4
-            then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
-        when (substring(EMP_NO, 1, 2)) > 70
-            then date_format(substring(EMP_NO, 1, 6), '%Y년 %m월 %d일')
-        when (substring(EMP_NO, 1, 2)) <= 69
-            then str_to_date(substring(EMP_NO,1, 6) + 19000000, '%Y %m %d')
-    end as '생년월일',
+
     case
         when (substring(EMP_NO, 8, 1)) = 3
             or

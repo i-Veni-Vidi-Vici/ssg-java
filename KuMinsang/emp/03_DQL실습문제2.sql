@@ -30,7 +30,8 @@ select
 from
     employee
 group by
-    if((substring(EMP_NO, 8, 1) = 1 or substring(EMP_NO, 8, 1) = 3), '남성', '여성')
+#     if((substring(EMP_NO, 8, 1) = 1 or substring(EMP_NO, 8, 1) = 3), '남성', '여성')
+    성별
 order by
     인원수;
 

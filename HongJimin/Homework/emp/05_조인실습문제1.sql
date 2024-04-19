@@ -163,3 +163,11 @@ select
 from employee
 group by
     QUIT_YN;
+
+-- 💖12번 문제 다른 풀이 : 전체를 하나의 그룹으로 처리
+select
+    count(if(QUIT_YN = 'N', 1, null)) 재직자,  -- ⛳null값이 아닌 레코드 수 센다.
+    count(if(QUIT_YN = 'Y', 1, null)) 퇴사자,
+    sum(if(QUIT_YN = 'N', 1, null)) 재직자, -- ⛳null값이 컬럼값을 합계를 구한다.
+    sum(if(QUIT_YN = 'Y', 1, null)) 퇴사자
+from employee;

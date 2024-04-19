@@ -120,7 +120,7 @@ from
     employee e1 join employee e2 on e1.DEPT_CODE = e2.DEPT_CODE
     left join department d on e1.DEPT_CODE = d.DEPT_ID
 where
-    e1.EMP_NAME != e2.EMP_NAME;
+    e1.EMP_ID != e2.EMP_ID;
 
 # 11. 보너스포인트가 없는 직원들 중에서 직급이 차장과 사원인 직원들의 사원명, 직급명, 급여를 조회하시오. 단, join과 in 연산자 사용할 것
 select
