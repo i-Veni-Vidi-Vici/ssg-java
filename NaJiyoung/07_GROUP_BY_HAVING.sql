@@ -7,7 +7,7 @@
 -- 카테고리별 메뉴 집계
 -- 22행 -> 9행(9개 그룹)
 select
-    menu_name, -- group by와 연관이 없는 일반 컬럼은 사용할 수 없다.
+#     menu_name, -- group by와 연관이 없는 일반 컬럼은 사용할 수 없다.
     -- [42000][1055] Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'menudb.tbl_menu.menu_name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
     category_code,
     count(*),
@@ -95,7 +95,7 @@ from
     tbl_menu
 group by
     category_code,
-    menu_price with rollup;
+    menu_price with rollup; -- category_code를 먼저 작성했으므로 그에 대한 집계 데이터 + 전체에 대한 집계 데이터
 
 # grouping 함수
 -- 실제데이터와 집계데이터(with rollup)를 구분해주는 함수
