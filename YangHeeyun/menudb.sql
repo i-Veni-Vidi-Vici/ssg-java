@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS tbl_category
     ref_category_code    INT COMMENT '상위카테고리코드',
     CONSTRAINT pk_category_code PRIMARY KEY (category_code),
     CONSTRAINT fk_ref_category_code FOREIGN KEY (ref_category_code) REFERENCES tbl_category (category_code)
-) ENGINE=INNODB COMMENT '카테고리';
+    ) ENGINE=INNODB COMMENT '카테고리';
 
 CREATE TABLE IF NOT EXISTS tbl_menu
 (
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS tbl_menu
     orderable_status    CHAR(1) NOT NULL COMMENT '주문가능상태',
     CONSTRAINT pk_menu_code PRIMARY KEY (menu_code),
     CONSTRAINT fk_category_code FOREIGN KEY (category_code) REFERENCES tbl_category (category_code)
-) ENGINE=INNODB COMMENT '메뉴';
+    ) ENGINE=INNODB COMMENT '메뉴';
 
 
 CREATE TABLE IF NOT EXISTS tbl_order
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS tbl_order
     order_time    VARCHAR(8) NOT NULL COMMENT '주문시간',
     total_order_price    INT NOT NULL COMMENT '총주문금액',
     CONSTRAINT pk_order_code PRIMARY KEY (order_code)
-) ENGINE=INNODB COMMENT '주문';
+    ) ENGINE=INNODB COMMENT '주문';
 
 
 CREATE TABLE IF NOT EXISTS tbl_order_menu
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS tbl_order_menu
     CONSTRAINT pk_comp_order_menu_code PRIMARY KEY (order_code, menu_code),
     CONSTRAINT fk_order_menu_order_code FOREIGN KEY (order_code) REFERENCES tbl_order (order_code),
     CONSTRAINT fk_order_menu_menu_code FOREIGN KEY (menu_code) REFERENCES tbl_menu (menu_code)
-) ENGINE=INNODB COMMENT '주문별메뉴';
+    ) ENGINE=INNODB COMMENT '주문별메뉴';
 
 
 CREATE TABLE IF NOT EXISTS tbl_payment
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS tbl_payment
     payment_price    INT NOT NULL COMMENT '결제금액',
     payment_type    VARCHAR(6) NOT NULL COMMENT '결제구분',
     CONSTRAINT pk_payment_code PRIMARY KEY (payment_code)
-) ENGINE=INNODB COMMENT '결제';
+    ) ENGINE=INNODB COMMENT '결제';
 
 
 CREATE TABLE IF NOT EXISTS tbl_payment_order
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS tbl_payment_order
     CONSTRAINT pk_comp_payment_order_code PRIMARY KEY (payment_code, order_code),
     CONSTRAINT fk_payment_order_order_code FOREIGN KEY (order_code) REFERENCES tbl_order (order_code),
     CONSTRAINT fk_payment_order_payment_code FOREIGN KEY (order_code) REFERENCES tbl_payment (payment_code)
-) ENGINE=INNODB COMMENT '결제별주문';
+    ) ENGINE=INNODB COMMENT '결제별주문';
 
 -- 데이터 삽입
 INSERT INTO tbl_category VALUES (null, '식사', null);
