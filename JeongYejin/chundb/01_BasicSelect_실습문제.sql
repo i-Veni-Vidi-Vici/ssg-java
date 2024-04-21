@@ -2,11 +2,12 @@
 -- 2. sh계정이 chundb 접근 가능하도록 권한 부여
 -- 3. sh계정으로 chundb.sql 전체실행
 
-# create database chundb;
-#
-# GRANT all privileges on chundb.* to 'sh'@'%';
-#
-# show grants for sh;
+create database chundb;
+
+GRANT all privileges on chundb.* to 'sh'@'%';
+
+show grants for sh;
+use chundb;
 
 select * from TB_DEPARTMENT; --  학과테이블
 select * from TB_STUDENT; -- 학생테이블
