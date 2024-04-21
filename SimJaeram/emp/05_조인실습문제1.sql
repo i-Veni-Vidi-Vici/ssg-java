@@ -33,13 +33,16 @@ select
     d.DEPT_TITLE
 from
     employee e
-        inner join department d
+#         inner join department d -- -- 이름에 '형'자가 들어가는 직원 중에서 부서가 없는 직원이 있을 수 있으므로 inner 조인은 사용하면 안된다.
+        left join department d
             on e.dept_code = d.dept_id
 where
     e.EMP_NAME like '%형%';
 
 -- 5. 해외영업부에 근무하는 사원명, 직급명, 부서코드, 부서명을 조회하시오
 select *
-from employee e inner join department d
-    on e.DEPT_CODE = d.DEPT_ID
+from
+    employee
+        e inner join department d
+            on e.DEPT_CODE = d.DEPT_ID
 where d.DEPT_TITLE like '해외영업%';
