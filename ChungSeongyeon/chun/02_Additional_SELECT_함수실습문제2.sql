@@ -218,8 +218,8 @@ group by 1,2 with rollup;
 
 -- 나지영님의 ISSUE에 대해 해보기--
 
-# 1.group by에 TERM_NO 추가(결과: 출력값이 중복으로 나옴..)
-select
+# 1.group by에 TERM_NO 추가(결과: 출력값이 중복으로 나옴..) -- distinct 추가하니까 되네?
+select distinct
     if(grouping(left(TERM_NO, 4)) = 0, left(TERM_NO, 4), '총 평점') 년도,
     if(grouping(substring(TERM_NO, 5, 2)) = 0, substring(TERM_NO, 5, 2), '학기 별 평점') 학기,
     round(avg(POINT), 1) 평점
@@ -230,7 +230,7 @@ group by left(TERM_NO, 4), substring(TERM_NO, 5, 2), TERM_NO with rollup;
 # 2.case 사용 (되긴 된다.)
 select
     case
-        when 년도 is null then '총평점'
+        when 년도 is null then '총 평점'
         else 년도
         end as 년도,
     case
