@@ -1,3 +1,5 @@
+use empdb;
+
 # 1.
 select
     EMP_ID,
@@ -61,16 +63,12 @@ select
 from employee e left join employee m
     on e.MANAGER_ID = m.EMP_ID;
 
-################### 7.
+# 7.
 select
     e.EMP_NAME,
-    (select DEPT_TITLE from employee join department on employee.DEPT_CODE = department.DEPT_ID),
-    m.EMP_NAME
-from employee e join employee m
-                     on e.MANAGER_ID = m.EMP_ID;
-
-select *
-from department;
-
-select *
-from employee;
+    ed.DEPT_TITLE,
+    m.EMP_NAME,
+    md.DEPT_TITLE
+from employee e join employee m on e.MANAGER_ID = m.EMP_ID
+    join department ed on e.DEPT_CODE = ed.DEPT_ID
+    join department md on m.DEPT_CODE = md.DEPT_ID;
