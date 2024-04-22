@@ -27,7 +27,7 @@ order by
     category_code asc,
     menu_price desc;
 
--- select 절의 컬럼순서로 지정가능
+-- select 절의 컬럼순서(1-based index)로 지정가능
 select
     menu_name
     menu_code,
@@ -37,7 +37,7 @@ select
 from
     tbl_menu
 order by
-    2; -- 컬럼순서
+    2; -- select 절의 컬럼순서! table의 컬럼순서가 아니다.
 
 -- 별칭으로 컬럼지정
 select
@@ -72,11 +72,11 @@ select
 select
     menu_name,
     orderable_status,
-    field(orderable_status, 'Y', 'N')
+    field(orderable_status, 'Y', 'N') -- 'Y'는 1, 'N'은 2
 from
     tbl_menu
 order by
-    field(orderable_status, 'N', 'Y');
+    field(orderable_status, 'N', 'Y'); -- 'Y'와 'N'은 domain, 즉 범위
 
 -- null관련
 -- 오름차순 정렬에서 NULL값은 기본적으로 맨 위에 온다.
@@ -107,3 +107,12 @@ order by
     category_code is null desc, -- is null desc에서는 null값이 가장 먼저 나온다
     -- 찰순대쥬스는 1 (TRUE), 나머지는 0 (FALSE) -> 내림차순이므로 1이 먼저 나온다
     category_code desc;
+
+-- order by에서 특정행만 끌어올리기 위한 용도로 find_in_set 사용가능
+select
+    *
+from
+    tbl_menu
+order by
+    find_in_set(menu_code, '10') desc, -- menu_code가 10번만 1 (TRUE), 나머지는 0 (FALSE) -> 내림차순이므로 1이 먼저 나온다
+    find_in_set(menu_code, '20') desc;

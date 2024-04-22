@@ -553,6 +553,7 @@ select
     menu_price,
     case orderable_status
         when isnull(category_code) then '카테고리 없음'
+        when isnull(category_code) then '카테고리 없음'
         when !isnull(category_code) then category_code
     end category_code,
     case orderable_status
