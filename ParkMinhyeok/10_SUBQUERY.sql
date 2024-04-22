@@ -25,7 +25,6 @@
 -- 열무김치라떼 메뉴의 카테고리명 조회
 -- 1. tbl_menu 에서 열무김치라떼의 행을 찾고, category_code 조회
 -- 2. tbl_category 에서 특정행을 찾고, category_name 조회
-
 select category_code -- 0
 from tbl_menu
 where menu_name = '열무김치라떼';
