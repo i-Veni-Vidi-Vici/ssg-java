@@ -29,6 +29,8 @@
 -- 한우딸기국밥의 카테고리명 조회
 -- 1. 한우딸기국밥의 tbl_menu.category_code 조회
 -- 2. 1번의 결과를 가지고 tbl_category.category_name 조회
+use menudb;
+
 select
     category_code -- 4
 from
@@ -92,7 +94,7 @@ select
     b.category_name
 from
     tbl_menu a inner join tbl_category b
-                          using (category_code);
+        using (category_code);
 #         on a.category_code = b.category_code;
 
 -- --------------------------------
@@ -108,8 +110,8 @@ from
 -- tbl_category.category_code가 상대테이블 tbl_menu에서 사용되지 않은 4행은 제외되었다.
 
 -- 메뉴 조회 (카테고리 없는 메뉴도 포함)
-    select
-*
+select
+    *
 from
     tbl_menu m left outer join tbl_category c
         on m.category_code = c.category_code;
@@ -121,8 +123,8 @@ from
 -- tbl_menu.category_code가 null인 찰순대쥬스행은 제외되었다.
 
 -- 카테고리를 조회 (연결된 메뉴가 없는 카테고리도 포함)
-    select
-*
+select
+    *
 from
     tbl_menu m right outer join tbl_category c
         on m.category_code = c.category_code; -- 25행 (21행 + 4행(식사,음료,디저트,퓨전))
@@ -158,6 +160,7 @@ select
 from
     employee e join department d
                     on e.dept_code = d.dept_id; -- 22행
+
 
 -- 좌측외부조인 (24행) : 22행 + 2행 (dept_code가 null행 추가)
 -- 사원조회(부서 지정안된 사원도 포함)
@@ -217,7 +220,7 @@ select
     *
 from
     tbl_category c1 join tbl_category c2
-                         on c1.category_code = c2.ref_category_code; -- c1 상위카테고리 - c2 하위카테고리
+        on c1.category_code = c2.ref_category_code; -- c1 상위카테고리 - c2 하위카테고리
 
 -- SELF 왼쪽 외부조인
 -- 카테고리 조회(상위카테고리는 모두 조회)
@@ -225,7 +228,7 @@ select
     *
 from
     tbl_category c1 left join tbl_category c2
-                              on c1.category_code = c2.ref_category_code; -- 18행 (9행 + 9행)
+            on c1.category_code = c2.ref_category_code; -- 18행 (9행 + 9행)
 
 -- SELF 오른쪽 외부조인
 -- 카테고리 조회(하위카테고리는 모두 조회)
@@ -243,6 +246,16 @@ select * from employee;
 -- 내부조인
 -- 1. e테이블에서 manager_id가 null인 행이 제외
 -- 2. m테이블에서는 m.emp_id가 상응하는 e.manager_id가 없는 경우 제외 (관리하는 부하직원이 없는경우)
+select
+    e1.EMP_ID,
+    e1.EMP_NAME,
+    e2.emp_id,
+    e2.emp_name
+from
+    employee e1 join employee e2
+    on e1.MANAGER_ID = e2.EMP_ID;
+
+
 select
     e.emp_id,
     e.emp_name,
