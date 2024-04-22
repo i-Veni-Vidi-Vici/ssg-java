@@ -57,13 +57,19 @@ FROM
     TB_PROFESSOR;
 
 -- 5.
+SELECT * FROM tb_student;
 SELECT
     STUDENT_NO,
-    STUDENT_NAME
+    STUDENT_NAME,
+    YEAR(ENTRANCE_DATE)
+        - (IF(MID(STUDENT_SSN, 8, 1) IN ('1', '2'), 1900, 2000) + LEFT(STUDENT_SSN, 2)) "입학당시 만나이"
 FROM
     TB_STUDENT
 WHERE
-    YEAR(ENTRANCE_DATE) - (IF(MID(STUDENT_SSN, 8, 1) = '1' OR MID(STUDENT_SSN, 8, 1) = '2', 1900, 2000) + LEFT(STUDENT_SSN, 2)) > 19
+    -- 입학년도 - 출생년도(yymmdd -> yyyymmdd (주민번호 뒷 첫자리 유추))
+    YEAR(ENTRANCE_DATE)
+        - (IF(MID(STUDENT_SSN, 8, 1) IN ('1', '2'), 1900, 2000) + LEFT(STUDENT_SSN, 2))
+            > 19
 ORDER BY
     1;
 
@@ -72,7 +78,7 @@ SELECT
     DATE_FORMAT('2020-12-25', '%y-%m-%d(%a)');
 
 -- 7.
--- %y 2자리로 년도를 유추하면 1970년 ~ 2069사이에서 유추한다.
+-- %y 2자리로 년도를 유추하면 1970년 ~ 2069년사이에서 유추한다.
 SELECT STR_TO_DATE('99/10/11', '%y/%m/%d'); -- 1999-10-11
 SELECT STR_TO_DATE('49/10/11', '%y/%m/%d'); -- 2049-10-11
 SELECT STR_TO_DATE('70/10/11', '%y/%m/%d'); -- 1970-10-11
@@ -176,5 +182,24 @@ GROUP BY
     SUBSTR(TERM_NO, 1, 4), -- 연도
     SUBSTR(TERM_NO, 5, 2)  -- 학기
     WITH ROLLUP
+ORDER BY
+    1 IS NULL ASC, 2 IS NULL ASC;
+
+-- group by + with roll up-> select grouping
+SELECT DISTINCT
+#     SUBSTR(TERM_NO, 1, 4) 년도,
+#     SUBSTR(TERM_NO, 5, 2) 학기,
+    IF(GROUPING(SUBSTR(TERM_NO, 1, 4)) = 0, SUBSTR(TERM_NO, 1, 4), '전체') 년도,
+    IF(GROUPING(SUBSTR(TERM_NO, 5, 2)) = 0, SUBSTR(TERM_NO, 5, 2), '소계') 학기,
+    ROUND(AVG(POINT), 1) 평점
+FROM
+    TB_GRADE
+WHERE
+    STUDENT_NO = 'A112113'
+GROUP BY
+    SUBSTR(TERM_NO, 1, 4), -- 연도
+    SUBSTR(TERM_NO, 5, 2),  -- 학기
+    TERM_NO
+WITH ROLLUP
 ORDER BY
     1 IS NULL ASC, 2 IS NULL ASC;
