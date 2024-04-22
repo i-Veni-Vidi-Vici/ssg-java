@@ -132,6 +132,21 @@ set
     category_code = (select category_code from (select category_code from tbl_menu where menu_name = '우럭스무디') t)
 where menu_code = 24;
 
+-- 서브쿼리를 인라인뷰로 감싸서 사용하면 가능하다.
+update
+    tbl_menu
+set
+    category_code = (
+        select
+            category_code
+        from
+            (select category_code from tbl_menu where menu_name = '우럭스무디') t
+    )
+where
+    menu_code = 24;
+
+select * from tbl_menu;
+
 -- 한식 메뉴의 가격을 1000원씩 인상하는 update문 작성
 -- DML은 트랜잭션 모드를 수동(Manual)로 지정해서 쿼리실행, db반영을 구분할 수 있음
 -- 트랜잭션 수동모드에서는 쿼리 실행 후, 별도의 commit 명령을 통해 결과 반영 (rollback 명령으로 변경사항 취소 가능)
