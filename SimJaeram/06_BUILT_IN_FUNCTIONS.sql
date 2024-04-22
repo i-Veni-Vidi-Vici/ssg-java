@@ -222,8 +222,7 @@ select ceiling(1234.56), -- 1235
 select floor(12.34),       -- 12
        truncate(12.34, 0), -- 12
        floor(-0.6),        -- -1
-       truncate(-0.6, 0);
--- 0
+       truncate(-0.6, 0); -- 0
 
 
 -- 나누기/나머지 연산
@@ -560,7 +559,7 @@ from tbl_menu;
 -- end
 
 -- (타입2) switch case
--- case 표현식 // 자바와 달리 표현식 부분에 연산이 와도 된다.
+-- case 표현식
 --    when 값1 then 결과값1
 --    when 값2 then 결과값2
 --    ...

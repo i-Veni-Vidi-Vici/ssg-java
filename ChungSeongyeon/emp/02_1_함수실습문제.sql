@@ -35,8 +35,8 @@ select
 from
     employee
 where
-    substring(EMP_NO, 1, 2) between '60' and '69'
-  and substring(EMP_NO, 8, 1) in ('1', '2');
+    substring(EMP_NO, 1, 2) between '60' and '69';
+#   and substring(EMP_NO, 8, 1) in ('1', '2');
 
 # 4. '010' 핸드폰 번호를 쓰지 않는 사람의 수를 출력하시오 (뒤에 단위는 명을 붙이시오)
 #
@@ -76,7 +76,7 @@ from employee;
 select
     EMP_NAME 직원명,
     JOB_CODE 직급코드,
-    concat('￦', format((SALARY + (SALARY * ifnull(BONUS, 0))), 0)) 연봉
+    concat('￦', format((SALARY + (SALARY * ifnull(BONUS, 0))) * 12, 0)) 연봉
 from
     employee;
 
@@ -111,11 +111,22 @@ select
               + (datediff(ifnull(QUIT_DATE, now()), HIRE_DATE) mod 7)) 근무일수
 from
     employee;
+-- ---------------------------------내가 한거
+select
+    emp_name,
+    hire_date,
+    quit_date,
+    truncate(datediff(ifnull(quit_date, now()), hire_date), 0) as 근무일수
+from
+    employee; -- 강사님 코드
 
 # 10. 직원명, 부서코드, 생년월일, 나이(만나이) 조회
 # 단, 생년월일은 주민번호에서 추출해서,
 # ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
 # 나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산함
+
+-- 한국나이 : 현재년도 - 출생년도 + 1
+-- 만나이 : 생일기준 truncate(datediff(오늘, 생일) / 365)
 select
     EMP_NAME 직원명,
     DEPT_CODE 부서코드,
@@ -125,7 +136,37 @@ select
     year(now()) - (substring(EMP_NO, 1, 2) + if(substring(EMP_NO, 1, 1) = '0', 2000, 1900))
         - if(date_format(now(), '%m%d') < substring(EMP_NO, 3, 4), 1, 0) 나이
 from
-    employee;
+    employee; -- 내가 한 거
+
+select
+    emp_name,
+    dept_code,
+    concat(
+            case
+                substr(emp_no, 8, 1)
+                when '1' then 1900
+                when '2' then 1900
+                else 2000
+                end + substr(emp_no, 1, 2), '년 ',
+            substr(emp_no, 3, 2), '월 ',
+            substr(emp_no, 5, 2), '일 ') 생년월일,
+    truncate(
+            datediff(
+                    now(),
+                    concat(
+                            case
+                                substr(emp_no, 8, 1)
+                                when '1' then 1900
+                                when '2' then 1900
+                                else 2000
+                                end + substr(emp_no, 1, 2),
+                            substr(emp_no, 3, 2),
+                            substr(emp_no, 5, 2)
+                    )
+            ) / 365
+        , 0)
+from
+    employee; -- 강사님 코드
 
 # 11. 직원들의 입사일로 부터 년도만 가지고, 각 년도별 입사인원수를 구하시오.
 # 아래형식으로 해당년도에 입사한 인원수를 조회하시오. (퇴사자 제외)

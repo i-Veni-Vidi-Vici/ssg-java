@@ -24,7 +24,7 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 # SET @@SESSION.SQL_LOG_BIN= 0;
 
 --
--- GTID state at the beginning of the backup 
+-- GTID state at the beginning of the backup
 --
 
 #SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '94354f81-ddca-11ee-a8a5-f220cd67b23d:1-342';
@@ -37,11 +37,11 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DEPARTMENT` (
-  `DEPT_ID` varchar(10) NOT NULL,
-  `DEPT_TITLE` varchar(100) DEFAULT NULL COMMENT '부서명',
-  `LOCATION_ID` varchar(100) NOT NULL,
-  PRIMARY KEY (`DEPT_ID`),
-  UNIQUE KEY `IDX_DEPARTMENT_DEPT_ID_PK` (`DEPT_ID`)
+                              `DEPT_ID` varchar(10) NOT NULL,
+                              `DEPT_TITLE` varchar(100) DEFAULT NULL COMMENT '부서명',
+                              `LOCATION_ID` varchar(100) NOT NULL,
+                              PRIMARY KEY (`DEPT_ID`),
+                              UNIQUE KEY `IDX_DEPARTMENT_DEPT_ID_PK` (`DEPT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='부서';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -63,28 +63,28 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `EMPLOYEE` (
-  `EMP_ID` varchar(3) NOT NULL,
-  `EMP_NAME` varchar(20) NOT NULL,
-  `EMP_NO` char(14) NOT NULL,
-  `EMAIL` varchar(25) DEFAULT NULL COMMENT '이메일',
-  `PHONE` varchar(12) DEFAULT NULL COMMENT '전화번호',
-  `DEPT_CODE` varchar(10) DEFAULT NULL COMMENT '부서코드',
-  `JOB_CODE` varchar(10) NOT NULL,
-  `SAL_LEVEL` char(2) NOT NULL,
-  `SALARY` double DEFAULT NULL COMMENT '급여',
-  `BONUS` double DEFAULT NULL COMMENT '보너스율',
-  `MANAGER_ID` varchar(3) DEFAULT NULL COMMENT '관리자사번',
-  `HIRE_DATE` datetime DEFAULT NULL COMMENT '입사일',
-  `QUIT_DATE` datetime DEFAULT NULL COMMENT '퇴사일',
-  `QUIT_YN` char(1) DEFAULT 'N' COMMENT '재직여부',
-  PRIMARY KEY (`EMP_ID`),
-  UNIQUE KEY `IDX_EMPLOYEE_EMP_ID_PK` (`EMP_ID`),
-  UNIQUE KEY `UQ_EMPLOYEE_EMP_NO` (`EMP_NO`),
+                            `EMP_ID` varchar(3) NOT NULL,
+                            `EMP_NAME` varchar(20) NOT NULL,
+                            `EMP_NO` char(14) NOT NULL,
+                            `EMAIL` varchar(25) DEFAULT NULL COMMENT '이메일',
+                            `PHONE` varchar(12) DEFAULT NULL COMMENT '전화번호',
+                            `DEPT_CODE` varchar(10) DEFAULT NULL COMMENT '부서코드',
+                            `JOB_CODE` varchar(10) NOT NULL,
+                            `SAL_LEVEL` char(2) NOT NULL,
+                            `SALARY` double DEFAULT NULL COMMENT '급여',
+                            `BONUS` double DEFAULT NULL COMMENT '보너스율',
+                            `MANAGER_ID` varchar(3) DEFAULT NULL COMMENT '관리자사번',
+                            `HIRE_DATE` datetime DEFAULT NULL COMMENT '입사일',
+                            `QUIT_DATE` datetime DEFAULT NULL COMMENT '퇴사일',
+                            `QUIT_YN` char(1) DEFAULT 'N' COMMENT '재직여부',
+                            PRIMARY KEY (`EMP_ID`),
+                            UNIQUE KEY `IDX_EMPLOYEE_EMP_ID_PK` (`EMP_ID`),
+                            UNIQUE KEY `UQ_EMPLOYEE_EMP_NO` (`EMP_NO`),
 #   KEY `FK_EMPLOYEE_DEPARTMENT` (`DEPT_CODE`),
-  KEY `FK_EMPLOYEE_JOB` (`JOB_CODE`),
-  CONSTRAINT `FK_EMPLOYEE_DEPARTMENT` FOREIGN KEY (`DEPT_CODE`) REFERENCES `DEPARTMENT` (`DEPT_ID`),
-  CONSTRAINT `FK_EMPLOYEE_JOB` FOREIGN KEY (`JOB_CODE`) REFERENCES `JOB` (`JOB_CODE`),
-  CONSTRAINT `CK_EMPLOYEE_QUIT_YN` CHECK ((`QUIT_YN` in (_utf8mb4'Y',_utf8mb4'N')))
+                            KEY `FK_EMPLOYEE_JOB` (`JOB_CODE`),
+                            CONSTRAINT `FK_EMPLOYEE_DEPARTMENT` FOREIGN KEY (`DEPT_CODE`) REFERENCES `DEPARTMENT` (`DEPT_ID`),
+                            CONSTRAINT `FK_EMPLOYEE_JOB` FOREIGN KEY (`JOB_CODE`) REFERENCES `JOB` (`JOB_CODE`),
+                            CONSTRAINT `CK_EMPLOYEE_QUIT_YN` CHECK ((`QUIT_YN` in (_utf8mb4'Y',_utf8mb4'N')))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='사원';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,10 +106,10 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `JOB` (
-  `JOB_CODE` varchar(10) NOT NULL,
-  `JOB_NAME` varchar(35) DEFAULT NULL COMMENT '직급명',
-  PRIMARY KEY (`JOB_CODE`),
-  UNIQUE KEY `IDX_JOB_CODE_PK` (`JOB_CODE`)
+                       `JOB_CODE` varchar(10) NOT NULL,
+                       `JOB_NAME` varchar(35) DEFAULT NULL COMMENT '직급명',
+                       PRIMARY KEY (`JOB_CODE`),
+                       UNIQUE KEY `IDX_JOB_CODE_PK` (`JOB_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='직급';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -131,11 +131,11 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `LOCATION` (
-  `LOCAL_CODE` char(2) NOT NULL,
-  `NATIONAL_CODE` char(2) NOT NULL,
-  `LOCAL_NAME` varchar(40) DEFAULT NULL COMMENT '지역명',
-  PRIMARY KEY (`LOCAL_CODE`),
-  UNIQUE KEY `IDX_LOCATION_LOCAL_CODE_PK` (`LOCAL_CODE`)
+                            `LOCAL_CODE` char(2) NOT NULL,
+                            `NATIONAL_CODE` char(2) NOT NULL,
+                            `LOCAL_NAME` varchar(40) DEFAULT NULL COMMENT '지역명',
+                            PRIMARY KEY (`LOCAL_CODE`),
+                            UNIQUE KEY `IDX_LOCATION_LOCAL_CODE_PK` (`LOCAL_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='지역';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -157,10 +157,10 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `NATION` (
-  `NATIONAL_CODE` char(2) NOT NULL,
-  `NATIONAL_NAME` varchar(35) DEFAULT NULL COMMENT '국가명',
-  PRIMARY KEY (`NATIONAL_CODE`),
-  UNIQUE KEY `IDX_NATION_NATIONAL_CODE_PK` (`NATIONAL_CODE`)
+                          `NATIONAL_CODE` char(2) NOT NULL,
+                          `NATIONAL_NAME` varchar(35) DEFAULT NULL COMMENT '국가명',
+                          PRIMARY KEY (`NATIONAL_CODE`),
+                          UNIQUE KEY `IDX_NATION_NATIONAL_CODE_PK` (`NATIONAL_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='국가';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,11 +182,11 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `SAL_GRADE` (
-  `SAL_LEVEL` char(2) NOT NULL,
-  `MIN_SAL` double DEFAULT NULL COMMENT '최소급여',
-  `MAX_SAL` double DEFAULT NULL COMMENT '최대급여',
-  PRIMARY KEY (`SAL_LEVEL`),
-  UNIQUE KEY `IDX_SAL_GRADE_SAL_LEVEL_PK` (`SAL_LEVEL`)
+                             `SAL_LEVEL` char(2) NOT NULL,
+                             `MIN_SAL` double DEFAULT NULL COMMENT '최소급여',
+                             `MAX_SAL` double DEFAULT NULL COMMENT '최대급여',
+                             PRIMARY KEY (`SAL_LEVEL`),
+                             UNIQUE KEY `IDX_SAL_GRADE_SAL_LEVEL_PK` (`SAL_LEVEL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='급여등급';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -218,10 +218,10 @@ from employee;
 -- 1. EMPLOYEE 테이블에서 남자만 사원번호, 사원명, 주민번호, 연봉을 나타내세요.
 -- 단, 주민번호의 뒷6자리는 `*`처리하세요.
 
-select EMP_ID AS 사원번호,
-       EMP_NAME AS 사원명,
+select EMP_ID                                    AS 사원번호,
+       EMP_NAME                                  AS 사원명,
        concat(substring(EMP_NO, 1, 8), '******') as 주민번호,
-       SALARY AS 연봉
+       SALARY                                    AS 연봉
 from employee
 where substring(EMP_NO, 8, 1) in ('1', '3');
 
@@ -246,4 +246,3 @@ select * from tbl_files;
 select file_no as 파일번호,
        SUBSTRING_INDEX(file_path, '\\', -1) as 파일명
 from tbl_files;
-
