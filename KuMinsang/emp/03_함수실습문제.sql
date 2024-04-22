@@ -97,7 +97,7 @@ select
             concat('20', substring(EMP_NO, 1, 6))
         ),
         '%Y년 %m월 %d일') as 생년월일,
-    format(
+    format (
             datediff(
                     now(),
                     if(substring(EMP_NO, 8, 1) = 1 or substring(EMP_NO, 8, 1) = 2,
@@ -106,7 +106,14 @@ select
                     )
             ) / 365,
         0
-    ) as 나이
+    ) as 만나이,
+# from
+#     employee;
+# -- (올해 - 생년) -if(생일이 지났는가?, 0, 1)
+# select
+#     EMP_NAME,
+    year(curdate()) - (if(substr(EMP_NO,8,1) in (1,2), 1900, 2000) + substring(EMP_NO, 1, 2))
+        - if((month(curdate())>= substring(EMP_NO, 3, 2)) && (day(curdate()) >= substring(EMP_NO,5, 2)), 0 , 1 ) as 만나이2
 from
     employee;
 

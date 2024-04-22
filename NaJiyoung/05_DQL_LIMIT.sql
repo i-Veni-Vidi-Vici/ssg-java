@@ -5,7 +5,7 @@
 -- Top-N분석, 페이징처리 등에 사용된다.
 
 # 문법
--- LIMIT offset, row_count;
+-- LIMIT [offset,] row_count;
 -- 1. offset 건너뛸 행수 (생략가능)
 -- 2. row_count 가져올 행수 (필수)
 
@@ -25,6 +25,16 @@ from
     tbl_menu
 order by
     menu_price desc
+limit
+    5;
+
+-- 가격이 제일 싼 메뉴 5개 조회
+select
+    *
+from
+    tbl_menu
+order by
+    menu_price
 limit
     5;
 
