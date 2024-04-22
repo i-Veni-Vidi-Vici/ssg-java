@@ -99,6 +99,7 @@ values (
           -- orderable_status도 Null No인데 안넣어서 오류지만 menu_price가 더 앞행이여서 오류에는 menu_price만 명시됨
 
 -- bulk insert문법
+-- 여러행을 동시에 insert
 -- 기본 insert 또는 컬럼지정 문법
 insert into
     tbl_menu
