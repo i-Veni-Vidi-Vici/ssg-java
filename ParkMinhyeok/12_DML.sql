@@ -228,3 +228,55 @@ select * from EMPLOYEE;
 -- --------------------------------------------------
 -- DELETE
 -- --------------------------------------------------
+-- 테이블의 행을 삭제하는 명령
+-- 실행결과 행수가 줄어든다.
+-- WHERE 특정행을 한정해서 사용해야 한다. (WHERE 절을 생략하면 모든행이 삭제된다.)
+select * from tbl_menu order by menu_price;
+
+-- where절을 작성하지 않으면, 모든 행을 삭제한다.
+delete from
+    tbl_menu
+where
+    menu_code = 28;
+
+-- limit 절을 이용한 삭제
+-- 가격이 제일 싼 2개 삭제
+delete from
+           tbl_menu
+order by
+    menu_price
+limit
+    2;
+
+-- ------------------------------------------------
+-- REPLACE
+-- ------------------------------------------------
+
+
+-- ------------------------------------------------
+-- MERGE
+-- ------------------------------------------------
+-- 병합 기능을 지원한다.
+-- merge 명령은 mysql 에서 지원하지 않는다. insert 사용.
+-- 서브쿼리를 이용한 대량이 데이터를 insert 할 수 있다.
+
+-- 테이블의 구조만 복사 (1 = 2 조건때문에 데이터는 복사되지 않는다.)
+-- 서브쿼리로 테이블을 생성하면, 테이블 NOT NULL 제약조건외에는 복사되지 않는다.(제약조건, default 값등은 제외)
+create table tbl_menu2
+as
+select * from tbl_menu where 1 = 2;
+
+select * from tbl_menu2;
+desc tbl_menu2;
+desc tbl_menu;
+
+alter table tbl_menu2
+add constraint primary key (menu_code);
+
+-- 서브쿼리를 이용한 데이터 병합
+insert into
+    tbl_menu2(menu_code, menu_name, menu_price, category_code, orderable_status)
+select
+    *
+from tbl_menu;
+select * from tbl_menu2;
