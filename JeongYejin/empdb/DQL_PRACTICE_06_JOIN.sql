@@ -1,3 +1,5 @@
+use empdb;
+
 -- 1
 select EMP_ID, EMP_NAME, PHONE, HIRE_DATE, QUIT_YN
 from employee

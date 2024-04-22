@@ -220,14 +220,20 @@ from tbl_sales;
 
 -- 지난 3개월 간의 판매 데이터 조회
 -- 중복제거 기능이 없는 union all 속도상 빠름
-select *
-from tbl_sales_202402
+select
+    *
+from
+    tbl_sales_202402
 union all
-select *
-from tbl_sales_202403
+select
+    *
+from
+    tbl_sales_202403
 union all
-select *
-from tbl_sales;
+select
+    *
+from
+    tbl_sales;
 
 -- 지난 3개월 간 제품별 판매량을 조회
 -- 모든 resultset은 테이블로써 참조가 가능. from (...) t (테이블 별칭 필수)

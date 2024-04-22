@@ -36,4 +36,6 @@ grant all privileges on empdb.* to 'sh'@'%';
 show grants for 'sh'@'%';
 
 
+create database chundb;
 
+grant all privileges on chundb.* to 'sh'@'%';

@@ -62,19 +62,31 @@ from employee E right join job J
 order by
     date(HIRE_DATE);
 
-
 -- 5. 전체 직원 중 연결된 관리자가 있는 직원의 인원을 출력하세요.
-select
-    count(*)
-from
-    employee
-where
-    !isnull(MANAGER_ID);
-
+select count(*)
+from employee
+where !isnull(MANAGER_ID);
 
 -- 6. 모든 직원의 직원명과 관리자의 직원명을 출력하세요.
 -- 참고. ‘모든 직원’이므로 관리자가 존재하지 않는 직원도 출력되어야 합니다.
 select
-
+    E1.EMP_NAME,
+    E2.EMP_NAME
+from employee E1
+    left join employee E2
+        on E1.MANAGER_ID = E2.MANAGER_ID
+order by E1.EMP_NAME;
 
 -- 7. 관리자가 존재하는 직원의 직원명, 부서명, 관리자의 직원명, 관리자의 부서명을 출력하세요.
+select
+    E.EMP_NAME,
+    D1.DEPT_TITLE,
+    M.EMP_NAME,
+    D2.DEPT_TITLE
+from employee E
+    join employee M
+        on E.MANAGER_ID = M.EMP_ID
+    join department D1
+        on E.DEPT_CODE = D1.DEPT_ID
+    join department D2
+        on E.DEPT_CODE = D2.DEPT_ID;
