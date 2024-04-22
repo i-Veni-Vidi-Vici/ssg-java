@@ -1,3 +1,4 @@
+use empdb;
 -- 1. 재직 중이고 휴대폰 마지막 자리가 2인 직원 중 입사일이
 --    가장 최근인 직원 3명의 사원번호, 직원명, 전화번호, 입사일, 퇴직여부를 출력하세요.
 select * from employee;
@@ -90,7 +91,9 @@ select
 from
     employee
 where
-    MANAGER_ID is not null;
+    MANAGER_ID is not null
+order by
+    1;
 
 -- 6. 모든 직원의 직원명과 관리자의 직원명을 출력하세요.
 --    참고. ‘모든 직원’이므로 관리자가 존재하지 않는 직원도 출력되어야 합니다.
@@ -100,20 +103,27 @@ select
     ifnull(e2.EMP_NAME, '관리자 없음') '관리자의 직원명'
 from employee e1
     left join employee e2
-        on e1.EMP_ID = e2.MANAGER_ID;
+        on e1.MANAGER_ID = e2.EMP_ID
+order by
+    e1.EMP_NAME;
 
 -- 7. 관리자가 존재하는 직원의 직원명, 부서명, 관리자의 직원명, 관리자의 부서명을 출력하세요.
+-- EMPLOYEE E1 JOIN EMPLOYEE E2 내부조인
+-- EMPLOYEE E1 LEFT JOIN DEPARTMENT D1 외부조인(E1.DEPT_CODE가 null인 레코드가 없으므로 내부조인과 똑같다)
+-- EMPLOYEE E2 LEFT JOIN DEPARTMENT D2 외부조인(E2.DEPT_CODE가 null인 레코드가 없으므로 내부조인과 똑같다)
 select * from employee;
 select * from department;
 select
-    ifnull(e1.EMP_NAME, '관리자 없음') '관리자가 존재하는 직원의 직원명',
+    e1.EMP_NAME 직원명,
     d1.DEPT_TITLE 부서명,
     e2.EMP_NAME '관리자의 직원명',
     d2.DEPT_TITLE '관리자의 부서명'
 from employee e1
     join employee e2
-        on e1.EMP_ID = e2.MANAGER_ID
-    join department d1
+        on e1.MANAGER_ID = e2.EMP_ID
+    left join department d1
         on e1.DEPT_CODE = d1.DEPT_ID
-    join department d2
-        on e2.DEPT_CODE = d2.DEPT_ID;
+    left join department d2
+        on e2.DEPT_CODE = d2.DEPT_ID
+order by
+    e1.EMP_NAME;

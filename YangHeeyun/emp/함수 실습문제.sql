@@ -14,9 +14,9 @@ from
 
 -- 3. 60년대에 태어난 직원명과 년생, 보너스 값을 출력하시오 그때 보너스 값이 null인 경우에는 0 이라고 출력 되게 만드시오
 select
-    emp_name,
-    concat('19',substring(emp_no,1,2),'년생'),
-    ifnull(bonus,0)
+    emp_name 직원명,
+    concat('19',substring(emp_no,1,2),'년생') 출생연도,
+    ifnull(bonus,0) 보너스
 from
     employee
 where
@@ -47,15 +47,15 @@ select
     select emp_name 직원명,
     insert(emp_no,9,6,'') 주민번호
 from
-    employee
+    employee;
 
 -- 7. 직원명, 직급코드, 연봉(원) 조회. 단, 연봉은 ￦57,000,000 으로 표시되게 함. (연봉은 보너스포인트가 적용된 1년치 급여)
 select
     emp_name 직원명,
     job_code 직급코드,
-    format(salary * 12 * bonus,0)
+    format(salary * 12 * ifnull(bonus,0),0)
 from
-    employee
+    employee;
 
 -- 8. 부서코드가 D5, D9인 직원들 중에서 2004년도에 입사한 직원중에 조회함. (사번 사원명 부서코드 입사일)
 select
