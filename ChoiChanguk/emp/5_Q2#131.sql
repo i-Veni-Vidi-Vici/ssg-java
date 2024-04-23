@@ -55,11 +55,13 @@ left join job j on e.JOB_CODE=j.JOB_CODE;
 
 # 8. 급여등급테이블 sal_grade의 등급별 최대급여(MAX_SAL)보다 많이 받는 직원들의 사원명, 직급명, 급여, 연봉을 조회하시오.
 select EMP_NAME as 사원명, JOB_NAME as 직급명, SALARY as 급여, (SALARY + SALARY * ifnull(BONUS,0))*12 as 연봉
-from sal_grade s
+from
+    sal_grade s
          join employee e
                    on s.SAL_LEVEL = e.SAL_LEVEL
           join job j
                    on e.JOB_CODE = j.JOB_CODE
+
 where SALARY + SALARY * ifnull(BONUS,0) > MAX_SAL;
 
 # 9. 한국(KO)과 일본(JP)에 근무하는 직원들의 사원명, 부서명, 지역명, 국가명을 조회하시오.
