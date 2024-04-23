@@ -74,4 +74,5 @@ from employee left join (select
                                          join nation
                                               on location.NATIONAL_CODE = nation.NATIONAL_CODE) t
                         on employee.DEPT_CODE = t.DEPT_ID
+where NATIONAL_NAME = '러시아'
 order by 위로금 desc;
