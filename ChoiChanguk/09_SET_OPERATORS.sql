@@ -88,11 +88,13 @@ select a.*
 from (select *
       from tbl_menu
       where category_code = 10) a
-         left join (select *
-                    from tbl_menu
-                    where menu_price < 9000) b
-                   on a.menu_code = b.menu_code
+         left join
+     (select *
+      from tbl_menu
+      where menu_price < 9000) b
+     on a.menu_code = b.menu_code
 where b.menu_code is null;
+
 
 -- -------------------------------------
 -- 상품 판매데이터 관리
