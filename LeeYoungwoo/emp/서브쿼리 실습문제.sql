@@ -63,3 +63,40 @@ order by 국가명 desc ;
 -- 4에서 작성한 쿼리를 활용하여 해당 부서의 국가가 ‘러시아’인 직원들을 대상으로,
 -- 직원의 사원번호, 직원명, 급여, 부서명, 국가명, 위로금을 출력하세요.
 -- 단, 위로금의 결과 집합 헤더는 ‘위로금’으로 출력되도록 하고, 위로금 내림차순으로 출력되도록 하세요.
+with money
+         as (with sub
+                      as (select d.DEPT_ID       부서코드,
+                                 d.DEPT_TITLE    부서명,
+                                 l.LOCAL_NAME    지역명,
+                                 n.NATIONAL_NAME 국가명
+                          from department d
+                                   left join location l on d.LOCATION_ID = l.LOCAL_CODE
+                                   left join nation n on l.NATIONAL_CODE = n.NATIONAL_CODE)
+             select e.EMP_ID   사원번호,
+                    e.EMP_NAME 직원명,
+                    e.SALARY   급여,
+                    s.부서명,
+                    s.국가명
+             from employee e
+                      left join sub s on e.DEPT_CODE = s.부서코드
+             where 국가명 = '러시아')
+select s.*,
+       e.SALARY + (select min(SALARY)
+                   from employee
+                   where EMP_ID in (with sub
+                                             as (select d.DEPT_ID       부서코드,
+                                                        d.DEPT_TITLE    부서명,
+                                                        l.LOCAL_NAME    지역명,
+                                                        n.NATIONAL_NAME 국가명
+                                                 from department d
+                                                          left join location l on d.LOCATION_ID = l.LOCAL_CODE
+                                                          left join nation n on l.NATIONAL_CODE = n.NATIONAL_CODE)
+                                    select e.EMP_ID 사원번호
+                                    from employee e
+                                             left join sub s on e.DEPT_CODE = s.부서코드
+                                    where 국가명 = '러시아')
+                   group by SAL_LEVEL) 위로금
+from employee e
+         join money s on e.EMP_ID = s.사원번호
+order by 위로금 desc ;
+
