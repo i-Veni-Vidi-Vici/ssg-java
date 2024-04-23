@@ -23,6 +23,7 @@ select *from user;
 -- mysql에서는 schemadhk database가 같은 의미로 사용된다.
 create database menudb;
 create database empdb;
+create database chundb;
 create schema menudb;
 
 
@@ -31,6 +32,7 @@ create schema menudb;
 -- 한 사용자 n개의 db를 사용할 수도 있고, 한 db를 여러명의 사용자가 제어할 수도 없다.
 grant all privileges on menudb.* to 'sh'@'%';
 grant all privileges on empdb.* to 'sh'@'%';
+grant all privileges on chundb.* to 'sh'@'%';
 
 
 -- sh사용자에게 부여된 권환 확인
