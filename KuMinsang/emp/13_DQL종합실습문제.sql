@@ -27,7 +27,7 @@ where
     and SALARY = (select max(SALARY)
                   from employee
                   where DEPT_CODE = 'D8'
-                  group by DEPT_CODE)
+                  group by DEPT_CODE);
 
 
 # 3. 매니저가 있는 사원중에 월급이 전체사원 평균보다 많은 사원의 사번,이름,매니저 이름, 월급을 구하시오.
