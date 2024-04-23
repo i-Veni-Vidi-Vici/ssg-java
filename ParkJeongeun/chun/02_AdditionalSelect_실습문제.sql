@@ -79,8 +79,8 @@ from tb_grade
 where STUDENT_NO = 'A112113'
 group by 년도;
 
-############ 12.
--- (나) : 53행,,
+# 12.
+/* (나) : 53행,,
 select
     tb_department.DEPARTMENT_NO 학과코드명,
     count(*)  휴학생수
@@ -89,28 +89,43 @@ from tb_student right join tb_department
 where ABSENCE_YN = 'Y'
 group by tb_department.DEPARTMENT_NO
 order by tb_department.DEPARTMENT_NO;
+ */
 
--- (모범답안)
+-- (모범답안) 62행
 select
-    DEPARTMENT_NO,
-    count(STUDENT_NO)
+    DEPARTMENT_NO 학과코드명,
+    sum(if(ABSENCE_YN = 'Y', 1, 0)) 휴학생수
 from tb_student
-where ABSENCE_YN = 'Y'
 group by DEPARTMENT_NO;
+
+-- 체육학과 포함 (63행)
+select
+    tb_department.DEPARTMENT_NO 학과코드명,
+    sum(if(ABSENCE_YN = 'Y', 1, 0)) 휴학생수
+from tb_student right join tb_department
+    on tb_student.DEPARTMENT_NO = tb_department.DEPARTMENT_NO
+group by tb_department.DEPARTMENT_NO;
 
 select *
 from tb_student;
 
-############# 13.
-
-
-############# 14.
+# 13.
 select
-    year(TERM_NO),
-    month(TERM_NO),
-    POINT
-from tb_grade
-where STUDENT_NO = 'A112113';
+    STUDENT_NAME,
+    count(*)
+from tb_student s1
+where STUDENT_NAME in (select STUDENT_NAME
+                      from tb_student s2
+                      where s1.STUDENT_NO != s2.STUDENT_NO && s1.STUDENT_NAME = s2.STUDENT_NAME)
+group by STUDENT_NAME;
 
-select *
-from tb_department;
+# 14.
+select
+    substr(TERM_NO, 1, 4) 년도,
+    substr(TERM_NO, 5, 2) 학기,
+    round(avg(POINT), 1) 평점
+from tb_grade
+where STUDENT_NO = 'A112113'
+group by
+    substr(TERM_NO, 1, 4),
+    substr(TERM_NO, 5, 2) with rollup;
