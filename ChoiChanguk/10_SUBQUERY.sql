@@ -35,19 +35,28 @@ where category_code=8;
 
 -- 서브쿼리로 작성
 
-select category_name
-from tbl_category
-where category_code=(
-    select category_name
-    from tbl_category
-    where category_code=8
+select
+    category_name
+from
+    tbl_category
+where
+    category_name
+        in(
+    select
+        category_name
+    from
+        tbl_category
+    where
+        category_code=8
     );
+select *
+from tbl_category;
 
 # 단일행 서브쿼리
 -- 민트미역국과 같은 카테고리의 메뉴 조회
 -- 1. 민트미역국의 카테고리 코드 조회(서브쿼리)
 -- 2. 카테고리코드가 1번과 동일한 메뉴 조회(메인쿼리)
-select menu_name, category_code
+select menu_name, category_code, orderable_status
 from tbl_menu
 where category_code= (
     select category_code
@@ -65,8 +74,9 @@ where category_code= (
 # [21000][1242] Subquery returns more than 1 row
 select *
 from tbl_menu
-where category_code in (
-    select category_code
+where category_code in
+      (
+    select *
     from tbl_category
     where ref_category_code=1
     );
@@ -85,7 +95,10 @@ where category_code in (
 
 -- 카테고리별로 가격이 가장 비싼 메뉴 조회
 -- 1. 조인으로 해결하기
-select category_code as 카테고리,count(category_code) as 수량, max(menu_price) as 비싼물품
+select
+    category_code as 카테고리,
+    count(category_code) as 수량,
+    max(menu_price) as 비싼물품
 from tbl_menu
 group by category_code;
 
@@ -134,7 +147,7 @@ where menu_price = (
     /*카테고리별 최고 비싼 금액*/
 # 지금 for(tbl menu a)문안에
     # if where( if where) 이렇게 쓴 느낌이다
-    # 그러니깐 바깥쪽에 있는 카테고리 번호를를 안쪽에 있는 where안에 넣어서 나온 값을 기준으로 max값을 반환하고
+    # 그러니깐 바깥쪽에 있는 카테고리 번호를 안쪽에 있는 where안에 넣어서 나온 값을 기준으로 max값을 반환하고
     # 그 카테고리 번호의 가격과 반환된 max값을 비교한다
     select max(menu_price)
     from tbl_menu
@@ -145,7 +158,11 @@ where menu_price = (
 -- 카테고리별 가격>평균가격의 메뉴 조회
 -- 메인쿼리 테이블 별칭이 반드시 필요하다
 
-select category_code as 카테고리,menu_name as 메뉴이름,menu_price as 가격
+select
+    category_code as 카테고리,
+    menu_name as 메뉴이름,
+    menu_price as 가격
+
 from tbl_menu as main
 where menu_price>=(
     select avg(menu_price) as 평균가격
