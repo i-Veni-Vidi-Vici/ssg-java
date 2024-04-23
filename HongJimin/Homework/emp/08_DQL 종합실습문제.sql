@@ -156,6 +156,7 @@ create table tbl_hierarchy_menu(
                                    menu_name varchar(100),
                                    parent_no int
 );
+
 -- drop table tbl_hierarchy_menu;
 start transaction;
 insert into tbl_hierarchy_menu values(1, '주메뉴1', null);
