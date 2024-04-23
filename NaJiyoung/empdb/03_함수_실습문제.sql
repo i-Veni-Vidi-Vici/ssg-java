@@ -1,3 +1,5 @@
+use empdb;
+
 -- 1. 직원명과 이메일 , 이메일 길이를 출력하시오
 -- 홍길동 hong@kh.or.kr 13
 select EMP_NAME, EMAIL, length(EMAIL)
@@ -59,21 +61,9 @@ select EMP_NAME 직원명, DEPT_CODE 부서코드,
             else '20'
             end,
             left(EMP_NO, 2), '년 ', substring(EMP_NO, 3, 2), '월 ', substring(EMP_NO, 5, 2), '일') 생년월일,
-       if(substring(EMP_NO, 3, 4) <= concat(month(now()), day(now())),
-          year(now()) - concat( -- 생일이 지난 경우
-               case substring(EMP_NO, 8, 1)
-                   when '1' then '19'
-                   when '2' then '19'
-               else '20'
-               end,
-               left(EMP_NO, 2)),
-          year(now()) - concat( -- 생일이 안지난 경우
-                case substring(EMP_NO, 8, 1)
-                    when '1' then '19'
-                    when '2' then '19'
-                else '20'
-                end,
-                left(EMP_NO, 2)) - 1) 만나이
+       year(now()) - concat(
+               if(substring(EMP_NO, 8, 1) in ('1', '2'), '19', '20'), left(EMP_NO, 2))
+           - if(substring(EMP_NO, 3, 2) <= month(now()) and substring(EMP_NO, 5, 2) <= day(now()), 0, 1) 만나이
 from employee;
 
 
