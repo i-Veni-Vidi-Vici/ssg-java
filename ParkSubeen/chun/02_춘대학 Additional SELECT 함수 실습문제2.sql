@@ -50,7 +50,7 @@ from
     tb_student
 where
     year(ENTRANCE_DATE) -
-    (if(substr(STUDENT_SSN, 8, 1) = '1' or substr(STUDENT_SSN, 8, 1) = '2', 1900, 2000) + substr(STUDENT_SSN, 1, 2))
+    (if(substr(STUDENT_SSN, 8, 1) in ('1', '2'), 1900, 2000) + substr(STUDENT_SSN, 1, 2))
     > 19
 order by
     1;
@@ -60,6 +60,7 @@ select date_format('20201225', '%W');
 
 -- 7. STR_TO_DATE('99/10/11', '%y/%m/%d') STR_TO_DATE('49/10/11', '%y/%m/%d')은 각각 몇 년 몇 월 몇 일을 의미할까?
 -- 또 STR_TO_DATE('70/10/11', '%y/%m/%d') STR_TO_DATE('69/10/11', '%y/%m/%d')은 각각 몇 년 몇 월 몇 일을 의미할까?
+-- %y 2자리로 년도를 유추하면 1970년 ~ 2069년 사이에서 유추한다.
 select STR_TO_DATE('99/10/11', '%y/%m/%d'); -- 1999-10-11
 select STR_TO_DATE('49/10/11', '%y/%m/%d'); -- 1949-10-11
 select STR_TO_DATE('70/10/11', '%y/%m/%d'); -- 1970-10-11
@@ -127,6 +128,7 @@ order by
     1;
 
 -- 14. 학번이 A112113 인 김고운 학생의 년도, 학기 별 평점과 년도 별 누적 평점 , 총평점을 구하는 SQL 문을 작성하시오. (단, 평점은 소수점 1 자리까지만 반올림하여 표시한다.)
+-- group by + with rollup -> select grouping
 select
     left(TERM_NO, 4) 년도,
     right(TERM_NO, 2) 학기,
@@ -144,3 +146,14 @@ where
 group by
     left(TERM_NO, 4),
     right(TERM_NO, 2) with rollup;
+
+-- grouping을 사용하고 싶을 때
+-- temp_no의 값이 group by로 인해 찾을 수 없게 되었기 때문에 추가로 group by절에 temp_no을 선언해준다.
+-- 그렇게 되면 값이 중복되어 2번씩 나오는 현상이 발생하기 때문에 distinct를 사용하여 중복을 제거해준다.
+select distinct
+    if(grouping(left(TERM_NO, 4)) = 0, left(TERM_NO, 4), '총 평점') 년도,
+    if(grouping(substring(TERM_NO, 5, 2)) = 0, substring(TERM_NO, 5, 2), '학기 별 평점') 학기,
+    round(avg(POINT), 1) 평점
+from tb_grade
+where STUDENT_NO = 'A112113'
+group by left(TERM_NO, 4), substring(TERM_NO, 5, 2), TERM_NO with rollup;
