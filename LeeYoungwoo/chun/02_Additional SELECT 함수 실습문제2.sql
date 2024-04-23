@@ -101,9 +101,9 @@ where  s1.STUDENT_NO != s2.STUDENT_NO and s1.STUDENT_NAME = s2.STUDENT_NAME
 group by s1.STUDENT_NAME;
 
 -- 14. 학번이 A112113 인 김고운 학생의 년도, 학기 별 평점과 년도 별 누적 평점 , 총평점을 구하는 SQL 문을 작성하시오. (단, 평점은 소수점 1 자리까지만 반올림하여 표시한다.
-select substring(TERM_NO, 1, 4) 년도,
-       substring(TERM_NO, 5, 2) 학기,
-       round(avg(POINT), 1) 평점
+select  substring(TERM_NO, 1, 4) 년도,
+        substring(TERM_NO, 5, 2) 학기,
+        round(avg(POINT), 1) 평점
 from tb_grade
 where STUDENT_NO = 'A112113'
-group by TERM_NO with rollup ;
+group by substring(TERM_NO, 1, 4),substring(TERM_NO, 5, 2) with rollup ;
