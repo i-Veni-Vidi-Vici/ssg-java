@@ -118,7 +118,7 @@ from
     tb_student s join tb_professor p on s.COACH_PROFESSOR_NO = p.PROFESSOR_NO
     join tb_department d on s.DEPARTMENT_NO = d.DEPARTMENT_NO
 where
-    STUDENT_NO = 'A313047'
+    STUDENT_NO = 'A313047';
 
 # 12. 2022년도에 인간관계론 과목을 수강한 학생을 찾아 학생이름과 수강학기를 표시하는 SQL 문장을 작성하시오
 select
@@ -203,16 +203,12 @@ limit 1;
 # 19. 춘 기술대학교의 "환경조경학과"가 속한 같은 계열 학과들의 학과 별 전공과목 평점을 파악하기 위한 적절한 SQL 문을 찾아내시오. 단, 출력헤더는 "계열 학과명", "전공평점"으로 표시되도록 하고, 평점은 소수점 한 자리까지만 반올림하여 표시되도록 한다.
 select
     d.DEPARTMENT_NAME 계열학과명,
-    round(avg((select avg(POINT)
-            from tb_grade g
-            where g.CLASS_NO =c.CLASS_NO
-            group by c.CLASS_NO )
-            ),
-          1) 전공평점
+    round(avg(POINT),1) 전공평점,
+    avg(point)평점
 from
-    tb_department d join tb_class c on d.DEPARTMENT_NO = c.DEPARTMENT_NO
+    tb_department d join tb_class c on d.DEPARTMENT_NO = c.DEPARTMENT_NO join tb_grade g on g.CLASS_NO = c.CLASS_NO
 where d.CATEGORY = (select CATEGORY from tb_department where DEPARTMENT_NAME = '환경조경학과')
-    and c.CLASS_TYPE like '전공%'
-group by
-    DEPARTMENT_NAME
+  and c.CLASS_TYPE like '전공%'
+ group by
+     d.DEPARTMENT_NAME
 order by 1;
