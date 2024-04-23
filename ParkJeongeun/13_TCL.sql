@@ -2,6 +2,7 @@
 -- TCL
 -- ===============
 -- Transaction Control Language 트랜잭션 제어어
+-- DCL 하위로 분류
 -- commit(변경사항 반영), rollback(변경사항 취소), savepoint(변경사항 중간 임시저장) 명령어 지원
 
 # 트랜잭션
