@@ -1,4 +1,5 @@
 # 165
+use chundb;
 
 -- 1
 select student_no 학번, student_name 이름, date_format(entrance_date, '%y-%m-%d') 입학년도
@@ -42,12 +43,14 @@ select STUDENT_NO, STUDENT_NAME
 from tb_student s join (
     select STUDENT_NO,
         case
-            when substr(STUDENT_SSN, 8, 1) in (3, 4) then substr(concat(20, STUDENT_SSN), 1 ,4)
-            when substr(STUDENT_SSN, 8, 1) in (1, 2) then substr(concat(19, STUDENT_SSN), 1 ,4)
+            when substr(STUDENT_SSN, 8, 1) in (3, 4) then concat(20, left(STUDENT_SSN, 2))
+            -- substr, substring, mid의 사용법이 같다!
+            when substr(STUDENT_SSN, 8, 1) in (1, 2) then concat(19, left(STUDENT_SSN, 2))
+            -- left써보기!
             end birth_year
     from tb_student
 ) t using(student_no)
-where year(ENTRANCE_DATE) - 19 > t.birth_year; -- (입학년도-19)했을 때 기준연도(현역)가 출생연도보다 큰가(어린가)?
+where year(ENTRANCE_DATE) - 19 > t.birth_year; -- (입학년도-19(살))했을 때 기준연도(현역)가 출생연도보다 큰가(어린가)?
 
 -- 6
 -- 지역 변경
@@ -99,7 +102,19 @@ having count(*)>=2
 order by 1;
 
 -- 14
-select substr(TERM_NO, 1, 4) 년도, substr(TERM_NO, 5,2) 학기, round(avg(point),1) 평점
+# select substr(TERM_NO, 1, 4) 년도,
+#        substr(TERM_NO, 5,2) 학기,
+#        round(avg(point),1) 평점
+select if(grouping(substr(TERM_NO, 1, 4)) = 0, substr(TERM_NO, 1, 4), '전체')  년도,
+       if(grouping(substr(TERM_NO, 5,2)) = 0, substr(TERM_NO, 5,2), '소계') 학기,
+       round(avg(point),1) 평점
 from tb_grade
 where STUDENT_NO = 'A112113'
-group by substr(TERM_NO, 1, 4), substr(TERM_NO, 5,2) with rollup;
+group by substr(TERM_NO, 1, 4), substr(TERM_NO, 5,2), TERM_NO with rollup;
+
+select grouping(substr(TERM_NO, 1, 4)), -- with rollup과 함께 사용하는 grouping, 묶으면 1!
+       grouping(substr(TERM_NO, 5,2)),
+       round(avg(point),1)
+from tb_grade
+where STUDENT_NO = 'A112113'
+group by substr(TERM_NO, 1, 4), substr(TERM_NO, 5,2), TERM_NO with rollup ;
