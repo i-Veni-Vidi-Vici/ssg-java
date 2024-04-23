@@ -131,6 +131,8 @@ order by
     year is null,
     year;
 
+select * from employee;
+
 -- 12.부서코드가 D5이면 총무부, D6이면 기획부, D9이면 영업부로 처리하시오. (case 사용)
 -- 단, 부서코드가 D5, D6, D9 인 직원의 정보만 조회하고, 부서코드 기준으로 오름차순 정렬함.
 select
