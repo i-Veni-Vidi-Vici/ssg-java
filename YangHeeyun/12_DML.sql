@@ -38,21 +38,8 @@ desc tbl_menu;
 -- auto_increment 자동증가 컬럼(PK 고유식별컬럼)은 별도의 값을 작성하지 않아도, 자동으로 고유한 숫자값을 발급
 -- insert할시 빼먹어도 되고, null을 주면 알아서 숫자값이 들어감
 
--- 기본문법
-insert into
-    tbl_menu
-values (
-        null,
-        '바나나해장국',
-        8500,
-        4,
-        'Y'
-);
-select * from tbl_menu;
 -- ALTER TABLE tbl_menu AUTO_INCREMENT=26 ;
 
--- 컬럼명 제공 문법
--- 기본값(default)이 명시되지 않은 not null컬럼은 생략할 수 없다.
 -- 기본문법
 insert into
     tbl_menu
@@ -63,7 +50,6 @@ values(
           4,
           'Y'
       );
-
 insert into
     tbl_menu
 values(

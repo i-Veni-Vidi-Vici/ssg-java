@@ -15,15 +15,15 @@ select
     PROFESSOR_SSN
 from (select * from tb_professor where PROFESSOR_NAME not like '___') t;
 
-############# 3.
+# 3.
 select
-    PROFESSOR_NAME 교수명,
-    truncate(datediff(now(), concat(substr(PROFESSOR_SSN, 1, 2) + 1900,
-                                         substr(PROFESSOR_SSN, 3, 2),
-                                         substr(PROFESSOR_SSN, 5, 2)
-                                  )
-                     ) / 365
-    ) 나이
+    PROFESSOR_NAME '교수이름',
+    truncate((to_days(now()) - to_days(concat(substr(PROFESSOR_SSN, 1, 2) + 1900,
+                                     substr(PROFESSOR_SSN, 3, 2),
+                                     substr(PROFESSOR_SSN, 5, 2)
+                                      )
+                                )
+    ) / 365, 0) '나이'
 from tb_professor
 where substr(PROFESSOR_SSN, 8, 1) = '1';
 
@@ -54,8 +54,8 @@ select str_to_date('49/10/11', '%y/%m/%d'); -- 2049-10-11 ?!
 select str_to_date('70/10/11', '%y/%m/%d'); -- 1970-10-11
 select str_to_date('69/10/11', '%y/%m/%d'); -- 2069-10-11 ?!
 
-############### 8.
-select avg(POINT) 평점
+# 8.
+select round(avg(POINT),1) 평점
 from tb_grade
 where STUDENT_NO = 'A517178';
 
@@ -71,30 +71,61 @@ select count(*)
 from tb_student
 where COACH_PROFESSOR_NO is null;
 
-############ 11.
+# 11.
 select
-    str_to_date(TERM_NO, '%Y%m')
-from tb_grade;
+    substr(TERM_NO, 1, 4) '년도',
+    round(avg(POINT), 1) '년도별 평점'
+from tb_grade
+where STUDENT_NO = 'A112113'
+group by 년도;
 
-############ 12.
+# 12.
+/* (나) : 53행,,
 select
     tb_department.DEPARTMENT_NO 학과코드명,
     count(*)  휴학생수
 from tb_student right join tb_department
-    on tb_student.DEPARTMENT_NO = tb_department.DEPARTMENT_NO
+                           on tb_student.DEPARTMENT_NO = tb_department.DEPARTMENT_NO
 where ABSENCE_YN = 'Y'
+group by tb_department.DEPARTMENT_NO
+order by tb_department.DEPARTMENT_NO;
+ */
+
+-- (모범답안) 62행
+select
+    DEPARTMENT_NO 학과코드명,
+    sum(if(ABSENCE_YN = 'Y', 1, 0)) 휴학생수
+from tb_student
+group by DEPARTMENT_NO;
+
+-- 체육학과 포함 (63행)
+select
+    tb_department.DEPARTMENT_NO 학과코드명,
+    sum(if(ABSENCE_YN = 'Y', 1, 0)) 휴학생수
+from tb_student right join tb_department
+    on tb_student.DEPARTMENT_NO = tb_department.DEPARTMENT_NO
 group by tb_department.DEPARTMENT_NO;
 
-############# 13.
-
-
-############# 14.
-select
-    year(TERM_NO),
-    month(TERM_NO),
-    POINT
-from tb_grade
-where STUDENT_NO = 'A112113';
-
 select *
-from tb_department;
+from tb_student;
+
+# 13.
+select
+    STUDENT_NAME,
+    count(*)
+from tb_student s1
+where STUDENT_NAME in (select STUDENT_NAME
+                      from tb_student s2
+                      where s1.STUDENT_NO != s2.STUDENT_NO && s1.STUDENT_NAME = s2.STUDENT_NAME)
+group by STUDENT_NAME;
+
+# 14.
+select
+    substr(TERM_NO, 1, 4) 년도,
+    substr(TERM_NO, 5, 2) 학기,
+    round(avg(POINT), 1) 평점
+from tb_grade
+where STUDENT_NO = 'A112113'
+group by
+    substr(TERM_NO, 1, 4),
+    substr(TERM_NO, 5, 2) with rollup;

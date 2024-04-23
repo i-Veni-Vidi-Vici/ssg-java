@@ -9,34 +9,34 @@
 -- GROUP BY와 같이 데이터를 그룹핑한 결과를 반환하는데, 일반컬럼과 동시에 표현이 가능하다.
 
 # 구분
--- 순위관련 함수(Rank Function)
---  - RANK, DENSE_RANK, ROW_NUMBER
--- 집계관련 함수(Aggregate Function)
---  - SUM, MAX, MIN, AVG, COUNT
---  - SQL Server 경우 Over절 내 order by 지원 못함
--- 순서관련 함수
---  - FIRST_VALUE, LAST_VALUE, LAG, LEAD
---  - ORACLE 만 지원
--- 비율관련 함수
---  - CUME_DIST, PERCENT_RANK, NTILE, RATIO_TO_REPORT
---  - PERCENT_RANK 함수는 ANSI/ISO SQL 표준과 Oracle DBMS에서 지원
---  - NTILE 함수는 ANSI/ISO SQL 표준에는 없지만, Oracle, SQL Server에서 지원
---  - RATIO_TO_REPORT 함수는 Oracle에서만 지원(현업에서 유용).
--- 통계분석 함수
---  - CORR, COVAR_POP, COVAR_SAMP, STDDEV, STDDEV_POP, STDDEV_SAMP, VARIANCE, VAR_POP, VAR_SAMP, REGR_(LINEAR REGRESSION), REGR_SLOPE, REGR_INTERCEPT, REGR_COUNT, REGR_R2, REGR_AVGX, REGR_AVGY, REGR_SXX, REGR_SYY, REGR_SXY
-
+# 순위관련 함수(Rank Function)
+#  - RANK, DENSE_RANK, ROW_NUMBER
+# 집계관련 함수(Aggregate Function)
+#  - SUM, MAX, MIN, AVG, COUNT
+#  - SQL Server 경우 Over절 내 order by 지원 못함
+# 순서관련 함수
+#  - FIRST_VALUE, LAST_VALUE, LAG, LEAD
+#  - ORACLE 만 지원
+# 비율관련 함수
+#  - CUME_DIST, PERCENT_RANK, NTILE, RATIO_TO_REPORT
+#  - PERCENT_RANK 함수는 ANSI/ISO SQL 표준과 Oracle DBMS에서 지원
+#  - NTILE 함수는 ANSI/ISO SQL 표준에는 없지만, Oracle, SQL Server에서 지원
+#  - RATIO_TO_REPORT 함수는 Oracle에서만 지원(현업에서 유용).
+# 통계분석 함수
+#  - CORR, COVAR_POP, COVAR_SAMP, STDDEV, STDDEV_POP, STDDEV_SAMP, VARIANCE, VAR_POP, VAR_SAMP, REGR_(LINEAR REGRESSION), REGR_SLOPE, REGR_INTERCEPT, REGR_COUNT, REGR_R2, REGR_AVGX, REGR_AVGY, REGR_SXX, REGR_SYY, REGR_SXY
+#
 # 문법
--- window_function(인자) over([partition by][order by][windowing절])
--- 이자 : 윈도우함수별로 0-n개 작성
--- over절
-    -- partition by : group by와 비슷하게 윈도우함수내 그룹핑 지정
-    -- order by : order by와 비슷하게 윈도우 함수 내 정렬을 지원
-    -- windowing절 : 대상행 지정
-
-#순위함수
--- rank 중복된 행이 있는 경우, 개수만큼 다음 순위 부려 ex) 12333678
--- dense rank 중복된 행이 있는 경우에도, 순위를 건너뛰지 않음. ex) 12334567
--- row-number 중복된 행이 있어도 고유한 순위를 부여
+# window_function(인자) over([partition by][order by][windowing절])
+# 이자 : 윈도우함수별로 0-n개 작성
+# over절
+#     partition by : group by와 비슷하게 윈도우함수내 그룹핑 지정
+#     order by : order by와 비슷하게 윈도우 함수 내 정렬을 지원
+#     windowing절 : 대상행 지정
+#
+# 순위함수
+# rank 중복된 행이 있는 경우, 개수만큼 다음 순위 부려 ex) 12333678
+# dense rank 중복된 행이 있는 경우에도, 순위를 건너뛰지 않음. ex) 12334567
+# row-number 중복된 행이 있어도 고유한 순위를 부여
 use menudb;
 select
     menu_name as 메뉴이름,
@@ -121,19 +121,21 @@ group by category_code;
 -- 카레고리 계층 표현
 with recursive category_hierarchy (code, name, path)
     as (
-    select category_code as code,
-           category_name as name,
-    cast(category_code as char(100))
-        as path
-        from tbl_category
-        where ref_category_code is null
-        union all
-        select
-            tc.category_code,
+    select
+        category_code as code,
+        category_name as name,
+        cast(category_code as char(100))as path
+    from
+        tbl_category
+    where
+        ref_category_code is null
+    union all
+    select
+        tc.category_code,
         tc.category_name,
         concat(ch.path,'>',tc.category_code)
-        from category_hierarchy ch
-        join tbl_category tc on ch.code=tc.ref_category_code
+    from category_hierarchy ch
+    join tbl_category tc on ch.code=tc.ref_category_code
 )
 select *
 from category_hierarchy

@@ -33,7 +33,8 @@ from
 select
     menu_code, menu_name, category_code, orderable_status
 from
-    tbl_menu;
+    tbl_menu
+where menu_price>1000;
 
 -- ======================================소제목
 -- SELECT 문
