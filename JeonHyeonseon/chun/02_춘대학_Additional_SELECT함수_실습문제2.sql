@@ -57,18 +57,92 @@ select str_to_date('69/10/11', '%y/%m/%d'); -- 1969/10/11
 
 -- 8. 학번이 A517178 인 한아름 학생의 학점 총 평점을 구하는 SQL 문을 작성하시오.
 --    단, 이때 출력 화면의 헤더는 "평점" 이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
-select STUDENT_NAME
-from tb_student
-where STUDENT_NO = 'A517178';
-select STUDENT_NO
+-- 평균 = 학점 / 4(과목수)
+select
+    truncate(avg(point), 1) 평점
+from
+    tb_grade
+where STUDENT_NO = (
+    select STUDENT_NO
+    from tb_student
+    where STUDENT_NAME = '한아름'
+    );
+
+-- 9. 학과별 학생수를 구하여 "학과번호", "학생수(명)" 의 형태로 헤더를 만들어 결과값이 출력되도록 하시오.
+select
+    DEPARTMENT_NO 학과번호,
+    count(STUDENT_NO) '학생수(명)'
+from
+    tb_student
+group by
+    DEPARTMENT_NO;
+
+-- 10. 지도 교수를 배정받지 못한 학생의 수는 몇 명 정도 되는 알아내는 SQL 문을 작성하시오.
+select
+    count(*)
+from
+    tb_student
+where
+    COACH_PROFESSOR_NO is null;
+
+select count(*)
+from (
+        select
+            *
+        from
+            tb_student
+        where
+            COACH_PROFESSOR_NO is null
+) t1;
+
+-- 11. 학번이 A112113 인 김고운 학생의 년도 별 평점을 구하는 SQL 문을 작성하시오.
+--     단, 이때 출력 화면의 헤더는 "년도", "년도 별 평점" 이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
+select substring(TERM_NO, 1, 4) 년도
 from tb_grade
-where ;
+where STUDENT_NO = (select STUDENT_NO from tb_student where STUDENT_NAME = '김고운')
+group by TERM_NO;
+select truncate(avg(POINT), 1)
+from tb_grade
+where STUDENT_NO = 'A112113' and TERM_NO in ('201801', '201802');
+-- 평점 = point / 년도 별 수
+
+-- 12. 학과 별 휴학생 수를 파악하고자 한다. 학과 번호와 휴학생 수를 표시하는 SQL 문장을 작성하시오.
+select DEPARTMENT_NO 학과코드명, count(*) '휴학생 수'
+from tb_student
+where ABSENCE_YN = 'Y'
+group by DEPARTMENT_NO;
+
+select
+    DEPARTMENT_NO 학과코드명,
+    (select DEPARTMENT_NO from tb_department where DEPARTMENT_NO = t1.DEPARTMENT_NO)
+from tb_student t1;
+# where ABSENCE_YN = 'Y'
+# group by DEPARTMENT_NO;
+
 select *
 from tb_student;
-select sum(POINT) 총학점
-from tb_grade
-where STUDENT_NO = 'A517178';
 select *
+from tb_department;
+select *
+from tb_student
+group by DEPARTMENT_NO = 00;
+
+-- 13. 춘 대학교에 다니는 동명이인(同名異人) 학생들의 이름을 찾고자 한다. 어떤 SQL 문장을 사용하면 가능하겠는가?
+select *
+from tb_student;
+select
+from tb_student
+group by STUDENT_NAME
+having count(*);
+
+
+-- 14. 학번이 A112113 인 김고운 학생의 년도, 학기 별 평점과 년도 별 누적 평점 , 총평점을 구하는 SQL 문을 작성하시오.
+--     (단, 평점은 소수점 1 자리까지만 반올림하여 표시한다.
+select substring(TERM_NO, 1, 4) 년도, substring(TERM_NO, 5, 2) 학기, truncate(POINT, 1) 평점
 from tb_grade
-where STUDENT_NO = 'A517178';
--- 평균 = 학점 / 4(과목수)
+where
+    STUDENT_NO = (
+        select STUDENT_NO
+        from tb_student
+        where STUDENT_NAME = '김고운'
+    );
