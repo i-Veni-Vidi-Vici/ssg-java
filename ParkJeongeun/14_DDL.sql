@@ -19,26 +19,15 @@
 
 # 컬럼선언
 -- 컬럼명 자료형 [NOT NULL] [DEFAULT 기본값] [AUTO_INCREMENT] [제약조건(컬럼레벨)] [COMMENT 컬럼코멘트]
+
+# comment 작성
 CREATE TABLE IF NOT EXISTS  product1(
     id int comment '상품식별변호',
     name varchar(10) comment '상품명',
     created_at datetime comment '등록일시'
 ) comment = '상품테이블1';
 
-
-
-
-
-
-# comment 작성
-
-
-
-
-
-
-
--- 코멘트 확인
+-- comment 확인
 -- information_schema DB객체에 대한 메타 정보를 제공하는 스키마 (기본제공)
 -- 테이블 코멘트
 select table_comment
