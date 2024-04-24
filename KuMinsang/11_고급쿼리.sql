@@ -154,6 +154,7 @@ order by
 -- 사번, 사원명
 use empdb;
 select * from employee;
+
 with recursive employee_hierarchy (id, name, level, path)
                    as (
         select

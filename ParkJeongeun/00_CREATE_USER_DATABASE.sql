@@ -11,7 +11,7 @@
 -- '사용자명'@'접속위치'
 -- 접속위치를 %로 지정하면 외부접속 허용한다는 의미
 -- 접속위치를 localhost로 지정하면 내 컴퓨터에서만 접근 가능
-create user 'sh'@'%' identified by 'sh';
+create user 'sh'@'%' identified by 'sh'; -- identified by 비밀번호
 
 -- 사용자 확인
 show databases;

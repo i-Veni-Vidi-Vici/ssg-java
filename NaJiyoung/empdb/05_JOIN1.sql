@@ -1,3 +1,5 @@
+use empdb;
+
 -- 1. 2020년 12월 25일이 무슨 요일인지 조회하시오.
 select @@lc_time_names;
 set @@lc_time_names = 'ko_KR';
@@ -11,13 +13,11 @@ where substring(e.EMP_NO, 1, 1) = '7' and substring(e.EMP_NO, 8, 1) = '2' and e.
 
 -- 2. 가장 나이가 적은 직원의 사번, 사원명, 나이, 부서명, 직급명을 조회하시오.
 select e.EMP_ID 사번, e.EMP_NAME 사원명,
-       if(substring(e.EMP_NO, 3, 4) >= concat(month(now()), day(now())),
-            year(now()) -  concat('20', left(e.EMP_NO, 2)),
-            year(now()) - concat('20', left(e.EMP_NO, 2)) - 1) 나이,
+       year(now()) - concat(if(substring(e.EMP_NO, 8, 1) in ('1', '2'), '19', '20'), left(e.EMP_NO, 2))
+           - if(substring(e.EMP_NO, 3, 2) <= month(now()) and substring(e.EMP_NO, 5, 2) <= day(now()), 0, 1) 나이,
        d.DEPT_TITLE 부서명, j.JOB_NAME 직급명
 from employee e join department d on e.DEPT_CODE = d.DEPT_ID
                 join job j using (JOB_CODE)
-where substring(e.EMP_NO, 8, 1) = 3 or substring(e.EMP_NO, 8, 1) = 4
 order by 나이
 limit 1;
 

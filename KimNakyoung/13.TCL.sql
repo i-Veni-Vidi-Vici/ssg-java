@@ -2,16 +2,12 @@
 -- TCL
 -- ===================================
 -- Transaction Control Language 트랜잭션 제어어
--- commit(변경사항 반영), rollback(변경사항을 취소), savepoint(변경사항을 중간 임시저장) 명령어 지원\
+-- DCL 하위로 분류
+-- commit(변경사항 반영), rollback(변경사항을 취소), savepoint(변경사항을 중간 임시저장) 명령어 지원
 
-# 트랜잭션이란?
+# 트랜잭션이란
 -- 한꺼번에 처리되어야 할 최소한의 작업단위
--- 트랙잭션 범위의 DML명령은 모두 성공, 모두 실패되어야한다.
-
--- 계좌이체 : A은행 계좌에서 출금, B은행 계좌에 입금하는 행위
--- 1. a은행 update문 : balance = balance - money
--- 2. b은행 update문 : balance = balance + money
--- 1. 완료(commit) 또는 실패 (rollback)
+-- 트랙잭션 범위의 DML명령은 모두 성공, 모두 실패되어야 한다.
 
 # 트랜잭션 ACID 원칙
 -- 1. Atomicity : 원자성.
@@ -27,6 +23,11 @@
 --      - 완전히 반영되면 로그를 남기게 되는데, 후에 이 로그를 이용해서 트랜잭션 수행전 상태로 되돌릴 수 있어야 한다.
 --      - 때문에 트랜잭션은 로그저장이 완료된 시점에서 종료가 되어야 한다.
 
+-- 계좌이체 : a은행 계좌에서 출금, b은행 계좌에 입금하는 행위
+-- 1. a은행 update문 : balance = balance - money
+-- 2. b은행 update문 : balance = balance + money
+-- 3. 완료 (commit) 또는 실패 (rollback)
+
 create table kb_bank (
                          id int primary key,
                          name varchar(100) not null,
@@ -40,27 +41,27 @@ create table ssg_bank (
 insert into kb_bank values (1000, '홍길동', 1000000);
 insert into ssg_bank values (2000, '신사임당', 1000000);
 
-select * from kb_bank;
-
-
 -- 계좌이체 트랜잭션
-start transaction ; -- 트랙잭션을 수동으로 제어 ( 묶어서 처리해야 될 때만)
+start transaction; -- 트랙잭션을 수동으로 제어
+
 update
-kb_bank
+    kb_bank
 set
     balance = balance - 500000
 where
     id = 1000;
+
 update
-ssg_bank
+    ssg_bank
 set
     balance = balance + 500000
-where id = 2000;
+where
+    id = 2000;
 
 -- 트랜잭션 내부 처리가 모두 성공한 경우에만 commit
-commit ;
--- 트랜잭션 내부 처리가 하나라도 실패한 경우 rollback
+commit;
+-- 트랜잭션 내부처리가 하나라도 실패한 경우는 rollback
+rollback;
 
 select * from kb_bank;
 select * from ssg_bank;
-
