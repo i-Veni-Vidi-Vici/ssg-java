@@ -1,0 +1,4 @@
+**/ubuntu-mysql/
+**/*.vbox
+**/*.vbox-prev
+**/*.vdi
