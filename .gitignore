@@ -4,6 +4,7 @@
 ### Custom ###
 # VirtualBox
 **/ubuntu-mysql/
+**/ubuntu-mysql2/
 **/*.vbox
 **/*.vbox-prev
 **/*.vdi
