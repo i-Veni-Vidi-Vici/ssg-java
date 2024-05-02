@@ -20,7 +20,7 @@ public class Repository implements Serializable{
         write("Courses",createCourses());
     }
 
-    public Students createStudents() {
+    private Students createStudents() {
         List<Student> students = new ArrayList<>(Arrays.asList(
                 new Student(22001, 6, "홍길동", new EnrolledCourses(new HashMap<>() {
                     {
@@ -47,7 +47,7 @@ public class Repository implements Serializable{
         return new Students(students);
     }
 
-    public Courses createCourses() {
+    private Courses createCourses() {
         List<Course> courses = new ArrayList<>(Arrays.asList(
                 new Course(1101, 30, 3, "프로그래밍 기초", "배수지", new Prerequisite(List.of()), Major.COMPUTER, 25),
                 new Course(1101, 30, 3, "프로그래밍 기초", "배수지", new Prerequisite(List.of()), Major.COMPUTER, 25),
