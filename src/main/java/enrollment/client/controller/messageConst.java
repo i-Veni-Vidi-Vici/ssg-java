@@ -6,7 +6,7 @@ public class messageConst {
             - APPLY : 특정 수업 신청
             - CANCEL : 특정 수업 신청 취소
             - MYLIST : 지금까지 수강 신청 내역
-            - EIXT : 프로그램 종료
+            - EXIT : 프로그램 종료
             """;
 
     static final String ListupMessage = "전체 수업 목록";
