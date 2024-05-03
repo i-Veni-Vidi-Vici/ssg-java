@@ -45,7 +45,7 @@ public class Repository implements Serializable{
                                     new Course(1105, 30, 3, "데이터 통신", "김동혁", new Prerequisite(List.of()), Major.COMPUTER, 30)
                             ))));
                 }}), Major.COMPUTER, Status.ENROLLED),
-                // 모든 선수과목 수강완료(뭐든지 다 신청 할 수 있음)
+                // 나경 - 모든 선수과목 수강완료(뭐든지 다 신청 할 수 있음)
                 new Student(23002, 0, "김나경", new EnrolledCourses(new HashMap<>() {
                     {
                         put("2023-1", new Courses(new ArrayList<>(Arrays.asList(
@@ -60,7 +60,7 @@ public class Repository implements Serializable{
                     }
                 }), Major.COMPUTER, Status.ENROLLED),
                 // 예진 - 휴학중인 상태(신청불가)
-                new Student(23003, 0, "정예진", new EnrolledCourses(new HashMap<>() {
+                new Student(23005, 0, "정예진", new EnrolledCourses(new HashMap<>() {
                     {
                         put("2023-1", new Courses(new ArrayList<>(Arrays.asList(
                                 new Course(1101, 30, 3, "자바 프로그래밍 기초", "배수지", new Prerequisite(List.of()), Major.COMPUTER, 25),
@@ -85,12 +85,12 @@ public class Repository implements Serializable{
                 new Student(23004, 18, "변성일", new EnrolledCourses(new HashMap<>() {
                     {
                         put("2024-1", new Courses(new ArrayList<>(Arrays.asList(
-                                new Course(7101, 30, 3, "한국사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
-                                new Course(7102, 30, 3, "동양사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
-                                new Course(7103, 30, 3, "서양사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
-                                new Course(7104, 30, 3, "규장각과 한국문화", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25),
-                                new Course(7105, 30, 3, "한국현대사의 이해", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25),
-                                new Course(7106, 30, 3, "테마 중국사", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25)
+                                new Course(4101, 30, 3, "한국사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
+                                new Course(4102, 30, 3, "동양사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
+                                new Course(4103, 30, 3, "서양사학", "김재영", new Prerequisite(List.of()), Major.HISTORY, 25),
+                                new Course(4104, 30, 3, "규장각과 한국문화", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25),
+                                new Course(4105, 30, 3, "한국현대사의 이해", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25),
+                                new Course(4106, 30, 3, "테마 중국사", "김원훈", new Prerequisite(List.of()), Major.HISTORY, 25)
                         ))));
                     }
                 }), Major.HISTORY, Status.ENROLLED)
