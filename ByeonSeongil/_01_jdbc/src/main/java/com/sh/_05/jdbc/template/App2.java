@@ -1,9 +1,12 @@
 package com.sh._05.jdbc.template;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * <pre>
@@ -18,6 +21,15 @@ import java.sql.SQLException;
 
 public class App2 {
     public static void main(String[] args) {
+        Properties prop = new Properties();
+        try {
+            prop.loadFromXML(new FileInputStream("ByeonSeongil/_01_jdbc/src/main/resources/sql/menu-query.xml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String sql = prop.getProperty("insertIntoTblMenu");
+        System.out.println(sql);
+
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/menudb"; // protocol://host:port/db
         String user = "sh";
@@ -27,11 +39,7 @@ public class App2 {
         PreparedStatement pstmt = null;
         int result = 0; // pstmt#executeUpdate() 실행후 처리된 행수를 반환
 
-        String sql = """
-                insert into
-                tbl_menu (menu_name, menu_price, category_code, orderable_status)
-                values (?,?,?,?)
-                """;
+
         // 1. 드라이버클래스 등록 (최초1회만)
         try {
             Class.forName(driver);
@@ -44,7 +52,7 @@ public class App2 {
             con.setAutoCommit(false); // 수동커밋모드
             // 3. PreparedStatement 쿼리객체 생성
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, "간장다시마");
+            pstmt.setString(1, "들기름다시마");
             pstmt.setInt(2, 9900);
             pstmt.setInt(3, 10);
             pstmt.setString(4, "Y");
