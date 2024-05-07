@@ -1,5 +1,6 @@
 package com.sh.run;
 
+import com.sh.menu.view.MenuView;
 import com.sh.order.view.OrderMenu;
 
 /**
@@ -26,6 +27,7 @@ import com.sh.order.view.OrderMenu;
  */
 public class Main {
     public static void main(String[] args) {
-        new OrderMenu().mainMenu();
+        new MenuView().mainMenu();
+        // new OrderMenu().mainMenu();
     }
 }
