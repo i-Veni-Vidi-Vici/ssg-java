@@ -25,7 +25,7 @@ public class ResultView {
             System.out.printf("%s\t%s\t%s\t%s\t%s\n", "Code", "Name", "Price", "Category", "Orderable");
             System.out.println("---------------------------------------------------");
             for(MenuDto menuDto : list) {
-                System.out.printf("%d\t%s\t%s\t%d\t%s\n",
+                System.out.printf("%d\t%-15s%s\t%d\t%s\n",
                         menuDto.getMenuCode(),
                         menuDto.getMenuName(),
                         menuDto.getMenuPrice(),

@@ -41,17 +41,18 @@ public class MenuView {
             switch (choice) {
                 case "1" : menuController.findAll(); break;
                 case "2" : menuController.findByMenuCode(inputMenuCode("조회")); break;
-//                case "3" : menuController.findByCategoryCode(inputCategory()); break;
+                case "3" : menuController.findByCategoryCode(inputCategoryCode()); break;
                 case "4" : menuController.insertMenu(inputMenu()); break;
                 case "5" : break;
                 case "6" : break;
                 //case "7" : menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
-                //case "8":menuController.findOrderableStatus();
-                //case "9": menuController.findfindCategoryMenu(inputCategoryCode());
+                case "8" : menuController.findOrderableStatus();
+                case "9" : menuController.findByOrderableCategoryCodeMenu(inputCategoryCode());
                 case "0" : return;
                 default:
                     System.out.println("잘못 입력하셨습니다.");
             }
+
         }
     }
 

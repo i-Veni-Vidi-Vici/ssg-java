@@ -21,4 +21,8 @@ public interface MenuMapper {
     int deleteMenu(MenuDto menuDto);
 
     List<MenuDto> findByCategoryCode(int categoryCode);
+
+    List<MenuDto> findOrderableStatus();
+
+    List<MenuDto> findByOrderableCategoryCodeMenu(int categoryCode);
 }

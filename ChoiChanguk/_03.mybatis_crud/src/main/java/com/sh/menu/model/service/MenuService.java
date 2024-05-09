@@ -1,5 +1,6 @@
 package com.sh.menu.model.service;
 
+import com.sh.menu.model.dao.CategoryMapper;
 import com.sh.menu.model.dao.MenuMapper;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
@@ -80,9 +81,30 @@ public class MenuService {
     }
 
     public List<CategoryDto> findAllCategory() {
-        return null;
+        SqlSession sqlSession=getSqlSession();
+        CategoryMapper categoryMapper=sqlSession.getMapper(CategoryMapper.class);
+        List<CategoryDto> categoryDtos=categoryMapper.findAllCategory();
+        return categoryDtos;
     }
     public List<MenuDto> findByCategory(int categoryCode) {
-        return new ArrayList<>();
+        SqlSession sqlSession =getSqlSession();
+        MenuMapper menuMapper=sqlSession.getMapper(MenuMapper.class);
+        sqlSession.close();
+        return menuMapper.findByCategoryCode(categoryCode);
+    }
+
+    public List<MenuDto> findOrderableStatus() {
+        SqlSession sqlSession=getSqlSession();
+        MenuMapper menuMapper=sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> menuDtos=menuMapper.findOrderableStatus();
+        sqlSession.close();
+        return menuDtos;
+    }
+
+    public List<MenuDto> findByOrderableCategoryCodeMenu(int categoryCode) {
+        SqlSession sqlSession=getSqlSession();
+        MenuMapper menuMapper=sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> menuDtos=menuMapper.findByOrderableCategoryCodeMenu(categoryCode);
+        return menuDtos;
     }
 }

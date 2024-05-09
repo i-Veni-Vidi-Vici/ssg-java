@@ -45,6 +45,22 @@ public class MenuController {
     }*/
 
     public List<CategoryDto> findAllCategory() {
-        return menuService.findAllCategory();
+        List<CategoryDto> categoryDtos=menuService.findAllCategory();
+        return categoryDtos;
+    }
+
+    public void findOrderableStatus() {
+        List<MenuDto> menuDtos=menuService.findOrderableStatus();
+        ResultView.displayMenuList(menuDtos);
+    }
+
+    public void findByOrderableCategoryCodeMenu(int category_Code) {
+        List<MenuDto> menuDtos=menuService.findByOrderableCategoryCodeMenu(category_Code);
+        ResultView.displayMenuList(menuDtos);
+    }
+
+    public void findByCategoryCode(int categoryCode) {
+        List<MenuDto> menuDtos=menuService.findByCategory(categoryCode);
+        ResultView.displayMenuList(menuDtos);
     }
 }

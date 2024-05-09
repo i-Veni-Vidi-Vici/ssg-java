@@ -4,6 +4,8 @@ import com.sh.menu.model.dto.MenuDto;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static com.sh.common.MyBatisTemplate.getSqlSession;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,6 +28,36 @@ class MenuMapperCommandTest {
         this.sqlSession.rollback();
         this.sqlSession.close();
     }
+
+
+    @DisplayName("주문 가능한 메뉴 출력")
+    @Test
+    void findOrderableStatus()
+    {
+        sqlSession=getSqlSession();
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> menuDtos=menuMapper.findOrderableStatus();
+        System.out.println(menuDtos);
+
+    }
+    @DisplayName("주문 가능한 메뉴 출력")
+    @Test
+    void findByOrderableCategoryCodeMenu(){
+        int catogory_code=4;
+        sqlSession=getSqlSession();
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> menuDtos=menuMapper.findByOrderableCategoryCodeMenu(catogory_code);
+        for(MenuDto menuDto : menuDtos) {
+            System.out.printf("%d\t%-15s%s\t%d\t%s\n",
+                    menuDto.getMenuCode(),
+                    menuDto.getMenuName(),
+                    menuDto.getMenuPrice(),
+                    menuDto.getCategoryCode(),
+                    menuDto.getOrderableStatus()
+            );
+        }
+    }
+
 
     @Test
     @Disabled // 해당테스트는 무시
