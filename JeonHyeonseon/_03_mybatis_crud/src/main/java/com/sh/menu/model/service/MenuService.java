@@ -5,8 +5,7 @@ import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import org.apache.ibatis.session.SqlSession;
 
-import java.awt.*;
-import java.util.ArrayList;
+import java.sql.Connection;
 import java.util.List;
 
 import static com.sh.common.MyBatisTemplate.getSqlSession;
@@ -28,12 +27,51 @@ public class MenuService {
         return menuDto;
     }
 
+    public List<MenuDto> findByCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
+    }
+
     public int insertMenu(MenuDto menuDto) {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
         try{
             // dao 메시지 전달
             int result = menuMapper.insertMenu(menuDto);
+            sqlSession.commit();
+            return result;
+        } catch (Exception e) {
+            sqlSession.rollback();
+            throw new RuntimeException(e);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public int updateMenu(MenuDto menuDto) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        try {
+            int result = menuMapper.updateMenu(menuDto);
+            sqlSession.commit();
+            return result;
+        } catch (Exception e) {
+            sqlSession.rollback();
+            throw new RuntimeException(e);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public int deleteMenu(int menuCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        try {
+            // dao 메세지 전달
+            int result = menuMapper.deleteMenu(menuCode);
             sqlSession.commit();
             return result;
         } catch (Exception e) {

@@ -34,9 +34,24 @@ public class MenuController {
         ResultView.displayMenu(menuDto);
     }
 
+    public void findByCategoryCode(int categoryCode) {
+        List<MenuDto> list = menuService.findByCategoryCode(categoryCode);
+        ResultView.displayMenuList(list);
+    }
+
     public void insertMenu(MenuDto menuDto) {
         int result = menuService.insertMenu(menuDto);
         ResultView.displayResult("메뉴 등록", result);
+    }
+
+    public void updateMenu(MenuDto menuDto) {
+        int result = menuService.updateMenu(menuDto);
+        ResultView.displayResult("메뉴 수정", result);
+    }
+
+    public void deleteMenu(int menuCode) {
+        int result = menuService.deleteMenu(menuCode);
+        ResultView.displayResult("메뉴 삭제", result);
     }
 
 //    public void insertCategoryAndMenu(CategoryDto categoryDto, MenuDto menuDto) {

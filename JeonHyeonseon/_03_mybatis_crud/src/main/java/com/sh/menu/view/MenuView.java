@@ -41,16 +41,31 @@ public class MenuView {
             switch (choice) {
                 case "1" : menuController.findAll(); break;
                 case "2" : menuController.findByMenuCode(inputMenuCode("조회")); break;
-//                case "3" : menuController.findByCategoryCode(inputCategory()); break;
+                case "3" : menuController.findByCategoryCode(inputCategoryCode()); break;
                 case "4" : menuController.insertMenu(inputMenu()); break;
-                case "5" : break;
-                case "6" : break;
+                case "5" : menuController.updateMenu(inputMenuUpdate()); break;
+                case "6" : menuController.deleteMenu(inputMenuCode("삭제")); break;
 //                case "7" : menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
                 case "0" : return;
                 default:
                     System.out.println("잘못 입력하셨습니다.");
             }
         }
+    }
+
+    private MenuDto inputMenuUpdate() {
+        System.out.println("> 🖋🖋🖋 수정할 메뉴정보를 작성해주세요. 🖋🖋🖋");
+        System.out.print("> 메뉴코드 : ");
+        int menuCode = sc.nextInt();
+        System.out.print("> 메뉴명 : ");
+        String menuName = sc.next();
+        System.out.print("> 메뉴가격 : ");
+        int menuPrice = sc.nextInt();
+        System.out.print("> 카테고리코드 : ");
+        int categoryCode = sc.nextInt();
+        System.out.print("> 주문가능여부(Y/N) : ");
+        String orderableStatus = String.valueOf(sc.next().toUpperCase().charAt(0));
+        return new MenuDto(menuCode, menuName, menuPrice, categoryCode, orderableStatus);
     }
 
     private CategoryDto inputCategory() {
