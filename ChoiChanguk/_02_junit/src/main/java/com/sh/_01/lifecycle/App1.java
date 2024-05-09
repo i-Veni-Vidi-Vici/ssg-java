@@ -8,6 +8,7 @@ package com.sh._01.lifecycle;
 public class App1 {
     public static void main(String[] args) {
 
+
     }
     public int getNumber() {
         return 32;
@@ -21,4 +22,6 @@ public class App1 {
     public int random() {
         return (int)(Math.random()*100)+100;
     }
+
+
 }
