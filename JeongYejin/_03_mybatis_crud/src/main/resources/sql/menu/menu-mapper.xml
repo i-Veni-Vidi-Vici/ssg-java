@@ -2,14 +2,59 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sh._02.xml.config.MenuMapper">
+<mapper namespace="com.sh.menu.model.dao.MenuMapper">
 
-    <select id="findAll" resultType="com.sh._02.xml.config.MenuDto">
-        select * from tbl_menu order by menu_code
+    <select id="findAll" resultType= "com.sh.menu.model.dto.MenuDto">
+        select *
+        from tbl_menu
+        order by menu_code
     </select>
-    <!-- resultType : 한행에 대응하는 DTO 타입을 적어야 함 -->
 
-    <select id="findByMenuCode" resultType ="com.sh._02.xml.config.MenuDto">
-        select * from tbl_menu where menu_code = #{menuCode}
+    <select id="findByMenuCode" resultType="com.sh.menu.model.dto.MenuDto">
+        select *
+        from tbl_menu
+        where menu_code = #{menuCode}
     </select>
+
+    <select id="findByCategoryCode" resultType="MenuDto">
+        select *
+        from tbl_menu
+        where category_code = #{categoryCode}
+    </select>
+
+    <!--작성한 속성명은 필드이름이 아니다. private 필드 직접 접근 불가-->
+    <!--실제로는 getter를 사용 getter의 get을 제외하고, 소문자로 시작하는 이름을 작성한 것-->
+    <!--property 접근 방식 (OGNL 표준) -->
+    <!--useGeneratedKeys=true를 통해 auto_increment값을 가져온다. 전달된 객체 menuDto#menuCode에 대입 -->
+
+    <insert id="insertMenu" useGeneratedKeys="true" keyProperty="menuCode">
+        insert into
+            tbl_menu
+        values(
+            #{menuCode}, #{menuName}, #{menuPrice}, #{categoryCode}, #{orderableStatus}
+        )
+    </insert>
+
+    <update id="updateMenu">
+        update tbl_menu
+        set
+            menu_name = #{menuName},
+            menu_price = #{menuPrice},
+            category_code = #{categoryCode},
+            orderable_status = #{orderableStatus}
+        where
+            menu_code = #{menuCode}
+    </update>
+
+    <delete id="deleteMenu">
+        delete from tbl_menu
+        where menu_code = #{menuCode}
+    </delete>
+
+    <select id="findAllCategory" resultType="com.sh.menu.model.dto.CategoryDto">
+        select *
+        from tbl_category
+        where ref_category_code is not null
+    </select>
+
 </mapper>
