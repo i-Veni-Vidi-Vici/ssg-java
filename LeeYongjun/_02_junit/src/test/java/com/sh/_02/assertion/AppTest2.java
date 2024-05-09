@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class AppTest2 {
     
@@ -52,5 +54,25 @@ public class AppTest2 {
                     assertThat(name.length()).isGreaterThan(0);
                 })
                 .hasSize(3);
+    }
+
+    @DisplayName("Map 단정문")
+    @Test
+    void test4(){
+        Map<String,Integer>map = Map.of("홍길동",33,"신사임당",28,"이순신",44);
+        assertThat(map)
+                .containsKey("홍길동")
+                .containsKeys("홍길동","신사임당")
+                .doesNotContainKey("강감찬");
+    }
+
+    @DisplayName("예외 단정문")
+    @Test
+    void test5(){
+        assertThatThrownBy(() -> {
+            // 예외가 던져지는 실행문
+            throw new RuntimeException("ㅋㅋㅋㅋ");
+        }).isInstanceOf(RuntimeException.class)
+                .hasMessageContaining("ㅋㅋ");
     }
 }
