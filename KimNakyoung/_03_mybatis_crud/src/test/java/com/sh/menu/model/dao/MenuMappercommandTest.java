@@ -26,7 +26,8 @@ class MenuMappercommandTest {
 
     @AfterEach
     void tearDown() {
-        this.sqlSession.commit();
+//        this.sqlSession.commit();
+        this.sqlSession.rollback();
         this.sqlSession.close();
 
     }
@@ -66,6 +67,8 @@ class MenuMappercommandTest {
 
 
     }
+
+    // 이거하면 혼자 임의의 데이터 생성 했다가 족발라떼로 바꿔짐 
     @DisplayName("한건의 메뉴데이터를 수정할 수 있다.")
     @Test
     void updateMenu() {
