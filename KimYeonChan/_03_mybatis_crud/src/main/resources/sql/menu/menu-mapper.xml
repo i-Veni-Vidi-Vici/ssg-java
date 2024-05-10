@@ -5,28 +5,28 @@
 <mapper namespace="com.sh.menu.model.dao.MenuMapper">
     <select id="findAll" resultType="menuDto">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu
         order by
-            menu_code
+        menu_code
     </select>
 
     <select id="findByMenuCode" resultType="menuDto">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu
         where
-            menu_code = #{menuCode}
+        menu_code = #{menuCode}
     </select>
     <select id="findByCategoryCode" resultType="menuDto">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu
         where
-            category_code = #{categoryCode}
+        category_code = #{categoryCode}
     </select>
 
     <!-- 작성한 속성명은 필드이름이 아니다. private 필드라 직접 접근 불가 -->
@@ -35,27 +35,52 @@
     <!-- useGeneratedKeys=true를 통해 auto_increment값을 가져온다. 전달된 객체 menuDto#menuCode에 대입 -->
     <insert id="insertMenu" useGeneratedKeys="true" keyProperty="menuCode">
         insert into
-            tbl_menu
+        tbl_menu
         values (
-            null, #{menuName}, #{menuPrice}, #{categoryCode}, #{orderableStatus}
+        null, #{menuName}, #{menuPrice}, #{categoryCode}, #{orderableStatus}
         )
     </insert>
 
     <update id="updateMenu">
         update
-            tbl_menu
+        tbl_menu
         set
-            menu_name = #{menuName},
-            menu_price = #{menuPrice},
-            category_code = #{categoryCode},
-            orderable_status = #{orderableStatus}
+        menu_name = #{menuName},
+        menu_price = #{menuPrice},
+        category_code = #{categoryCode},
+        orderable_status = #{orderableStatus}
         where
-            menu_code = #{menuCode}
+        menu_code = #{menuCode}
     </update>
     <delete id="deleteMenu">
         delete from
-            tbl_menu
+        tbl_menu
         where
-            menu_code = #{menuCode}
+        menu_code = #{menuCode}
     </delete>
+    <select id="findAllCategory" resultType="categoryDto">
+        select
+        *
+        from
+        tbl_category
+        where
+        ref_category_code is not null
+    </select>
+    <select id="findMenuOrderable" resultType="menuDto">
+        select
+        *
+        from
+        tbl_menu
+        where
+        orderable_status = 'Y'
+    </select>
+    <select id="findMenuOrderableByCategoryCode" resultType="menuDto">
+        select
+        *
+        from
+        tbl_menu
+        where
+        category_code = #{categoryCode}
+        and orderable_status = 'Y'
+    </select>
 </mapper>
