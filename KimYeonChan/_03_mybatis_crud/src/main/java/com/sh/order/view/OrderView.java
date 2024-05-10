@@ -51,7 +51,7 @@ public class OrderView {
             int orderAmount = sc.nextInt();
 
             // OrderMenu 객체 처리
-            OrderMenuDto orderDto = new OrderMenuDto(0, menuCode, orderAmount);
+            OrderMenuDto orderDto = new OrderMenuDto(0, menuCode, orderAmount, null);
             orderMenuList.add(orderDto);
 
             // 결제금액 totalOrderPrice 처리
@@ -65,13 +65,13 @@ public class OrderView {
         }
 
         // 주문 요청(OrderController 메세지 전달) 및 결과 확인
-        System.out.println("주문을 요청합니다.");
-        OrderDto orderDto = new OrderDto(0, LocalDate.now(), LocalTime.now(), totalOrderPrice, orderMenuList);
-        System.out.println(orderDto);
-
-        orderController.createOrder(orderDto);
-        System.out.println("주문번호: " + orderDto.getOrderCode());
-
-        System.out.println("주문 정상 종료!!!");
+//        System.out.println("주문을 요청합니다.");
+//        OrderDto orderDto = new OrderDto(0, LocalDate.now(), LocalTime.now(), totalOrderPrice, orderMenuList);
+//        System.out.println(orderDto);
+//
+//        orderController.createOrder(orderDto);
+//        System.out.println("주문번호: " + orderDto.getOrderCode());
+//
+//        System.out.println("주문 정상 종료!!!");
     }
 }
