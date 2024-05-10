@@ -32,4 +32,6 @@ public interface MenuMapper {
     List<MenuDto> findMenuOrderable();
 
     List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode);
+
+    MenuDto findbyMenuCode(int menuCode);
 }
