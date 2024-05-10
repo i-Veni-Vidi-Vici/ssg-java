@@ -1,5 +1,6 @@
 package com.sh.order.model.dto;
 
+import com.sh.menu.dto.MenuDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,4 +18,6 @@ public class OrderMenuDto {
     private int orderCode;
     private int menuCode;
     private int orderAmount;
+
+    private MenuDto menu;
 }

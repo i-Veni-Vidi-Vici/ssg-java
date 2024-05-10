@@ -48,7 +48,7 @@ public class OrderView {
             int orderAmount = scanner.nextInt();
 
             //OrderMenu 객체 처리
-            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount);
+            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount,null);
             orderMenuList.add(orderMenuDto);
 
             //결제금액 totalOrderPrice처리

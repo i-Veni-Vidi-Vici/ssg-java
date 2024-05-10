@@ -30,6 +30,4 @@ public class OrderController {
             ErrorView.displayError(ErrorCode.CREATE_ERROR_ERROR);
         }
     }
-
-}
 }
