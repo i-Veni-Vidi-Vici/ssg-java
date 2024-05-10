@@ -23,5 +23,5 @@ public class OrderDto {
     /**
      * 1:N관계를 객체지향에 표현하는 방식
      */
-    private List<OrderMenuDto> orderMenuDtoList;
+    private List<OrderMenuDto> orderMenuList;
 }

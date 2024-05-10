@@ -11,5 +11,5 @@ public enum ErrorCode {
     FIND_A_MENU_ERROR("메뉴 한건 조회중 오류가 발생했습니다.");
 
     @Getter // 필드레벨에 작성(특정 필드만 getter생성)
-    private String msg;
+    private final String msg;
 }

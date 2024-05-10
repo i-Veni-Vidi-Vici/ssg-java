@@ -27,7 +27,7 @@ public class OrderService {
             int result = orderMapper.insertOrder(orderDto);
             System.out.println(orderDto.getOrderCode());
             // n건의 주문메뉴 등록
-            for (OrderMenuDto orderMenuDto : orderDto.getOrderMenuDtoList()) {
+            for (OrderMenuDto orderMenuDto : orderDto.getOrderMenuList()) {
                 // 발급된 주문코드를 OrderMenuDto#orderCode 대입
                 orderMenuDto.setOrderCode(orderDto.getOrderCode());
                 result = orderMapper.insertOrderMenu(orderMenuDto);
