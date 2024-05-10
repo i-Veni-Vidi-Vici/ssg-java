@@ -80,12 +80,43 @@ public class MenuService {
         }
     }
 
-    public List<CategoryDto> findCategoryAll(){
-
-        return new ArrayList<>();
+    public List<CategoryDto> displayAllCategory(){
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<CategoryDto> categoryList = menuMapper.displayAllCategory();
+        sqlSession.close();
+        return categoryList;
     }
 
     public int insertCategoryAndMenu(CategoryDto categoryDto, MenuDto menuDto) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        try{
+            int result = menuMapper.insertCategory(categoryDto);
+            result = menuMapper.insertMenu(menuDto);
+            sqlSession.commit();
+            return result;
+        }catch (Exception e){
+            sqlSession.rollback();
+        }finally {
+            sqlSession.close();
+        }
         return 0;
+    }
+
+    public List<MenuDto> findMenuOrderable() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderable();
+        sqlSession.close();
+        return list;
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
     }
 }

@@ -1,5 +1,7 @@
 package com.sh.menu.controller;
 
+import com.sh.common.ErrorView;
+import com.sh.common.error.ErrorCode;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import com.sh.menu.model.service.MenuService;
@@ -23,14 +25,24 @@ public class MenuController {
 
     public void findAll() {
         // n개의 MenuDto 반환 : List<MenuDto>
-        List<MenuDto> list = menuService.findAll();
-        ResultView.displayMenuList(list);
+        try {
+            List<MenuDto> list = menuService.findAll();
+            ResultView.displayMenuList(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(ErrorCode.FIND_ALL_MENU_ERROR);
+        }
     }
 
     public void findByMenuCode(int menuCode) {
         // 0~1개의 MenuDto 반환 : MenuDto
-        MenuDto menuDto = menuService.findByMenuCode(menuCode);
-        ResultView.displayMenu(menuDto);
+        try {
+            MenuDto menuDto = menuService.findByMenuCode(menuCode);
+            ResultView.displayMenu(menuDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(ErrorCode.find_A_MENU_ERROR);
+        }
     }
 
     public void findByCategoryCode(int categoryCode) {
@@ -58,11 +70,21 @@ public class MenuController {
         ResultView.displayResult("메뉴 삭제", result);
     }
 
-    public void findCategoryAll() {
+    public void displayAllCategory() {
         System.out.println("메뉴카테고리 진입");
-        List<CategoryDto> list = menuService.findCategoryAll();
+        List<CategoryDto> list = menuService.displayAllCategory();
         ResultView.displayCategory(list);
     }
 
+    public void findMenuOrderable() {
+        List<MenuDto> list = menuService.findMenuOrderable();
+        ResultView.displayMenuList(list);
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        List<MenuDto> list = menuService.findMenuOrderableByCategoryCode(categoryCode);
+        ResultView.displayMenuList(list);
+        return list;
+    }
 
 }

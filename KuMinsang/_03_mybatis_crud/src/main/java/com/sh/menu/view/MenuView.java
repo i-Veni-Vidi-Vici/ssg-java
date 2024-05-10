@@ -59,7 +59,7 @@ public class MenuView {
         System.out.println("> 메뉴가격 : ");
         int menuPrice = sc.nextInt();
         System.out.println("> 카테고리코드 : ");
-        menuController.findCategoryAll();
+        menuController.displayAllCategory();
         int categoryCode = sc.nextInt();
         System.out.println("> 주문가능여부(Y/N) : ");
         String orderableStatus = String.valueOf(sc.next().toUpperCase().charAt(0));
@@ -81,7 +81,7 @@ public class MenuView {
 
     private int inputCategoryCode() {
         System.out.println("> 조회할 상품 카테고리 코드 : ");
-        menuController.findCategoryAll();
+        menuController.displayAllCategory();
         return sc.nextInt();
     }
 }

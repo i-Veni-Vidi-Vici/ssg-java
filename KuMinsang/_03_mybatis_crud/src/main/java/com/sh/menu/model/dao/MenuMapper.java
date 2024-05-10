@@ -1,5 +1,6 @@
 package com.sh.menu.model.dao;
 
+import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public interface MenuMapper {
     List<MenuDto> findByCategoryCode(int categoryCode);
     //쿼리에 전달하는 객체는 무조건 1개여야 한다. 값이 여러개인 경우 DTO는 key value로 전달하는것이 좋다
     int insertMenu(MenuDto menuDto);
+    int insertCategory(CategoryDto categoryDto);
     int updateMenu(MenuDto menuDto);
     int deleteMenu(int menuCode);
+    List<CategoryDto> displayAllCategory();
+    List<MenuDto> findMenuOrderable();
+    List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode);
 }
