@@ -1,4 +1,5 @@
 package com.sh.order.model.dto;
+import com.sh.menu.model.dto.MenuDto;
 import lombok.*;
 
 //@NoArgsConstructor // 기본생성자
@@ -13,4 +14,5 @@ public class OrderMenuDto {
     private int orderCode;
     private int menuCode;
     private int orderAmount;
+    private MenuDto menu;
 }
