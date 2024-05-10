@@ -44,6 +44,8 @@ public class MenuView {
                 case "5": menuController.updateMenu(updateMenu()); break;
                 case "6": menuController.deleteMenu(inputMenuCode()); break;
                 case "7": menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
+                case "8": menuController.findByOrderableStatus(); break;
+                case "9": menuController.findByOrderableCategoryCode(inputCategoryCode()); break;
                 case "0": return;
                 default:
                     System.out.println("잘못 입력하셨습니다.");
