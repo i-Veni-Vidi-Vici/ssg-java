@@ -62,4 +62,14 @@ public class MenuController {
         List<CategoryDto> categoryList = menuService.findAllCategory();
         ResultView.displayCategoryList(categoryList);
     }
+
+    public void findMenuOrderable() {
+        List<MenuDto> list = menuService.findMenuOrderable();
+        ResultView.displayMenuList(list);
+    }
+
+    public void findMenuOrderableByCategoryCode(int categoryCode) {
+        List<MenuDto> list = menuService.findMenuOrderableByCategoryCode(categoryCode);
+        ResultView.displayMenuList(list);
+    }
 }
