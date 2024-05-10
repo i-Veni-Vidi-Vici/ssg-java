@@ -1,9 +1,10 @@
 package com.sh.menu.controller;
 
+import com.sh.common.ErrorView;
+import com.sh.common.error.ErrorCode;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import com.sh.menu.model.service.MenuService;
-import com.sh.menu.view.Resultview;
 import com.sh.menu.view.Resultview;
 
 import java.util.List;
@@ -23,15 +24,25 @@ public class MenuController {
     private MenuService menuService = new MenuService();
 
     public void findAll() {
-        // n개의 MenuDto 반환 : List<MenuDto>
-        List<MenuDto> list = menuService.findAll();
-        Resultview.displayMenuList(list);
+        try {
+            // n개의 MenuDto 반환 : List<MenuDto>
+            List<MenuDto> list = menuService.findAll();
+            Resultview.displayMenuList(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(ErrorCode.FIND_ALL_MENU_ERROR);
+        }
     }
 
     public void findByMenuCode(int menuCode) {
-        // 0~1개의 MenuDto 반환 : MenuDto
-        MenuDto menuDto = menuService.findByMenuCode(menuCode);
-        Resultview.displayMenu(menuDto);
+        try {
+            // 0~1개의 MenuDto 반환 : MenuDto
+            MenuDto menuDto = menuService.findByMenuCode(menuCode);
+            Resultview.displayMenu(menuDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(ErrorCode.FIND_A_MENU_ERROR);
+        }
     }
 
     public void insertMenu(MenuDto menuDto) {
@@ -63,4 +74,16 @@ public class MenuController {
         List<CategoryDto> categoryList = menuService.findAllCategory();
         Resultview.displayCategoryList(categoryList);
     }
+
+    public void findMenuOrderable() {
+        List<MenuDto> list = menuService.findMenuOrderable();
+        Resultview.displayMenuList(list);
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        List<MenuDto> list = menuService.findMenuOrderableByCategoryCode(categoryCode);
+        Resultview.displayMenuList(list);
+        return list;
+    }
 }
+
