@@ -37,8 +37,8 @@ public class OrderView {
 
             // - 선택한 카테고리의 메뉴 노출
             List<MenuDto> menuList = menuController.findMenuOrderableByCategoryCode(categoryCode);
-            if(menuList.isEmpty())
-                continue;
+//            if(menuList.isEmpty())
+//                continue;
             // - 메뉴 선택
             System.out.print("메뉴 선택 : ");
             int menuCode = sc.nextInt();
@@ -53,7 +53,7 @@ public class OrderView {
             int orderAmount = sc.nextInt();
 
             // OrderMenu객체 처리
-            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount);
+            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount, null);
             orderMenuList.add(orderMenuDto);
             // 결제금액 totalOrderPrice 처리
             totalOrderPrice += menuPrice * orderAmount;
