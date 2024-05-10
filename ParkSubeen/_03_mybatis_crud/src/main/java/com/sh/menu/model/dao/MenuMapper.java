@@ -27,7 +27,7 @@ public interface MenuMapper {
 
     List<CategoryDto> findAllCategory();
 
-    List<MenuDto> findByOrderableStatusY();
+    List<MenuDto> findMenuOrderable();
 
-    List<MenuDto> findByCategoryCodeStatus(int categoryCode);
+    List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode);
 }

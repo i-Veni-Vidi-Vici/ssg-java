@@ -91,18 +91,18 @@ public class MenuService {
         return list;
     }
 
-    public List<MenuDto> findByOrderableStatusY() {
+    public List<MenuDto> findMenuOrderable() {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        List<MenuDto> list = menuMapper.findByOrderableStatusY();
+        List<MenuDto> list = menuMapper.findMenuOrderable();
         sqlSession.close();
         return list;
     }
 
-    public List<MenuDto> findByCategoryCodeStatus(int categoryCode) {
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        List<MenuDto> list = menuMapper.findByCategoryCodeStatus(categoryCode);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
         sqlSession.close();
         return list;
     }
