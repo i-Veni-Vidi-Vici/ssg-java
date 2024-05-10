@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyBatisTemplateTest {
     @DisplayName("SqlSession객체가 정상적으로 가져올 수 있다.")
     @Test
-    void name() {
+    void test() {
         SqlSession sqlSession = getSqlSession();
         assertThat(sqlSession).isNotNull();
     }

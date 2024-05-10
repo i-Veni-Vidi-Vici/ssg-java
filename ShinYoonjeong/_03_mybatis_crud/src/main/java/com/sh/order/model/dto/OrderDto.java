@@ -7,13 +7,13 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-@NoArgsConstructor // 기본 생성자
+@NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 모든 매개인자 생성자
 @Getter
 @Setter
 @ToString
 public class OrderDto {
-    private int order_code;
+    private int orderCode;
     private LocalDate orderDate;
     private LocalTime orderTime;
     private int totalOrderPrice;
