@@ -6,4 +6,8 @@ import com.sh.order.model.dto.OrderMenuDto;
 public interface OrderMapper {
     int insertOrder(OrderDto orderDto); // order-mapper.xml의 insertOrder 쿼리와 대응
     int insertOrderMenu(OrderMenuDto orderMenuDto);
+
+    int countAll();
+
+    OrderDto findByOrderCode(int orderCode);
 }
