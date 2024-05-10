@@ -1,0 +1,58 @@
+package com.sh._02.assertion;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * <pre>
+ *     단정문
+ *     - 테스트 예상 결과와 실제 결과를 비교하는 문장
+ *     - 두 결과가  동일하면 테스트는 성공, 그렇지 않으면 실패
+ *     - junit 단정문, hamcrest, truth등 중에서 assertj를 가장 많이 사용한다.
+ * </pre>
+ */
+class AppTest2 {
+    App app;
+
+    @BeforeEach
+    void setUp() {
+        this.app = new App();
+    }
+
+    @Disabled ("메소드가 양수를 반환한다.") // 메소드명보다 우선해서 표현됨
+    @Test
+    void 메소드가_양수를_반환한다 () {
+        int n = app.getNumber();
+        assertThat(n).isPositive();
+    }
+
+    @DisplayName("getNumber는 1 ~ 100 사이의 정수를 반환한다.")
+    @Test
+    void test2() {
+        int n = app.getNumber();
+        assertThat(n).isPositive(n);
+    }
+    @DisplayName("두 수의 합을 반환한다.")
+    @Test
+    void test3() {
+        int a = 10;
+        int b = 20;
+        int result = app.sum(a, b);
+
+        result = app.sum(a, b);
+        assertThat(result.isEqualTo(a+b));
+
+    }
+
+    @DisplayName("random 메소드는 1 ~~ 200 사이의 난수를 반환해야한다.")
+    @Test
+    void test4() {
+    assertThat(n) Apppis.GreaterThanEquallTo(100).isclessTypr
+
+    }
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<mapper namespace="com.sh._02.xml.config.MenuMapper">
+<!--    <select id="findByMenuCode" resultType="Blog"-->
+<!--        select-->
+<!--                *-->
+<!--    from-->
+<!--    tbl_menu-->
+<!--    where-->
+
+<!--    </select>-->
+
+</mapper>
