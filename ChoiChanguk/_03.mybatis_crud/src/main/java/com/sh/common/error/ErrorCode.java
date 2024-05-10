@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
 @RequiredArgsConstructor
 public enum ErrorCode {
     CREATE_ORDER_ERROR("주문중 오류가 발생했습니다"),
