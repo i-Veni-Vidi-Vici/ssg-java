@@ -17,4 +17,51 @@
             #{orderCode}, #{menuCode}, #{orderAmount}
         )
     </insert>
+    <select id="countAll" resultType="_int">
+        select
+            count(*)
+        from
+            tbl_order
+    </select>
+    <select id="findByOrderCode" resultMap="orderDtoMap">
+        select
+            *
+        from
+            tbl_order o
+                join tbl_order_menu om
+                    on o.order_code = om.order_code
+                join tbl_menu m
+                    on om.menu_code = m.menu_code
+        where
+            o.order_code = #{orderCode}
+    </select>
+    <!--
+        조회된 결과집합을 DTO객체에 매핑하는 상세설정이 가능한 태그
+        - 컬럼명/필드명이 다른 경우 매핑
+        - 매핑하는 자료형이 호환불가한 경우 별도의 타입핸들러 설정
+        - 조인쿼리(1:N, 1:1) 처리
+        - 다른 resultMap 확장해서 사용가능(extends)
+    -->
+    <resultMap id="orderDtoMap" type="orderDto">
+        <!-- id : PK컬럼 매핑용 -->
+        <id column="order_code" property="orderCode"/>
+        <!-- result : 그외 컬럼 매핑용 -->
+        <result column="order_date" property="orderDate"/>
+        <result column="order_time" property="orderTime"/>
+        <result column="total_order_price" property="totalOrderPrice"/>
+        <!-- 1:N관계의 테이블 행 매핑 -->
+        <collection property="orderMenuList" ofType="orderMenuDto">
+            <id column="order_code" property="orderCode"/>
+            <id column="menu_code" property="menuCode"/>
+            <result column="order_amount" property="orderAmount"/>
+            <!-- 1:1관계의 테이블 행 매핑 -->
+            <association property="menu" javaType="menuDto">
+                <id column="menu_code" property="menuCode"/>
+                <result column="menu_name" property="menuName"/>
+                <result column="menu_price" property="menuPrice"/>
+                <result column="category_code" property="categoryCode"/>
+                <result column="orderable_status" property="orderableStatus"/>
+            </association>
+        </collection>
+    </resultMap>
 </mapper>
