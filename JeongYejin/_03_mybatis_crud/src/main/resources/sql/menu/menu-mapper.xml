@@ -57,4 +57,17 @@
         where ref_category_code is not null
     </select>
 
+    <select id="findByOrderableStatus" resultType="com.sh.menu.model.dto.MenuDto">
+        select *
+        from tbl_menu
+        where orderable_status = 'Y'
+    </select>
+
+    <select id="findByOrderableCategoryCode" resultType="com.sh.menu.model.dto.MenuDto">
+        select *
+        from tbl_menu
+        where category_code = #{categoryCode}
+        and orderable_status = 'Y'
+    </select>
+
 </mapper>

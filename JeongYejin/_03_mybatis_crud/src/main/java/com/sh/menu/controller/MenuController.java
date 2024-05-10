@@ -1,11 +1,16 @@
 package com.sh.menu.controller;
 
+import com.sh.common.ErrorView;
+import com.sh.common.error.ErrorCode;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import com.sh.menu.model.service.MenuService;
 import com.sh.menu.view.ResultView;
 
 import java.util.List;
+
+import static com.sh.common.error.ErrorCode.FIND_ALL_MENU_ERROR;
+import static com.sh.common.error.ErrorCode.FIND_A_MENU_ERROR;
 
 /**
  * <pre>
@@ -23,15 +28,24 @@ public class MenuController {
     private MenuService menuService = new MenuService();
 
     public void findAll() {
-        // n개의 MenuDto 반환 : List<MenuDto>
-        List<MenuDto> list = menuService.findAll();
-        ResultView.displayMenuList(list);
+        try {
+            // n개의 MenuDto 반환 : List<MenuDto>
+            List<MenuDto> list = menuService.findAll();
+            ResultView.displayMenuList(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(FIND_ALL_MENU_ERROR);
+        }
     }
 
     public void findByMenuCode(int menuCode) {
-        // 0~1개의 MenuDto 반환 : MenuDto
-        MenuDto menuDto = menuService.findByMenuCode(menuCode);
-        ResultView.displayMenu(menuDto);
+        try {
+            // 0~1개의 MenuDto 반환 : MenuDto
+            MenuDto menuDto = menuService.findByMenuCode(menuCode);
+            ResultView.displayMenu(menuDto);
+        } catch (Exception e) {
+            ErrorView.displayError(FIND_A_MENU_ERROR);
+        }
     }
 
     public void findByCategoryCode(int categoryCode) {
