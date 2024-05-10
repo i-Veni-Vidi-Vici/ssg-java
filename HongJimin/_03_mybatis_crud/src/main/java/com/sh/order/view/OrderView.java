@@ -52,7 +52,7 @@ public class OrderView {
                     .getMenuPrice();
 
             // OrderMenu 객체 처리
-            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount);
+            OrderMenuDto orderMenuDto = new OrderMenuDto(0, menuCode, orderAmount, null);
             orderMenuList.add(orderMenuDto);
             // 결제 금액 totalOrderPrice 처리
             totalOrderPrice += menuPrice * orderAmount; // view에서 controller에 정보를 요청해 그 정보를 이용하는 경우, controller의 메소드 반환 타입을 void 대신 다 값으로 처리해보기! 선택한 메뉴의 가격을 추가해야하는 상황임
