@@ -56,4 +56,29 @@
         where
             menu_code = #{menuCode}
     </delete>
+    <select id="findAllCategory" resultType="categoryDto">
+        select
+            *
+        from
+            tbl_category
+        where
+            ref_category_code is not null
+    </select>
+    <select id="findMenuOrderable" resultType="menuDto">
+        select
+            *
+        from
+            tbl_menu
+        where
+            orderable_status = 'Y'
+    </select>
+    <select id="findMenuOrderableByCategoryCode" resultType="menuDto">
+        select
+            *
+        from
+            tbl_menu
+        where
+            category_code = #{categoryCode}
+            and orderable_status = 'Y'
+    </select>
 </mapper>
