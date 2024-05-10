@@ -83,7 +83,27 @@ public class MenuService {
         }
     }
 
-    public List<CategoryDto> findAllCategory() {
-        return List.of(new CategoryDto(4, "한식", 1));
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
     }
+    public List<CategoryDto> findAllCategory() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<CategoryDto> categoryList = menuMapper.findAllCategory();
+        sqlSession.close();
+        return categoryList;
+    }
+
+    public List<MenuDto> findMenuOrderable() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderable();
+        sqlSession.close();
+        return list;
+    }
+
 }
