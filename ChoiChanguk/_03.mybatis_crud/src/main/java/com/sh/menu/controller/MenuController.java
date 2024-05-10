@@ -30,6 +30,7 @@ public class MenuController {
 
     public void findByMenuCode(int menuCode) {
         // 0~1개의 MenuDto 반환 : MenuDto
+
         MenuDto menuDto = menuService.findByMenuCode(menuCode);
         ResultView.displayMenu(menuDto);
     }
@@ -44,9 +45,9 @@ public class MenuController {
         ResultView.displayResult("카테고리 & 메뉴 등록", result);
     }*/
 
-    public List<CategoryDto> findAllCategory() {
-        List<CategoryDto> categoryDtos=menuService.findAllCategory();
-        return categoryDtos;
+    public void findAllCategory() {
+        List<CategoryDto> categoryList = menuService.findAllCategory();
+        ResultView.displayCategoryList(categoryList);
     }
 
     public void findOrderableStatus() {
@@ -54,9 +55,10 @@ public class MenuController {
         ResultView.displayMenuList(menuDtos);
     }
 
-    public void findByOrderableCategoryCodeMenu(int category_Code) {
+    public List<MenuDto> findByOrderableCategoryCodeMenu(int category_Code) {
         List<MenuDto> menuDtos=menuService.findByOrderableCategoryCodeMenu(category_Code);
         ResultView.displayMenuList(menuDtos);
+        return menuDtos;
     }
 
     public void findByCategoryCode(int categoryCode) {

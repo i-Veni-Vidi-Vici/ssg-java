@@ -1,5 +1,6 @@
 package com.sh.menu.model.dao;
 
+import com.sh.common.ErrorView;
 import com.sh.menu.model.dto.MenuDto;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.*;
@@ -20,7 +21,6 @@ class MenuMapperCommandTest {
         this.menuMapper = sqlSession.getMapper(MenuMapper.class);
         MenuDto menuDto = new MenuDto();
     }
-
     @AfterEach
     void tearDown() {
         // 테스트 환경 제외

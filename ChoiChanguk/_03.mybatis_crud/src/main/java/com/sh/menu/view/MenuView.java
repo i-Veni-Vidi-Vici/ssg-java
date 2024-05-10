@@ -76,17 +76,7 @@ public class MenuView {
      * > 4.한식 5.중식 6.일식 ...
      */
     private void displayCategoryList() {
-        List<CategoryDto> categoryList = menuController.findAllCategory();
-        System.out.print("> ");
-        for(int i = 0; i < categoryList.size(); i++) {
-            CategoryDto categoryDto = categoryList.get(i);
-            System.out.printf("%d.%s ", categoryDto.getCategoryCode(), categoryDto.getCategoryName());
-        }
-        System.out.println();
-    }
-    public void finAllCategory(){
-        List<CategoryDto> categoryList = menuController.findAllCategory();
-        ResultView.displayCategoryList(categoryList);
+        menuController.findAllCategory();
     }
 
     private MenuDto inputMenu() {
