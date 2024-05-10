@@ -1,5 +1,7 @@
 package com.sh.menu.controller;
 
+import com.sh.common.ErrorView;
+import com.sh.common.error.ErrorCode;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import com.sh.menu.model.service.MenuService;
@@ -22,15 +24,24 @@ public class MenuController {
     private MenuService menuService = new MenuService();
 
     public void findAll() {
-        // n개의 MenuDto 반환 : List<MenuDto>
-        List<MenuDto> list = menuService.findAll();
-        ResultView.displayMenuList(list);
+        try {
+            // n개의 MenuDto 반환 : List<MenuDto>
+            List<MenuDto> list = menuService.findAll();
+            ResultView.displayMenuList(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorView.displayError(ErrorCode.CREATE_ORDER_ERROR);
+        }
     }
 
     public void findByMenuCode(int menuCode) {
-        // 0~1개의 MenuDto 반환 : MenuDto
-        MenuDto menuDto = menuService.findByMenuCode(menuCode);
-        ResultView.displayMenu(menuDto);
+        try {
+            // 0~1개의 MenuDto 반환 : MenuDto
+            MenuDto menuDto = menuService.findByMenuCode(menuCode);
+            ResultView.displayMenu(menuDto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void insertMenu(MenuDto menuDto) {
@@ -59,7 +70,18 @@ public class MenuController {
     }
 
     public void findAllCategory() {
-        List<CategoryDto> categoryList =  menuService.findAllCategory();
-        ResultView.displayCategoryResult(categoryList);
+        List<CategoryDto> categoryList = menuService.findAllCategory();
+        ResultView.displayCategoryList(categoryList);
+    }
+
+    public void findMenuOrderable() {
+        List<MenuDto> list = menuService.findMenuOrderable();
+        ResultView.displayMenuList(list);
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        List<MenuDto> list = menuService.findMenuOrderableByCategoryCode(categoryCode);
+        ResultView.displayMenuList(list);
+        return list;
     }
 }
