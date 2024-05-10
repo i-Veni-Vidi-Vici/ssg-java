@@ -10,6 +10,15 @@ repositories {
 }
 
 dependencies {
+    // lombok의존(소스코드용)
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    // 컴파일타임에 코드작성(소스코드용)
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    // 테스트코드에 lombok 적용(테스트코드용)
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
     // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
     implementation 'com.mysql:mysql-connector-j:8.0.33'
     // https://mvnrepository.com/artifact/org.mybatis/mybatis
