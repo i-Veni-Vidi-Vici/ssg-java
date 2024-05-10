@@ -4,24 +4,20 @@ import com.sh.menu.controller.MenuController;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 /**
  * <pre>
- * View단 
+ * View단
  * - 사용자인터페이스 담당
  * - 콘솔메뉴 제공, 사용자입력값 처리, 요청에 대한 응답 출력
  * - 사용자 요청에 따른 컨트롤러단에 메시지 전송
- * </pre> 
+ * </pre>
  */
 public class MenuView {
     private MenuController menuController = new MenuController();
     private Scanner sc = new Scanner(System.in);
-
-    public MenuView() throws IOException {
-    }
 
     public void mainMenu() {
         String menu = """
@@ -33,6 +29,8 @@ public class MenuView {
             5. 메뉴 수정
             6. 메뉴 삭제
             7. 카테고리 & 메뉴 등록
+            8. 주문가능한 메뉴 조회
+            9. 주문가능한 카테고리별 메뉴 조회
             0. 종료
             =====================
             입력 : """;
@@ -46,7 +44,7 @@ public class MenuView {
                 case "4" : menuController.insertMenu(inputMenu()); break;
                 case "5" : menuController.updateMenu(inputMenuUpdated()); break;
                 case "6" : menuController.deleteMenu(inputMenuCode("삭제")); break;
-//                case "7" : menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
+                case "7" : menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
                 case "0" : return;
                 default:
                     System.out.println("잘못 입력하셨습니다.");
@@ -82,7 +80,7 @@ public class MenuView {
      * </pre>
      */
     private void displayCategoryList() {
-
+        menuController.findAllCategory();
     }
 
     private CategoryDto inputCategory() {

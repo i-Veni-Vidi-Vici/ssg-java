@@ -29,7 +29,7 @@ public class ResultView {
                         menuDto.getMenuPrice(),
                         menuDto.getCategoryCode(),
                         menuDto.getOrderableStatus()
-                    );
+                );
             }
             System.out.println("-----------------------------------------------");
         }
@@ -59,5 +59,11 @@ public class ResultView {
     }
 
     public static void displayCategoryList(List<CategoryDto> categoryList) {
+        System.out.print("> ");
+        for (int i = 0; i < categoryList.size(); i++) {
+            CategoryDto categoryDto = categoryList.get(i);
+            System.out.printf("%d.%s ", categoryDto.getCategoryCode(), categoryDto.getCategoryName());
+        }
+        System.out.println();
     }
 }

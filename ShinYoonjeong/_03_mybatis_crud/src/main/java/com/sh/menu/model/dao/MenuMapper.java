@@ -1,5 +1,6 @@
 package com.sh.menu.model.dao;
 
+import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 
 import java.util.List;
@@ -26,5 +27,9 @@ public interface MenuMapper {
 
     List<MenuDto> findByCategoryCode(int categoryCode);
 
-    MenuDto findbyMenuCode(int menuCode);
+    List<CategoryDto> findAllCategory();
+
+    List<MenuDto> findMenuOrderable();
+
+    List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode);
 }
