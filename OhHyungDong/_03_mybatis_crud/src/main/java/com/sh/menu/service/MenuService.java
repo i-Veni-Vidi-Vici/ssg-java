@@ -3,6 +3,7 @@ package com.sh.menu.service;
 import com.sh.menu.dao.MenuMapper;
 import com.sh.menu.dto.CategoryDto;
 import com.sh.menu.dto.MenuDto;
+import com.sh.view.ResultView;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 import static com.sh.common.MyBatisTemplate.getSqlSession;
 
 public class MenuService {
+    private MenuService menuService;
 
     public List<MenuDto> findAll() {
         SqlSession sqlSession = getSqlSession();
@@ -87,10 +89,30 @@ public class MenuService {
         }
     }
 
-   public List<CategoryDto> findAllCatgory() {
-       return List.of(
-               new CategoryDto(4,"한식",1),
-               new CategoryDto(5,"중식",1)
-       );
-   }
+
+
+    public List<CategoryDto> findAllCategory() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<CategoryDto> categoryList = menuMapper.findAllCategory();
+        sqlSession.close();
+        return categoryList;
+    }
+
+    public List<MenuDto> findMenuOrderable() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderable();
+        sqlSession.close();
+        return list;
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
+    }
+
 }

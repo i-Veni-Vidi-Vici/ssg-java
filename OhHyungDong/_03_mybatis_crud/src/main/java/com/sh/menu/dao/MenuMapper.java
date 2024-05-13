@@ -1,5 +1,6 @@
 package com.sh.menu.dao;
 
+import com.sh.menu.dto.CategoryDto;
 import com.sh.menu.dto.MenuDto;
 
 import java.util.List;
@@ -23,4 +24,10 @@ public interface MenuMapper {
     int insertMenu(MenuDto menuDto);
     int updateMenu(MenuDto menuDto);
     int deleteMenu(int menuCode);
+
+    List<CategoryDto> findAllCategory();
+
+    List<MenuDto> findMenuOrderable();
+
+    List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode);
 }
