@@ -1,11 +1,11 @@
 package com.sh;
 
 import com.sh.menu.view.MenuView;
-
-import java.io.IOException;
+import com.sh.order.view.OrderView;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        new MenuView().mainMenu();
+    public static void main(String[] args) {
+//        new MenuView().mainMenu();
+        new OrderView().mainMenu();
     }
 }

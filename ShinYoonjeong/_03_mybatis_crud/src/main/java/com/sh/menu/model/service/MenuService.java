@@ -22,62 +22,88 @@ public class MenuService {
     public MenuDto findByMenuCode(int menuCode) {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        MenuDto menuDto = menuMapper.findbyMenuCode(menuCode);
+        MenuDto menuDto = menuMapper.findByMenuCode(menuCode);
         sqlSession.close();
         return menuDto;
-    }
-
-    public List<MenuDto> findByCategoryCode(int categoryCode) {
-        SqlSession sqlSession = getSqlSession();
-        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        List<MenuDto> list = menuMapper.findAll();
-        sqlSession.close();
-        return list;
     }
 
     public int insertMenu(MenuDto menuDto) {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        try{
+        try {
             // dao 메세지 전달
             int result = menuMapper.insertMenu(menuDto);
             sqlSession.commit();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             sqlSession.rollback();
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
-
     }
 
-    public int modifyMenu(MenuDto menuDto) {
-        return 0;
-    }
-    public int updateMenu(MenuDto menuDto){
+    public List<MenuDto> findByCategoryCode(int categoryCode) {
         SqlSession sqlSession = getSqlSession();
         MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
-        try{
+        List<MenuDto> list = menuMapper.findByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
+    }
+
+    public int updateMenu(MenuDto menuDto) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        try {
             // dao 메세지 전달
-            int result = menuMapper.insertMenu(menuDto);
+            int result = menuMapper.updateMenu(menuDto);
             sqlSession.commit();
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             sqlSession.rollback();
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }
-    public int deleteMenu(int menuDto) {
-     return 0;
-    }
-    public List<CategoryDto> findAllCategory(){
-        return List.of(
-                new CategoryDto(4, "한식", 1),
-                new CategoryDto(5, "중식", 1)
 
-                );
+    public int deleteMenu(int menuCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        try {
+            // dao 메세지 전달
+            int result = menuMapper.deleteMenu(menuCode);
+            sqlSession.commit();
+            return result;
+        } catch (Exception e) {
+            sqlSession.rollback();
+            throw new RuntimeException(e);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public List<CategoryDto> findAllCategory() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<CategoryDto> categoryList = menuMapper.findAllCategory();
+        sqlSession.close();
+        return categoryList;
+    }
+
+    public List<MenuDto> findMenuOrderable() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderable();
+        sqlSession.close();
+        return list;
+    }
+
+    public List<MenuDto> findMenuOrderableByCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
     }
 }

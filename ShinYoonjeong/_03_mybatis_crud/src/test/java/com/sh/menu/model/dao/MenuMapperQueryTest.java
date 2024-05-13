@@ -1,5 +1,6 @@
 package com.sh.menu.model.dao;
 
+import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.AfterEach;
@@ -52,8 +53,8 @@ class MenuMapperQueryTest {
                     assertThat(menu.getMenuPrice()).isNotZero().isPositive();
                     // nullable한 컬럼은 검증 제외
                     assertThat(menu.getOrderableStatus()).satisfiesAnyOf(
-                        (status) -> "Y".equals(status),
-                        (status) -> "N".equals(status)
+                            (status) -> "Y".equals(status),
+                            (status) -> "N".equals(status)
                     );
                 });
     }
@@ -71,19 +72,19 @@ class MenuMapperQueryTest {
         assertThat(menu.getMenuName()).isNotNull();
         assertThat(menu.getMenuPrice()).isNotZero().isPositive();
         assertThat(menu.getOrderableStatus()).satisfiesAnyOf(
-            (status) -> "Y".equals(status),
-            (status) -> "N".equals(status)
+                (status) -> "Y".equals(status),
+                (status) -> "N".equals(status)
         );
 
         // satisfies(Consumer...)
         assertThat(menu).satisfies(
-            (_menu) -> assertThat(_menu.getMenuCode()).isEqualTo(menuCode),
-            (_menu) -> assertThat(_menu.getMenuName()).isNotNull(),
-            (_menu) -> assertThat(_menu.getMenuPrice()).isNotZero().isPositive(),
-            (_menu) -> assertThat(_menu.getOrderableStatus()).satisfiesAnyOf(
-                    (status) -> "Y".equals(status),
-                    (status) -> "N".equals(status)
-            )
+                (_menu) -> assertThat(_menu.getMenuCode()).isEqualTo(menuCode),
+                (_menu) -> assertThat(_menu.getMenuName()).isNotNull(),
+                (_menu) -> assertThat(_menu.getMenuPrice()).isNotZero().isPositive(),
+                (_menu) -> assertThat(_menu.getOrderableStatus()).satisfiesAnyOf(
+                        (status) -> "Y".equals(status),
+                        (status) -> "N".equals(status)
+                )
         );
     }
 
@@ -107,18 +108,18 @@ class MenuMapperQueryTest {
         List<MenuDto> list = menuMapper.findByCategoryCode(categoryCode);
         // then
         assertThat(list)
-            .isNotNull()
-            .isNotEmpty()
-            .allSatisfy((menu) -> {
-                assertThat(menu.getMenuCode()).isNotZero().isPositive();
-                assertThat(menu.getMenuName()).isNotNull();
-                assertThat(menu.getMenuPrice()).isNotZero().isPositive();
-                assertThat(menu.getCategoryCode()).isEqualTo(categoryCode);
-                assertThat(menu.getOrderableStatus()).satisfiesAnyOf(
-                        (status) -> "Y".equals(status),
-                        (status) -> "N".equals(status)
-                );
-            });
+                .isNotNull()
+                .isNotEmpty()
+                .allSatisfy((menu) -> {
+                    assertThat(menu.getMenuCode()).isNotZero().isPositive();
+                    assertThat(menu.getMenuName()).isNotNull();
+                    assertThat(menu.getMenuPrice()).isNotZero().isPositive();
+                    assertThat(menu.getCategoryCode()).isEqualTo(categoryCode);
+                    assertThat(menu.getOrderableStatus()).satisfiesAnyOf(
+                            (status) -> "Y".equals(status),
+                            (status) -> "N".equals(status)
+                    );
+                });
     }
 
     @DisplayName("존재하지 않는 카테고리 코드 조회시 빈 리스트가 반환된다.")
@@ -132,5 +133,57 @@ class MenuMapperQueryTest {
         assertThat(list)
                 .isNotNull()
                 .isEmpty();
+    }
+
+    @DisplayName("모든 선택가능한 카테고리를 조회할 수 있다.")
+    @Test
+    void findAllCategory() {
+        // given
+        // when
+        List<CategoryDto> categoryList = menuMapper.findAllCategory();
+        // then
+        assertThat(categoryList)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((categoryDto -> categoryDto.getRefCategoryCode() != 0));
+    }
+
+    @DisplayName("주문가능한 메뉴만 조회할 수 있다.")
+    @Test
+    void findMenuOrderable() {
+        // given
+        // when
+        List<MenuDto> list = menuMapper.findMenuOrderable();
+        // then
+        assertThat(list)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null)
+                .allSatisfy((menu) -> {
+                    assertThat(menu.getMenuCode()).isNotZero().isPositive();
+                    assertThat(menu.getMenuName()).isNotNull();
+                    assertThat(menu.getMenuPrice()).isNotZero().isPositive();
+                    assertThat(menu.getOrderableStatus()).isEqualTo("Y");
+                });
+    }
+    @DisplayName("카테고리별 주문가능한 메뉴만 조회할 수 있다.")
+    @Test
+    void findMenuOrderableByCategoryCode() {
+        // given
+        int categoryCode = 4;
+        // when
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
+        // then
+        assertThat(list)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null)
+                .allSatisfy((menu) -> {
+                    assertThat(menu.getMenuCode()).isNotZero().isPositive();
+                    assertThat(menu.getMenuName()).isNotNull();
+                    assertThat(menu.getMenuPrice()).isNotZero().isPositive();
+                    assertThat(menu.getCategoryCode()).isEqualTo(categoryCode);
+                    assertThat(menu.getOrderableStatus()).isEqualTo("Y");
+                });
     }
 }

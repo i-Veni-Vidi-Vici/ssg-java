@@ -43,14 +43,14 @@ class MenuMapperCommandTest {
         // 등록된 행의 pk컬럼 가져오기
         int menuCode = menuDto.getMenuCode();
         assertThat(menuCode).isNotZero();
-        
+
         // 등록된 행을 조회해서 컬럼값 비교
-         MenuDto menuDto2 = menuMapper.findByMenuCode(menuCode);
-         assertThat(menuDto2.getMenuCode()).isEqualTo(menuCode);
-         assertThat(menuDto2.getMenuName()).isEqualTo(menuName);
-         assertThat(menuDto2.getMenuPrice()).isEqualTo(menuPrice);
-         assertThat(menuDto2.getCategoryCode()).isEqualTo(categoryCode);
-         assertThat(menuDto2.getOrderableStatus()).isEqualTo(orderableStatus);
+        MenuDto menuDto2 = menuMapper.findByMenuCode(menuCode);
+        assertThat(menuDto2.getMenuCode()).isEqualTo(menuCode);
+        assertThat(menuDto2.getMenuName()).isEqualTo(menuName);
+        assertThat(menuDto2.getMenuPrice()).isEqualTo(menuPrice);
+        assertThat(menuDto2.getCategoryCode()).isEqualTo(categoryCode);
+        assertThat(menuDto2.getOrderableStatus()).isEqualTo(orderableStatus);
     }
 
     @Disabled
@@ -75,7 +75,7 @@ class MenuMapperCommandTest {
         menuDto.setMenuPrice(newMenuPrice);
         menuDto.setCategoryCode(newCategoryCode);
         menuDto.setOrderableStatus(newOrderableStatus);
-        
+
         // when
         int result = menuMapper.updateMenu(menuDto);
 
