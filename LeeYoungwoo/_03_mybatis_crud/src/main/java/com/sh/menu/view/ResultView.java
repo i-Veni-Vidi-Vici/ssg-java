@@ -58,7 +58,7 @@ public class ResultView {
         System.out.println("> 📢📢📢 " + type + " " + (result > 0 ? "성공!" : "실패!") + "📢📢📢");
     }
 
-    public static void displayCategoryResult(List<CategoryDto> categoryList) {
+    public static void displayCategoryList(List<CategoryDto> categoryList) {
         System.out.print("> ");
         for (int i = 0; i < categoryList.size(); i++) {
             CategoryDto categoryDto = categoryList.get(i);
