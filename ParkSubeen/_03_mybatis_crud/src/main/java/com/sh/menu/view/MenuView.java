@@ -4,7 +4,6 @@ import com.sh.menu.controller.MenuController;
 import com.sh.menu.model.dto.CategoryDto;
 import com.sh.menu.model.dto.MenuDto;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -45,8 +44,8 @@ public class MenuView {
                 case "5" : menuController.updateMenu(inputMenuUpdated()); break;
                 case "6" : menuController.deleteMenu(inputMenuCode("삭제")); break;
                 case "7" : menuController.insertCategoryAndMenu(inputCategory(), inputMenu()); break;
-                case "8" : menuController.findByOrderableStatusY(); break;
-                case "9" : menuController.findByCategoryCodeStatus(inputCategoryCode()); break;
+                case "8" : menuController.findMenuOrderable(); break;
+                case "9" : menuController.findMenuOrderableByCategoryCode(inputCategoryCode()); break;
                 case "0" : return;
                 default:
                     System.out.println("잘못 입력하셨습니다.");

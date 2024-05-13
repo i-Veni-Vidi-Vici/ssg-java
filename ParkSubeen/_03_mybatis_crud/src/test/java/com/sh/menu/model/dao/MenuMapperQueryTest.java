@@ -160,7 +160,7 @@ class MenuMapperQueryTest {
     void findByOrderableStatusY() {
         // given
         // when
-        List<MenuDto> list = menuMapper.findByOrderableStatusY();
+        List<MenuDto> list = menuMapper.findMenuOrderable();
         // then
         assertThat(list)
                 .isNotNull()
@@ -182,7 +182,7 @@ class MenuMapperQueryTest {
         // given
         int categoryCode = 4;
         // when
-        List<MenuDto> list = menuMapper.findByCategoryCodeStatus(categoryCode);
+        List<MenuDto> list = menuMapper.findMenuOrderableByCategoryCode(categoryCode);
         // then
         assertThat(list)
                 .isNotNull()

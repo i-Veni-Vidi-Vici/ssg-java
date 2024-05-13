@@ -69,7 +69,7 @@
             ref_category_code is not null
     </select>
 
-    <select id="findByOrderableStatusY" resultType="menuDto">
+    <select id="findMenuOrderable" resultType="menuDto">
         select
             *
         from
@@ -78,7 +78,7 @@
             orderable_status = 'Y'
     </select>
 
-    <select id="findByCategoryCodeStatus" resultType="menuDto">
+    <select id="findMenuOrderableByCategoryCode" resultType="menuDto">
         select
             *
         from
