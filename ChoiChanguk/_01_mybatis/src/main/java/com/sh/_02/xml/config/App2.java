@@ -9,7 +9,7 @@ import static com.sh.common.MyBatisTemplate.getSqlSession;
 
 public class App2 {
     public static void main(String[] args) {
-        // 서비스 단의 코드일것이다
+        // 서비스 단의 코드일것이다 = Connection과 같은 기능이다
         SqlSession sqlSession=getSqlSession();
 
         MenuMapper menuMapper=sqlSession.getMapper(MenuMapper.class);

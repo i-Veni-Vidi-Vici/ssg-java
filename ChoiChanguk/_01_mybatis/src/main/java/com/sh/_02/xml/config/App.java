@@ -12,8 +12,8 @@ public class App {
         String resource = "mybatis-config.xml"; // resources폴더 하위경로
         try {
             SqlSessionFactory sqlSessionFactory =  new SqlSessionFactoryBuilder().build(
-                    Resources.getResourceAsStream(resource));
-            SqlSession sqlSession = sqlSessionFactory.openSession(false);
+                    Resources.getResourceAsStream(resource));//최초 1회 시작
+            SqlSession sqlSession = sqlSessionFactory.openSession(false);// autocommit은 제가 할게요
 
             MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
             MenuDto menuDto = menuMapper.findByMenuCode(1);
