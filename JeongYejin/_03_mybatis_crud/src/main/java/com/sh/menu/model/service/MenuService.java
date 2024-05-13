@@ -91,4 +91,20 @@ public class MenuService {
         sqlSession.close();
         return list;
     }
+
+    public List<MenuDto> findByOrderableStatus() {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findByOrderableStatus();
+        sqlSession.close();
+        return list;
+    }
+
+    public List<MenuDto> findByOrderableCategoryCode(int categoryCode) {
+        SqlSession sqlSession = getSqlSession();
+        MenuMapper menuMapper = sqlSession.getMapper(MenuMapper.class);
+        List<MenuDto> list = menuMapper.findByOrderableCategoryCode(categoryCode);
+        sqlSession.close();
+        return list;
+    }
 }
