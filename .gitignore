@@ -4,6 +4,7 @@
 ### Custom ###
 .idea/
 /**/*.iml
+/**/datasource.properties
 
 
 ### Intellij ###
