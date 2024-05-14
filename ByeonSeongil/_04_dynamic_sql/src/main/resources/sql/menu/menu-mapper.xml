@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.menu.model.dao.MenuMapper">
+    <resultMap id="menuDtoMap" type="menuDto">
+        <id column="menu_code" property="menuCode"/>
+        <result column="menu_name" property="menuName"/>
+        <result column="menu_price" property="menuPrice"/>
+        <result column="category_code" property="categoryCode"/>
+        <result column="orderable_status" property="orderableStatus"/>
+    </resultMap>
+    <select id="searchMenu" resultMap="menuDtoMap">
+        select * from tbl_menu where orderable_status = 'Y'
+        <if test="name == 'name'">and menu_name like concat('%', #{value}, '%')</if>
+        <if test="name == 'category'">and category_code = #{value}</if>
+        <if test="name == 'price'">
+            <!--            and menu_price between #{start} and #{end}-->
+            <!-- CDATA Section (Character DATA) xml에서 < 이런 기호들을 사용불가함 -->
+            <![CDATA[
+            and menu_price >= #{start} and menu_price <= #{end}
+            ]]>
+        </if>
+        order by menu_code
+    </select>
+
+    <select id="searchMenu2" resultMap="menuDtoMap">
+        select *
+        from tbl_menu
+        where
+        orderable_status = 'Y'
+        <choose>
+            <when test="value == '식사'">
+                and category_code in (4,5,6,7)
+            </when>
+            <when test="value == '음료'">
+                and category_code in (8,9, 10)
+            </when>
+            <otherwise>
+                and category_code in (11,12)
+            </otherwise>
+        </choose>
+        order by
+        menu_code
+    </select>
+    <select id="searchMenu3" resultMap="menuDtoMap">
+        select * from tbl_menu where orderable_status = 'Y' and menu_code in
+        <!--
+                        collection :
+                            - 반복접근 가능한 List, Set, [] 모두 가능
+                            - mapper로부터 List 전달도 가능 (Criteria객체 또는 Map에 담아 전달)
+                            - static필드/메소드 참조도 가능
+                        item : 요소하나에 대한 변수명
+                        open : 접두사
+                        separator : 구분자
+                        close : 접미사
+                     -->
+        <foreach collection="@com.sh.menu.view.MenuView@todayRecommendation()" item="menuCode" open="("
+                 separator="," close=")">#{menuCode}
+        </foreach>
+    </select>
+
+    <select id="searchMenu4" resultMap="menuDtoMap">
+        select *
+        from tbl_menu
+        <!--
+            where 태그
+            - where 구문 생성용.
+            - where 태그 내부 비어있다면, where 키워드 삭제처리
+            - where태그 내부코드가 and나 or로 시작하는 경우 and/or를 삭제처리
+        -->
+        <where>
+            <if test="name == 'category'">
+                category_code =#{value}
+            </if>
+            <if test="name == 'orderableStatus'">
+                and category_code =#{value}
+            </if>
+        </where>
+
+    </select>
+</mapper>
