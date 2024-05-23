@@ -1,0 +1,49 @@
+ <!DOCTYPE html>  <!-- ! -- !탭하면 , emmet 기능에 의해 html 문서구조를 자동생성한다  -->
+<html lang="en">
+
+<head>
+    <!-- html 주석 (한줄/여러줄 가능)-->
+    
+
+
+    <meta charset="UTF-8">
+    <meta name="viewprot" content="widthe = device-width, initial-scale = 1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- body 태그 : 페이지 내용, 회먄에 노출된다-->
+    <h1>🤗안녕🤗</h1>
+    <h2>🐔Hyper Text Markup Language🐔</h2>
+
+    <!-- index.hetml은 랜딩페이지이다. 디렉토리까지 요청을 보내면, 
+        브라우저는  자동으로 랜딩페이지를 탐색한다.
+        만약, index.html이 없다면, NotFound(404)로 응답한다.
+    -->
+    <!-- 주소
+        - 상대경로: 현재페이지 기준을 경로탐색
+            - ./ 현재디렉토리
+            - ../ 부모디렉토리
+
+        - 절대경로: 최상위 디렉토리부터 경로탐색
+            - / 최상위 디렉토리
+            - http://127.0.0.1:5500/ 와 동일
+    -->
+
+    <ul>
+        <!-- <li><a href="주소">노출될이름</a></li> -->
+        <li><a href="./01_text.html"> text</a></li>
+        <li><a href="../01_html/01_text.html">text</a></li>  
+
+        <li><a href="/ParkTaejun/01_html/01_text.html">text</a></li>  <!--  절대경로를 쓴 것임. --> 
+        <li><a href =" http://127.0.0.1:5500/ParkTaejun/01_html/01_text.html">text</a></li>
+
+        <li><a href="../02_CSS/bar.html">02_css/bar </a></li>
+        <li><a href="/ParkTaejun/02_CSS/bar.html">02_css/bar </a></li>
+
+        
+
+    </ul>
+        
+</body>
+</html>
+
