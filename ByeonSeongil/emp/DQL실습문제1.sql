@@ -39,6 +39,6 @@ select *
 from employee
 order by EMP_NAME;
 
-select HIRE_DATE, QUIT_DATE,dayofyear (now()-HIRE_DATE)
+select HIRE_DATE, QUIT_DATE,dayofyear (IFNULL(quit_date,now())-HIRE_DATE)
 from employee
 
