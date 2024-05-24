@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html|table</title>
+    <style>
+        table {
+            border : 1px solid black;
+            border-collapse:collapse;
+        }
+        th,td{
+            border:1px solid black;
+            padding:10px;    /*여백*/
+        }
+    </style>
+</head>
+<body>
+    <h1>table</h1>
+    <!--
+        table 테이블관련 최상위태그
+
+            행그룹핑
+            thead 헤더행그룹
+            tbody 본문행그룹
+            tfoot 푸터행그룹
+
+            tr 행태그
+                th 헤더셀
+                td 내용셀
+    -->
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>브라우져명</th>
+                <th>제조사</th>
+                <th>홈페이지</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Chrome</td>
+                <td>Google</td>
+                <td><a href="https://google.com">https://google.com</a></td>
+            </tr>
+            <tr>
+                <td>Safari</td>
+                <td>Apple</td>
+                <td><a href="https://apple.com">https://apple.com</a></td>
+            </tr>
+            <tr>
+                <td>Edge</td>
+                <td>Microsoft</td>
+                <td><a href="https://microsoft.com">https://microsoft.com</a></td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td>개수</td>
+                    <td colspan="2">3</td>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
+    
+</body>
+</html>
