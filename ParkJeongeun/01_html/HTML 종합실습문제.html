@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="납품자 정보">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label for="name">납품자명(필수) : </label>
+                    <input type="text" required>
+                </li><br>
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="email" placeholder="answer@naver.com" required>
+                </li><br>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="text" value="http://" required>
+                </li><br>
+                <li>
+                    <label for="region">지역 : </label>
+                    <select name="region" id="region">
+                        <option value="region1">부산</option>
+                        <option value="region2">서울</option>
+                        <option value="region3">세종</option>
+                        <option value="region4">인천</option>
+                        <option value="region5">경기</option>
+                        <option value="region6">강원</option>
+                        <option value="region7">광주</option>
+                        <option value="region8">대전</option>
+                        <option value="region9">충북</option>
+                        <option value="region10">충남</option>
+                        <option value="region11">경북</option>
+                        <option value="region12">경남</option>
+                        <option value="region13">전북</option>
+                        <option value="region14">전남</option>
+                        <option value="region15">울산</option>
+                        <option value="region16">제주</option>
+                    </select>
+                </li><br>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="name">상품명(필수) : </label>
+                    <input type="text" required>
+                </li><br>
+                <li>
+                    <label for="quantity">납품수량(필수) : </label>
+                    <input type="text" min="100" placeholder="최소 100" required>
+                </li><br>
+                <li>
+                    <label for="grade">납품등급(필수) : </label>
+                    <input type="range" min="100" max="500" required>
+                </li><br>
+                <li>
+                    <label for="text">기타사항 : </label>
+                    <textarea name="" id=""></textarea>
+                </li><br>
+            </ul>
+        </fieldset>
+        <br>
+        <div>
+            <input type="submit" value="send message">
+        </div>
+    </form>
+</body>
+</html>
