@@ -59,6 +59,38 @@ div#siblings > p#p2 ~ p, div#siblings > p#p2 ~ pre {
 
 /* 가상클래스선택자 : */
 /* 특정상태/상황에 적용 */
+#pseudo-class:hover {
+  background-color: tomato;
+  color: white;
+}
+#pseudo-class:active {
+  text-decoration: underline;
+}
+/* 최상위태그를 가리키는 선택자 :root -> html */
+:root {
+  background-color: antiquewhite;
+}
+:root * {
+  font-family: '궁서';
+}
+
+/* 부정선택자 :not(선택자) */
+h2:not(#pseudo-class) {
+  text-decoration: underline;
+}
+
+
+
 
 /* 가상요소선택자 :: */
 /* 화면에 없는 요소를 추가 */
+ul#pseudo-element li::before {
+  /* 시작태그와 내용 사이 */
+  content: '￦';
+  color: red;
+}
+ul#pseudo-element li::after {
+  /* 내용과 종료태그 사이 */
+  content: '원';
+  color: blue;
+}
