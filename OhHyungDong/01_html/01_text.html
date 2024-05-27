@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- head 태그 : 페이지 설정 정보, 화면에노출되지 않는다. title 설정 정보만 눈에 보인다.-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | text</title>
+</head>
+<body>
+    <!-- body 태그 : 페이지 내용 화면에 노출된다. -->
+    <h1>🌧html🌧</h1>
+    <h2>Hyper Text Markup Language</h2>
+    <!-- index.html은 랜딩페이지이다. 디렉토리까지 요청을 보내면, 브라우저는 자동으로 랜딩페이지를 탐색한다.
+     만약 index.html이 없다면 Not Found(404)로 응답한다. -->
+
+     <!-- 인덱스 페이지 링크 (하이퍼 텍스트) -->
+
+     <a href ="index.html">인덱스</a>
+     
+     <!-- 제목 태그 h1 ~ h6 -->
+    <h1>안녕</h1>
+    <h2>안녕</h2>
+    <h3>안녕</h3>
+    <h4>안녕</h4>
+    <h5>안녕</h5>
+    <h6>안녕</h6>
+    
+    <!-- 문단태그 P -->
+    <!-- 개행 / 탭 / 공백문자는 무조건 1개로 묶여처리 된다 . -->
+    <p>
+        안녕하세요, 반갑습니다.
+        저는 홍길동입니다. ㅋㅋ
+    </p>
+
+    <!-- br : 개행문자를 의미함 
+         &nbsp : nbsp한개당 띄어쓰기 한번 -->
+    <p>
+        안녕하세요, 반갑습니다. <br>
+        저는 홍길동입니다.&nbsp; ㅋㅋ
+    </p>
+
+    <!-- 포맷 전처리 태그 <pre> -->
+    <!-- 개행 / 탭 / 공백문자를 모두 표현 해줌. 입력한 정보대로  -->
+    <pre>
+        안녕하세요. 반갑습니다.
+        저는 홍길동입니다.
+    </pre>
+
+    <!-- Phrase tag -->
+    <!-- html5 semantic tag(의미가 있는 태그)중 문자 관련 태그를 가리킨다.
+         태그의 역할과 내용을 일치시키는 작업
+         (css 효과로 작성된 시각화는 스크린 리더에(검색봇, 시각장애인) 의해 해석될 수 없다.)    
+    -->
+    <p>
+        <!-- 시각화 효과는 있으나, 스크린 리더에 의한 강조해석은 불가  -->
+        <span style="font-weight : bold;">반갑습니다.</span> <br>
+
+        <!-- 시각화 효과도 있고, 스크린리더에 의한 강조해서 처리  -->
+        <strong>볼드체로 강조.<strong><br>
+        <em>이탤릭체로 강조</em><br>
+        <ins>밑줄로 강조</ins><br>
+        <del>취소된 내용</del><br>
+        <mark>하이라이팅으로 강조</mark><br>
+        <kbd>Ctrl</kbd>+<kbd>9</kbd>를 누리세요. <br>
+
+        <!--모든 태그는 중첩처리 가능 -->
+        <mark><del>취소취소</del></mark><br>
+        <code>System.out.println()</code><br>
+    </p>
+
+</body>
+</html>
+
+<!--
+    inertnet : network
+    web : network에서 돌아가는 service -> web protocol : http , https 
+    ie : edge, chrome -> web brower : web server에서 요청을 보내는 client Progra
+ -->    

@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- !탭하면, emmet기능에 의해 html문서구조를 자동생성한다-->
+<html lang="en">
+<head>
+    <!-- html 한줄
+        (한줄/여러줄 가능)-->
+        <!-- head태그 : 페이지 설정정보, 화면에 노출되지 않는다-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cstangga</title>
+</head>
+<body>
+    <!-- body태그 : 페이지 내용, 화면에 노출된다-->
+    <h1>HTML</h1>
+    <h1>오늘은 5월 23일 입니다</h1>
+    <!-- index.html은 랜딩페이지이다. 디렉토리까지 요청을 보내면
+    , 서버는 자동으로 랜딩페이지를 탐색 후 응당한다
+만약, index.html이 없다면 NotFound(404)로 응답한다-->
+
+<!-- 주소
+    - 상대경로 : 현재페이지 기준으로 경로탐색
+        - ./현재디렉토리 (파일/디렉토리명으로 시작한다면, ./ 생략된 것)
+        - ../ 부모디렉토리
+    - 절대경로 : 최상위 디렉토리부터 경로 탐색
+        - 최상위 디렉토리
+        - http://127.0.0.1:5500/ 와 동일-->
+        
+<ul>   
+    <!--<li><a href="주소">클릭할 텍스트 </a></li>-->
+    <li><a href="./01_text.html">texthtml입니다 </a><br></li>
+    <li><a href="../01_html/01_text.html">부모부터</a><br></li>
+    <li><a href="/ChoiChanguk/01_html/01_text.html">루트부터</a></li>
+    <li><a href="http://127.0.0.1:5500/ChoiChanguk/01_html/01_text.html">ip주소부터</a></li>
+    <li><a href="../02_css/bar.html">css폴더에 있는 bar</a></li>
+</ul>
+</body>
+</html>

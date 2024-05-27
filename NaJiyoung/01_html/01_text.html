@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | text</title>
+</head>
+<body>
+    <!-- emmet html문서/태그를 쉽게 작성해주는 도구 -->
+    <h1>text</h1>
+    <!-- 인덱스페이지 링크(하이퍼텍스트) -->
+    <a href="index.html">index</a>
+    <a href="./index.html">index</a>
+    <a href="../01_html/index.html">index</a>
+    <a href="/ParkSubeen/01_html/index.html">index</a>
+
+    <!-- 제목 태크 h1 ~ h6 -->
+    <!-- h1{안녕} -->
+    <!-- h${안녕}*6 -->
+    <h1>안녕</h1>
+    <h2>안녕</h2>
+    <h3>안녕</h3>
+    <h4>안녕</h4>
+    <h5>안녕</h5>
+    <h6>안녕</h6>
+    
+    <!-- 문단태그 p -->
+    <!-- 개행/탭/공백문자는 무조건 1개로 묶여처리된다. -->
+    <p>
+        안녕하세요, 반갑습니다.
+        저는 홍길동입니다.                            ㅋㅋㅋ
+    </p>
+    <p>
+        안녕하세요, 반갑습니다. <br/><br/><br/><br/>
+        저는 홍길동입니다. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+
+    <!-- 포맷전처리태그 pre -->
+    <!-- 개행/탭/공백문자를 모두 표현. -->
+    <pre>
+        안녕하세요, 반갑습니다.
+        저는 홍길동입니다.                        ㅋㅋㅋ
+    </pre>
+
+    <!-- Phrase Tag -->
+    <!-- 
+        html5 semantic tag(의미가 있는 태그)중 문자관련 태그를 가리킨다.
+        태그의 역할과 내용을 일치시키는 작업
+        (css효과로 작성된 시각화는 스크린리더(검색봇, 시각장애인)에 의해 해석될 수 없다.)
+     -->
+     <p>
+        <!-- 시각화 효과는 있으나, 스크린리더에 의한 강조해석은 불가 -->
+        <span style="font-weight: bold;">반갑습니다.</span>
+        <b>반갑습니다.</b>
+
+        <br><br>
+        
+        <!-- 시각화 효과는 있으나, 스크린리더에 의한 강조해석 처리 -->
+        <strong>볼드체로 강조</strong><br>
+        <em>이텔릭체로 강조</em><br>
+        <ins>밑줄로 강조</ins><br>
+        <del>취소된 내용</del><br>
+        <mark>하이라이팅으로 강조</mark><br>
+        <code>System.out.println();</code><br>
+        <kbd>Ctrl<kbd>9</kbd>를 누르세요.</kbd><br>
+
+        <!-- 모든 태그는 중첩처리 가능 -->
+        <mark><del>취소취소</del></mark>
+     </p>
+</body>
+</html>
