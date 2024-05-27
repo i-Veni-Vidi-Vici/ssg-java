@@ -1,0 +1,5 @@
+#font1{
+    /* 여러개 작성해도 가지고 있지 않거나 지원이 안되면 그 다음 폰트가 적용된다 */
+    /* 맨 오른쪽은 grneric-family(serif, sans-serif, sans-serif, cursive, monospace 작성 */
+    font-family: '궁서','바탕체'
+}
