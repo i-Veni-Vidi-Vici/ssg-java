@@ -1,0 +1,57 @@
+.box {
+    width: 300px;
+    height: 300px;
+    border: 3px solid #000;
+    background-color: greenyellow;
+}
+body:hover .box {
+    animation-name: my-keyframes;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes my-keyframes {
+    /* keyframe 블럭 */
+    /* from ~ to */
+    /* 10% 20% 30%...100% */
+
+    25%{
+        transform:translate(300px,0) rotate(90deg);
+    }
+    50% {
+        /* 기존 상태 대비 작성 */
+        transform: translate(300px, 300px) rotate(180deg);
+    }
+    70% {
+        transform: translate(0, 300px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+.img-wrapper {
+    margin-top: 50px;
+}
+
+.img-wrapper img {
+    width: 300px;
+    border-radius: 50%;
+    animation: spinner 1s ease 0s infinite forwards;
+}
+
+body:hover .img-wrapper {
+    animation-name: my-keyframes;
+    animation-duration: .7s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    tp {
+        transform: rotate(360deg);
+    }
+}
