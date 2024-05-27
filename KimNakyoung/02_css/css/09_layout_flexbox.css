@@ -1,0 +1,55 @@
+.container {
+  list-style: none; /* bullet 제거 */
+  padding-left: 0px;
+  background-color: royalblue;
+  color: white;
+  /* height: 500px; */
+
+  display: flex;
+  flex-direction: row; /* row | column */
+  /* flex-direction: row;라면, 메인축은 row방향, 크로수축은 column방향 */
+  justify-content: space-evenly;; /* 메인축 방향 정렬 */
+  align-items: stretch; /* 크로스축 방향 정렬 */
+  
+  flex-wrap: wrap;
+  align-content: normal;
+}
+/* color: color명 | rgb() | #hex */
+/* white | rgb(255, 255, 255) | #ffffff (rrggbb) */
+/* rgba(r, g, b, a) 투명도 (alpha) 0 ~ 1 */
+.container li {
+  background-color: rgb(255, 99, 71);
+  border: 1px solid #fff; 
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  
+  margin: 15px 0 15px 0; /* top right bottom left */
+  margin: 15px 0; /* 생략된 값은 맞은편 값 적용 */ 
+  /* margin-top: 15px;
+  margin-right: 0;
+  margin-bottom: 15px;
+  margin-left: 0; */
+}
+
+
+.outer {
+  width: 300px;
+  height: 300px;
+  background-color:aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.inner {
+  width: 200px;
+  height: 200px;
+  background-color:springgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span {
+  font-size: 8em;
+}
