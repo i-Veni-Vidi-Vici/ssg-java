@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css | layout - flexbox</title>
+    <link rel="stylesheet" href="css/09_layout_flexbox.css">
+</head>
+<body>
+    <h1>layout - flexbox</h1>
+    <!-- 
+        display: flex
+        자식요소의 배치를 관여하는 속성
+
+        부모요소(flex-container)
+          - display: flex | inline-flex
+          - flex-direction: row(기본값) | column
+          - justify-content 메인축 정렬 속성
+          - align-items 크로스축 정렬 속성
+          - flex-wrap 줄바꿈여부
+          - align-content 멀티축 상황일 때 정렬
+
+        자식요소(flex-item)
+     -->
+
+     <!-- ul>li{$}*10 -->
+     <ul class="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+     </ul>
+
+     <!-- div.outer>.inner -->
+     <div class="outer">
+        <div class="inner">
+            <span>🍕</span>
+        </div>
+     </div>
+</body>
+</html>
