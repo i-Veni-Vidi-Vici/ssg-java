@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- html 주석 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- body태그 : 페이지 내용이 페이지에 표시된다 -->
+    <h1>HTML📋</h1>
+    <!-- 
+        index.html은 랜딩페이지이다. 디렉토리까지 요청을보내면 
+        브라우저는 자동으로 랜딩페이지를 탐색한다 
+        만약, index.html이 없다면, NotFound(404)로 응답한다.
+
+    -->
+
+        <!-- 
+        주소
+        - 상대경로: 현재페이지 기준을 경로 탐색
+        - ./ 현재디렉토리(파일 / 디렉토리로 시작한다면, ./ 생략된것)
+        - ../ 부모 디렉토리
+
+        - 절대경로 : 최상의 디렉토리부터 경로 탐색
+     -->
+    <!-- emmet html 문서 / 태그를 쉽게 작성해주는 도구-->
+    <!-- <ul> -->
+        <!-- <li><a href="주소"노출될 이름></a></li> -->
+        <li><a href="01_text.html">01_text_상대경로</a></li>
+        <li><a href="../01_html/01_text.html">01_text_부모경로부터_시작</a></li>
+        <li><a href="/KuMinsang/01_html/01_text.html">01_text_절대경로</a></li>
+
+        <li><a href="../02_css/bar.html">bar</a></li>
+    </ul>
+
+</body>
+</html>

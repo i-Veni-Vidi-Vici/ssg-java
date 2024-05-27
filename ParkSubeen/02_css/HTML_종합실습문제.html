@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML_종합실습문제</title>
+    <link rel="stylesheet" href="css/HTML_종합실습문제.css">
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li></listyle>
+                    <label for="supplierName">납품자명(필수) : </label>
+                    <input type="text" id="supplierName" name="supplierName">
+                </li>
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="text" id="email" name="email" placeholder="answer@naver.com">
+                </li>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="text" id="homepage" name="homepage" value="http://">
+                </li>
+                <li>
+                    <label for="local">지역 : </label>
+                    <select id="local" name="local" required>
+                        <option value="" disabled selected>== 지역선택 ==</option>
+                        <option value="menu001">서울</option>
+                        <option value="menu002">인천</option>
+                        <option value="menu003">부산</option>
+                    </select>
+                </li>
+            </ol>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li></listyle>
+                    <label for="productName">상품명(필수) : </label>
+                    <input type="text" id="productName" name="productName">
+                </li>
+                <li>
+                    <label for="quantity">납품수량(필수) : </label>
+                    <input type="text" id="quantity" name="quantity" placeholder="최소 100">
+                </li>
+                <li>
+                    <label for="rating">납품등급(필수) : </label>
+                    <input type="range" id="rating" name="rating" min="1" max="5">
+                </li>
+                <li>
+                    <label for="local">기타사항 : </label>
+                    <textarea type="text"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <br>
+    <div>
+        <input type="submit" value="send message">
+    </div>
+</body>
+</html>
