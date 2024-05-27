@@ -1,0 +1,23 @@
+
+.pic{
+    display: none;
+    position: absolute;
+    border: 2px solid black;
+    top:10%;
+    left: 100px;
+}
+ul>li{
+    list-style: none;
+   
+}
+
+.small:hover +.pic{
+    display:list-item;
+}
+ul{
+    display: grid;
+    grid-template-columns: 200px;
+    grid-template-rows: repeat(2);
+    border: 2px solid black;
+}
+
