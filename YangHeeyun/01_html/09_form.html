@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | form</title>
+  </head>
+  
+  <body>
+    <h1>form</h1>
+    <!-- 
+      form 사용자입력값을 서버로 전송하기 위한 태그
+        - name 폼이름(서버로 전송되지 않고, 페이지내 구분용) 
+        - action 제출할 서버 url
+        - method 웹서비스에서 메세지 전송방식
+            - get(기본값) : 사용자입력값을 url에 query-string으로 전달(노출)
+            - post : 사용자입력값을 메세지 body영역에 작성(노출되지 않음)
+      
+      input 사용자입력을 작성할수 있게 여러 타입으로 제공
+    -->
+  
+    <h2>로그인폼</h2>
+    <!-- username=honggd&password=1234 -->
+    <form name="loginFrm" action="09_form.html" method="post">
+      <div>
+        <!-- input태그에 대한 라벨 label[for] -> input[id] 연결 -->
+        <!-- id속성값은 한 페이지내에 유일한 식별자여야 한다. (중복되면 안된다.) -->
+        <label for="id">Username: </label>
+        <!-- input태그는 form태그 하위에서 사용자 입력값을 처리 -->
+        <!-- 서버제출시에 사용되는 것은 name속성값과 사용자가 입력한 value속성값이다. -->
+        <input type="text" id="id" name="username" value="honggd" placeholder="아이디를 입력하세요.">
+      </div>
+      <div>
+        <label for="pw">Password: </label>
+        <input type="password" id="pw" name="password" placeholder="비밀번호를 입력하세요.">
+      </div>
+      <div>
+        <input type="submit" value="로그인">
+      </div>
+    </form>
+  
+    <h2>input태그 type</h2>
+  
+    <form action="" name="textInputFrm">
+      <!-- fieldset : form하위에서 사용자입력값 그룹핑 -->
+      <!-- legend : 각 fieldset의 제목 -->
+      <fieldset>
+        <legend>text관련</legend>
+        <div>
+          <!-- type=text 사용자의 한줄 입력 -->
+          <input type="text" name="nickname" id="nickname" value="길똥이" placeholder="닉네임을 입력하세요." required="">
+        </div>
+        <div>
+          <input type="password" id="memberPassword" name="memberPassword" maxlength="8">
+        </div>
+        <div>
+          <!-- type=email 이메일 형식에 맞는 입력값인지 검사-->
+          <input type="email" placeholder="email을 입력하세요.">
+        </div>
+        <!-- div>input:search -->
+        <div>
+          <!-- type=search 검색어를 한번에 삭제가능한 x버튼 제공 -->
+          <input type="search" name="" id="" placeholder="검색어를 입력하세요.">
+        </div>
+        <div>
+          <!-- type=tel 전화번호 입력을 위한 숫자키패드 제공 -->
+          <input type="tel">
+        </div>
+        <div>
+          <!-- 여러줄 입력을 지원 -->
+          <!-- value속성대신 태그내부 내용 작성. 개행/탭/공백을 모두 처리 -->
+          <textarea name="memo" id="">안녕
+        잘가     ㅋㅋㅋㅋ
+  반가워</textarea>
+        </div>
+        <div>
+          <input type="submit" value="제출">
+        </div>
+      </fieldset>
+    </form>
+  
+    <!-- form>fieldset>legend -->
+    <form action="" name="numberInputFrm">
+      <fieldset>
+        <legend>number관련</legend>
+        <!-- div>input:number -->
+        <div>
+          <!-- 숫자만 입력가능 -->
+          <!-- 추가적으로 값변경 버튼 제공 -->
+          <input type="number" name="score" id="score" min="0" max="10" step="2">
+        </div>
+        <!-- div>input:range -->
+        <div>
+          <input type="range" name="cnt" id="cnt" min="1" max="5">
+        </div>
+        <div>
+          <input type="submit" value="제출">
+        </div>
+      </fieldset>
+    </form>
+  
+    <!-- form[name=datetimeInputFrm]>fieldset -->
+    <form action="" name="datetimeInputFrm">
+      <fieldset>
+        <legend>datetime관련</legend>
+        <!-- div>input:date -->
+        <div>
+          <!-- 날짜형식은 yyyy-mm-dd만 유효하다.-->
+          <input type="date" name="checkIn" id="checkIn" value="2024-06-01">
+        </div>
+        
+        <!-- div>input:time -->
+        <div>
+          <!-- 시각형식은 hh:mm(24)만 유효한다. -->
+          <input type="time" name="reservationTime" id="reservationTime" value="23:40">
+        </div>
+  
+  
+        <div>
+          <!-- 날짜시각형식은 yyyy-MM-ddThh:mm만 유효하다.-->
+          <input type="datetime-local" name="sometime" id="sometime" value="2024-05-25T23:45">
+        </div>
+  
+        <div>
+          <input type="submit" value="제출">
+        </div>
+      </fieldset>
+    </form>
+  
+    <form action="" name="selectionInputFrm">
+      <fieldset>
+        <legend>단일선택</legend>
+        <div>
+          성별: 
+          <!-- label+input:radio -->
+          <label for="gender-m">남</label>
+          <input type="radio" name="gender" id="gender-m" value="M">
+          <label for="gender-f">여</label>
+          <input type="radio" name="gender" id="gender-f" value="F">
+        </div>
+        <!-- div>input:checkbox -->
+        <div>
+          <!-- radio/checkbox의 기본 value는 on이다. -->
+          <label for="sms">SMS 광고 수신 : </label>
+          <input type="checkbox" name="sms" id="sms">
+        </div>
+  
+        <div>
+          <label for="menu">메뉴선택:</label>
+          <select name="menu" id="menu" required="">
+            <option value="" disabled="" selected="">== 메뉴선택 ==</option>
+            <option value="menu001">된장찌게</option>
+            <option value="menu002">김치찌게</option>
+            <option value="menu003">부대찌게</option>
+          </select>
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>복수선택</legend>
+        <div>
+          취미선택 : 
+          <!-- input:checkbox+label -->
+          <input type="checkbox" name="hobby" id="hobby-1" value="축구" checked="">
+          <label for="hobby-1">축구</label>
+          <input type="checkbox" name="hobby" id="hobby-2" value="야구" checked="">
+          <label for="hobby-2">야구</label>
+          <input type="checkbox" name="hobby" id="hobby-3" value="농구">
+          <label for="hobby-3">농구</label>
+  
+        </div>
+      </fieldset>
+  
+      <div>
+        <input type="submit" value="제출">
+      </div>
+    </form>
+  
+    <form action="" name="etcFrm">
+      <fieldset>
+        <legend>기타</legend>
+        <!-- div>label+input:file -->
+        <div>
+          <label for="upFile">첨부파일</label>
+          <input type="file" name="upFile" id="upFile">
+        </div>
+        <div>
+          <input type="hidden" name="secret" value="1234">
+        </div>
+        <div>
+          <input type="text" value="고길동">
+          <input type="text" name="name" value="홍길동" disabled="">
+        </div>
+        <div>
+          <input type="submit" value="제출">
+        </div>
+      </fieldset>
+    </form>
+  
+    <form action="" name="btnFrm">
+      <fieldset>
+        <legend>버튼관련</legend>
+        <div><input type="text"></div>
+        <!-- input태그 -->
+        <div>
+          <input type="button" value="button" onclick="alert('🎃🎃🎃')">
+          <input type="reset" value="reset">
+          <input type="submit" value="submit">
+        </div>
+        <!-- button태그 (기본type은 submit이다. )-->
+        <div>
+          <button type="button" onclick="alert('🎃🎃🎃')">button</button>
+          <button type="reset">reset</button>
+          <button type="submit">submit</button>
+          <button>버튼</button><!-- submit버튼 -->
+        </div>
+      </fieldset>
+    </form>
+  
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  
+  </body>
+</html>
