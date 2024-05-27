@@ -1,0 +1,40 @@
+/* 글꼴 관련 */
+#font1 {
+    /* 나열한 폰트중에 왼쪽부터 존재하면 적용 */
+    /* 한글폰트를 지원하지 않으면 영문/한글 따로 적용 */
+    /* 맨 오른쪽은 generic-family(삐침체), sans-serif(삐침이 없는 체), cursive(필기체), monospace()) 작성 */
+    font-family: '홍길동날라차기', '궁서', serif;
+}
+
+#font2 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#font3 {
+    /* font-family: "Sunflower", sans-serif; */
+    /* font-weight: bold; */
+    /* font-style: italic; */
+    /* font-size: 32px; */
+    font: italic bold 32px/32px "Sunflower", sans-serif;
+}
+
+div#parent {
+    font-size: 24px;
+}
+
+/* 기본 font-size 16px */
+#p1 {
+    font-size: 24px; /* 절대단위 */
+}
+#p2 {
+    font-size: 150%; /* 부모요소 기준 상대단위 */
+}
+#p3 {
+    font-size: 1.5em; /* 부모요소 기준 상대단위 */
+}
+:root {
+    font-size: 32px;
+}
+#p4 {
+    font-size: 1.5rem; /* root요소 기준 상대단위 */
+}

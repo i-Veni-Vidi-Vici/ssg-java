@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | table</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 10px;  /*여백*/
+        }
+    </style>
+</head>
+<body>
+    <h1>table</h1>
+    <!-- 
+        tale 관련 최상위 태그
+            행그룹핑
+            thead 헤더행 그룹
+            tbody 본문행 그룹
+            tfoot 푸터행 그룹
+
+                tr 행태그
+                    th 헤더셀
+                    td 내용셀
+     -->
+     <table>
+        <thead>
+            <tr>
+                <th>브라우저명</th>
+                <th>제조사</th>
+                <th>홈페이지</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Chrome</td>
+                <td>Google</td>
+                <td>
+                    <a href="https://google.com">https://google.com</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Safari</td>
+                <td>Apple</td>
+                <td>
+                    <a href="https://Apple.com">https://Apple.com</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Whale</td>
+                <td>Naver</td>
+                <td>
+                    <a href="https://naver.com">https://naver.com</a>
+                </td>
+            </tr>
+            <tr>
+                <tfoot>
+                    <td>개수</td>
+                    <td colspan="2">3</td>
+                    <!-- 컬럼 확장 : colspan=2는 현재셀이 2개 셀 역할을 하라 (병합) -->
+                </tfoot>
+            </tr>
+        </tbody>
+    </table>
+<!-- 
+    행/열 확장
+    - colspan 열 확장 (가로)
+    - rowspan 행 확장 (세로)
+    행과행, 셀과셀을 병한하는것이 아니다.
+    그 방향으로 셀을 확장하는 것이다 
+-->
+    <br>
+    <table>
+        <thead>
+            <th colspan="4">자기소개서</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2" rowspan="2" style="width: 100px; height: 130px">사진</td>
+                <td sytele="width: 75">이름</td>
+                <td style="width: 100px"></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="width: 75px">주소</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td colspan="3"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
