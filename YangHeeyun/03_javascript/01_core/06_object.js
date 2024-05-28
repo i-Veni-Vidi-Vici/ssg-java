@@ -36,7 +36,7 @@ const user = {
   console.log(user);
   
 // 속성참조 
-// 1. dot(.) notation 
+// 1. dot notation (. 표기법) 
 console.log(user.name); // 홍길동
 console.log(user.age); // 23
 console.log(user.married); // true
@@ -53,19 +53,19 @@ console.log(user.hi); // [Function: hi]
 // 메소드는 호출해야 한다
 user.hi(); // Hi~ 🍔🍔🍔 홍길동
 
-// 2. bracket notation
+// 2. bracket notation (괄호 표기)
 // 식별자가 아닌 속성명은 bracket notation으로만 호출이 가능하다.
-console.log(user['name']);
-console.log(user['age']);
-console.log(user['married']);
-console.log(user['sns']);
-console.log(user['sns'][0]);
-console.log(user['pet']);
-user['hi']();
+console.log(user['name']); // 홍길동
+console.log(user['age']); // 23
+console.log(user['married']); // true
+console.log(user['sns']); // [ 'tiktok', 'instagram', 'facebook' ]
+console.log(user['sns'][0]); // tiktok
+console.log(user['pet']); // { petName: '복실이', age: 3 }
+user['hi'](); // Hi~ 🍔🍔🍔 홍길동
 
-console.log(user[100]);
-console.log(user['user-car']);
-console.log(user['user favorite food']);
+console.log(user[100]); // 홍길동100
+console.log(user['user-car']); // 소나타
+console.log(user['user favorite food']); // 물회
 
 // bracket notation 사용시 주의사항
 console.log(user['name']); // user의 name속성
@@ -95,6 +95,8 @@ console.log(obj); // { id: 123, name: null }
 
 // 속성 삭제
 delete obj.name;
+console.log(obj);
+
 
 /*
 객체 단축 속성 등록
@@ -111,8 +113,8 @@ const price = 3000;
 // 속성명 : 변수명
 // 속성값 : 변수값
 const product = {
-    id,
-    price
+    id, // 단축 속성명
+    price // 단축 속성명
 };
 console.log(product);
 
@@ -122,7 +124,7 @@ const car = {
     // run : function(){
     //     console.log(`${this.name}이 부릉부릉 🚗🚗🚗`);
     // }
-    run(){
+    run(){ // 단축 메소드명
         console.log(`${this.name}이 부릉부릉 🚗🚗🚗`);
     }
 };
@@ -176,6 +178,11 @@ const menu = {
 // - 객체의 모든 속성을 순회
 for(const key in menu){
     console.log(`key = ${key}, value = ${menu[key]}`);
+    /*
+    key = name, value = 순대국
+    key = price, value = 10000
+    key = options, value = 안매운,보통,매운
+    */
 }
 
 // Object.keys() : key값만 배열로 반환
