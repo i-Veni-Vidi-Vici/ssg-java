@@ -1,0 +1,51 @@
+.box{
+    width: 300px;
+    height: 300px;
+    border: 3px solid #000;
+    background-color: limegreen;
+    /* rotate: 130deg; */
+}
+
+@keyframes my-keyframes{
+    /* keyframes블럭*/
+    /* from ~ to */
+    /* 10% 20% 30% ... 100% */
+
+    25%{
+        transform: translate(300px, 0) rotate(360deg);
+    }
+    50%{
+        /* 원본의 위치를 기준으로 작성 */
+        transform: translate(300px, 300px) rotate(720deg);
+
+    }
+    75%{
+        transform: translate(0, 300px) rotate(1080deg);
+
+    }
+    100%{
+        transform: translate(0, 0) rotate(1440deg);
+    }
+
+}
+
+.box:hover{
+    animation-name: my-keyframes;
+    animation-duration: 3s;
+    /* animation-iteration-count: 2; */
+    animation-iteration-count: infinite;
+    /* animation */
+}
+
+.img-wrapper img{
+    margin-top: 50px;
+    width: 500px;
+    border-radius: 50%;
+}
+
+body:hover .img-wrapper{
+    animation-name: my-keyframes;
+    animation-duration: .7s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
