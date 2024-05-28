@@ -1,0 +1,82 @@
+.outer{
+    background-color:gray;
+    border: 1px solid #000;
+}
+.first {
+    width: 300px;
+    height: 300px;
+    background-color: thistle;
+}
+
+.second {
+    width: 20px;
+    height: 200px;
+    background-color: thistle;
+    top: 50px;
+    left: 50px;
+}
+
+.third {
+    width: 100px;
+    height: 100px;
+    background-color: thistle;
+    top: 100px;
+    left: 100px;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    top: 50px;
+    left: 50px;
+    border-radius: 30px;
+}
+
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+}
+
+.p-fixed{
+    postion: fixed;
+}
+
+.p-sticky{
+    position: sticky;
+    background-color: yellow;
+    top: 0px; /* 이 위치가 되면 fixed 처럼 작동 */
+    z-index: 99999;
+}
+
+.wrap{
+
+}
+
+.box{
+    width: 50;
+    height: 50;
+    border: 1px solid black;
+}
+
+.box1{
+    background-color: antiquewhite;
+    z-index: 1;
+}
+
+.box2{
+    background-color: cadetblue;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+}
+
+.box3{
+    background-color: springgreen;
+    top: 40px;
+    left: 40px;
+    z-index: 3;
+}
