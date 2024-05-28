@@ -79,9 +79,6 @@ div#parent > h4 {
     text-decoration: underline;
   }
   
-  
-  
-  
   /* 가상요소선택자 :: */
   /* 화면에 없는 요소를 추가 */
   ul#pseudo-element li::before {

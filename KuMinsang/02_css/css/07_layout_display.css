@@ -1,0 +1,51 @@
+.color1{background-color: burlywood;}
+.color2{background-color: hotpink;}
+.color3{background-color: gold;}
+.color4{background-color: forestgreen;}
+.color5{background-color: darkmagenta}
+
+.box{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.d-block{
+    display: block;
+}
+
+.d-inline{
+    display: inline;
+}
+
+/* 블록처럼 너비 높이를 가지면서 인라인처럼 배치 */
+.d-inline-block{
+    display: inline-block;
+}
+
+/* 숨김처리 */
+.d-none{
+    display: none;
+}
+
+/* 보이지 않지만 공간은 차지하고 있음 */
+.v-hidden{
+    visibility: hidden;
+}
+
+/* 0(투명) ~ 1(불투명) */
+.opacity-0{
+    opacity: 0;
+}
+
+/* 아예 작동하지 않음 */
+.v-hidden:hover{
+    visibility: visible;
+}
+
+/* 작동함 */
+.opacity-0:hover{
+    opacity: 1;
+}
