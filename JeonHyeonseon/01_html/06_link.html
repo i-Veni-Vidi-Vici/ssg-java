@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | link</title>
+</head>
+<body>
+    <h1>link</h1>
+    <!-- 
+        a태그
+        - href속성 : 이동할 경로(상대/절대 주소)
+        - target속성 : 지정한 윈도우(탭)에서 경로 이동
+            - _self : 현재 탭
+            - _blank : 다른 탭
+     -->
+     <a href="https://www.naver.com" target="_self">네이버</a>
+     <a href="https://www.naver.com" target="_blank">네이버</a>
+
+     <hr>
+
+     <h2>image link</h2>
+     <a href="index.html" title="인덱스로 이동합니다.">
+        <img src="../sample/image/img1.jpg" style="width: 200px;" alt="">
+    </a>
+
+    <h2>bookmark(anchor)</h2>
+    <!-- 
+        태그의 id값을 이용해서 한페이지 상의 특정부분에 대한 링크를 생성
+        모든 태그는 공통속성을 가지고 있다. (id, class, title, ...)
+        https://www.w3schools.com/tags/ref_standardattributes.asp
+
+        - id속성 : 한페이지내에 태그에 대한 식별자이다. (한페이지내에서 중복되면 안된다.)
+        - class속성 : 태그 그룹핑을 위한 속성
+        - title : 태그 간단 설명, hover시에 툴팁형태로 노출된다.
+     -->
+
+     <!-- div>ul>(li>a)*3 -->
+     <div>
+        <ul>
+            <li><a href="content1">제목1</a></li>
+            <li><a href="content2">제목2</a></li>
+            <li><a href="content3">제목3</a></li>
+        </ul>
+     </div>
+     <!-- div>(h3#content${제목$}+(p>lorem)*5)*3 -->
+     <div>
+        <h3 id="content1">제목1</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad commodi, vero, pariatur iste esse perferendis corrupti veritatis ipsam hic explicabo nobis reiciendis, quod molestias sapiente reprehenderit. Ipsa, necessitatibus? Voluptas, nihil?</p>
+        <p>Veniam, explicabo quod! Beatae debitis, quam magni temporibus iste repudiandae earum, obcaecati a eveniet reiciendis error blanditiis modi doloribus laudantium odio, non assumenda. Rem sit earum reprehenderit consequuntur beatae. Ratione.</p>
+        <p>Nesciunt voluptatem a praesentium ipsam quisquam rerum voluptatibus reprehenderit minus accusamus veritatis, maxime libero adipisci quam ipsum veniam earum autem perspiciatis vero ad quo porro. Culpa facilis beatae accusamus ipsum?</p>
+        <p>Velit quos dolorem animi similique dicta natus reprehenderit tempora, quasi quas laboriosam architecto eum consequatur dolor rerum veniam pariatur modi quo atque quam omnis. Ipsam eaque reprehenderit harum. Rem, unde.</p>
+        <p>Provident totam eaque est ullam perferendis temporibus rerum pariatur sint? Praesentium fugit neque ipsam accusamus, fuga quaerat. Dolore voluptatem quae ipsa ratione esse ex veniam aperiam, cumque, eveniet veritatis incidunt.</p>
+        <h3 id="content2">제목2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe labore odio totam magnam facilis, et similique minus, possimus ab ex nulla? Similique quas beatae sunt sequi repellendus vero eaque dignissimos!</p>
+        <p>Odio eligendi consequatur, laudantium corporis dolores repellendus placeat rem tempore, veritatis saepe, culpa quo? Dicta quis adipisci dolores, placeat, dignissimos impedit magni itaque dolore laborum eos ipsum unde cupiditate maiores.</p>
+        <p>Nisi, eum iste quod blanditiis explicabo aut dolore dolores tempora maiores! At, pariatur! Sint sapiente minus alias eveniet, temporibus, perspiciatis aut dicta sed nobis aliquid officia, ad voluptatem ea nisi?</p>
+        <p>Voluptas, expedita. Repellendus nihil fuga aperiam expedita in et, placeat aut accusantium! Reiciendis laboriosam aliquam nihil odio esse atque, suscipit in quam laborum hic molestiae pariatur quis, aut, ab doloribus.</p>
+        <p>Ad magni atque quaerat mollitia illo facilis dolorum animi. Asperiores voluptas a eos, vel voluptatibus id, aut officia nesciunt iste voluptatem, rerum quod. Deserunt labore autem ad, nihil mollitia voluptatum!</p>
+        <h3 id="content3">제목3</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum corporis distinctio itaque earum consectetur error cumque, illum, nisi obcaecati ab at tempore veniam eligendi, ut nemo dicta delectus nostrum. Accusantium?</p>
+        <p>Quos pariatur sed aliquid ad vero, quisquam doloribus magnam a officiis sit voluptatum eveniet quidem alias modi nihil delectus repellendus unde tempore quas. Voluptatem quos rem veniam consequuntur neque perferendis.</p>
+        <p>Explicabo incidunt eius sunt illo sint odit itaque eveniet. Laborum vero perspiciatis iure? Excepturi odit deserunt unde omnis alias, perferendis earum illum, eveniet consectetur, saepe eum tempore facilis aut atque?</p>
+        <p>Aspernatur vel voluptatem laboriosam, voluptate ab debitis pariatur non inventore tempore nesciunt voluptates iusto minus doloremque voluptatibus necessitatibus provident perferendis saepe unde eos! Magni numquam sunt impedit, id consequatur nulla?</p>
+        <p>Alias itaque sint, voluptatem eum quas placeat accusantium nulla expedita! Quaerat sed autem excepturi cumque distinctio ipsa, vero voluptatibus eius, ducimus consequatur incidunt fugiat minus quidem id nesciunt dolorum illum!</p>
+     </div>
+
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+     <a href="#top">맨위로</a>
+</body>
+</html>
