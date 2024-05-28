@@ -59,12 +59,10 @@ const hi = function(name) {
   // arguments 숨은 참조 변수 : 호출시 전달한 모든 매개인자를 배열로 가지고 있다.
   // 유효성검사용으로 사용가능하다.
   console.log(arguments);
-  
-  
 };
 const name = '이순신';
 hi(name); // 안녕, 이순신
-//throw가 실행되면 아래의 코드는 실행되지 않고 종료된
+//throw가 실행되면 아래의 코드는 실행되지 않고 종료된ek
 // hi(); // 안녕, undefined
 // hi('이순신', '세종대왕'); // 안녕, 이순신 (선언되지 않은 매개변수 자리에는 전달하는 매개인자는 무시된다.)
 
@@ -77,7 +75,7 @@ const hello = function(){
   // return 'ㅋㅋㅋ';
   return;
 };
-다
+
 const result = hello();
 console.log(result, typeof result); // 123 number
 
