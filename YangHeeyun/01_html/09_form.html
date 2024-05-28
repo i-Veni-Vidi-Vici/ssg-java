@@ -141,13 +141,81 @@
                 <label for="gender-f">여</label>
                 <input type="radio" name="gender" id="gender-f" value="F">
             </div>
+            <!-- div>input:checkbox -->
+            <div>
+                <!-- radio/checkbox의 기본 value는 on이다. -->
+                <label for="sms">SMS 광고 수신 : </label>
+                <input type="checkbox" name="sms" id="sms">
+            </div>
+
+            <div>
+                <label for="menu">메뉴선택 : </label>
+                <select name="menu" id="menu" required>
+                    <option value="" disabled selected>== 메뉴선택 == </option>
+                    <option value="menu001">된장찌개</option>
+                    <option value="menu002" selected>김치찌개</option>
+                    <option value="menu003">부대찌개</option>
+                </select>
+            </div>
         </fieldset>
         <fieldset>
             <legend>복수선택</legend>
+            <div>
+                취미선택 : 
+                <!-- input:checkbox+label -->
+                <input type="checkbox" name="hobby" id="hobby-1" value="축구" checked>
+                <label for="hobby-1">축구</label>
+                <input type="checkbox" name="hobby" id="hobby-2" value="야구" checked>
+                <label for="hobby-2">야구</label>
+                <input type="checkbox" name="hobby" id="hobby-3" value="농구">
+                <label for="hobby-3">농구</label>
+            </div>
         </fieldset>
         <div>
             <input type="submit" value="제출">
         </div>
+    </form>
+
+    <form action="" name="etcFrm">
+        <fieldset>
+            <legend>기타</legend>
+            <!-- div>label+input:file -->
+            <div>
+                <label for="upFile">첨부파일</label>
+                <input type="file" name="upFile" id="upFile">
+            </div>
+            <div>
+                <input type="hidden" name="secret" value="1234">
+            </div>
+            <div>
+                <input type="text" value="고길동">
+                <input type="text" name="name" value="홍길동" disabled>
+            </div>
+            <div>
+                <input type="submit" value="제출">
+            </div>
+        </fieldset>
+    </form>
+
+    <form action="" name="btnFrm">
+        <fieldset>
+            <legend>버튼관련</legend>
+            <div><input type="text"></div>
+            <!-- input태그 -->
+            <div>
+                <!-- botton: 그냥 버튼, reset: 초기화 버튼, submit: 제출 버튼 -->
+                <input type="button" value="button" onclick="alert('🎃🎃🎃')"> 
+                <input type="reset" value="reset">
+                <input type="submit" value="submit">
+            </div>
+            <!-- button태그 -->
+            <div>
+                <button type="button" onclick="alert('🎃🎃🎃')">button</button>
+                <button type="reset">button</button>
+                <button type="submit">button</button>
+                <button>버튼</button><!-- submit 버튼 -->
+            </div>
+        </fieldset>
     </form>
 </body>
 </html>

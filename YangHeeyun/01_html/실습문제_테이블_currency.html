@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제 | 테이블 환율</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px; /* 여백 */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead style="background-color: #faf9c0;">
+            <tr>
+                <th rowspan="2">통화</th>
+                <th rowspan="2">매매<br>기준율</th>
+                <th colspan="2">현찰 매매율</th>
+                <th colspan="2">전신환 매매율</th>
+                <th rowspan="2">T/C<br>매도율</th>
+            </tr>
+            <tr>
+                <th>매도율</th>
+                <th>매입율</th>
+                <th>매도율</th>
+                <th>매입율</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td style="height:100px">미국(USD)</td>
+            <td>1,023.00</td>
+            <td>1,040.90</td>
+            <td>1,005.10</td>
+            <td>1,032.80</td>
+            <td>1,013.20</td>
+            <td>1,035.27</td>
+        </tbody>
+    </table>
+</body>
+</html>

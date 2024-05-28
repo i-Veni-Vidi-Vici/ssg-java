@@ -17,8 +17,8 @@
      <h2>🥨Hyper Text Markup Language🥨</h2>
 
      <!-- 
-        index.html은 랜딩페이지이다. 디렉토리까지 요청을 보내면, 
-        브라우저는 자동으로 랜딩페이지를 탐색한다.
+        index.html은 랜딩페이지이다. 
+        디렉토리까지 요청을 보내면, 서버는 자동으로 랜딩페이지를 탐색후 응답한다.
         만약, index.html이 없다면, NotFound(404)로 응답한다.
      -->
 
@@ -35,9 +35,14 @@
      <ul>
         <!-- <li><a href="주소">노출될이름</a>></a></li> -->
         <li><a href="01_text.html">text</a></li>
+        <li><a href="./01_text.html">text</a></li>
         <li><a href="../01_html/01_text.html">text</a></li>
+
         <li><a href="/JeonHyeonseon/01_html/01_text.html">text</a></li>
         <li><a href="http://127.0.0.1:5500/JeonHyeonseon/01_html/01_text.html">text</a></li>
+
+        <li><a href="../02_css/bar.html">02_css/bar</a></li>
+        <li><a href="/JeonHyeonseon/02_css/bar.html">02_css/bar</a></li>
      </ul>
 </body>
 </html>

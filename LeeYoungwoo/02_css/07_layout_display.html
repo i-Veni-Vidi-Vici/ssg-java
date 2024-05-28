@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css | layout - display</title>
+    <link rel = "stylesheet" href="css/07_layout_display.css">
+</head>
+<body>
+    <h1>layout - display</h1>
+    <!--
+        display:inline 요소
+            - content에 따라 width/height가 결정되는 요소
+            - span, img, strong...
+        display:block 요소
+            - content와 별개로 화면좌우를 모두 차지하는 요소
+            - div, p, hn, form, table...
+    -->
+    <h2>inline</h2>
+
+    <!-- span.color${$}*5-->
+    <span class="box color1 d-block">1</span>
+    <span class="box color2 d-block">2</span>
+    <span class="box color3 d-block">3</span>
+    <span class="box color4 d-block">4</span>
+    <span class="box color5 d-block">5</span>
+
+    <h2>block</h2>
+    <div class="box color1 d-inline">1</div>
+    <div class="box color2 d-inline">2</div>
+    <div class="box color3 d-inline">3</div>
+    <div class="box color4 d-inline">4</div>
+    <div class="box color5 d-inline">5</div>
+
+    <h2>inline-block</h2>
+    <div class="box color1 d-inline-block">1</div>
+    <div class="box color2 d-inline-block">2</div>
+    <div class="box color3 d-inline-block">3</div>
+    <div class="box color4 d-inline-block">4</div>
+    <div class="box color5 d-inline-block">5</div>
+
+    <h2>display: none</h2>
+    <div class="box color5 d-none"></div>
+    <h2>visibility: hidden</h2>
+    <div class="box color5 v-hidden"></div>
+    <h2>opacity: 0</h2>
+    <div class="box color5 opacity-0"></div>
+    <hr>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
