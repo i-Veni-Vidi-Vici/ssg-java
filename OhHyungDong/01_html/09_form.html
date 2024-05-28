@@ -135,8 +135,67 @@
                     <label for="gender-f">여</label>
                     <input type="radio" name="gender" id="gender-f" value = "F">
                 </div>
+                <div>
+                    <!-- Radio/checkbox의 기본 value는 on -->
+                    <!-- radio나 checkbox가 단일로 있으면 value값을 써줄 필요가 없지만 , 복수로 있으면 value를 써줘야한다. -->
+                    <label for = "sms">광고 수신 : </label>
+                        <input type="checkbox" name="sms",id = "sms">
+                </div>
             </fieldset>
         </form>
+        <fieldset>
+            <legend>복수 선택</legend>
+            <div>
+                취미 선택 : 
+                <input type = "checkbox" name = "hobby" id="hobby-1" value="축구" checked>
+                <label for="hobby-1">축구</label>
+                <input type = "checkbox" name = "hobby" id="hobby-1" value="농구" checked>
+                <label for="hobby-1">농구</label>
+                <input type = "checkbox" name = "hobby" id="hobby-1" value="야구" checked>
+                <label for="hobby-1">야구</label>
+            </div>
+
+            <div>
+                <label for="menu">메뉴선택 : </label>
+                <select name="menu" id="menu" required>
+                    <option value = ""disable selected>메뉴선택</option>
+                    <option value = "된장찌개">된장찌개</option>
+                    <option value = "김치찌개">김치찌개</option>
+                    <option value = "부대찌개">부대찌개</option>
+                </select>
+            </div>
+        </fieldset>
+    </form>
+    <form action="" name ="etcFrm">
+        <fieldset>
+            <legend>기타</legend>
+            <div>
+                <label for="">
+                    <input type="file" name="upFile" id="upFile">
+                </label>
+            </div>
+            <div><input type="text" name="name"value ="홍길동" disabled></div>
+            <div><input type="hidden" name="secret" value="1234"></div>
+            <div><input type="submit" value="제출"></div>
+        </fieldset>
+    </form>
+
+    <form action=""name="btnFrm">
+        <fieldset>
+            <legend>버튼 관련</legend>
+            <!-- input 태그  -->
+            <div>
+                <input type="button" value="button" onclick="alert('😊')">
+                <input type="reset" value="reset" value="reset">
+                <input type="submit" value="submit">
+            </div>
+            <!-- button 태그 (기본type -> sumit이다 ) -->
+            <div>
+                <button type="button">button</button>
+                <button type="button">reset</button>
+                <button type="button">sum</button>
+            </div>
+        </fieldset>
     </form>
 </body>
 </html>
