@@ -1,0 +1,48 @@
+.container{
+    list-style: none;
+    padding-left: 0%;
+    background-color: aquamarine;
+    color: blue;
+    height: 500px;
+
+    display: flex;
+    flex-direction: row;
+    /* flex-direction : row = 메인축은 row 방향, 크로스축은 column */
+    justify-content: flex-start; /*메인축 방향 정렬*/
+    align-items: stretch; /*크로스축 방향 정렬*/
+
+    flex-wrap: wrap;
+    align-content: normal;
+    
+}
+/* color : color명 / rgb() / #hex */
+.container li{
+    background-color: chartreuse;
+    border: 1px solid blueviolet;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+
+    margin: 15px; /*네방향 전부 */
+    /* margin : 0,auto  = 0 auto 0 auto*/
+}
+
+.outer{
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    
+}
+
+.inner{
+    width: 200px;
+    height: 200px;;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
