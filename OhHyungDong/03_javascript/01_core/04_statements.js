@@ -21,7 +21,7 @@ switch(value){
  * for
  */
 for(let i = 0; i< 10; i++){
-    console.log(i0)
+    console.log(i)
 }
 
 /**
@@ -30,8 +30,9 @@ for(let i = 0; i< 10; i++){
  */
 
 let j = 0;
-while(ture){
+while(true){
     console.log(j);
+    j++;
     if(j > 10) break;
 }
 

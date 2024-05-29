@@ -42,7 +42,7 @@ if(!0.0) console.log(`45.67는 true 입니다.`);
 if(!"") console.log(`-100 true 입니다.`);
 if(!undefined) console.log(`"zㅋㅋㅋ" true 입니다.`);
 if(!null) console.log(`{}는 true 입니다.`);
-if(!Nan) console.log(`[]는 true 입니다.`);
+if(!NaN) console.log(`[]는 true 입니다.`);
 
 /**
  * 명시적 형변환 
@@ -55,5 +55,5 @@ console.log(String(123), typeof String(123)); //123 String
 console.log((123).toString(),typeof(123).toString());; //123원시값에 대해서 임시적으로 Wrappr에 대한 객체를 생성해서 메소드 호출 가능)
 
 console.log(Number("123.456"), typeof Number("123.456"));
-console.log(parseInt("123.456"), typeof parsseInt("123.456"));
-console.log(parseFloat("123.456"), typeofparseFloat("123.45566"));
+console.log(parseInt("123.456"), typeof parseInt("123.456"));
+console.log(parseFloat("123.456"), typeof parseFloat("123.45566"));
