@@ -94,3 +94,32 @@ const chars2 = ['a', 'b', 'c'];
 const chars = chars1.concat(chars2);
 console.log(chars);
 console.log(chars1, chars2);
+
+/**
+ * slice(startIndex, endIndex) : startIndex부터 endIndex전까지의 요소를 새 배열에 반환 (immutable)
+ */
+const origin = ['a', 'b', 'c', 'd', 'e'];
+const copied1 = origin.slice(2, 4);
+console.log(copied1);
+const copied2 = origin.slice(2);
+console.log(copied2);
+console.log(origin);
+
+/**
+ * splice(startIndex, delCount, newItem1, newItem2, ...):deletedItems : 삭제와 요소추가를 동시에 하는 메소드(원본배열을 직접 수정)
+ */
+const editors = ['vscode', 'notepad', 'notion'];
+const deletedItems = editors.splice(1, 1, 'intellij');
+console.log(deletedItems); // [ 'notepad' ]
+console.log(editors); // [ 'vscode', 'intellij', 'notion' ]
+
+/**
+ * reversed() : 원본배열의 순서를 뒤집어 반환 (mutable | in place 방식)
+ * toReversed() : 순서가 뒤집힌 새 배열반환 (immutable)
+ */
+let cars = ['소나타', '그랜져', '카니발'];
+// cars = cars.reverse();
+let cars2 = cars.toReversed();
+console.log(cars2);
+
+console.log(cars);
