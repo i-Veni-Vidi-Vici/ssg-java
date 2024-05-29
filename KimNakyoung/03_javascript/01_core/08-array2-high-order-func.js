@@ -2,7 +2,8 @@
  * 고차함수 high-order function
  * - 함수를 인자를 받거나 리턴하는 함수
  */
-// 이거 중요합니다 !
+
+// 이거 중요함
 
 /**
  * sort(compareFunction) : 정렬된 기존배열 반환
@@ -104,7 +105,7 @@ console.log(students.find((student) => student.name === '세종대왕')); //unde
 console.log(students.findIndex((student) => student.score > 70)); // 0 왜냐면 찾으면 더이상 뒤까지 안보기땨문애 0번지
 console.log(students.findIndex((student) => student.score > 90)); // -1 인덱스 따질 때 값이 없다면 ? -1
 
-// 해당되는 모든 걸 보고 싶다면 필터써야됨! 여기서 핉어가 머임? 난 모름 일단 **
+// 해당되는 모든 걸 보고 싶다면 필터써야됨! 위에 있는 filter **
 
 // 모든 학생이 60점 이상인가요?
 console.log(students.every((student) => student.score >= 60)); // false
@@ -112,7 +113,7 @@ console.log(students.every((student) => student.score >= 50)); // ture
 
 // 이 반에 이순신 학생이 있나요?
 console.log(students.some((student) => student.name === '이순신')); // ture
-console.log(students.some((student) => student.name === '논개')); // false
+console.log(students.some((student) => student.name === '논개')); // 
 
 
 
