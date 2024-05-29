@@ -61,5 +61,17 @@ const hi = function(name) {
 };
 const name = '이순신';
 hi(name); // 안녕, 이순신
-hi(); // 안녕, undefined
-hi('이순신', '세종대왕'); // 안녕, 이순신 (선언되지 않은 매개변수 자리에는 전달하는 매개인자는 무시된다.)
+// hi(); // 안녕, undefined
+// hi('이순신', '세종대왕'); // 안녕, 이순신 (선언되지 않은 매개변수 자리에는 전달하는 매개인자는 무시된다.)
+
+/**
+ * 리턴값 처리
+ * - 모든 자바스크립트 함수는 최소한 undefined를 리턴한다. 
+ */
+const hello = function(){
+    // return 'ㅋㅋㅋ';
+    return;
+  };
+  
+  const result = hello();
+  console.log(result, typeof result); // 123 number
