@@ -135,3 +135,72 @@ const myArrow3 = m => m * m;
 console.log(myArrow(10, 20));
 myArrow2('🚲');
 console.log(myArrow3(3));
+
+/**
+ * 자바스크립트에서 함수는 일급객체이다. (값으로써 취급한다.)
+ * 1. 변수에 대입가능해야 한다. 
+ * 2. 함수호출시 전달이 가능해야 한다. 
+ * 3. 함수반환값으로 사용할 수 있어야 한다. 
+ * 
+ * 함수형프로그래밍에서는 이 함수는 일급객체로 다루는 것이 중요하다. 
+ * (자바는 람다를 통해서 우회적으로 위의 조건을 만족시킨다.)
+ */
+// 1. 값으로써 변수에 대입가능
+const func = function(){
+  console.log(`🚗🚗🚗`);
+};
+func();
+const func2 = func; 
+func2();
+const f = func; 
+f();
+console.log(func == func2); // true
+
+// 2. 값으로써 매개인자로 사용
+const runner = (f, count) => {
+  for(let i = 0; i < count; i++)
+    f();
+};
+runner(func, 5);
+
+// 3. 값으로써 리턴값으로 사용
+const carFactoryBuilder = () => {
+  return () => console.log('🚙');
+};
+/*
+const carFactory = carFactoryBuilder;
+const carFactory = () => {
+  return () => console.log('🚙');
+};
+
+const carFactory = carFactoryBuilder();
+const carFactory =  () => console.log('🚙');
+*/ 
+const carFactory = carFactoryBuilder();
+console.log(carFactory);
+carFactory();
+
+
+// 매개변수 있는 함수 
+const myfunc = (n) => console.log('🛸' + n);
+
+const runner2 = (f) => {
+  for(let i = 0; i < 3; i++)
+    f(i + 1);
+};
+
+runner2(myfunc);
+
+// 어떤차를 n대 생산할건지 매개변수로 정해준다.
+const carFactoryBuilder2 = (car) => {
+  return (n) => {
+    for(let i = 0; i < n; i++)
+      console.log(car);
+  };
+};
+const firecarFactory = carFactoryBuilder2('🚒');
+firecarFactory(3);
+
+// 경찰차 factory를 지어서(함수) 10대 출력하세요.
+const policecarFactory = carFactoryBuilder2('🚔');
+policecarFactory(10);
