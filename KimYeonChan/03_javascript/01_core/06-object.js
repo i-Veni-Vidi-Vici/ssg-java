@@ -203,3 +203,25 @@ console.log(student.score !== undefined); // false
 
 // student객체에 school속성이 없으면, school : 'SSG학교'를 추가하는 코드를 작성해보세요.
 ('school' in student) || (student.school = 'SSG학교');
+
+/**
+ * 객체 속성(property)과 flag
+ * - value: 속성값
+ * - writable: true/false(읽기전용)
+ * - enumerable: true(for..in문에서 반복 접근)/false
+ * - consfigurable: true(속성 삭제/다른 flag 수정)/false
+ */
+const coffee = {
+  name: '아메리카노'
+};
+console.log(Object.getOwnPropertyDescriptor(coffee, 'name'));
+for (let key in coffee) {
+  console.log(`key = ${key}`);
+}
+
+// 속성추가 (flag 설정)
+Object.defineProperty(coffee, 'price', {value: 3000, writable: false, enumerable: false});
+console.log(Object.getOwnPropertyDescriptors(coffee));
+for (let key in coffee) {
+  console.log(`key = ${key}`);
+}
