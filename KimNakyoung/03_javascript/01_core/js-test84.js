@@ -18,6 +18,14 @@ if (grade === "손님"){
 
 console.log(grade + "의 경우 " + authority + " 가 가능합니다.");
 
+// 삼항연산자
+
+var authority = (grade === '손님') ? "글읽기" 
+                : (grade === '일반 회원') ? "글 읽기, 글 쓰기"
+                :  "글 읽기, 글 쓰기, 글 삭제" ;
+
+console.log(grade + "의 경우 " + authority + " 가 가능합니다.");
+
 // 1-2 
 
 // var browser = 'Edge';
