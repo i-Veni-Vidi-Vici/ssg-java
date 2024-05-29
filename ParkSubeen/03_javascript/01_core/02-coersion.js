@@ -26,7 +26,7 @@ console.log(10 > "5"); // 10 > 5 형변환 후 처리 true
 
 // 논리형으로의 암묵적 형변환
 // - 논리값으로 평가되어야 하는 곳에서 일어난다.
-// - Truthy valu (true로 평가되는 값들) - 값이 있는 경우 123, 45.67, -100, "ㅋㅋㅋ", {}, [], Infinity
+// - Truthy value (true로 평가되는 값들) - 값이 있는 경우 123, 45.67, -100, "ㅋㅋㅋ", {}, [], Infinity
 // - Falsy value (false로 평가되는 값들) - 값이 없는 경우 0, 0.0, "", undefined, null, NaN
 if (123) console.log(`123은 true입니다.`);
 if (45.67) console.log(`45.67은 true입니다.`);
