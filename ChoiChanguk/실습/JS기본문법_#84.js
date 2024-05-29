@@ -33,6 +33,7 @@ authority=(grade=='손님')?'글 읽기':(grade=='일반회원')?'글 읽기,글
 console.log(grade + "의 경우 " + authority + " 가 가능합니다.");
 
 //1-2switch
+
 console.log(`-------------------switch문`);
 var browser = 'Opera';
 switch (browser) {
