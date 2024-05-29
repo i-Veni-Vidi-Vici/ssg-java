@@ -10,7 +10,7 @@
  * - number로 변환
  * - boolean으로 변환
  */
-console.log(10+"abc", typeof (10+"abc")); // 10abc string
+console.log(10+"abc", typeof (10 + "abc")); // 10abc string
 
 console.log(10 + "2" , typeof(10 + "2")); // 102 string
 console.log(10 - "2", typeof(10 - "2")); // 8 number
@@ -26,8 +26,8 @@ console.log(10 > "5"); // 10 > 5 형변환 후 처리 true
 
 // 논리형으로의 암묵적 형변환
 // - 논리값으로 평가되어야 하는 곳에서 일어난다.
-// - Truthy value (true로 평가되는 값들) - 값이 있는 경우 123, 45.67, -100, "ㅋㅋㅋ", {}빈객체, []빈배열 , Infinity
-// - Falsy value (false로 평가되는 값들) - 값이 없는 경우 0, 0.0, "", undefined, null, NaN
+// - Truthy value (true로 평가되는 값들) - 값이 있는 경우 : 123, 45.67, -100, "ㅋㅋㅋ", {}빈객체, []빈배열 , Infinity
+// - Falsy value (false로 평가되는 값들) - 값이 없는 경우 : 0, 0.0, "", undefined, null, NaN
 if(123) console.log('123는 true입니다.');
 if(45.67) console.log('45.67는 true입니다.');
 if(-100) console.log('-100는 true입니다.');
@@ -53,6 +53,7 @@ if (!NaN) console.log('NaN은 false입니다.');
  */
 console.log(String(123),typeof(String(123))); // 123 string
 console.log((123).toString(), typeof (123).toString()); // 123 string (123 원시값에 대해 임시적으로 Wrapper객체를 생성해서 메소드 호출가능)
+
 console.log(Number("123.456"),typeof Number("123.456")); // 123.456 number
 console.log(parseInt("123.456"),typeof parseInt("123.456")); // 123 number
 console.log(parseFloat("123.456"),typeof parseFloat("123.456")); // 123.456 number

@@ -45,7 +45,7 @@ console.log(`apple < banana : ${'apple'>'banana'}`); // false
 console.log("apple" && "banana")
 console.log(0 &&"banana")
 
-// || 좌항이 true인 경우 좌항을 반환, 좌항이 false인 경우 좌항을 반환, 좌항이 false인 경우 우항을 반환
+// || 좌항이 true인 경우 좌항을 반환, 좌항이 false인 경우 우항을 반환
 console.log("apple" || "banana"); // apple 반환
 console.log(0 || "banana"); // banana 반환 0 자체는 false를 의미 
 

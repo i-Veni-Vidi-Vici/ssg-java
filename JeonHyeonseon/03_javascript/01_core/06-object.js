@@ -201,3 +201,27 @@ console.log(student.score !== undefined); // false
 // (조건식) || (거짓일때 실행문)
 'school' in student ||(student.school = 'SSG학교');
 console.log(student);
+
+/**
+ * 객체 속성(property)과 flag
+ *  - value : 속성값
+ *  - writable : true/false(읽기전용)
+ *  - enumerable : true(for..in문에서 반복접근)/false
+ *  - configurable : true(속성삭제/다른 flag 수정)/false
+ */
+const coffee = {
+    name : '아메리카노'
+};
+console.log(Object.getOwnPropertyDescriptor(coffee, 'name'));
+
+for(let key in coffee) {
+    console.log(`key = ${key}`);
+}
+
+// 속성추가 (flag설정)
+Object.defineProperty(coffee, 'price', {value: 3000, writable: false, enumerable: false});
+console.log(Object.getOwnPropertyDescriptors(coffee));
+
+for(let key in coffee) {
+    console.log(`key = ${key}`);
+}

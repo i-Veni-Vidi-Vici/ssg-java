@@ -34,7 +34,7 @@ const user = {
     "user favorite food" : '물회'
 };// 코드 블럭(if, for ,function)이 아니므로 ;로 종결처리
 
-console.log(user) // 
+console.log(user,typeof user) // 
 
 
 /**
@@ -68,8 +68,10 @@ console.log(user['user-car']);
 console.log(user['user favorite food']);
 
 //bracket notation 사용시 주의사항
+console.log(1);
 console.log(user['name']); //user의 name 속성 , 홍길동 user의 name 속성
 const name = 'age'; 
+
 console.log(user[name]); //23 user의 name 변수의 대입된 값 속성
 
 
@@ -184,7 +186,7 @@ for(const key in menu){
 }
 
 //Object.keys() : key값만 배열로 전환
-Objects.keys(menu);
+Object.keys(menu);
 
 //Object.values() : value값만큼 배열로 반환 
 console.log(Object.values(menu)); 
@@ -203,8 +205,37 @@ console.log("score" in student);
 
 "school" in student || (student.school = 'SSG학교')
 
+console.log(student);
 
+/**
+ * 객체 속성(property)과 flag
+ * - value : 속성값
+ * - writable : true / false 읽기 전용 
+ * - enumerable : true(for..in문에서 반복접근) /false
+ * - configurable : true(속성 삭제 / 다른 flag 수정) /false
+ */
 
+const coffee ={
+    name : '아메리카노'
+};
+console.log('hi');
+
+console.log(Object.getOwnPropertyDescriptor(coffee,'name'));
+
+for(let key in coffee){
+    console.log(`key = ${key}`);
+}
+
+//속성 추가 (flag 설정) - 속성정의 
+Object.defineProperty(coffee,'price',{value : 3000, writable: false, enumerable:false})
+console.log(Object.getOwnPropertyDescriptor(coffee));
+
+console.log(coffee);
+for(let key in coffee){
+
+    console.log(`key = ${key}`);
+    
+}
 
 
 
