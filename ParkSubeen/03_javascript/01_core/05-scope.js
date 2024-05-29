@@ -80,3 +80,5 @@ console.log(k); // 300
 
 const m = 10;
 // m = 20; // TypeError: Assignment to constant variable.
+
+// const m = 20; // Cannot redeclare block-scoped variable 'm'
