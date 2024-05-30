@@ -13,7 +13,7 @@ if(true) {
    */
   const value = 1;
   switch (value) {
-    case 1: console.log(1); break;
+    case 1: console.log(1); break; // 1
     case 2: console.log(2); break;
     default: break;
   }
@@ -22,7 +22,7 @@ if(true) {
    * for
    */
   for(let i = 0; i < 10; i++) {
-    console.log(i);
+    console.log(i); // 0 ~ 9
   }
   
   /**
@@ -37,12 +37,12 @@ if(true) {
   /**
    * for..in  
    * - 객체의 enumberable: true인 속성에 대해 반복처리
-   * - 배열에 대해 사용시 인덱스가 변수가 대입된다.
+   * - 배열에 대해 사용시 인덱스가 변수에 대입된다.
    */
   const arr = ['가', '나', '다'];
   // i : arr의 속성(인덱스)를 담을 변수
   for(let i in arr) {
-    console.log(i, arr[i]);
+    console.log(i, arr[i]); // 0 가 1 나 2 다
   }
   
   /**

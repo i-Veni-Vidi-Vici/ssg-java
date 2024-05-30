@@ -1,25 +1,53 @@
 // 1.1 if문/삼항연산자
 
 // if문
-const a = function(grade){
-    if(grade == '손님'){
-        authority = '글 읽기',
-        console.log(grade, '의 경우 ', authority, '가 가능합니다.')
-    } else if(grade == '일반 회원'){
-        authority = '글 읽기, 글 쓰기',
-        console.log(grade, '의 경우 ', authority, '가 가능합니다.');
-    } else {
-        authority = '글 읽기, 글 쓰기, 글 삭제',
-        console.log(grade, '의 경우 ', authority, '가 가능합니다.');
-    }
+// (나)
+// const a = function(grade){
+//     if(grade == '손님'){
+//         authority = '글 읽기',
+//         console.log(grade, '의 경우 ', authority, '가 가능합니다.')
+//     } else if(grade == '일반 회원'){
+//         authority = '글 읽기, 글 쓰기',
+//         console.log(grade, '의 경우 ', authority, '가 가능합니다.');
+//     } else {
+//         authority = '글 읽기, 글 쓰기, 글 삭제',
+//         console.log(grade, '의 경우 ', authority, '가 가능합니다.');
+//     }
+// }
+// a('일반 회원');
+
+// (모범답안)
+const grade1 = '손님';     //'일반회원', '운영자'로 변경해서 테스트
+let authority1;
+
+if (grade1 == '손님') {
+    authority1 = '글 읽기';
+ } else if (grade1 == '일반회원') {
+    authority1 = '글 읽기, 글 쓰기';
+} else if (grade1 == '운영자') {
+    authority1 = '글 읽기, 글 쓰기, 글 삭제';
+} else {
+    authority1 = '';
 }
-a('일반 회원');
+
+console.log(grade1 + "의 경우 " + authority1 + " 가 가능합니다.");
 
 // 삼항연산자
+// (나)
 const grade = '운영자';
-grade == '손님' && console.log(grade, '의 경우 글 읽기가 가능합니다.');
-grade == '일반 회원' && console.log(grade, '의 경우 글 읽기, 글 쓰기가 가능합니다.');
-grade == '운영자' && console.log(grade, '의 경우 글 읽기, 글 쓰기, 글 삭제가 가능합니다.');
+// grade == '손님' && console.log(grade, '의 경우 글 읽기가 가능합니다.');
+// grade == '일반 회원' && console.log(grade, '의 경우 글 읽기, 글 쓰기가 가능합니다.');
+// grade == '운영자' && console.log(grade, '의 경우 글 읽기, 글 쓰기, 글 삭제가 가능합니다.');
+
+// (모범답안)
+const authority = (grade == '손님' ? '글 읽기' : (
+    grade == '일반회원' ? '글 읽기, 글 쓰기' : (
+        grade == '운영자' ? '글 읽기, 글 쓰기, 글 삭제' : 'grade를 다시 확인해주세요.'
+    )
+)
+)
+console.log(grade + "의 경우 " + authority + " 가 가능합니다.");
+
 
 // 1.2 switch문
 const browser = 'naver';

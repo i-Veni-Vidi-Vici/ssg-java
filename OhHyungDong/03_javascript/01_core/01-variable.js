@@ -125,7 +125,7 @@ const ob = {
     type : '객체',
 }
 
-console.log(obj, typeof obj);
+console.log(ob, typeof ob);
 
 
 

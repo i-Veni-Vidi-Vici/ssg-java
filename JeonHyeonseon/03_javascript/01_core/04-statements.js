@@ -36,7 +36,7 @@ while(true) {
 
 /**
  * for..in
- *  - 객체의 enumberable: true인 속성에 대해 반복처리
+ *  - 객체의 flag (enumerable: true)인 속성에 대해 반복처리
  *  - 배열에 대해 사용시 인덱스가 변수에 대입된다.
  *  - 객체에 대해 사용시 속성명이 변수에 대입된다.
  */
