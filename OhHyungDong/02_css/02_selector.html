@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="css/02_selector.css">
+</head>
+<body>
+    <h1>selector</h1>
+    <h2>tag | id | class | attribute 선택자</h2>
+    <div>
+        <ul>
+            <li id ="foo1" class = "group1">안녕1</li>
+            <li id ="foo2" class = "group1" title="안녕2">안녕2</li>
+            <li id ="foo3" class = "group2" title="안녕3">안녕3</li>
+            <li id ="foo4" class = "group2">안녕4</li>
+            <li id ="foo5" class = "group1 group2">안녕5</li>
+        </ul>
+    </div>
+
+<h2>자식 | 후손 선택자</h2>
+<!-- div#parent>h4+ul>li*2
+    # : div id = "parent" -->
+<div id="parent">
+    <h4>hi</h4>
+    <ul>
+        <li>안녕하세요</li>
+        <li>니하오</li>
+    </ul>
+    <div id="child">
+        <h4>bye</h4>
+        <ul>
+            <li>안녕히가세요</li>
+            <li>짜이찌엔</li>
+        </ul>
+    </div>
+</div>
+
+<h2>형제 선택자</h2>
+<div id ="siblings">
+    <p id="p1">Hello1</p>
+    <p id="p2">Hello2</p>
+    <p id="p3">Hello3</p>
+    <p id="p4">Hello4</p>
+    <p id="p5">Hello5</p>
+    <pre>Hello6</pre>
+</div>
+
+<h2 id = "pseudo-class">가상 클래스 선택자</h2>
+
+<h2>가상 요소 선택자</h2>
+<div>
+    <ul id = "element">
+        <li>3,0000</li>
+        <li>4,0000</li>
+        <li>5,0000</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
