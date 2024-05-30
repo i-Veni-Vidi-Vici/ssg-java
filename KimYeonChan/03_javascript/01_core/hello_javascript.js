@@ -1,2 +1,2 @@
-const text = "Hello Javascript";
+const text = "Hello Javascript 🍕🍕🍕";
 console.log(text);

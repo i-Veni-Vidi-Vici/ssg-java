@@ -196,6 +196,10 @@ const firecarFactory = carFactoryBuilder2('🚒');
 firecarFactory(3);
 
 // 경찰차 factory를 지어서(함수) 10대 출력하세요.
+const policecarFactory = carFactoryBuilder2('🚔');
+policecarFactory(10);
 
-const policeCarFactory = carFactoryBuilder2('경찰차');
-policeCarFactory(10);
+
+
+
+
