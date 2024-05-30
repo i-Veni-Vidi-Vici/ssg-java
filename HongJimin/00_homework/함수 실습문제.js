@@ -1,40 +1,46 @@
-//1
-let z = 50;
-(function(){
-    let z = 55;
-    z += 45;
-    console.log(`z = ${z}`); // z = 100
-})();              
-console.log(`z = ${z}`); // z = 50
-
-//2
-let y = 99;
-(function() {
-    let x = 100;
-    let y = 9;
-    z = 1;
-    console.log(`x + y + z = ${x + y + z}`); // x + y + z = 110
-})();
-console.log(`y + z = ${y + z}`);// y + z = 100
-// console.log(`x + y + z = ${x + y + z}`); // 출력  X
-
-//3
-let i; // 전역 i
-for (i = 1; i <= 10; i++) {
-	console.log(i); // 1~10까지 출력
+//2-1. min, max function
+function min (a, b) {
+    const result = a - b;
+    console.log(result < 0 ? a : b); 
 }
 
-(function(){
-	console.log(`i = ${i}`); 
-})(); // i = 11
-    
-//4 
-function foo(){
-    const num = 100;
-    return () => {
-        console.log(`num = ${num}`); // num = 100
+function max (a, b) {
+    const result = a - b;
+    console.log(result > 0 ? a : b); 
+}
+min(30, 2);
+max(3, 20); 
+
+//2-2. pow function
+function pow(x, n){
+    let result = x;
+    if(n < 1) {
+        console.log("자연수를 입력해주세요");
+
+    }else{
+        for (let i = 1; i < n; i++) {
+            result = result * x;
+        }
+        console.log(result);
+    }
+
+}
+pow(2, 5);
+
+//2-3. min, max function 화살표 함수
+const min2 = (a, b) => {
+    const result = a - b;
+    if (result < 0) {
+        return a;
     }
 }
-const num = 200;
-const too = foo();
-too();
+
+const max2 = (a, b) => {
+    const result = a - b;
+    if (result < 0) {
+        return a;
+    }
+}
+console.log(min2(4, 5));
+console.log(max2(4, 5));
+
