@@ -111,4 +111,28 @@ const obj = {
     id : 12345,
     type : "객체"
 };
-console.log(obj, typeof obj);
+console.log(obj);
+console.log(obj, typeof obj); // { id: 12345, type: '객체' } object
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr, typeof arr); // [ 1, 2, 3, 4, 5 ] object
+
+function foo() {
+    console.log('fooooooooooooooo');
+}
+foo();
+console.log(foo, typeof foo); // [Function: foo] function
+/**
+ * 자바스크립트는 동적타입언어이다.
+ * - 정적타입언어(c, c++, java, ...) 변수에 자료형이 고정된 언어.
+ *      컴파일 타임에 타입 체크가 가능하므로, 런타임 오류를 줄일 수 있다.
+ * - 동적타입언어(js, python, ...) 변수에 자료형이 실제 대입되는 값에 따라 결정되는 언어. 
+ *      유연하게 코드 전개하지만, 신뢰도가 떨어진다.
+ *      타입체크를 미리 선행하는 코드를 작성하고 있다. (타입스크립트)
+ */
+let z;
+console.log(z);
+z = 123;
+console.log(z);
+z = '홍길동';
+console.log(z);
