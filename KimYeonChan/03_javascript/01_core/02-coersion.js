@@ -43,20 +43,18 @@ if (!undefined) console.log(`undefined는 false입니다.`);
 if (!null) console.log(`null는 false입니다.`);
 if (!NaN) console.log(`NaN는 false입니다.`);
 
-
 /**
  * 2. 명시적 형변환
  * - String(), toString() 문자열로 변환
  * - Number(), parseInt(), parseFloat() 숫자로 변환
- * - Boolean(), || 논리형으로 변환
+ * - Boolean(), !! 논리형로 변환
  */
-
 console.log(String(123), typeof String(123)); // 123 string
-console.log((123).toString(), typeof(123).toString());  // 123 string (원시값에 대해ㅐ 임시적으로 wrapper 객체를 생성한다.)
+console.log((123).toString(), typeof (123).toString()); // 123 string (123 원시값에 대해 임시적으로 Wrapper객체를 생성해서 메소드 호출가능)
 
 console.log(Number("123.456"), typeof Number("123.456")); // 123.456 number
 console.log(parseInt("123.456"), typeof parseInt("123.456")); // 123 number
 console.log(parseFloat("123.456"), typeof parseFloat("123.456")); // 123.456 number
 
-console.log(Boolean("Zzz"), typeof Boolean("Zzz")); // true boolean
-console.log(!!"Zzz", typeof !!"Zzz"); // true boolean
+console.log(Boolean("ㅋㅋㅋ"), typeof Boolean("ㅋㅋㅋ")); // true boolean
+console.log(!!"ㅋㅋㅋ", typeof !!"ㅋㅋㅋ"); // true boolean

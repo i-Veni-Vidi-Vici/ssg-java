@@ -133,6 +133,7 @@ console.log(foo, typeof foo); // [Function: foo] function
  *    변수에 자료형이 실제 대입되는 값에 따라 결정되는 언어. 
  *    유연하게 코드전개가 가능하지만, 신뢰도가 떨어진다.
  *    타입체크를 미리 선행하는 코드를 작성하고 있다. (타입스크립트) 
+ * 
  */
 let z;
 console.log(z);

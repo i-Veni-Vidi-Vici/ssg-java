@@ -192,7 +192,7 @@ console.log(Object.values(menu)); // [ '순대국', 10000, [ '안매운', '보�
 // 객체에 속성이 존재하는지 여부 반환
 const student = {
   name : '홍길동',
-  age : 33
+  age : 33, // 마지막 콤마는 문법적 오류를 유발하지 않는다.
 };
 
 console.log("name" in student); // true
@@ -202,4 +202,45 @@ console.log(student.name !== undefined); // true
 console.log(student.score !== undefined); // false
 
 // student객체에 school속성이 없으면, school : 'SSG학교'를 추가하는 코드를 작성해보세요.
-('school' in student) || (student.school = 'SSG학교');
+// (조건식) && (참일때 실행문)
+// (조건식) || (거짓일때 실행문)
+'school' in student || (student.school = 'SSG학교');
+
+console.log(student); 
+
+/**
+ * 객체 속성(property)과 flag
+ * 
+ * - value : 속성값
+ * - writable : true/false(읽기전용)
+ * - enumerable : true(for..in문에서 반복접근)/false
+ * - configurable : true(속성삭제/다른 flag 수정)/false
+ */
+const coffee = {
+  name : '아메리카노'
+};
+console.log(Object.getOwnPropertyDescriptor(coffee, 'name'));
+
+for(let key in coffee) {
+  console.log(`key = ${key}`);
+}
+
+// 속성추가 (flag설정)
+// Object.defineProperty 방식으로 선언시의 flag 기본값은 모두 false이다.
+Object.defineProperty(coffee, 'price', {value: 3000, writable: false, enumerable: false});
+console.log(Object.getOwnPropertyDescriptors(coffee)); 
+
+for(let key in coffee) {
+  console.log(`key = ${key}`);
+}
+
+
+
+
+
+
+
+
+
+
+
