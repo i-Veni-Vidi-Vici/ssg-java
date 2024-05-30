@@ -48,24 +48,26 @@ const func = function(){
     console.log('🚗🚗🚗');
 }
 
+    console.log(func());
 /**
  * 매개변수/매개인자
  */
 
-// const hi = function(name){
-//     if(arguments.length !== 1 || typeof name != 'string')
-//         throw new Error(`name 인자가 유효하지 않습니다 : ${name}`)
-//     console.log(`안녕, ${name}`);
+const hi = function(name){
+    if(arguments.length !== 1 || typeof name != 'string')
+        throw new Error(`name 인자가 유효하지 않습니다 : ${name}`)
+    console.log(`안녕, ${name}`);
 
 // arguments 숨은 참조 변수 : 호출시 전달한 모든 매개인자를 배열로 가지고 있다.
 // 유효성검사용으로 사용가능하다.
 console.log(arguments);
-// };
+};
 
-const name = '이순신';
-// hi(name) // 안녕, 이순신
+// const name = '이순신';
+hi('아') // 안녕, 이순신
 // hi(); // 안녕, undefined
 // hi('이순신', '세종대왕'); //안녕, 이순신 (선언되지 않은 매개변수 자리에는 전달하는 매개인자는 무시된다.) 
+hi('김')
 /**
  * 5/29
  * ...
