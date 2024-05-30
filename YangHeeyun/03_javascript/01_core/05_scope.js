@@ -50,7 +50,7 @@ let x = 30;
 function bar(){
   let x = 20;
   if(true) {
-    // let x = 10;
+    let x = 10;
     console.log(x);
   }
 }

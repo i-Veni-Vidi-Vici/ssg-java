@@ -15,12 +15,12 @@ console.log(a);
 
 function foo(){
     let b = 20;
-
+    
     console.log('foo a');
     console.log('foo',b);
 }
 
-foo()
+foo();
 //console.log(b); RefereenceError : b is not defined
 
 if(true){
@@ -62,7 +62,7 @@ bar();
  * var는 레거시 브라우져 호환용으로만 사용. 소스코드 작성에는 불필요함.
  */
 
-if(ture){
+if(true){
     var k = 300; // 지역 스코프가 아니라 전역 스코프임
 }
 console.log(k); // 300

@@ -58,7 +58,7 @@ console.log(10/4); // 2.5   자바의 경우, int형으로 계산해서 2가 나
  */
 const str1 = "홍길동";
 const str2 = '신사임당';
-const str3 = '이순신'; // ES6(ES2015) 추가된 Template String문법 : ``안에서 개행/탭문자를 인식. ${}표현식을 통해 다른 변수출력가능
+const str3 = `이순신`; // ES6(ES2015) 추가된 Template String문법 : ``안에서 개행/탭문자를 인식. ${}표현식을 통해 다른 변수출력가능
 console.log(str1, typeof str1); // 홍길동 string
 console.log(str2, typeof str2); // 신사임당 string
 console.log(str3, typeof str3); // 이순신 string
@@ -84,7 +84,7 @@ console.log(!bool); // false
  */
 let x = 123;
 x = null;
-console.log(x,typeof x); // null object (왜 null이 아닌 object타입? js 초기부터 objec타입에 대한 type tag와 실제값 0이 동일하게 생긴 이슈)
+console.log(x,typeof x); // null object (왜 null이 아닌 object타입? js 초기부터 object타입에 대한 type tag와 실제값 0이 동일하게 생긴 이슈)
 
 /**
  * 6. bigint
@@ -98,12 +98,12 @@ console.log(bigNum,typeof bigNum); // 123456789012345678901234567890n bigint
  * - 고유한 식별자를 생성하기 위한 타입
  * - 객체 속성명으로 사용 
  */
-const key = Symbol("key");
-console.log(key, typeof key); // Symbol(key) symbol
+const key = Symbol("abc");
+console.log(key, typeof key); // Symbol(abc) symbol
 
 /**
  * 8.object
- * - js자료형중 유일한 객체형(나머지 7가지는 모두 원시형
+ * - js자료형중 유일한 객체형(나머지 7가지는 모두 원시형)
  * - 속성/메소드를 가진 자료형
  * 
  * object의 하위타입
@@ -115,7 +115,6 @@ const obj = {
     id: 12345,
     type: "객체",
 };
-console.log(obj)
 console.log(obj, typeof obj);
 
 const arr = [1,2,3,4,5];
@@ -124,7 +123,7 @@ console.log(arr,typeof arr); // [1,2,3,4,5] object
 function foo() {
     console.log("fooooooooooooooo");
   }
-  foo(); // 함수 호출 실행
+  foo(); // fooooooooooooooo 함수 호출 실행
   console.log(foo, typeof foo); // [Function: foo] function
   
   
@@ -137,11 +136,11 @@ function foo() {
    *    타입체크를 미리 선행하는 코드를 작성하고 있다.(타입스크립트)
    */
   let z;
-  console.log(z);
+  console.log(z); // undefined
   z = 123;
-  console.log(z);
+  console.log(z, typeof(z)); // 123 number
   z = "홍길동";
-  console.log(z);
+  console.log(z,typeof(z)); // 홍길동 string
 
   
   

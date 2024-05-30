@@ -1,51 +1,57 @@
-// 1번
-let z = 50; // 전역 global scope
-(() => {
-    let z = 55; // 지역 local scope
-    z += 45;  
-    console.log(`z = ${z}`); // 100
-})();              
-console.log(`z = ${z}`); // 50
+// 2-1. min, max function
+const num1 = 10;
+const num2 = 20;
+console.log("최소값 : " + min(num1, num2));
+console.log("최대값 : " + max(num1, num2));
 
-// 2번
-let y = 99; // 전역 
-(() => {
-    let x = 100;
-    let y = 9; // 지역
-    z = 1; // 전역 z
-    console.log(`x + y + z = ${x + y + z}`); // 110
-})();
-console.log(`y + z = ${y + z}`); // 100
-// console.log(`x + y + z = ${x + y + z}`); // Uncaught ReferenceError: x is not defined
-
-// 3번 
-let i; // 전역 i로 선언하면 반복문 블럭 이후에서도 접근할 수 있다.
-for (i = 1; i <= 10; i++) {
-    console.log(i); // 1~10까지 출력
+function min(a, b) {
+  /*
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+  */
+  return a < b ? a : b;
 }
-console.log(`i = ${i}`); // 11
 
-// var 변수 유효범위(scope)는 block-scope가 아니라 function-scope이다.
-// function안에서만 유효. function바깥의 block은 모두 무시.
-// 전역에 선언된 var는 전역객체 window의 속성으로 등록된다.
-for (var j = 1; j <= 10; j++) {
-    console.log(j); // 1~10까지 출력
+function max(a, b) {
+  /*
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+  */
+  return a > b ? a : b;
 }
-(() => {
-    console.log(`j = ${j}`); // j = 11
-})();
 
-(function(){
-  var k = 10; // 지역변수
-})();
-// console.log(k); // Uncaught ReferenceError: k is not defined
+// 2-2. pow function
+const x = 2;
+const n = 10;
 
-//4 
-function yoo(){
-    const num = 100;
-    return () => console.log(`num = ${num}`);
+if (n < 1) {
+  console.log(n + '은 양의 정수이어야 합니다.');
+} else {
+  console.log(pow(x, n));
 }
-const num = 200;
-const too = yoo(); // closure함수
-console.log(too);
-too(); // 100
+
+function pow(x, n) {
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+// 2-3. min, max function 화살표 함수
+const a = 10;
+const b = 20;
+
+const getMin = (a, b) => a < b ? a : b;
+const getMax = (a, b) => a > b ? a : b;
+
+console.log("최소값 : " + getMin(a, b));
+console.log("최대값 : " + getMax(a, b));
