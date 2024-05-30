@@ -79,12 +79,22 @@ hi(name); // 안녕, 이순신
  * 파라미터 기본값 : 매개인자가 존재하지 않는 경우(undefined) 지정한 기본값 사용 가능 
  */
 
-function test1(id, ...chars){
+
+function test1(id,...chars){
     console.log(id,chars);
 }
 
+// function test2(id,id2, ...chars){
+//   console.log(id, id2, chars);
+  
+// }
+// test2(1,2,'나','다','라','마');
+
+
 test1(123,'가','나','다');
 test1(456,'가','나','다','라');
+
+console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
 function test2(a,b,c){
     console.log(a,b,c)
@@ -96,11 +106,15 @@ test2(...arr);
 //전개 연산자는 여러개 나열이 가능하다.
 const arr1 = ['🚒'];
 const arr2 = ['🚒','📖'];
-test1(...arr1, ...arr2);
+// const arr3 = 1
+// const arr4 = 2
+// test1(...arr1, ...arr2, arr3,arr4);
+// test2(...arr1, ...arr2, ...arr3, ...arr4) 이거는 또 출력이 안돼 에러 생겨서
+//매개 인자를 4개나 준거라고 생각하는데 어떻게 출력이 되는걸까요 ?
 
 function test3(x, y = 8888, z){
     console.log(x,y,z);
-
+ 
 }
 
 //파라미터 기본값 
@@ -159,6 +173,7 @@ console.log(myArrow(3));
 // const func = function(){
 //     console.log(`🚗🚗🚗`);
 //   };
+ 
   
 const func2 = func; //func2에다가 func가 가리키는 함수의 주소값을 대입 
 func2()
@@ -168,6 +183,8 @@ console.log(func == func2); //true 사용
 
 //2. 값으로써 매개인자 사용 
 const runner = (f,count) =>{
+    
+    
     for(let i = 0; i<count; i++){
         f();
     }
@@ -180,7 +197,7 @@ const carFactoryBuilder = () => {
     return() => console.log('🛻');
 };
 
-const carFactory = carFactoryBuilder();
+const carFactory = carFactoryBuilder();//() => console.log('🛻');, 이것도 결국함수
 console.log(carFactory); //Function (anonymous)
 carFactory();
 

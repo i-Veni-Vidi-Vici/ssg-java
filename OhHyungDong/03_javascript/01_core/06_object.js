@@ -186,7 +186,9 @@ for(const key in menu){
 }
 
 //Object.keys() : key값만 배열로 전환
-Object.keys(menu);
+console.log(Object.keys(menu));
+
+
 
 //Object.values() : value값만큼 배열로 반환 
 console.log(Object.values(menu)); 
@@ -218,8 +220,6 @@ console.log(student);
 const coffee ={
     name : '아메리카노'
 };
-console.log('hi');
-
 console.log(Object.getOwnPropertyDescriptor(coffee,'name'));
 
 for(let key in coffee){
@@ -227,14 +227,13 @@ for(let key in coffee){
 }
 
 //속성 추가 (flag 설정) - 속성정의 
-Object.defineProperty(coffee,'price',{value : 3000, writable: false, enumerable:false})
+Object.defineProperty(coffee,'price',{value : 3000, writable: false, enumerable:false});
 console.log(Object.getOwnPropertyDescriptor(coffee));
+console.log(Object.getOwnPropertyDescriptor(coffee,'price'));
 
 console.log(coffee);
 for(let key in coffee){
-
     console.log(`key = ${key}`);
-    
 }
 
 
