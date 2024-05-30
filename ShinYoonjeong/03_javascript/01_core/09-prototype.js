@@ -43,10 +43,47 @@ function Car(name){
     }
     // const car = new Car('굿모닝');
     // console.log(car);
-    const cars2 = [
-        new Car('소나타'),
-        new Car('그랜져'),
-        new Car('봉고')
-    ];
+    
 
 }
+Car.prototype.run = function(){
+    console.log(`${this.name}이 부릉부릉 달린다.`);
+}
+const cars2 = [
+    new Car('소나타'),
+    new Car('그랜져'),
+    new Car('봉고')
+];
+cars2.forEach((car)=>car.run());
+
+/**
+ * Car 생성자 함수
+ * Car.prototype 프로토타입객체
+ * 생성된 Car객체 (new Car())
+ * - [[Prototype]] 속성으로 프로토타입객체를 참조한다.
+ * - 프로토타입객체를 통해서 공통속성을 사용할 수 있다.
+ */
+console.log(Car.prototype.constructor === Car); // true
+console.log(new Car('카니발'.__proto__ === Car.prototype)); // true
+
+function A(){
+    // 현재객체 this는 new연산자 호출결과로 만들어질 객체
+    // this.id = '가나다';
+    // this.hello = function(){
+    //     console.log('안녕');
+    // };
+}
+A.prototype.id = 'ABC';
+A.prototype.hello = function(){
+    console.log('Hi');
+};
+A.id = 123;
+A.hello = function(){
+    console.log(456);
+}
+const a = new A();
+console.log(a.id); // 가나다
+a.hello(); // 안녕
+
+console.log(A.id); // static(생성자 함수) 속성
+A.hello();
