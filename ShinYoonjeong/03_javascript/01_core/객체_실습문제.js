@@ -1,12 +1,26 @@
 const calculator = {
     a : 10,
     b : 20,
-    sum(a,b){
-        return a+b;
+    sum : function(){
+        console.log(this.a+this.b);
         
     },
-    multi(a,b){
-        return a*b;
+    multi : function(){
+        console.log(this.a*this.b);
         }
 }
-console.log(calculator.sum);
+calculator.sum()
+calculator.multi()
+
+
+function Calculator () {
+    this.a = 10;
+    this.b = 20;
+    function sum(){
+        console.log(a+b);
+    }
+    function multi(){
+        console.log(a*b);
+    }
+
+}
