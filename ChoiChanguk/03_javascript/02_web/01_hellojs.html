@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js | hello js</title>
+    <script>
+        // head태그 안 내부 srcipt
+        // javasrcipt 영역
+        console.log("여기는 헤드 공간");
+    </script>
+</head>
+<body>
+    <h1>hello js</h1>
+    <!-- 
+        html페이지에서 js를 적용하는 방법은 3가지
+        1. html의 event속성값 (html attribute로 작성)
+        2. 페이지내 script태그를 통해 작성가능
+        3. 외부js 작성 후, 현재페이지에서 로드하는 방식 // 가장 선호되는 방식
+     -->
+     <button type="button" onclick="alert('🎈🎈🎈'); console.log('asdf')";>
+        클릭미
+     </button>
+     <button type="button" onclick="foo();">foo버튼</button>
+     <button type="button" onclick="bar();">bar버튼</button>
+     <script src="./js/01_hello.js">
+        // js파일에 있는 코드들이 여기에 쓰여진 것과 같다
+     </script>
+
+
+     <script>
+        //2. body 종료태그 앞 script
+        console.log("여기는 바디 끝 전");
+        function foo(){
+            console.log("여기는 함수 입니다");
+        }
+     </script>
+</body>
+</html>
