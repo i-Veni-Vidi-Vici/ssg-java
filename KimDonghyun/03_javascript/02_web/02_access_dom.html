@@ -18,13 +18,43 @@
   <input type="button" value="querySelector" onclick="test4();">
   <input type="button" value="querySelectorAll" onclick="test5();">
   <!-- ul>li#li$.group1{안녕$ JS}*5 -->
-  <ul>
+  <ul id="container">
     <li id="li1" class="group1">안녕1 JS</li>
     <li id="li2" class="group1">안녕2 JS</li>
     <li id="li3" class="group2">안녕3 JS</li>
     <li id="li4" class="group2">안녕4 JS</li>
     <li id="li5" class="group1 group2">안녕5 JS</li>
   </ul>
+  <p class="group1">저도 .group1이에요...</p>
+
+  <form action="">
+    <fieldset>
+      <legend>취미</legend>
+      <div>
+        <label for="check-all">전체선택</label><input type="checkbox" id="check-all" onchange="test8(this);">
+      </div>
+      <div>
+        <label for="hobby-netflix">넷플릭스</label><input type="checkbox" name="hobby" id="hobby-netflix" value="netflix">
+        &nbsp;
+        <label for="hobby-reading">독서</label><input type="checkbox" name="hobby" id="hobby-reading" value="reading">
+        &nbsp;
+        <label for="hobby-gym">헬스</label><input type="checkbox" name="hobby" id="hobby-gym" value="gym">
+      </div>
+      <br>
+      <div>
+        <input type="button" value="getElementsByName" onclick="test6();">
+        <input type="button" value="querySelectorAll" onclick="test7();">
+      </div>
+    </fieldset>
+  </form>
+
+
+  <fieldset>
+    <legend>@실습문제</legend>
+    <label for="name">이름</label>
+    <input type="text" name="name" id="name" class="user-input" value="홍길동">
+    <button type="button" onclick="test9();">입력값 확인</button>
+  </fieldset>
 
   <script src="js/02_access_dom.js"></script>
 </body>
