@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  .area {
+    width: 300px;
+    height: 300px;
+    border: 3px solid #000;
+    padding: 5px;
+    font: 24px bold;
+
+    display: flex;
+    align-items: center;
+  }
+  .bg-yellow {
+    background-color: yellow;
+  }
+  .left {
+    justify-content: flex-start;
+  }
+  .center {
+    justify-content: center;
+  }
+  .right {
+    justify-content: flex-end;
+  }
+
+  </style>
+  <title>js | style</title>
+</head>
+<body>
+  <h1>style</h1>
+  <div>
+    <input type="button" value="inline" onclick="test1();">
+    <input type="button" value="className" onclick="test2();">
+    <input type="button" value="classList" onclick="test3();">
+  </div>
+  <div class="area">AREA</div>
+  <div>
+    <label for="left">왼쪽</label><input type="radio" name="align" id="left" value="left" onchange="test4(this);">
+    <label for="center">가운데</label><input type="radio" name="align" id="center" value="center" onchange="test4(this);">
+    <label for="right">오른쪽</label><input type="radio" name="align" id="right" value="right" onchange="test4(this);">
+  </div>
+
+  <script src="js/07_style.js"></script>
+</body>
+</html>
