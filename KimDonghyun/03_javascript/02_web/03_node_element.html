@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js | node - element</title>
+  <style>
+    .outer {
+      border: 3px solid darkblue;
+      padding: 10px;
+    }
+    .inner {
+      border: 3px solid tomato;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>node - element</h1>
+  <div id="sample">
+    안녕
+    <!-- HTML 주석 -->
+    <span>Hello</span>
+  </div>
+
+  <div>
+    <input type="button" value="Element생성(TextNode있음)" onclick="test1();">
+    <input type="button" value="Element생성(TextNode없음)" onclick="test2();">
+    <div id="target"></div>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <input type="button" value="before" onclick="test3();">
+    <input type="button" value="prepend" onclick="test4();">
+    <input type="button" value="append" onclick="test5();">
+    <input type="button" value="after" onclick="test6();">
+  </div>
+  <div class="outer">
+    <div class="inner">
+      <hr>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <input type="button" value="remove" onclick="test7();">
+    <input type="button" value="removeChild" onclick="test8();">
+  </div>
+  <!-- ul>li{안녕$}*5 -->
+  <ul class="wrap">
+    <li>안녕1</li>
+    <li>안녕2</li>
+    <li id="foo">안녕3</li>
+    <li>안녕4</li>
+    <li>안녕5</li>
+  </ul>
+
+  <div>
+    <input type="button" value="cloneNode" onclick="test9();">
+    <input type="button" value="replaceChild" onclick="test10();">
+  </div>
+  <ul class="container">
+    <li>🥩</li>
+  </ul>
+
+  <script src="js/03_node_element.js"></script>
+</body>
+</html>
