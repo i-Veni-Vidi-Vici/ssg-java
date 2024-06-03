@@ -16,14 +16,42 @@
       <input type="text" id="nickname">
     </div>
     <div>
+      <label for="score">점수 </label>
+      <input type="range" name="score" id="score">
+      <span id="score-display"></span>
+    </div>
+    <div>
       <label for="memo">메모 : </label>
       <textarea 
         name="memo" id="memo" 
         cols="30" rows="10"></textarea>
       <p id="target"></p>
     </div>
-
   </fieldset>
+
+  <h2>form관련</h2>
+  <form name="userRegisterFrm" action="">
+    <fieldset>
+      <legend>회원가입</legend>
+      <div>
+        <label for="username">아이디 : </label>
+        <input type="text" name="username" id="username">
+      </div>
+      <div>
+        <label for="password">비밀번호 : </label>
+        <input type="password" name="password" id="password">
+      </div>
+      <div>
+        <label for="password-confirmation">비밀번호 확인: </label>
+        <input type="password" id="password-confirmation">
+      </div>
+      <div>
+        <button type="submit">등록</button>
+        <button type="reset">초기화</button>
+      </div>
+
+    </fieldset>
+  </form>
 
 
   <script src="js/10_event_usecase.js"></script>
