@@ -38,5 +38,15 @@ public class ServletMethodTestServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("ServletMethodTestServlet#doGet");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("ServletMethodTestServlet#doPost");
+    }
+
 
 }
