@@ -26,5 +26,6 @@
 <%-- POST방식으로 요청하기 : form[method=post] --%>
 <form action="test" method="post">
   <input type="submit" value="POST">
+</form>
 </body>
 </html>
