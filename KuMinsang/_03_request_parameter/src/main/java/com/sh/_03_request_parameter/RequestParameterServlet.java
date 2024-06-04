@@ -66,14 +66,14 @@ public class RequestParameterServlet extends HttpServlet {
         //인코딩 설정하기
         req.setCharacterEncoding("UTF-8");
 
-
+/*
         String name = req.getParameter("name");
         int age = Integer.parseInt(req.getParameter("age"));
         LocalDate birthday = LocalDate.parse(req.getParameter("birthday"), DateTimeFormatter.ISO_DATE);
         String gender = req.getParameter("gender");
         String national = req.getParameter("national");
         String[] hobbies = req.getParameterValues("hobbies");
-/*
+
         System.out.println("name = "+ name);
         System.out.println("age = "+ age);
         System.out.println("birthday = "+ birthday);
