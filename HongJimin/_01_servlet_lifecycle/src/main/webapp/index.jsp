@@ -1,0 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <!-- 🌟JSP 문법이다! -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>1. Servlet LifeCycle</title>
+</head>
+<body>
+<h1>1. Servlet LifeCycle</h1>
+<br/>
+<a href="hello-servlet">Hello Servlet</a>
+<a href="lifecycle">lifecycle</a>
+</body>
+</html>
