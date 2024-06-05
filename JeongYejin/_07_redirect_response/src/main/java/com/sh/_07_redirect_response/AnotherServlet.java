@@ -35,8 +35,4 @@ public class AnotherServlet extends HttpServlet {
                 </html>
                 """);
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }
