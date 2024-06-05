@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
-@WebServlet("/error")
-public class GlobalErrorServlet extends HttpServlet {
+@WebServlet("/404")
+public class Global404Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("GlobalErrorServlet");
+        System.out.println("Global404Servlet");
         // 에러/예외 관련 속성 확인
         Enumeration<String> attributeNames = request.getAttributeNames();
         while(attributeNames.hasMoreElements()){
@@ -45,8 +45,8 @@ public class GlobalErrorServlet extends HttpServlet {
                         <title>오류</title>
                     </head>
                     <body>
-                        <h1 style = "text-align : center; font-size : 300px; margin : 100px 0; ">헉</h1>
-                        <p style = "text-align : center;">불편을 드려 죄송합니다.</p>
+                        <h1 style = "text-align : center; font-size : 300px; margin : 100px 0; ">터엉</h1>
+                        <p style = "text-align : center;">요청하신 페이지는 존재하지 않습니다.</p>
                         <p style = "text-align : center; color : red;">%s</p>
                     </body>
                 </html>
