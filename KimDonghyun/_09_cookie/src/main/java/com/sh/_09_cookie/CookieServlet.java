@@ -30,11 +30,11 @@ public class CookieServlet extends HttpServlet {
         // 쿠키 유효기간 (브라우져에 보관한 기간. 초단위 작성)
         cookie.setMaxAge(60 * 60 * 24); // 유효기간 하루
         // 쿠키를 이용할 요청경로
-        cookie.setPath("/"); // / 하위의 모든 요청에 쿠키를 함께 전송
+        cookie.setPath(request.getContextPath() + "/another"); // 지정한 경로의 하위 모든 요청에 쿠키를 함께 전송
         // 응답에 쿠키를 추가(n개 추가가능)
         response.addCookie(cookie);
         
         // 응답작성 (redirect)
-        response.sendRedirect(request.getContextPath()); // /09_cookie
+        response.sendRedirect("another"); // /another로 redirect
     }
 }
