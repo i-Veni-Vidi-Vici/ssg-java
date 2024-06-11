@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.sh'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // spring core container 의존들의 버전은 다 동일하게 맞춰주는 것이 좋다.
+    // 우리는 6.1.6를 사용할 것이다.
+    implementation 'org.springframework:spring-core:6.1.6'
+    implementation 'org.springframework:spring-beans:6.1.6'
+    implementation 'org.springframework:spring-context:6.1.6'
+    implementation 'org.springframework:spring-expression:6.1.6'
+    implementation 'org.springframework:spring-aop:6.1.6'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
