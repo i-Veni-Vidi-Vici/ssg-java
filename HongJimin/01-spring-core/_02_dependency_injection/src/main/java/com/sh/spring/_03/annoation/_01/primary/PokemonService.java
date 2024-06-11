@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("pokemonServiceByPrimary")
-public class PockemonService {
+public class PokemonService {
     private Pokemon pokemon;
 
     @Autowired
-    public PockemonService(Pokemon pokemon) {
+    public PokemonService(Pokemon pokemon) {
         this.pokemon = pokemon;
     }
 

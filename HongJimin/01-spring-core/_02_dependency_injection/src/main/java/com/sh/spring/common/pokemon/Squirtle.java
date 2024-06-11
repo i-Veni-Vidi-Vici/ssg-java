@@ -1,8 +1,13 @@
 package com.sh.spring.common.pokemon;
 
-public class Pikachu implements Pokemon {
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
+public class Squirtle implements Pokemon {
     @Override
     public void attack() {
-        System.out.println("⚡⚡삐까삐ㅃ까~⚡⚡⚡");
+        System.out.println("⛲⛲꼬부기 물대포!!!~~~ ⛲⛲");
     }
 }

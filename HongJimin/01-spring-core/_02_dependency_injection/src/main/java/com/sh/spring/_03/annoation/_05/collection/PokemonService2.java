@@ -4,11 +4,10 @@ import com.sh.spring.common.pokemon.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service("pokemonServiceByMap")
-public class PockemonService2 {
+public class PokemonService2 {
     private Map<String, Pokemon> pokemonMap;
 
     /**
@@ -18,7 +17,7 @@ public class PockemonService2 {
      */
 
     @Autowired
-    public PockemonService2(Map<String, Pokemon> pokemonMap) {
+    public PokemonService2(Map<String, Pokemon> pokemonMap) {
         this.pokemonMap = pokemonMap;
     }
 

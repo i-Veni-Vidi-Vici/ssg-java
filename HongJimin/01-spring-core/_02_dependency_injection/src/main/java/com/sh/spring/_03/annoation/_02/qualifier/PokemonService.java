@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("pokemonServiceByQualifier")
-public class PockemonService {
+public class PokemonService {
     /**
      * @Primary 와 @Qulifier를 동시 사용하는 경우 @Qulifier가 우선순위가 더 높다.
      */

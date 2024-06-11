@@ -1,2 +1,11 @@
-package com.sh.spring.common.pokemon;public class Pikachu {
+package com.sh.spring.common.pokemon;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Pikachu implements Pokemon {
+    @Override
+    public void attack() {
+        System.out.println("⚡⚡삐까삐ㅃ까~⚡⚡⚡");
+    }
 }

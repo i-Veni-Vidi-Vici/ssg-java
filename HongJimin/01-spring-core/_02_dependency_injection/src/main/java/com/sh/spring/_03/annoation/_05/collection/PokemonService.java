@@ -7,16 +7,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("pokemonServiceByList")
-public class PockemonService {
+public class PokemonService {
     private List<Pokemon> pokemons;
 
     @Autowired
-    public PockemonService(List<Pokemon> pokemons) {
-
+    public PokemonService(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
 
-    public void attack() {
+    public void attack(){
         this.pokemons.forEach(Pokemon::attack);
     }
 }

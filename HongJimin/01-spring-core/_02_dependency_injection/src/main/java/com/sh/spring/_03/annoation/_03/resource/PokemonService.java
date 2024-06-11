@@ -6,7 +6,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 @Service("pokemonServiceByResource")
-public class PockemonService {
+public class PokemonService {
     /**
      * @Resource는 스프링이 아닌 자바 스펙이다.
      * - name속성으로 특정 빈을 한정할 수 있다.

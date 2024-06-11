@@ -6,7 +6,7 @@ import jakarta.inject.Named;
 import org.springframework.stereotype.Service;
 
 @Service("pokemonServiceByInject")
-public class PockemonService {
+public class PokemonService {
     /**
      * @Inject는 스프링이 아닌 자바 스펙이다.
      * - @Named(name)을 통해 동일타입 빈을 한정할 수 있다.

@@ -1,6 +1,5 @@
-package com.sh.spring._03.annoation._01.primary;
+package com.sh.spring._03.annoation._05.collection;
 
-import com.sh.spring.common.pokemon.Pokemon;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,6 +10,10 @@ public class App {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.sh.spring");
         Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 
-        PockemonService pockemonService = context.getBean("pokemonServiceByPribary", PockemonService.class);
+//        PokemonService pokemonService = context.getBean("pokemonServiceByList", PokemonService.class);
+//        pokemonService.attack();
+
+        PokemonService2 pokemonService2 = context.getBean("pokemonServiceByMap", PokemonService2.class);
+        pokemonService2.attack();
     }
 }

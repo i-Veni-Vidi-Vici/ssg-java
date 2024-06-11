@@ -1,4 +1,4 @@
-package com.sh.spring._02.autowired._02.constructor;
+package com.sh.spring._02.autowired._03.setter;
 
 import com.sh.spring.common.book.BookDao;
 import com.sh.spring.common.book.BookDto;
@@ -26,13 +26,13 @@ import java.util.List;
  * </pre>
  *
  */
-@Service("bookServiceByConstructor")
+@Service("bookServiceBySetter")
 public class BookService {
 
     private BookDao bookDao;
 
-    @Autowired //
-    public BookService(BookDao bookDao) {
+    @Autowired
+    public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 

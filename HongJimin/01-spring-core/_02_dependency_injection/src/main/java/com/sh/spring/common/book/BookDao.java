@@ -1,4 +1,4 @@
-package com.sh.spring.common.account.book;
+package com.sh.spring.common.book;
 
 import java.util.List;
 
