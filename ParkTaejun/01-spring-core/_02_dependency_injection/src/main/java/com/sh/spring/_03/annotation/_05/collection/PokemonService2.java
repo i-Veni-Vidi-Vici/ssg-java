@@ -26,7 +26,7 @@ public class PokemonService2 {
 
     public void attack(){
         this.pokemonMap.forEach((k, v) -> { //v는 포케몬 객체
-            System.out.println(k + " = " + v);l
+            System.out.println(k + " = " + v);
             v.attack();
         });
 
