@@ -1,15 +1,16 @@
-package com.sh;
+package com.sh.spring.common.member;
 
-import jdk.jfr.DataAmount;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class MemberDto {
     private Long id;
     private String username;
     private String password;
     private String name;
-
 }

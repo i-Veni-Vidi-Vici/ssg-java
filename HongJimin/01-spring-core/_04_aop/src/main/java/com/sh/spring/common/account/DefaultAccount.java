@@ -1,11 +1,15 @@
 package com.sh.spring.common.account;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data // @Data안의 @RequiredArgsConstructor덕분에 상수값을 셋팅해줌 / @NoArgsConstructor을 추가하면 상수값을 어떻게 셋팅할건데? 하면서 오류가 남!
-public class DefulatAccount implements Account {
-    private final int bankCode; // 은행 코드
-    private final String accountNo; // 계좌번호
+@NoArgsConstructor
+@AllArgsConstructor
+public class DefaultAccount implements Account {
+    private int bankCode; // 은행 코드
+    private String accountNo; // 계좌번호
     private long balance; // 잔액
 
 

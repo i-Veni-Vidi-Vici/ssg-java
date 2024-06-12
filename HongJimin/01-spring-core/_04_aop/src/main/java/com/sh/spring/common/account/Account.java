@@ -1,4 +1,4 @@
-package com.sh.spring._02.reflection.common.account;
+package com.sh.spring.common.account;
 
 public interface Account {
     // 잔액 조회
