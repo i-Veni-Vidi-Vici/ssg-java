@@ -31,6 +31,10 @@ import java.util.List;
  * @Component의 후손 어노테이션이므로, @ComponentScan에 의해서 자동으로 @Bean 등록이 된다
  */
 
+/**
+ * 개인적인 정리
+ * 다른 클래스필드의 의존이 필요한 경우(지금 이 상황 BookService 와 BookDao가
+ */
 @Service("bookServiceByConstructor")
 public class BookService {
 
