@@ -4,7 +4,9 @@ package com.sh.spring._02.reflection;
 import com.sh.spring.common.account.DefaultAccount;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -34,8 +36,90 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) {
         App app = new App();
-//        app.test1();
-        app.test2();
+//        app.test1(); //클래스 객체 얻어옴
+//        app.test2(); // 생성자 - 객체생성
+//        app.test3(); // 필드제어
+        app.test4(); //메서드 제어
+    }
+
+    /**
+     * 메소드 제어
+     */
+    private void test4() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-300000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Arrays.stream(declaredMethods).forEach(System.out::println);
+        /*
+            public boolean com.sh.spring.common.account.DefaultAccount.equals(java.lang.Object)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.toString()
+            public int com.sh.spring.common.account.DefaultAccount.hashCode()
+            public int com.sh.spring.common.account.DefaultAccount.getBankCode()
+            public void com.sh.spring.common.account.DefaultAccount.setBankCode(int)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.withdraw(int)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getBalanceInfo()
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.deposit(int)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getAccountNo()
+            public long com.sh.spring.common.account.DefaultAccount.getBalance()
+            public void com.sh.spring.common.account.DefaultAccount.setBalance(long)
+            protected boolean com.sh.spring.common.account.DefaultAccount.canEqual(java.lang.Object)
+            public void com.sh.spring.common.account.DefaultAccount.setAccountNo(java.lang.String)
+         */
+        try {
+            Method getBalanceMethed = clazz.getDeclaredMethod("getBalance");
+            System.out.println(getBalanceMethed);
+
+            //invoke (타겟객체,..매개인자) : Object 리턴값을 반환한다.
+            Object returnValue = getBalanceMethed.invoke(account);// 그 메소드가 원하는 아규먼트를 넣을 수 있다 ?
+            System.out.println(returnValue); // 3000000
+
+            // 2. 매개인자 있는 메소드
+            Method depositMethod = clazz.getDeclaredMethod("deposit", int.class);
+            returnValue = depositMethod.invoke(account, 500_000);// call 이라고도 하고 invoke라고도 함
+            System.out.println(returnValue);
+            System.out.println(account);
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    /**
+     *
+     * 필드제어
+     *
+     */
+
+    private void test3() {
+        DefaultAccount account = new DefaultAccount(20,"100-200-300000",3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass(); // 어카운트의 클래스 객체주세여
+//        Class<?> clazz = account.getClass(); // 이것도 동일함! @@ 이거 정리
+
+        // 필드 객체 가져오기
+        Field[] declaredFields = clazz.getDeclaredFields();
+        System.out.println(Arrays.toString(declaredFields));
+
+        try {
+            Field bankCode = clazz.getDeclaredField("bankCode");
+            // private 접근제한자 해제
+            bankCode.setAccessible(true); // 필드레벨에서 바로 읽어오는거 getter로 우회하는게 아님 !
+
+            // 필드값 가져오기
+            Object bankCodeValue = bankCode.get(account);
+            System.out.println(bankCodeValue);
+
+            // 필드값 설정
+            bankCode.set(account,30);
+            System.out.println(account);
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     /**
