@@ -5,7 +5,9 @@ import com.sh.spring.common.account.DefaultAccount;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -36,7 +38,9 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
 //        app.test1();
-        app.test2();
+//        app.test2();
+//        app.test3();
+        app.test4();
     }
 
     private void test1() {
@@ -77,6 +81,7 @@ public class App {
         }
     }
 
+    // 생성자 제어
     private void test2() {
         Class<DefaultAccount> clz = DefaultAccount.class;
 
@@ -93,6 +98,73 @@ public class App {
             DefaultAccount account2 = (DefaultAccount) constructor2.newInstance(30, "111-123-444444", 1_000_000);
             System.out.println(account2);
         } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 필드 제어
+    private void test3() {
+        DefaultAccount account = new DefaultAccount(20, "100- 200-300000", 3_000_000);
+//        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+        Class<?> clazz = account.getClass();
+        Field[] declaredFields = clazz.getDeclaredFields();
+        System.out.println(Arrays.toString(declaredFields));
+        // [private int com.sh.spring.common.account.DefaultAccount.bankCode,
+        // private java.lang.String com.sh.spring.common.account.DefaultAccount.accountNumber,
+        // private long com.sh.spring.common.account.DefaultAccount.balance]
+
+        try {
+            Field bankCode = clazz.getDeclaredField("bankCode");
+            // private 접근제한자 해체
+            bankCode.setAccessible(true);
+            // 필드값 가져오기
+            Object bankCodeValue = bankCode.get(account);
+            System.out.println(bankCodeValue); // 20
+
+            // 필드값 설정
+            bankCode.set(account, 30);
+            System.out.println(account); // DefaultAccount(bankCode=30, accountNumber=100- 200-300000, balance=3000000)
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 메소드 제어
+    private void test4() {
+        DefaultAccount account = new DefaultAccount(20, "100- 200-300000", 3_000_000);
+        Class<?> clazz = account.getClass();
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Arrays.stream(declaredMethods).forEach(System.out::println);
+//        public boolean com.sh.spring.common.account.DefaultAccount.equals(java.lang.Object)
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.toString()
+//        public int com.sh.spring.common.account.DefaultAccount.hashCode()
+//        public int com.sh.spring.common.account.DefaultAccount.getBankCode()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.getAccountNumber()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.getBalanceInfo()
+//        public void com.sh.spring.common.account.DefaultAccount.setBankCode(int)
+//        public void com.sh.spring.common.account.DefaultAccount.setAccountNumber(java.lang.String)
+//        protected boolean com.sh.spring.common.account.DefaultAccount.canEqual(java.lang.Object)
+//        public long com.sh.spring.common.account.DefaultAccount.getBalance()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.deposit(int)
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.withdraw(int)
+//        public void com.sh.spring.common.account.DefaultAccount.setBalance(long)
+
+        try {
+            // 1. 매개인자 없는 메소드
+            Method getBalanceMethod = clazz.getDeclaredMethod("getBalance");
+            System.out.println(getBalanceMethod);
+
+            // invoke (타겟객체, ...매개인자): Object 리턴값을 반환한다.
+            Object returnValue = getBalanceMethod.invoke(account);
+            System.out.println(returnValue); // 3000000
+
+            // 2. 매개인자 있는 메소드
+            Method depositMethod = clazz.getDeclaredMethod("deposit", int.class);
+            returnValue = depositMethod.invoke(account, 500_000);
+            System.out.println(returnValue); // 500000원이 입금되었습니다.
+            System.out.println(account); // DefaultAccount(bankCode=20, accountNumber=100- 200-300000, balance=3500000)
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
     }
