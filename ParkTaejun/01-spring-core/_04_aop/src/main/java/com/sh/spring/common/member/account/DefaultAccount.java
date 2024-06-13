@@ -1,13 +1,17 @@
 package com.sh.spring.common.member.account;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data  // 왜 Data 하면 오류 사라지는지?
+@NoArgsConstructor
+@AllArgsConstructor
 public class DefaultAccount implements Account {
 
-    private final int bankCode;
-    private final String accountNo;
+    private  int bankCode;
+    private  String accountNo;
     private long balance;
 
     @Override
