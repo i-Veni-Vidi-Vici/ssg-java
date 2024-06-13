@@ -1,0 +1,16 @@
+  # yaml , ?? ??? ?????? ???? ????
+  spring:
+    application:
+      name: _01_request_mapping
+    devtools:
+      livereload:
+        enabled: true
+      remote:
+        restart:
+          enabled: true
+
+  server:
+    servlet:
+      context-path: /app
+
+    port: 8080
