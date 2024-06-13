@@ -3,9 +3,8 @@ package com.sh.spring._02.reflection;
 import com.sh.spring.common.account.Account;
 import com.sh.spring.common.account.DefaultAccount;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.*;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 /**
@@ -35,8 +34,89 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) {
         App app = new App();
-        app.test1();
-        app.test2();
+//        app.test1();
+//        app.test2();
+//        app.test3();
+        app.test4();
+    }
+
+    /**
+     * 메소드 제어
+     */
+    private void test4() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-3000000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Arrays.stream(declaredMethods).forEach(System.out::println); // getter, setter 전부다 실행하는 것
+        /*
+            public boolean com.sh.spring.common.account.DefaultAccount.equals(java.lang.Object)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.toString()
+            public int com.sh.spring.common.account.DefaultAccount.hashCode()
+            protected boolean com.sh.spring.common.account.DefaultAccount.canEqual(java.lang.Object)
+            public void com.sh.spring.common.account.DefaultAccount.setBalance(long)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getAccountNo()
+            public int com.sh.spring.common.account.DefaultAccount.getBankCode()
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.withdraw(int)
+            public void com.sh.spring.common.account.DefaultAccount.setAccountNo(java.lang.String)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.deposit(int)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getBalanceInfo()
+            public void com.sh.spring.common.account.DefaultAccount.setBankCode(int)
+            public long com.sh.spring.common.account.DefaultAccount.getBalance()
+        */
+
+        try {
+            //1. 매개인자 없는 메소드
+            Method getBalanceMethod = clazz.getDeclaredMethod("getBalance");
+            System.out.println(getBalanceMethod);
+
+            // invoke(타겟 객체, ...매개 인자) : Object 리턴값을 반환한다.
+            Object returnValue = getBalanceMethod.invoke(account);
+            System.out.println(returnValue); // 3000000
+
+            // 2. 매개인자 있는 메소드
+            Method depositMethod = clazz.getDeclaredMethod("deposit", int.class);
+            returnValue = depositMethod.invoke(account, 500_000);
+            System.out.println(returnValue); // 500000원이 입금되었습니다.
+            System.out.println(account); // DefaultAccount(bankCode=20, accountNo=100-200-3000000, balance=3500000)
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) { // InvocationTargetException 타겟이 DefaultAccount가 아닌 경우 ㅇ{외 발생
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    /**
+     * 필드 제어
+     */
+    private void test3() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-3000000", 3_000_000);//클래스 객체로 제어할 예정
+//        Class<?> clazz = account.getClass();
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass(); //위의 코드와동일!, ?는 와일드 카드를 의미
+
+        // 필드 객체 가져오기
+        Field[] declaredFields = clazz.getDeclaredFields();
+        System.out.println(Arrays.toString(declaredFields));
+//        [private int com.sh.spring.common.account.DefaultAccount.bankCode,
+//        private java.lang.String com.sh.spring.common.account.DefaultAccount.accountNo,
+//        private long com.sh.spring.common.account.DefaultAccount.balance]
+
+        try {
+            Field bankCode = clazz.getDeclaredField("bankCode");
+            // ✨private 접근 제한자 해제
+            bankCode.setAccessible(true);
+
+            // 필드값 가져오기
+            Object bankCodeValue = bankCode.get(account); // private이면 Caused by: java.lang.IllegalAccessException: class com.sh.spring._02.reflection.App cannot access a member of class com.sh.spring.common.account.DefaultAccount with modifiers "private"발생함
+            System.out.println(bankCodeValue); // 20
+
+            //필드값 설정
+            bankCode.set(account, 30);
+            System.out.println(account); // ✨DefaultAccount(bankCode=30, accountNo=100-200-3000000, balance=3000000) ✨ private을 해제함
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -98,6 +178,8 @@ public class App {
             // 부모 클래스 객체
             Class clz8 = clz1.getSuperclass(); // 부모 클래스 객체(extends)
             System.out.println(clz8); // class java.lang.Object
+
+            //부모 인터페이스 객체
             Class[] interfaces = clz1.getInterfaces();
             System.out.println(Arrays.toString(interfaces)); // [interface com.sh.spring.common.account.Account]
 
