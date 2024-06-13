@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 // 상수값으로 필드를 설정했기 때문에 생성자를 작성하지 않는다.
 public class DefaultAccount implements Account{
-    private int backCode; // 은행코드
+    public int bankCode; // 은행코드
     private String accountNo; // 계좌번호
     private long balance; // 잔액
 
