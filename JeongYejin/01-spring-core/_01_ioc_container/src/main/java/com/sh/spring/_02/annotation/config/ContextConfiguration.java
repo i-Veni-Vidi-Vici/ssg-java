@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * @ComponentScan(basePackages) 하위에 등록된 @Componet클래스를 빈으로 등록
  */
-@Configuration("configurationAnnotation")
+//@Configuration("configurationAnnotation")
 //@ComponentScan(basePackages = "com.sh.spring.common.member") // basePackages(value)속성
 @ComponentScan(
         basePackages = "com.sh.spring.common.member",

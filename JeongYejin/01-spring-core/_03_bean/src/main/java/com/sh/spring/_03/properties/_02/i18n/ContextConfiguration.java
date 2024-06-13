@@ -1,0 +1,27 @@
+package com.sh.spring._03.properties._02.i18n;
+
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+
+@Configuration("contextConfigurationI18N")
+public class ContextConfiguration {
+    @Bean
+    public MessageSource messageSource() {
+        // 사용자 로케일에 따라 메세지를 재로딩하는 messageSource 인터페이스의 구현클래스
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        // 다국어처리된 message properties
+        messageSource.setBasename("i18n/message"); // locale값 앞에 텍스트만 작성 src/main/resources 하위 경로
+        // 메세지 캐싱시간
+        messageSource.setCacheSeconds(10); // reload 방지
+        // 기본인코딩 설정
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    @Bean
+    public MessageService messageService() {
+        return new MessageService(messageSource());
+    }
+}
