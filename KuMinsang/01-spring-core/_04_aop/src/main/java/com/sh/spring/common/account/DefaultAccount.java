@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class DefaultAccount implements Account{
     private int bankCode;
     private String accountNo;
+//    public String accountNo;
     private long balance;
 
     @Override
