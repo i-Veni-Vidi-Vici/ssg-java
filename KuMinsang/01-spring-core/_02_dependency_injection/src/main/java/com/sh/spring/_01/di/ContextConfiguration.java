@@ -1,0 +1,29 @@
+package com.sh.spring._01.di;
+
+import com.sh.spring.common.account.MemberDto;
+import com.sh.spring.common.account.Account;
+import com.sh.spring.common.account.DefaultAccount;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration("configurationDI")
+public class ContextConfiguration {
+
+    @Bean
+    public Account account() {
+        return new DefaultAccount(20, "1002-738-733002");
+    }
+
+    @Bean
+    public MemberDto memberDto(){
+        MemberDto memberDto = new MemberDto();
+        memberDto.setId(1L);
+        memberDto.setName("홍길동");
+        memberDto.setPhone("010-1234-5678");
+        memberDto.setEmail("honggd@gmail.com");
+
+        memberDto.setAccount(account());
+        return memberDto;
+
+    }
+}
