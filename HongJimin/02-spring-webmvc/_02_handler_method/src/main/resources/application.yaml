@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: _02_handler_method
+
+server:
+  servlet:
+    context-path: /app #application-context \uC5B4\uD50C\uB9AC\uCF00\uC774\uC158 \uC2DD\uBCC4\uC790
+
+logging:
+  level:
+    root: info
+    com.sh: debug
