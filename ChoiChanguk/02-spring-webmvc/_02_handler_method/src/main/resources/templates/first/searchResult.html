@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+</head>
+<body>
+    <h1>검색 결과</h1>
+    <ul>
+        <li th:text="${menuDto.id}"></li>
+        <li th:text="${menuDto.name}"></li>
+        <li th:text="${menuDto.price}"></li>
+        <li th:text="${menuDto.categoryCode}"></li>
+        <li th:text="${menuDto.orderableStatus}"></li>
+    </ul>
+
+    <ul>
+        <li th:text="| 아이디 : ${menuDto.id}|"></li>
+        <li th:text="| 이름 : ${menuDto.name}|"></li>
+        <li th:text="| 가격 : ${menuDto.price}|"></li>
+        <li th:text="| 카테고리코드 : ${menuDto.categoryCode}|"></li>
+        <li th:text="| 주문가능여부 : ${menuDto.orderableStatus}|"></li>
+    </ul>
+</body>
+</html>
