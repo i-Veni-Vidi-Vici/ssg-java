@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1. Request Mappping </title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>1. Request Mapping</h1>
+    <h2>🤗🤗🤗</h2>
+    <h2>@RequestMapping 메소드 레벨 </h2>
+
+    <h3>GET /menu/ regist</h3>
+    <button onclick="location.href='/app/menu/regist'">GET 요청</button>
+
+    <h3>Post /menu/regist</h3>
+    <form action="/app/menu/regist" method="post">
+        <button type="submit">POST 요청</button>
+    </form>
+
+
+    <h3>GET /menu/modify</h3>
+    <button onclick="location.href='/app/menu/modify'">GET 요청</button>
+
+    <h3>Post /menu/modify</h3>
+    <form action="/app/menu/modify" method="post">
+        <button type="submit">POST 요청</button>
+    </form>
+    <h2>@RequestMapping 메소드/클래스 레벨 </h2>
+
+
+
+    <h2>@RequestMapping 메소드 레벨 </h2>
+    <h3>GET /order/ regist</h3>
+    <button onclick="location.href='/app/order/regist'">GET 요청</button>
+    <h3>Post /order/regist</h3>
+    <form action="/app/order/regist" method="post">
+        <button type="submit">POST 요청</button>
+    </form>
+
+    <h3>GET /order/modify, GET /order/delete</h3>
+    <button onclick="location.href='/app/order/modify'">modify 요청</button>
+    <button onclick="location.href='/app/order/delete'">delete 요청</button>
+
+    <h3>GET /order/detail/123</h3>
+    <button onclick="location.href='/app/order/detail/123'">주문상세보기 요청</button>
+</body>
+</html>

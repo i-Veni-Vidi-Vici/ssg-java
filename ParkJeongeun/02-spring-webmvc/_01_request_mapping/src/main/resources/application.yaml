@@ -1,0 +1,9 @@
+# yaml, yml : \uB4E4\uC5EC\uC4F0\uAE30\uB85C \uACC4\uCE35\uAD6C\uC870\uB97C \uC5C4\uACA9\uD558\uAC8C \uAD6C\uBCC4\uD568
+spring:
+  application:
+    name: _01_request_mapping
+
+server:
+  servlet:
+    context-path: /app
+  port: 8080

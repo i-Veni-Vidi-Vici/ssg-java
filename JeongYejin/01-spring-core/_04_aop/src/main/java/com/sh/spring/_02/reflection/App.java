@@ -3,9 +3,7 @@ package com.sh.spring._02.reflection;
 import com.sh.spring.common.account.Account;
 import com.sh.spring.common.account.DefaultAccount;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
@@ -37,7 +35,86 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
 //        app.test1();
-        app.test2();
+//        app.test2();
+//        app.test3();
+        app.test4();
+    }
+
+    /**
+     * 4. 메소드 제어
+     */
+
+    private void test4() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-300000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Arrays.stream(declaredMethods).forEach(System.out::println);
+        /*
+            public boolean com.sh.spring.common.account.DefaultAccount.equals(java.lang.Object)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.toString()
+            public int com.sh.spring.common.account.DefaultAccount.hashCode()
+            public int com.sh.spring.common.account.DefaultAccount.getBankCode()
+            public long com.sh.spring.common.account.DefaultAccount.getBalance()
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getBalanceInfo()
+            public void com.sh.spring.common.account.DefaultAccount.setBankCode(int)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.deposit(int)
+            public void com.sh.spring.common.account.DefaultAccount.setAccountNo(java.lang.String)
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.getAccountNo()
+            public java.lang.String com.sh.spring.common.account.DefaultAccount.withdraw(int)
+            public void com.sh.spring.common.account.DefaultAccount.setBalance(long)
+            protected boolean com.sh.spring.common.account.DefaultAccount.canEqual(java.lang.Object)
+        */
+        try {
+            // 1. 매개인자 없는 메소드
+            Method getBalanceMethod = clazz.getDeclaredMethod("getBalance");
+            System.out.println(getBalanceMethod);
+
+            // invoke(타겟객체, ...매개인자) : Object 리턴값을 반환한다.
+            Object returnValue = getBalanceMethod.invoke(account);
+            System.out.println(returnValue);
+
+            // 2. 매개인자 있는 메소드
+            Method depositMethod = clazz.getDeclaredMethod("deposit", int.class);
+            returnValue = depositMethod.invoke(account, 500_000);
+            System.out.println(returnValue);
+            System.out.println(account);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            // IllegalAccessException private에 접근하는 거 아니야?
+            // InvocationTargetException
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 3. 필드 제어
+     */
+
+    private void test3() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-300000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        // 필드 객체 가져오기
+        Field[] declaredFields = clazz.getDeclaredFields();
+        System.out.println(Arrays.toString(declaredFields));
+        // [private int com.sh.spring.common.account.DefaultAccount.bankCode,
+        // private java.lang.String com.sh.spring.common.account.DefaultAccount.accountNo,
+        // private long com.sh.spring.common.account.DefaultAccount.balance]
+
+        try {
+            Field bankCode = clazz.getDeclaredField("bankCode");
+            // private 접근제한자 해제
+            bankCode.setAccessible(true);
+            // 필드값 가져오기
+            Object bankCodeValue = bankCode.get(account); // 필드.get(객체)
+            System.out.println(bankCodeValue); // 20
+
+            // 필드값 설정
+            bankCode.set(account, 30);
+            System.out.println(account); // DefaultAccount(bankCode=30, accountNo=100-200-300000, balance=3000000)
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

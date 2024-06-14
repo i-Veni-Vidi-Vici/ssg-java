@@ -4,7 +4,9 @@ import com.sh.spring.common.account.Account;
 import com.sh.spring.common.account.DefaultAccount;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,63 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
 //        app.test1(); // 클래스객체를 가져오는 여러가지 방법
-        app.test2();
+//        app.test2();
+//        app.test3();
+        app.test4();
+    }
+
+    private void test4() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-3000000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Arrays.stream(declaredMethods).forEach(System.out::println);
+
+        try {
+            // 1. 매개인자가 없는 메소드
+            Method getBalanceMethod = clazz.getDeclaredMethod("getBalance");
+            System.out.println(getBalanceMethod);
+
+            // invoke(타겟객체, ...매개인자):Object 리턴값을 반환한다.
+            Object returnValue = getBalanceMethod.invoke(account);
+            System.out.println(returnValue);
+
+            // 2. 매개인자가 있는 메소드
+            Method depositMethod = clazz.getDeclaredMethod("deposit", int.class);
+            returnValue = depositMethod.invoke(account, 500_000);
+            System.out.println(returnValue);
+            System.out.println(account);
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 필드제어
+     */
+    private void test3() {
+        DefaultAccount account = new DefaultAccount(20, "100-200-3000000", 3_000_000);
+        Class<DefaultAccount> clazz = (Class<DefaultAccount>) account.getClass();
+
+        // 필드 객체 가져오기
+        Field[] declaredFields = clazz.getDeclaredFields();
+        System.out.println(declaredFields);
+
+        try {
+            Field bankCode = clazz.getDeclaredField("bankCode");
+            // private 접근제한자 해제
+            bankCode.setAccessible(true);
+            // 필드값 가져오기
+            Object bankCodeValue = bankCode.get(account);
+            System.out.println(bankCodeValue);
+
+            // 필드값 설정
+            bankCode.set(account, 30);
+            System.out.println(account);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -90,10 +148,10 @@ public class App {
             System.out.println(clz6);
             System.out.println(clz7);
 
-            // 부모클래스 객체
+            // 부모클래스의 클래스 객체
             Class clz8 = clz1.getSuperclass(); // 부모클래스 객체
             System.out.println(clz8);
-
+            // 인터페이스 객체
             Class[] interfaces = clz1.getInterfaces();
             System.out.println(Arrays.toString(interfaces));
 
