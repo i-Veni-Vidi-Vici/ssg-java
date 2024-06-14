@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 결과</title>
+</head>
+<body>
+    <h1>로그인 결과</h1>
+<!--    모델에서 꺼낼때는 그냥 써도 되는데, seesion에서 꺼내쓰는 거는 session.을 시작으로 해야한다-->
+    <th:block th:if="${session.id !=null}">
+        <h2 th:text="|${session.id}님, 환영합니다|"></h2>
+<!--        HttpSession#invalidate()를 호출하지만, @SerssionAttributesㄹ-->
+
+        <button th:onclick ="|location.href='@{/first/logout}';|" >HttpSession 로그아웃</button>
+    <!-- 결론은 SessionAttributes를 써라     -->
+        <button th:onclick ="|location.href='@{/first/logout2}';|" >@SessionAttributes 로그아웃</button>
+    </th:block>
+
+<!--    session.id가 null이면 (unless가 붙었으니깐) 그니깐 false면 실행하는 거임-->
+    <th:block th:unless="${session.id != null}">
+        <a th:href="@{/first/login}">먼저 로그인 해주세요...</a>
+    </th:block>
+</body>
+</html>
