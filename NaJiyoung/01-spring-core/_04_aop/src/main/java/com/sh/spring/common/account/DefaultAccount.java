@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DefaultAccount implements Account{
     private int bankCode; // 은행코드
+//    public int bankCode; // 은행코드
     private String accountNo; // 계좌번호
     private long balance; // 잔액
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--System.out에 로그를 추가합니다. -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <!-- 다양한 패턴문자는 api doc에서 참조할 수 있다. https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- package별로 로깅레벨을 설정할 수 있다. -->
+<!--    <logger name="a.b.c" level="trace">-->
+<!--        -->
+<!--    </logger>-->
+    <!-- STDOUT이라는 이름의 appender를 활용하는데 로그레벨이 debug이상인 것만 남긴다 -->
+    <root level="info"> <!-- debug를 trace로 바꾸면 trace부터 출력할 수 있다.-->
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
