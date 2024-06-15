@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: _02_handler_method
+server:
+  servlet:
+    context-path: /app #application-context (It's identifier, if you don't set, default : /)
+
+logging:
+  level:
+    root: info
+    com.sh: debug
