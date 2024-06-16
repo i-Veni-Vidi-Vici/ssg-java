@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>로그인 결과</title>
+</head>
+<body>
+<h1>로그인 결과</h1>
+	<th:block th:if="${session.id != null}"> <!-- 자바처럼 if else가 없고 if / if if 로 독립적으로 써야 함! -->
+		<h2 th:text="|${session.id}님 환영합니다!🎈|"></h2>
+
+		<!--
+			HttpSession#invalidate()를 호출하지만, @SessionAttribute로 등록된 속성을 삭제하지 않는다.
+			Thymeleaf가 참조하는 ${session.id}의 값은 유지된다.
+		 -->
+		<button th:onclick="|location.href = '@{/first/logout}';|">HttpSession 로그아웃</button>
+		<button th:onclick="|location.href = '@{/first/logout2}';|">@SessionAttributes 로그아웃</button>
+	</th:block>
+	<th:block th:unless="${session.id != null}">
+		<a th:href="@{/first/login}">먼저 로그인해주세요</a>
+	</th:block>
+</body>
+</html>
