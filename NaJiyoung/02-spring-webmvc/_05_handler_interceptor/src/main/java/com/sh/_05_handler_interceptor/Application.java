@@ -1,4 +1,4 @@
-package com.sh._01_request_mapping;
+package com.sh._05_handler_interceptor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
