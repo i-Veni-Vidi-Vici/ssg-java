@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * AOP가 사용하는 Proxy 객체
- * - JDK Dynamic Proxy 객체
+ * - JDK Dynamic Proxy 객체 : 인터페이스 구현클래스에 대한 Proxy
  * - CGLIB Proxy객체 (Code Generator Lib) : 인터페이스를 구현하지 않은 클래스에 대한 Proxy
  */
 public class App {

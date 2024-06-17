@@ -1,0 +1,12 @@
+#spring.application.name=_01_request_mapping
+
+# yaml, yml 계층구조를 들여쓰기로써 엄격하게 구별한다.
+# Definite hierachy construct by spacing words
+
+spring:
+  application:
+    name: _01_request_mapping
+server:
+  servlet:
+    context-path: /app # 접속할때 식별 이름
+  port: 8080
