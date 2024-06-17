@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>expression</title>
+</head>
+<body>
+    <h1>expression</h1>
+  <!--
+        제공되는 표현식 종류
+        변수 표현식(Variable Expressions): ${...}
+        선택 변수식(Selection Variable Expressions): *{...}
+        메시지 표현식(Message Expressions): #{...}
+        링크 표현식(Link URL Expressions): @{...}
+        조각 표현식(Fragment Expressions): ~{...}
+        인라인 표현식(Inline Expressions): [[...]] [(...)]
+     -->
+    <h2>변수 표현식</h2>
+    <p th:text="${text}">실제 태그의 내용부분에 작성해도 th:text에 의해서 덮어쓰기 된다. 태그는 escaping처리 (XSS공격 대비)</p>
+    <p th:utext="${text}">escaping처리 없이 html 파싱</p>
+    <p th:utext="|<script>alert('님 정보는 이제 내것임 -_-b')</script>|">XSS 공격</p>
+
+    <!-- 사용자 입력값 /thymeleaf/expression?title=표현식&no=10&no=20 -->
+    <p th:text="${param.title}"></p>
+    <p th:text="${param.no[0]}"></p>
+    <p th:text="${param.no[1]}"></p>
+
+    <!-- model에 담긴 데이터가 객체인 경우, 속성에 접근 가능 -->
+    <p th:text="${member}"></p>
+    <p th:text="${member.id}"></p>
+    <p th:text="${member.name}"></p>
+    <p th:text="${member.age}"></p>
+    <p th:text="${member.regDate}"></p>
+
+    <h2>선택변수 표현식</h2>
+    <div th:object="${member}">
+        <p th:text="*{id}"></p>
+        <p th:text="*{name}"></p>
+        <p th:text="*{age}"></p>
+        <p th:text="*{regDate}"></p>
+    </div>
+    <p th:object="${member}" th:text="*{id}"></p>
+    <p th:object="${member}" th:text="*{name}"></p>
+    <p th:object="${member}" th:text="*{age}"></p>
+    <p th:object="${member}" th:text="*{regDate}"></p>
+
+    <h2>링크 표현식</h2>
+    <a th:href="@{/thymeleaf/expression}">표현식</a>
+
+    <h2>메세지 표현식</h2>
+    <p th:text="#{member.id}"></p> <!-- 이건 properties에서 가져온 거 -->
+    <p th:text="#{member.name}"></p>
+    <table>
+        <thead>
+        <th th:text="#{label.user.id}"></th>
+        <th th:text="#{label.user.name}"></th>
+        <th th:text="#{label.user.age}"></th>
+        <th th:text="#{label.user.regDate}"></th>
+        </thead>
+    </table>
+
+    <h2>HTML속성 사용하기</h2>
+    <input type="text" th:value="${member.name}"/>
+
+    <h2>인라인표현식</h2>
+    <p>[[${member.id}]]</p>
+    <p>[[${member.name}]]</p>
+    <p>[[${member.age}]]</p>
+    <p>[[${member.regDate}]]</p>
+</body>
+</html>
