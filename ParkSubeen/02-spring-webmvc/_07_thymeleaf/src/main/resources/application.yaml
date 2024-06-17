@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: _07_thymeleaf
+
+server:
+  servlet:
+    context-path: /app
+#  encoding:
+#      force-response: true
+
+logging:
+  level:
+    root: info
+    com.sh: debug
