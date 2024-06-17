@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>expression</title>
+</head>
+
+<!--
+      제공되는 표현식 종류
+      변수 표현식(Variable Expressions): ${...}
+      선택 변수식(Selection Variable Expressions): *{...}
+      메시지 표현식(Message Expressions): #{...}
+      링크 표현식(Link URL Expressions): @{...}
+      조각 표현식(Fragment Expressions): ~{...}
+      인라인 표현식(Inline Expressions): [[...]] [(...)]
+   -->
+
+<body>
+
+    <h1>expression</h1>
+
+    <h2>변수 표현식</h2>
+    <p th:text="${text}">실제 태그의 내용부부분에 작성해도 th:text에 의해서 덮어쓰기 된다 태그는 escaping처리 (XSS공격에 대한 대비, 방지책)</p>
+    <p th:utext="${text}">escaping처리 없이 html 파싱</p>
+    <p th:utext="|<script>alert('해킹하는 코드입니다')</script>|">XSS 공격</p>
+
+<!--    index.html에 title에 담긴걸, param이라는 걸 이용해서 가져온다-->
+    <p th:text="${param.title}"></p>
+    <p th:text="${param.no[0]}"></p>
+    <p th:text="${param.no[1]}"></p>
+
+    <!--model에 담김 데이터가 객체인 경우, 속성에 접근 가능-->
+    <p th:text="${member}"></p>
+    <p th:text="${member.id}"></p>
+    <p th:text="${member.name}"></p>
+    <p th:text="${member.age}"></p>
+    <p th:text="${member.regDate}"></p>
+
+<h2>선택변수 표현식</h2>
+<div th:object="${member}">
+    <p th:text="*{id}"></p>
+    <p th:text="*{name}"></p>
+    <p th:text="*{age}"></p>
+    <p th:text="*{regDate}"></p>
+</div>
+    <p th:object="${member}" th:text="*{id}"></p>
+    <p th:object="${member}" th:text="*{name}"></p>
+    <p th:object="${member}" th:text="*{age}"></p>
+    <p th:object="${member}" th:text="*{regDate}"></p>
+
+    <h2>링크표현식</h2>
+        <a th:href="@{/thymeleaf/expression}"> 표현식 </a>
+
+    <h2>메세지 표현식</h2>
+    <p th:text="#{member.id}"></p>
+    <p th:text="#{member.name}"></p>
+
+    <h2>HTML속성 사용하기</h2>
+    <table>
+        <thead>
+        <th th:text="#{label.user.id}"></th>
+        <th th:text="#{label.user.name}"></th>
+        <th th:text="#{label.user.age}"></th>
+        <th th:text="#{label.user.regDate}"></th>
+        </thead>
+    </table>
+
+    <h2>인라인표현식</h2>
+    <p>[[${member.id}]]</p>
+    <p>[[${member.name}]]</p>
+    <p>[[${member.age}]]</p>
+    <p>[[${member.regDate}]]</p>
+
+
+
+</body>
+</html>

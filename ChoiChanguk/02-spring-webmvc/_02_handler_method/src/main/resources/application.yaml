@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: _02_handler_method
+
+server:
+  servlet:
+    context-path: /app #application-context 식별자, 지정하지 않으면 기본값 / 이다
+
+logging:
+  level:
+    root: info
+    com.sh: debug
