@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: _06_file_upload
+
+  servlet:
+    multipart:
+      max-file-size: 10MB # 업로드 파일당 최대크기 기본값 1MB
+      max-request-size: 50MB # 업로드 요청당 최대크기 , 한번 요청에 파일이 여러개일 때, 기본값 10MB
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh : debug
+
+

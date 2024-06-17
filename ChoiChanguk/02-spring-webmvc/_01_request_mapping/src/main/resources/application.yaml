@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /app  # server.servlet.context-path인거다
+  port: 8080 # server.port 이다
+
+spring:
+  application:
+    name: _01_request_mapping
+# 들여쓰기에 따라 읽고, 못읽고 한다
+# yaml방식은 계층 방식으로 진행한다
+# yaml = yml 계층구조를 들여쓰기로써 엄격하게 구별한다
+
+

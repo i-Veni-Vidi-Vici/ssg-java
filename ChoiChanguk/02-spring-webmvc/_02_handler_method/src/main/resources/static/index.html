@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2. Handler Method</title>
+</head>
+<body>
+    <h1>2. Handler Method</h1>
+    <!-- Handler Method의 매개변수 타입을 알아볼거다    -->
+
+    <h3>@WebRequest</h3>
+    <!--    href 지정 안하면 바로 루트로 간다-->
+    <button onclick="location.href='/app/first/regist'">등록폼 요청</button>
+
+    <h3>@WebRequestParam</h3>
+    <!--    href 지정 안하면 바로 루트로 간다-->
+    <button onclick="location.href='/app/first/modify'">등록폼 요청</button>
+
+    <h3>@ModelAttribute Command객체</h3>
+    <!--    href 지정 안하면 바로 루트로 간다-->
+    <button onclick="location.href='/app/first/search'">검색폼 요청</button>
+
+    <h3>@ModelAttribute</h3>
+    <!--    href 지정 안하면 바로 루트로 간다-->
+    <button onclick="location.href='/app/first/login'">로그인폼 요청</button>
+
+    <h3>@RequestBody</h3>
+    <button onclick="location.href='/app/first/requestBody'">POST 폼 요청</button>
+
+    <h3>@RequestBody | @CookieValue</h3>
+    <button onclick="location.href='/app/first/etc'">헤더/쿠키 확인</button>
+
+</body>
+</html>

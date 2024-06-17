@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--    property : 하위에서 사용할 변수선언-->
+    <property name="LOG_DIR" value="C:/workspace/spring_workspace/ChoiChanguk/02-spring-webmvc/_04_exception_handling/logs"/>
+    <property name="LOG_FILE_NAME" value="spring"/>
+
+    <!-- appender : 실제 로그를 수행할 객체-->
+    <!-- -consoleAppender 수집된 로그를 콘솔에 출력해주세요   -->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern> %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(%-4relative) --- [ %thread{10} ] %cyan(%logger{20}) : %msg%n </pattern>
+        </encoder>
+    </appender>
+
+    <!-- -RollingFileAppender 지정한 시간단위별로 별도의 파일에 출력하는 메뉴입니다    -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- 파일이름.log로 되고        -->
+        <file>${LOG_DIR}/${LOG_FILE_NAME}.log</file>
+        <encoder>
+    <!-- 아래 pattern으로 출력해주세요-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-4relative --- [ %thread{10} ] %logger{35} - %msg%n</pattern>
+        </encoder>
+    <!-- fileNamePattern의 시간단위에 따라 별도의 로그파일을 생성한다. 분단위까지 작성하면, 분단위 로그파일이 나온다       -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- -->
+            <fileNamePattern>${LOG_DIR}/${LOG_FILE_NAME}.%d{yyyy-MM-dd_HH-mm}.log.gz</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <!-- logger (root) : 특정 패키지별로 수집할 로그 설정, 이때 레벨을 지정해 줘야 한다, 그리고 출력한 appender를 연결해둔다   -->
+    <!-- 수집은 로거, 출력은 appender가 한다    -->
+    <!-- 분단위로 저장 했다가 뭐 따로 처리 해준다   -->
+    <logger name="org.springframework" level="info"/>
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
