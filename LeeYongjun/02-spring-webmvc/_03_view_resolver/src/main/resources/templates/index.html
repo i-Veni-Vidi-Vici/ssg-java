@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3. View Resolver</title>
+</head>
+<body>
+  <h1>3. View Resolver</h1>
+
+  <h2>문자열 ViewName으로 forward처리하기</h2>
+  <button onclick="location.href='/app/string-forward';">실행</button>
+
+  <h2>문자열 ViewName으로 redirect처리하기</h2>
+  <button onclick="location.href='/app/string-redirect';">실행</button>
+
+  <h2>redirect시에 데이터 전달하기 - flash</h2>
+  <button onclick="location.href='/app/string-redirect-flash';">실행</button>
+
+  <h2>redirect시에 데이터 전달하기 - attribute</h2>
+  <button onclick="location.href='/app/string-redirect-param';">실행</button>
+
+
+  <h2>ModelAndView로 forward처리하기</h2>
+  <button onclick="location.href='/app/mav-forward';">실행</button>
+
+  <h2>ModelAndView로 redirect처리하기</h2>
+  <button onclick="location.href='/app/mav-redirect';">실행</button>
+
+  <h2>ModelAndView로 데이터 전달하기 - flash</h2>
+  <button onclick="location.href='/app/mav-flash';">실행</button>
+
+  <h2>ModelAndView로 데이터 전달하기 - attribute</h2>
+  <button onclick="location.href='/app/mav-param';">실행</button>
+
+<script>
+    const flashMessage = `[[${flashMessage}]]`;
+    flashMessage && alert(flashMessage);
+
+    const paramMessage = `[[${paramMessage}]]`;
+    paramMessage && alert(paramMessage);
+</script>
+</body>
+</html>

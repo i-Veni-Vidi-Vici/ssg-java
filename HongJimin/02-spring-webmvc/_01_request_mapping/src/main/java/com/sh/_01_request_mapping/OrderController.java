@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * - 클래스레벨의 *(와일드카드)와 메소드레벨의 path없는 @RequestMapping을 사용하면, 기본 url처럼 처리할 수 있다.
  */
 @Controller
-@RequestMapping("/order/*")
+@RequestMapping("/order/*") // *는 써도 되고, 안써도 됨, ✨ *를 쓰면 좋은점 : 기본 핸들러를 쓸 수 있음!
 @Slf4j // Simple Logging Facade for Java
 public class OrderController {
 
