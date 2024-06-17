@@ -56,7 +56,7 @@ public class MenuController {
         return "mappingResult";
     }
 
-//    @RequestMapping(path="/menu/modify", method = RequestMethod.POST)
+    //    @RequestMapping(path="/menu/modify", method = RequestMethod.POST)
     @PostMapping("/menu/modify")
     public String modifyMenu2(Model model) {
         log.info("POST /menu/modify 요청!");
