@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: _05_handler_interceptor
+server:
+  servlet:
+    context-path: /app
+logging:
+  level:
+    root: info
+    com.sh: debug
+
