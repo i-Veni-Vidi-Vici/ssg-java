@@ -1,0 +1,36 @@
+package com.sh._05_handler_interceptor;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+@Component
+@Slf4j
+public class StopwatchInterceptor implements HandlerInterceptor {
+
+    // 처음 시작 시간 ->  preHandle
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        log.info("시작 시간을 체크합니다!");
+        long startTime = System.currentTimeMillis();
+        request.setAttribute("startTime", startTime);// Model을 사용할 수 없으므로 request에 속성으로 직접 저장 -> 핸들러가 호출된 후에 모델을 쓰기 때문!!
+        return true;
+    }
+
+    //끝나는 시간 기록 ->  postHandle
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        log.info("종료 시각을 체크합니다.");
+        long endTime = System.currentTimeMillis();
+        long startTime = (long) request.getAttribute("startTime");
+        long interval = endTime - startTime;
+        log.info("소요시간 : {} ms : ", interval);
+
+        // Model을 읽거나 쓰기할 수 있다.
+        modelAndView.addObject("interval", interval);
+
+    }
+}
