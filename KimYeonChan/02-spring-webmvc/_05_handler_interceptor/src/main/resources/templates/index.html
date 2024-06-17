@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5. handler interceptor</title>
+</head>
+<body>
+    <h1>5. handler interceptor</h1>
+    <h2>Spring VebMVC Flow</h2>
+    <img th:src="@{/images/spring-mvc-flow.png}" alt="mvc flow 이미지" style="width: 750px;">
+    <ol>
+        <li>사용자 요청이 오면 Filter 를 걸쳐 DispatcherServlet 에 도달한다.</li>
+        <li>요청 URL 과 전송방식에 맞는 Handler 를 HandlerMapping 으로부터 조회한다.</li>
+        <li>실제 Handler 호출은 HandlerAdapter 에 위임해서 진행한다.</li>
+        <li>HandlerAdapter 는 AugmentResolver 를 통해서 실제 핸들러 필요한 매개인자를 확보한후 핸들러를 호출한다.</li>
+        <li>개발코드로 작성된 MVC  흐름에 맞게 실행된다.(handler 안에서 view 에 필요한 데이터를 model 에 저장 후, viewName 을 반환한다.)</li>
+        <li>HandlerAdapter 에서는 핸들러가 반환한 viewName 과 model 에 등록된 속성을 취합해서 DispatcherServlet 에 ModelAndView 를 반환한다.</li>
+        <li>ViewResolver 를 호출해서 완성된 view 경로를 반환 받는다.</li>
+        <li>실제 view 객체를 통해 응답을 작성한다.</li>
+        <li>filter 후 처리 후 응답메세지를 발송하고, 하나의 요청이 끝나게 된다.</li>
+    </ol>
+
+    <h2>Handler Interceptor 를 통한 로그 확인</h2>
+    <button th:onclick="|location.href='@{/test}'|">실행</button>
+    <button th:onclick="|location.href='@{/test/interval}'|">실행시간 확인</button>
+
+    <!--
+        스프링에서는 공통작업을 처리하기 위한 여러 스펙이 존재한다.
+        1. Filter
+          - Servlet spec
+          - Filter 를 빈으로 등록한 경우 의존주입 가능
+          - DispatcherServlet 전후 고정
+          - request/response 객체 접근 가능
+        2. Handler Interceptor
+           - Spring spec
+           - 다른 빈 의존 주입 가능
+           - preHandle/postHandle/afterCompletion 고정
+           - request/response 객체 접근 가능
+        3. AOP
+          -  Spring spec
+          - 다른 빈 의존주입 가능
+          - request/response 객체 접근 가능 (복잡)
+          - MVC 흐름상 어디든 사용가능
+    -->
+</body>
+</html>
