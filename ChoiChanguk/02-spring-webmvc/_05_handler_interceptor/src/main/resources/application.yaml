@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: _05_handler_interceptor
+
+#이걸 안하면 root레벨로 접속하는 거다
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh: debug
