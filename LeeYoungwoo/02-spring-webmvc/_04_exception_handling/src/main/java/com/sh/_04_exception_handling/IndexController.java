@@ -18,9 +18,13 @@ public class IndexController {
         return "result";
     }
 
+    /**
+     * 특정 컨트롤러 하위에서 던져진 예외클래스 별로 @ExceptionHandler를 작성할 수 있다.
+     *
+     */
     @ExceptionHandler(Exception.class)
     public String exception(Exception e, Model model) {
-        log.error(e.getMessage());
+        log.error(e.getMessage(), e); // 예외스택을 로그로 확인가능
         model.addAttribute("message", "고기가 상했습니다...");
         return "error";
     }
