@@ -21,8 +21,8 @@ public class WebConfiguration implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // /** : /a /b /xyz /a/b /a/b/c 모두 매칭. **는 0개 이상의 디렉토리와 매칭
-        // /* : /a /b /xyz (O) /a/b (X) 매칭이 안됨.
+        // /** : /a /b /xyz /a/b /a/b/c 모두 매칭. **는 0개 이상의 디렉토리와 매칭 (디렉토리 매칭)
+        // /* : /a /b /xyz (O) /a/b (X) 매칭이 안됨. (텍스트 매칭)
         registry.addInterceptor(logInterceptor)
                 .addPathPatterns("/**/*") // 모든 요청
                 .excludePathPatterns("/css/**", "/js/**", "/images/**")
