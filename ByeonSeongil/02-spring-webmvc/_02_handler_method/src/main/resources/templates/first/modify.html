@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>modify</title>
+</head>
+<body>
+<h1>@RequestParam을 이용하여 전달된 파라미터 꺼내기</h1>
+
+<h3>메뉴 수정하기</h3>
+<form action="" method="post">
+<!--    수정할 메뉴의 이름 : <input type="text" name="name" th:value="${menuDto.name}"><br>-->
+    수정할 메뉴의 가격 : <input type="number" name="price" th:value="${menuDto.price}"><br>
+    <button type="submit">수정하기</button>
+</form>
+
+<h3>메뉴 수정하기2</h3>
+<!--<form action="/app/first/modify2" method="post">-->
+<form th:action="@{/first/modify2}" method="post">
+    수정할 메뉴의 이름 : <input type="text" name="name" th:value="${menuDto.name}"><br>
+    수정할 메뉴의 가격 : <input type="number" name="price" th:value="${menuDto.price}"><br>
+    <button type="submit">수정하기</button>
+</form>
+</body>
+</html>

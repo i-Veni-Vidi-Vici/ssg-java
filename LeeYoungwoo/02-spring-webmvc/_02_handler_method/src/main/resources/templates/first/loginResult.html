@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 결과</title>
+</head>
+<body>
+    <h1>로그인 결과</h1>
+<!-- 조건걸어보기 -->
+    <th:block th:if="${session.id != null}">
+    <h2 th:text="|${session.id}님, 환영합니다.🎉🎉|"></h2>
+
+        <!--
+        HttpSession#invalidate()를 호출하지만, @SessionAttribute로 등록된 속성을 삭제하지 않는다.
+        Thymelaf가 참조하는 ${session.id}의 값은 유지된다. (밑에거 사용을 권장)
+         -->
+    <button th:onclick="|location.href='@{/first/logout}';|">HttpSession 로그아웃</button>
+    <button th:onclick="|location.href='@{/first/logout2}';|">@SessionAttributes 로그아웃</button>
+
+    </th:block>
+<!-- unless는 조건식을 반대로 생각한다. -> else처럼 사용가능 -->
+    <th:block th:unless="${session.id != null}">
+        <a th:href="@{/first/login}">먼저 로그인 해주세요...</a>
+    </th:block>
+
+</body>
+</html>

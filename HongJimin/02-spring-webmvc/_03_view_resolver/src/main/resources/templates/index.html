@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>3. View Resolver</title>
+</head>
+<body>
+	<h2>3. View Resolver</h2>
+
+	<h2>문자열 viewName으로 forward 처리하기</h2>
+	<button onclick="location.href = '/app/string-forward';">실행</button>
+
+	<h2>문자열 viewName으로 redirect 처리하기</h2>
+	<button onclick="location.href = '/app/string-redirect';">실행</button>
+
+	<h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+	<button onclick="location.href = '/app/string-redirect-flash';">실행</button>
+
+	<h2>redirect시에 데이터 전달하기 - RedirectAttribute#addAttribute</h2>
+	<button onclick="location.href = '/app/mav-redirect-param';">실행</button>
+
+
+
+	<h2>ModelAndView으로 forward 처리하기</h2>
+	<button onclick="location.href = '/app/mav-forward';">실행</button>
+
+	<h2>ModelAndView으로 redirect 처리하기</h2>
+	<button onclick="location.href = '/app/mav-redirect';">실행</button>
+
+	<h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+	<button onclick="location.href = '/app/mav-redirect-flash';">실행</button>
+
+	<h2>redirect시에 데이터 전달하기 - RedirectAttribute#addAttribute</h2>
+	<button onclick="location.href = '/app/string-redirect-param';">실행</button>
+
+
+	<script>
+        //redirect 이후 flashMessage가 추가된 경우
+        const flashMessage = `[[${flashMessage}]]`; // redirect 이후 flashMessage가 추가된 경우 자바 스크립트 출력 메세지라고 인식할 거같다
+        flashMessage && alert(flashMessage);
+
+        //redirect 이후 ? paramMessage = 🎀🎀🎀이 작성된 경우
+        const paramMessage = `[[${paramMessage}]]`;
+        paramMessage && alert(paramMessage);
+	</script>
+</body>
+</html>
