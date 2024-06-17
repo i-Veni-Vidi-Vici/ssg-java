@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3. View Resolver</title>
+</head>
+<body>
+    <h1>3. View Resolver</h1>
+
+    <h2>문자열 ViewName으로 foward처리하기</h2>
+    <button onclick="location.href = '/app/string-forward';">실행</button>
+
+    <h2>문자열 ViewName으로 redirect처리하기</h2>
+    <button onclick="location.href = '/app/string-redirect';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href = '/app/string-redirect-flash';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href = '/app/string-redirect-param';">실행</button>
+
+    <script>
+        // redirect 이후 flashMessage가 호출 된 경우
+        const flashMessage = `[[${flashMessage}]]`;
+        flashMessage && alert(flashMessage);
+
+        //redirect이후 ? paramMessage = 🍉🍉🍉이 작성된 경우
+        const paramMessage = `[[${param.paramMessage}]]`
+        paramMessage && alert(paramMessage);
+
+    </script>
+
+</body>
+</html>

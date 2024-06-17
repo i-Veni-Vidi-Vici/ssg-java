@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>3. View Resolver</title>
+</head>
+<body>
+    <h1>3. View Resolver</h1>
+
+    <h2>문자열 ViewName으로 forward 처리하기</h2>
+    <button onclick="location.href='/app/string-forward';">실행</button>
+
+    <h2>문자열 ViewName으로 redirect 처리하기</h2>
+    <button onclick="location.href='/app/string-redirect';">실행</button></body>
+
+    <h2>redirect 시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/string-redirect-flash';">실행</button>
+
+    <h2>redirect 시에 데이터 전달하기 - RedirectAttribute#addAttribute</h2>
+    <button onclick="location.href='/app/string-redirect-param';">실행</button>
+
+    <h2>ModelAndView ViewName으로 forward 처리하기</h2>
+    <button onclick="location.href='/app/mav-forward';">실행</button>
+
+    <h2>ModelAndView ViewName으로 redirect 처리하기</h2>
+    <button onclick="location.href='/app/mav-redirect';">실행</button></body>
+
+    <h2>redirect 시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/mav-redirect-flash';">실행</button>
+
+    <h2>redirect 시에 데이터 전달하기 - RedirectAttribute#addAttribute</h2>
+    <button onclick="location.href='/app/mav-redirect-param';">실행</button>
+
+    <script>
+        const flashMessage = `[[${flashMessage}]]`; // redirect 이후 flashMessage 가 추가된 경우
+        flashMessage && alert(flashMessage);
+
+        // redirect 이후 ?paramMessage=paramMessage 이 작성된 경우
+        const paramMessage = `[[${param.paramMessage}]]`;
+        paramMessage && alert(paramMessage);
+    </script>
+</html>
