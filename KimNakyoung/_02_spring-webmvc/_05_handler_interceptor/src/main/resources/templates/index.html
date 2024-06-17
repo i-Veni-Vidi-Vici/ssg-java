@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5. Handler Interceptor</title>
+</head>
+<body>
+    <h1>5. Handler Interceptor</h1>
+    <h2>Spring WebMVC Flow</h2>
+    <img th:src="@{/images/spring-mvc-flow.png}" alt="" style="width: 1024px">
+    <ol>
+        <li>모든 사용자 요청이 오면 Filter를 걸쳐 DispatcherServlet에 도달한다.</li>
+        <li>요청URL과 전송방식에 맞는 Handler를 HandlerMapping으로부터 조회한다.</li>
+        <li>실제 Handler호출은 HandlerAdapter에 위임해서 진행한다.</li>
+        <li>HandlerAdater는 AugumentResolver를 통해서 실제 핸드로 필요한 매개인자를 확보한후 핸들러를 호출한다.</li>
+        <li>개발코드로 작성된 MVC흐름에 맞게 실행된다. (handler안에서 view에 필요한 데이터를 model에 저장후, viewName을 반환한다.</li>
+        <li>HandlerAdapter에서는 핸들러가 반환한 viewName과 model에 등록된 속성을 취합해서 DispatcherServlet에 ModelAndView를 반환한다.</li>
+        <li>ViewResolver를 호출해서 환성된 view경로를 반환받는다.</li>
+        <li>filter후 처리 후 응답메세지를 발송하고, 하나의 요청이 끝나게 된다.</li>
+    </ol>
+
+
+    <h2>Handler Interceptor를 통한 로그확인</h2>
+    <button th:onclick="|location.href = '@{/test}'|">실행</button>
+    <button th:onclick="|location.href = '@{/test/interval}'|">실행시간 확인</button>
+
+<!--
+        스프링에서는 공통작업을 처리하기 위한 여러 스펙이 존재한다.
+        1. filter (servlet spec) Filter를 빈으로 등록한 경우 의존주입 가능 | DispatcherServlet 전후 고정 | request/response객체 접근 가능
+        2. Handler Interceptor (spring spec) 다른 빈 의존주입 가능 | preHandle/postHandle/afterCompletion 고정 | request/response객체 접근 가능
+        3. AOP (spring spec) 다른 빈 의존주입 가능 | mvc흐름상 어디든 사용가능(복잡) |
+-->
+</body>
+</html>
