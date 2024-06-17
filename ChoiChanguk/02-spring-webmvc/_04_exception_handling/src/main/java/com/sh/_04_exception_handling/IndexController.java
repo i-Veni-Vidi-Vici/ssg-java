@@ -23,9 +23,16 @@ public class IndexController {
         return "result";
     }
 
+
+    /**
+     *  특정 컨트롤러 하위에서 던져서
+     * @param e
+     * @param model
+     * @return
+     */
     @ExceptionHandler(Exception.class) // 예외별로 상세하게 적는게 가능하다
     public String exception(Exception e, Model model) {
-        log.error(e.getMessage());
+        log.error(e.getMessage() ,e); // 두번쨰 인자로 e를 쓰면, 예외스택 로그를 출력한다
 
         model.addAttribute("message", "고기가 상했습니다");
         return "error"; // forward처리 하는거다, 위에서 에러가 나왔어?? 그럼 여기서 처리한다
