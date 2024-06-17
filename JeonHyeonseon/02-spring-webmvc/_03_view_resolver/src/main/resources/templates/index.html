@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3. View Resolver</title>
+</head>
+<body>
+    <h1>3. View Resolver</h1>
+
+    <h2>문자열 ViewName으로 forward처리하기</h2>
+    <button onclick="location.href='/app/string-forward';">실행</button>
+
+    <h2>문자열 ViewName으로 redirect처리하기</h2>
+    <button onclick="location.href='/app/string-redirect';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/string-redirect-flash';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/string-redirect-param';">실행</button>
+    <script>
+        // redirect이후 flashMessage가 추가된 경우
+        const flashMessage = `[[${flashMessage}]]`; // redirect이후 flashMessage가 추가된 경우
+        flashMessage && alert(flashMessage);
+
+        // redirect이후 ?paramMessage=🍑🍒🍍이 작성된 경우
+        const paramMessage = `[[${paramMessage}]]`;
+        paramMessage && alert(paramMessage);
+    </script>
+
+    <h2>ModelAndView로 forward처리하기</h2>
+    <button onclick="location.href='/app/mav-forward';">실행</button> <!-- mav = ModelAndView 줄임말 -->
+
+    <h2>ModelAndView로 redirect처리하기</h2>
+    <button onclick="location.href='/app/mav-redirect';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/mav-redirect-flash';">실행</button>
+
+    <h2>redirect시에 데이터 전달하기 - RedirectAttribute#addFlashAttribute</h2>
+    <button onclick="location.href='/app/mav-redirect-param';">실행</button>
+</body>
+</html>

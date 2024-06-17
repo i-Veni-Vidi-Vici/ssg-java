@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: _04_exception_handling
+server:
+  servlet:
+    context-path: /app
+logging:
+  level:
+    root: info
+    com.sh: debug

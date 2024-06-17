@@ -1,0 +1,13 @@
+# "테스트"
+# 테스트
+spring:
+  application:
+    name: _02_handler_method
+server:
+  servlet:
+    context-path: /app # application-context 어플리케이션 식별자 지정하지 않으면 기본값
+
+logging:
+  level:
+    root: info
+    com.sh: debug
