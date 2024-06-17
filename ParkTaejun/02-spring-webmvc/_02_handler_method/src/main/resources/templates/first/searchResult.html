@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+</head>
+<body>
+    <h1>검색 결과</h1>
+    <h2>검색 속성 출력</h2>
+    <ul>
+        <li th:text = "${menu.id}"></li>
+        <li th:text = "${menu.name}"></li>
+        <li th:text = "${menu.price}"></li>
+        <li th:text = "${menu.categoryCode}"></li>
+        <li th:text = "${menu.orderableStatus}"></li>
+    </ul>
+
+    <ul>
+        <li th:text = "|아이디: ${menu.id} |"></li>
+        <li th:text = "|이름: ${menu.name}|"></li>
+        <li th:text = "|가격 : ${menu.price}|"></li>
+        <li th:text = "|카테고리코드 : ${menu.categoryCode}|"></li>
+        <li th:text = "|주문가능여부 : ${menu.orderableStatus}|"></li>
+    </ul>
+
+</body>
+</html>
