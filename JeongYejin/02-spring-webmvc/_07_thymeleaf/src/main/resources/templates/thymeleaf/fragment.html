@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>fragment</title>
+</head>
+<body>
+    <!--/*fragment expression : fragment경로::fragment이름*/-->
+    <!-- th:replace 현재태그를 fragment태그로 대체한다-->
+    <!-- th:insert 현재태그 하위에 fragment태그를 자식태그로 추가한다-->
+    <header th:insert="~{/fragments/header::headerFragment}">
+        <h1>HEADER</h1>
+    </header>
+    <main>
+        <h1>💪fragment</h1>
+        <!--/* 페이지를 재사용하는 기술 */-->
+    </main>
+    <aside th:replace="~{/fragments/aside::asideFragment(${foo}, ${bar})}">
+        <h2>ASIDE</h2>
+    </aside>
+    <footer th:replace="~{/fragments/footer::footerFragment}">
+        <h1>FOOTER</h1>
+    </footer>
+</body>
+</html>
