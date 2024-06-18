@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2. Handler Method</title>
+</head>
+<body>
+    <h1>2. Handler Method</h1>
+
+    <!-- handler method의 매개변수 타입 -->
+    <h3>WebRequest</h3>
+    <button onclick="location.href='/app/first/regist'">등록폼 요청</button>
+
+    <h3>@RequestParam</h3>
+    <button onclick="location.href='/app/first/modify'">수정폼 요청</button>
+
+    <h3>@ModelAttribute Command객체</h3>
+    <button onclick="location.href='/app/first/search'">검색폼 요청</button>
+
+    <h3>HttpSession | @SessionAttributes</h3>
+    <button onclick="location.href='/app/first/login'">로그인폼 요청</button>
+
+    <h3>@RequestBody</h3>
+    <button onclick="location.href='/app/first/requestBody'">POST폼 요청</button>
+
+    <h3>@RequestHeader | @CookieValue</h3>
+    <button onclick="location.href='/app/first/etc'">헤더/쿠키 확인</button>
+</body>
+</html>
