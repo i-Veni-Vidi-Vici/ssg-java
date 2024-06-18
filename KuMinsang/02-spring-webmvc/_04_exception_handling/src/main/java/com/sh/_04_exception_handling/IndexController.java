@@ -18,6 +18,14 @@ public class IndexController {
         return "result";
     }
 
+    /**
+     * 특정 컨트롤러 하위에서 던져진 예외만 처리
+     *
+     * @param e
+     * @param model
+     * @return
+     */
+
     @ExceptionHandler(Exception.class)
     public String exception(Exception e , Model model){
         log.error(e.getMessage());
