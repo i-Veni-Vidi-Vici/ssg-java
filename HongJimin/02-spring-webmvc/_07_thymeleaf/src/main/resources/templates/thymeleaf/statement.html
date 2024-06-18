@@ -1,0 +1,172 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>statement</title>
+
+	<style>
+		table {
+			border: 1px solid #000;
+			border-collapse: collapse;
+		}
+		th, td {
+			border: 1px solid #000;
+			padding : 5px;
+		}
+		.bg {
+			background-color: lightsteelblue;
+		}
+	</style>
+</head>
+<body>
+	<h1>statement</h1>
+
+	<h2>조건문 if</h2>
+	<!--
+		독립적인 if/unless 블럭을 작성할 수 있다.일반적인 if...else는 없다.
+	-->
+	<p th:if="${num > 0}" th:text="|${num}은 양수입니다.|"></p>
+	<p th:unless="${num > 0}" th:text="|${num}은 양수가 아닙니다.|"></p>
+
+	<th:block th:if="${str == '사과'}">
+		<p>🍎🍎🍎</p>
+	</th:block>
+	<th:block th:if="${str == '바나나'}">
+		<p>🍌🍌🍌</p>
+	</th:block>
+
+	<!-- and (&&) / or (||) 사용 가능하다.-->
+	<!--
+	    == eq
+	    != ne
+	    > gt
+	    >= ge
+	    < lt
+	    <= le
+	 -->
+	<p th:if="${num > 0 and num <= 1000}" th:text="${num}"></p>
+	<p th:if="${num == 0 or str == '바나나'}" th:text="|${num} 또는 ${str}가 참입니다.|"></p>
+
+	<p th:if="${num gt 0 && num le 1000}" th:text="${num}"></p>
+	<p th:if="${num == 0 || str eq '바나나'}" th:text="|${num} 또는 ${str}가 참입니다.|"></p>
+
+	<!-- utility object의 메소드르 사용할 수 있다. -->
+	<p th:if="${#strings.isEmpty(str)}" th:text="|${str}가 비어있지 않습니다. |"></p>
+
+	<h2>분기문 switch</h2>
+	<!--
+		부모 태그에 th:switch와 자식 태그 th:case로 특정 값에 따라 분기할 수 있다.
+	-->
+	<th:block th:switch="${str}">
+		<span th:case="사과">🍎🍎</span>
+		<span th:case="바나나">🍌🍌</span>
+		<span th:case="모르게써"></span>
+	</th:block>
+
+	<h2>반복처리</h2>
+<!--	table>thread>tr>th*4-->
+	<table>
+		<thread>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>RegDate</th>
+			</tr>
+		</thread>
+		<tbody>
+			<!--반복 처리할 최상위 태그에 작성-->
+			<!--th:each = "변수명 : 반복 접근 객체" 이때 변수 명은 배열/리스트에서 꺼낸 요소 하나 이므로, 단수로 작성한다. -->
+			<tr th:each="member : ${members}">
+				<td>[[${member.id}]]</td>
+				<td>[[${member.name}]]</td>
+				<td>[[${member.age}]]</td>
+				<td>[[${member.regDate}]]</td>
+			</tr>
+			<tr th:each="member : ${members}" th:object="${member}"> <!--이 멤버는 each 오른쪽에 있는 멤버!-->
+				<td>[[*{id}]]</td>
+				<td>[[*{name}]]</td>
+				<td>[[*{age}]]</td>
+				<td>[[*{regDate}]]</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3> 반복관리객체</h3>
+	<!-- 반복 상태 관리 객체를 사용할 수 있다. -->
+	<!--
+		속성         설명
+		----------------------------
+		index       0 - based index 반환
+		count       1 - based index 반환
+		current     현재 객체
+		even        index 짝수 여부
+		odd         index 홀수 여부
+		first       첫번째 요소인 경우만 true 반환
+		last        마지막 요소인 경우만 false 반환
+	-->
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>RegDate</th>
+			</tr>
+		</thead>
+
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Age</td>
+			<td>RegDate</td>
+			<td>index</td>
+			<td>count</td>
+			<td>current</td>
+			<td>even</td>
+			<td>odd</td>
+			<td>first</td>
+			<td>last</td>
+		</tr>
+
+		<tbody>
+		<tr th:each="member, stat : ${members}" th:class="${stat.odd ? 'bg' : ''}">
+			<td>[[${member.id}]]</td>
+			<td>[[${member.name}]]</td>
+			<td>[[${member.age}]]</td>
+			<td>[[${member.regDate}]]</td>
+			<td>[[${stat.index}]]</td>
+			<td>[[${stat.count} + '/' + ${stat.size}]]</td>
+			<td>[[${stat.current}]]</td>
+			<td>[[${stat.even}]]</td>
+			<td>[[${stat.odd}]]</td>
+			<td>[[${stat.first}]]</td>
+			<td>[[${stat.last}]]</td>
+		</tr>
+		<tr th:each="member : ${members}" th:class="${memberStat.even ? 'bg' : ''}">
+			<td>[[${member.id}]]</td>
+			<td>[[${member.name}]]</td>
+			<td>[[${member.age}]]</td>
+			<td>[[${member.regDate}]]</td>
+			<td>[[${memberStat.index}]]</td>
+			<td>[[${memberStat.count} + '/' + ${memberStat.size}]]</td>
+			<td>[[${memberStat.current}]]</td>
+			<td>[[${memberStat.even}]]</td>
+			<td>[[${memberStat.odd}]]</td>
+			<td>[[${memberStat.first}]]</td>
+			<td>[[${memberStat.last}]]</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<h2>단순 반복처리</h2>
+	<th:block th:each="num : ${#numbers.sequence(1, 10)}">
+		<a th:href="@{/posts/${num}}">[[${num}]]</a> <!--/* /app/posts/${num} */-->
+		<a th:href="@{|/posts/${num}|}">[[${num}]]</a>
+		<br>
+	</th:block>
+</body>
+</html>
