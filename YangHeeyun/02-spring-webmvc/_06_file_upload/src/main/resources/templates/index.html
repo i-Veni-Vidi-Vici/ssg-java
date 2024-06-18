@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6. File Upload</title>
+</head>
+<body>
+<h1>6. File Upload</h1>
+
+
+<h2>파일 한개 업로드</h2>
+<!-- 서버에 파일 업로드를 위해서는 http 요청메세지 작성방식을 multipart방식으로 지정해야 한다. -->
+<form th:action="@{/singleFile}" method="post" enctype="multipart/form-data">
+    파일 : <input type="file" name="singleFile"><br>
+    파일 설명 : <input type="text" name="singleFileDescription"><br>
+    <input type="submit">
+</form>
+
+<h2>파일 n개 업로드</h2>
+<!-- 서버에 파일 업로드를 위해서는 http 요청메세지 작성방식을 multipart방식으로 지정해야 한다. -->
+<form th:action="@{/multiFile}" method="post" enctype="multipart/form-data">
+    파일 : <input type="file" name="multiFile" multiple><br> <!-- image태그 multiple 속성으로 이미지 파일 2개이상 고르기 가능 -->
+    파일 설명 : <input type="text" name="multiFileDescription"><br>
+    <input type="submit">
+</form>
+
+
+</body>
+</html>
