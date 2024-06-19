@@ -5,10 +5,8 @@ spring:
 server:
   servlet:
     context-path: /app
-  encoding:
-    force-response: true
 
 logging:
   level:
     root: info
-    com.sh : debug
+    com.sh: debug
