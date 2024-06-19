@@ -1,6 +1,7 @@
 spring:
   application:
-    name: _01_spring_mybatis
+    name: _02_transaction
+
   datasource:
     url: jdbc:mysql://localhost:3306/menudb
     username: sh
@@ -12,6 +13,8 @@ logging:
     root: info
     com.sh: debug
 
-# mybatis config
 mybatis:
-  mapper-locations: /mappers/**/*-mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.sh
+  mapper-locations: classpath*:mappers/**/*-mapper.xml
