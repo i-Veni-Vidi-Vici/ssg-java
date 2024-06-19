@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>statement</title>
+    <style>
+        table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        .bg {
+            background-color: lightsteelblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>statement</h1>
+    <h2>조건문 if</h2>
+    <!--
+        독립적인 if/unless 블럭을 작성할 수 있다. 일반적인 if...else는 없다.
+    -->
+    <p th:if="${num > 0}" th:text="|${num}은 양수입니다.|"></p>
+    <p th:unless="${num > 0}" th:text="|${num}은 양수가 아닙니다.|"></p>
+    <th:block th:if="${str == '사과'}">
+        <p>🍎🍎🍎</p>
+    </th:block>
+    <th:block th:if="${str == '바나나'}">
+        <p>🍌🍌🍌</p>
+    </th:block>
+
+    <!-- and(&&)/or(||) 사용가능하다. -->
+    <!--
+        == eq
+        != ne
+        > gt
+        < lt
+        >= ge
+        <= le
+     -->
+    <p th:if="${num > 0 and num <= 1000}" th:text="${num}"></p>
+    <p th:if="${num == 0 or str == '바나나'}" th:text="|${num} 또는 ${str}가 참입니다.|"></p>
+
+    <p th:if="${num gt 0 && num le 1000}" th:text="${num}"></p>
+    <p th:if="${num eq 0 or str eq '바나나'}" th:text="|${num} 또는 ${str}가 참입니다.|"></p>
+
+    <!-- utility object의 메소드를 사용할 수 있다. -->
+    <p th:unless="${#strings.isEmpty(str)}" th:text="|${str}가 비어있지 않습니다.|"></p>
+    <h2>분기문 switch</h2>
+    <!--
+        부모태그에 th:switch와 자식태그 th:case로 특정값에 따라 분기할 수 있다.
+     -->
+    <th:block th:switch="${str}">
+        <span th:case="사과">🍎</span>
+        <span th:case="바나나">🍌</span>
+        <span th:case="*">모르겠습니다...</span>
+    </th:block>
+
+    <h2>반복처리</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>RegDate</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- 반복처리할 최상위 태그에 작성한다.-->
+        <!-- th:each="변수명 : 반복접근객체" 이때 변수명은 단수로 작성한다. -->
+        <tr th:each="member : ${members}">
+            <td>[[${member.id}]]</td>
+            <td>[[${member.name}]]</td>
+            <td>[[${member.age}]]</td>
+            <td>[[${member.regDate}]]</td>
+        </tr>
+        <tr th:each="member : ${members}" th:object="${member}">
+            <td>[[*{id}]]</td>
+            <td>[[*{name}]]</td>
+            <td>[[*{age}]]</td>
+            <td>[[*{regDate}]]</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>반복관리객체</h3>
+    <!-- 반복상태를 관리객체를 사용할 수 있다 -->
+    <!--
+        속성          설명
+        --------------------------------
+        index       0-based index 반환
+        count       1-based index 반환
+        current     현재객체
+        even        index 짝수여부
+        odd         index 홀수여부
+        first       첫번째 요소인 경우만 true반환
+        last        마지막 요소인 경우만 false반환
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>RegDate</th>
+                <th>index</th>
+                <th>count</th>
+                <th>current</th>
+                <th>even</th>
+                <th>odd</th>
+                <th>first</th>
+                <th>last</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="member, stat : ${members}" th:class="${stat.odd ? 'bg' : ''}">
+                <td>[[${member.id}]]</td>
+                <td>[[${member.name}]]</td>
+                <td>[[${member.age}]]</td>
+                <td>[[${member.regDate}]]</td>
+                <td>[[${stat.index}]]</td>
+                <td>[[${stat.count} + '/' + ${stat.size}]]</td>
+                <td>[[${stat.current}]]</td>
+                <td>[[${stat.even}]]</td>
+                <td>[[${stat.odd}]]</td>
+                <td>[[${stat.first}]]</td>
+                <td>[[${stat.last}]]</td>
+            </tr>
+            <tr th:each="member : ${members}" th:class="${memberStat.even ? 'bg' : ''}">
+                <td>[[${member.id}]]</td>
+                <td>[[${member.name}]]</td>
+                <td>[[${member.age}]]</td>
+                <td>[[${member.regDate}]]</td>
+                <td>[[${memberStat.index}]]</td>
+                <td>[[${memberStat.count} + '/' + ${memberStat.size}]]</td>
+                <td>[[${memberStat.current}]]</td>
+                <td>[[${memberStat.even}]]</td>
+                <td>[[${memberStat.odd}]]</td>
+                <td>[[${memberStat.first}]]</td>
+                <td>[[${memberStat.last}]]</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>단순반복처리</h2>
+    <th:block th:each="num : ${#numbers.sequence(1, 10)}">
+        <a th:href="@{/posts/${num}}">[[${num}]]</a> <!--/* /app/posts/${num} */-->
+        <a th:href="@{|/posts/${num}|}">[[${num}]]</a>
+        <a th:href="|@{/posts/}${num}|">[[${num}]]</a>
+        <br>
+    </th:block>
+</body>
+</html>
