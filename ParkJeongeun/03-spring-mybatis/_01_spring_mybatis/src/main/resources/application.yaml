@@ -11,7 +11,3 @@ logging:
   level:
     root: info
     com.sh: debug
-
-# mybatis config
-mybatis:
-  mapper-locations: /mappers/**/*-mapper.xml

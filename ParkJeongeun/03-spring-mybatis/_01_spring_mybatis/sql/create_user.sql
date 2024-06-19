@@ -4,3 +4,5 @@ grant all privileges on menudb.* to 'sh'@'%';
 
 select user, host from mysql.user;
 show grants for 'sh'@'%';
+
+select * from tbl_menu;
