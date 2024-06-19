@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OderMenuDto {
+public class OrderMenuDto {
     private Long OrderCode;
     private Long menuCode;
     private int orderAmount;
 
-    List<Order>
+
 
 }
