@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--/*  각 페이지마다 작성한 layout:fragment로 대체  */-->
+    <style layout:fragment="style"></style>
+</head>
+<body>
+    <!--/* th:fragment를 가져와 대체 */-->
+    <header th:insert="~{/fragments/header::headerFragment}"></header>
+    <main>
+        <!--/*  각 페이지마다 작성한 layout:fragment로 대체  */-->
+        <div layout:fragment="content"></div>
+    </main>
+    <aside th:replace="~{/fragments/aside::asideFragment(1, 2)}"></aside>
+    <footer th:replace="~{/fragments/footer::footerFragment}"></footer>
+    <!--/*  각 페이지마다 작성한 layout:fragment로 대체  */-->
+    <script layout:fragment="script"></script>
+</body>
+</html>

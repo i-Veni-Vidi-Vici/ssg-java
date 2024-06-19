@@ -1,0 +1,14 @@
+spring:
+  application.name :
+  name : _01_spring_mybatis
+
+  datasource:
+    hikari:
+      jdbc-url : hdvc:mysql://localhost:3306/menudb
+      userame: sh
+      password: sh
+      driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    root: info
+    con.sh : debug

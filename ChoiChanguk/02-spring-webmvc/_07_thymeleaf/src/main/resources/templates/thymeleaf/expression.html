@@ -5,7 +5,12 @@
     <title>expression</title>
 </head>
 
-<!--
+
+
+<body>
+
+    <h1>expression</h1>
+    <!--
       제공되는 표현식 종류
       변수 표현식(Variable Expressions): ${...}
       선택 변수식(Selection Variable Expressions): *{...}
@@ -15,10 +20,14 @@
       인라인 표현식(Inline Expressions): [[...]] [(...)]
    -->
 
-<body>
+    <!-- thymeleaf주석은 html주석과 동일하다
+        <p th:text="안녕"></p>
+    -->
+    <!--parser-level 주석 : 응답 html 처리시 제거되는 주석-->
+    <!--/* 주석 내용 - 저는 클라이언트의 전달되지 않습니다. 민감한 서버 정보는 저를 사용하세요 */-->
 
-    <h1>expression</h1>
-
+    <!--prototype-only 주석 : 응답 html 처리시 화면에 노출되는 주석 -->
+    <!--/*/주석내용/*/-->
     <h2>변수 표현식</h2>
     <p th:text="${text}">실제 태그의 내용부부분에 작성해도 th:text에 의해서 덮어쓰기 된다 태그는 escaping처리 (XSS공격에 대한 대비, 방지책)</p>
     <p th:utext="${text}">escaping처리 없이 html 파싱</p>
@@ -66,12 +75,45 @@
     </table>
 
     <h2>인라인표현식</h2>
+    <!--/*
+        html 태그 또는 script태그안에서 인라인 표현식을 활용할 수 있다.
+        [[${..}]] th:text와 유사하게 작동한다
+        [(${...})] th:text와 유사하게 작동한다
+
+        html대그안에서 th:inline="text" 선언없이도 인라인 표현식 가능
+        script태그안에서 th:inline="javascript" 선언없이도 인라인 표현식 가능
+    */-->
     <p>[[${member.id}]]</p>
     <p>[[${member.name}]]</p>
     <p>[[${member.age}]]</p>
     <p>[[${member.regDate}]]</p>
+    <p>[[${text}]]</p>
+    <p th:text="${text}"></p>
+    <p>[(${text})]</p>
+    <p th:utext="${text}"></p>
 
+    <script th:inline="javascript">
+        let text="[[${text}]]";
+        console.log(text);
+        let text2='[[${text}]]';
+        console.log(text2);
+    </script>
+    <h2>문자열 연결연산</h2>
+    <h3>+</h3>
+    <p th:text="이름은 + ${member.name}"></p>
+    <h3>|| 파이프라인</h3>
+    <p th:text="|이름은  ${member.name}|"></p>
 
+    <h2>th:block</h2>
+    <!--시각화되지 않는 태그, 그룹/범위를 지정하기 위해 사용한다-->
+    <th:block th:object="${member}">  <!--이 라인은 표현되지 않지만 표현을 위해 사용한다-->
+        <p th:text="*{id}"></p>
+    </th:block>
 
+    <th:block th:if="${true}">
+        <p>피자피자피자</p>
+    </th:block>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

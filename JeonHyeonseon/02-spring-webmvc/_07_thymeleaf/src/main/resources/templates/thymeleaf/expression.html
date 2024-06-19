@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>expression</title>
 </head>
 <body>
     <h1>expression</h1>
+    <!-- thymeleaf주석은 html주석과 동일하다  -->
+<!--    <p th:text="안녕"></p>-->
+
+    <!-- parser-level 주석 : 응답 html처리시 제거되는 주석 -->
+    <!--/* 주석 내용 - 저는 클라이언트에 전달되지 않습니다. 민감한 서버정보는 저를 사용하세요. */-->
+
+    <!-- prototype-only 주석 : 응답 html처리시 화면에 노출되는 주석 -->
+    <!--/*/ 주석내용 /*/-->
 
     <!--
         제공되는 표현식 종류
@@ -65,8 +73,43 @@
     <input type="text" th:value="${member.name}"/>
 
     <h2>인라인표현식</h2>
+    <!--/*
+        html태그 또는 script태그 안에서 인라인 표현식을 활용할 수 있다.
+        [[${..}]] th:text와 유사하게 작동한다.
+        [(${...})] th:utext와 유사하게 작동한다.
+
+        html태그 안에서 th:inline="text" 선언없이도 인라인 표현식 가능
+        script태그 안에서 th:inline="javascript" 선언없이도 인라인 표현식 가능
+     */-->
     <p>[[${member.id}]]</p>
     <p>[[${member.name}]]</p>
     <p>[[${member.age}]]</p>
     <p>[[${member.regDate}]]</p>
+    <p>[[${text}]]</p>
+    <p th:text="${text}"></p>
+    <p>[(${text})]</p>
+    <p th:utext="${text}"></p>
+    <script th:inline="javascript">
+        let text = "[[${text}]]";
+        console.log(text);
+        let text2 = "[[${text}]]";
+        console.log(text2);
+    </script>
+
+    <h2>문자열 연결 연산</h2>
+    <h3>+</h3>
+    <p th:text="'이름은 ' + ${member.name}"></p>
+    <h3>||</h3>
+    <p th:text="|이름은 + ${member.name}|"></p>
+
+    <h2>th:block</h2>
+    <!-- 시각화되지 않는 태그. 그룹/범위를 지정하기 위해 사용한다. -->
+    <th:block th:object="${member}">
+        <p th:text="*{id}"></p>
+    </th:block>
+    <th:block th:if="${true}">
+        <p>🍞🧈🥐</p>
+    </th:block>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </html>
