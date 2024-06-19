@@ -41,7 +41,7 @@
             category_code=#{categoryCode};
     </select>
 
-    <select id="insertMenu">
+    <select id="insertMenu" >
         insert
             into tbl_menu (menu_name, menu_price, category_code, orderable_status)
         vales(
