@@ -24,13 +24,6 @@ repositories {
 }
 
 dependencies {
-	// scope : 이 의존을 언제 사용할 것인가?
-	// - compile -> runtime
-	// - compileOnly 코드작성시만 필요
-	// - runtimeOnly 실행할때만 필요(mysql driver는 jdbc api를 통해서 제어)
-	// - implementation(compile + runtime) 코드작성시부터 계속 사용
-	// - testXXX 테스트환경에서만 필요
-	// - api 현재앱이 사용하는 의존을 현재앱에 의존하는 앱에게 노출
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
