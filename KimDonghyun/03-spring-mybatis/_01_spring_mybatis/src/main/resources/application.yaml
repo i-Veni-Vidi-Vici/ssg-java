@@ -12,8 +12,3 @@ logging:
   level:
     root: info
     com.sh: debug
-
-
-# mybatis config
-mybatis:
-  type-aliases-package: com.sh
