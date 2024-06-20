@@ -11,6 +11,16 @@
         <result column="orderable_status" property="orderableStatus"/>
     </resultMap>
 
+    <resultMap id="menuCategoryDtoMap" type="menuCategoryDto">
+        <result column="menu_code" property="menuCode"/>
+        <result column="menu_name" property="menuName"/>
+        <result column="menu_price" property="menuPrice"/>
+        <result column="category_code" property="categoryCode"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="ref_category_code" property="refCategoryCode"/>
+        <result column="orderable_status" property="orderableStatus"/>
+    </resultMap>
+
     <select id="findAll" resultMap="menuDtoMap">
         select
             *
@@ -22,11 +32,11 @@
             menu_code
     </select>
 
-    <select id="findAll2" resultMap="menuDtoMap">
+    <select id="findAll2" resultMap="menuCategoryDtoMap">
         select
             *
         from
-            tbl_menu
+            tbl_menu left join tbl_category using (category_code)
         where
             orderable_status = 'Y'
         order by
