@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh._03_spring_crud.menu.model.dao.CategoryMapper">
+    <resultMap id="categoryDtoMap" type="categoryDto">
+        <id column="category_code" property="categoryCode"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="ref_category_code" property="refCategoryCode"/>
+    </resultMap>
+    <select id="findAll" resultMap="categoryDtoMap">
+        select
+            *
+        from
+            tbl_category
+        where
+            ref_category_code is not null
+    </select>
+</mapper>
