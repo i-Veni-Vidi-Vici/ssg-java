@@ -82,7 +82,8 @@ public class DataSourceConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource); // dataSource 의존주입
         sqlSessionFactoryBean.setConfiguration(configuration);
-        // 별칭 등록
+        // 별칭 등록 Not Working
+        // https://www.notion.so/shqkel/5a8ba8882e42448b8e622f960a06d4ba?v=14633135ac204aa4acf6bd9f48f5724b&p=06f519e1b0c648a68c5d60cf49c95992&pm=s
         sqlSessionFactoryBean.setVfs(SpringBootVFS.class);
 //        sqlSessionFactoryBean.setTypeAliasesPackage("com.sh._01_spring_mybatis.menu.model.dto"); // 풀네임 대신 별칭으로 접근 가능
         sqlSessionFactoryBean.setTypeAliases(MenuDto.class);

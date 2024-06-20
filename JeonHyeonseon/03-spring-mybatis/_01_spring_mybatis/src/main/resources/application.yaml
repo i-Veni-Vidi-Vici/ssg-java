@@ -2,13 +2,16 @@ spring:
   application:
     name: _01_spring_mybatis
   datasource:
-    hikari:
-      jdbc-url: jdbc:mysql://localhost:3306/menudb
-      username: sh
-      password: sh
-      driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/menudb
+    username: sh
+    password: sh
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
   level:
     root: info
     com.sh: debug
+
+# mybatis config
+mybatis:
+  mapper-locations: classpath:/mappers/**/*-mapper.xml
