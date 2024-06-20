@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+<!--    /* 각 페이지마다 작성한 layout:fragement로 대체*/-->
+    <style layout::fragment="style"></style>
+</head>
+<body>
+
+<!--/*
+    fragment 표현식 -> fragment경로::fragment이름
+    <header th:replace="~{fragments/header::headerFragment}" 현재 태그를 fragment태그로 대체한다>
+    <header th:insert="~{fragments/header::headerFragment}" 현재 태그 하위에 fragment태그를 자식태그로 추가한다>
+*/-->
+
+<!--/* th:fragment를 가져와 대체*/-->
+    <header th:replace="~{fragments/header::headerFragment}"><h1>HEADER</h1></header>
+    <main>
+        <div layout:fragment="content"></div>
+    </main>
+    <aside th:replace="~{fragments/aside::asideFragment(1,2)}"><h2>ASIDE</h2></aside>
+    <footer th:replace="~{fragments/footer::footerFragment}"><h1>FOOTER</h1></footer>
+<script layout:fragment="script"></script>
+
+</body>
+</html>
