@@ -1,7 +1,8 @@
-package com.sh._01_spring_mybatis.menu.model.service;
+package com.sh._03_spring_crud.menu.model.dao;
 
-import com.sh._01_spring_mybatis.menu.model.dto.MenuDto;
-import com.sh._01_spring_mybatis.menu.model.dto.OrderableStatus;
+import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuDto;
+import com.sh._03_spring_crud.menu.model.dto.OrderableStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +12,17 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * 테스트에 필요한 ApplicationContext구성을 자동화해준다.
- */
 @SpringBootTest
-class MenuServiceTest {
+class MenuMapperTest {
     @Autowired
-    MenuService menuService;
+    private MenuMapper menuMapper;
 
     @Test
     @DisplayName("메뉴 전체 조회")
     void test1() {
         // given
         // when
-        List<MenuDto> menus = menuService.findAll();
+        List<MenuDto> menus = menuMapper.findAll();
         System.out.println(menus);
         // then
         assertThat(menus)
@@ -39,7 +37,7 @@ class MenuServiceTest {
         // given
         Long menuCode = 1L;
         // when
-        MenuDto menu = menuService.findByMenuCode(menuCode);
+        MenuDto menu = menuMapper.findByMenuCode(menuCode);
         // then
         assertThat(menu)
                 .isNotNull()
@@ -60,7 +58,7 @@ class MenuServiceTest {
         // given
         int categoryCode = 4; // 한식
         // when
-        List<MenuDto> menus = menuService.findByCategoryCode(categoryCode);
+        List<MenuDto> menus = menuMapper.findByCategoryCode(categoryCode);
         System.out.println(menus);
         // then
         assertThat(menus)
@@ -80,10 +78,29 @@ class MenuServiceTest {
         MenuDto menuDto = new MenuDto(null, menuName, menuPrice, categoryCode, orderableStatus);
 
         // when
-        int result = menuService.insertMenu(menuDto);
+        int result = menuMapper.insertMenu(menuDto);
 
         // then
         assertThat(result).isEqualTo(1);
         assertThat(menuDto.getMenuCode()).isNotZero();
+    }
+
+    @Test
+    @DisplayName("카테고리 전체 조회")
+    void test5() {
+        // given
+        // when
+        List<CategoryDto> categories = menuMapper.findAllCategory();
+        System.out.println(categories);
+        // then
+        assertThat(categories)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((category) -> category != null)
+                .allSatisfy((category) -> {
+                    assertThat(category.getCategoryCode()).isNotZero();
+                    assertThat(category.getCategoryName()).isNotNull();
+                    assertThat(category.getRefCategoryCode()).isNotNull(); // where ref_category_code is not null
+                });
     }
 }
