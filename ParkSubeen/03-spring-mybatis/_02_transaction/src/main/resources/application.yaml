@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: _02_transaction
+  datasource:
+    url: jdbc:mysql://localhost:3306/menudb
+    username: sh
+    password: sh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    root: info
+    com.sh: debug
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # \uCE74\uBA5C\uCF00\uC774\uC2A4 \uC790\uB3D9 \uB9E4\uD551
+  type-aliases-package: com.sh # \uBCC4\uCE6D \uC124\uC815
+  mapper-locations: classpath*:mappers/**/*-mapper.xml
