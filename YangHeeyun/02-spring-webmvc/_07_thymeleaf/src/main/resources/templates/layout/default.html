@@ -14,9 +14,10 @@
     <!-- th:replace 현재태그를 fragment태그로 대체한다. -->
     <!-- th:insert 현재태그 하위 fragment태그를 자식태그로 추가한다. -->
     <header th:replace="~{/fragments/header::headerFragment}">
-        <h1>HEADER</h1> <!-- fragment에서 대체되어 덮어쓰기 될 공간이라 뭘써도 반영이 안된다 --></header>
+        <h1>HEADER</h1> <!-- fragment에서 대체되어 덮어쓰기 될 공간이라 뭘써도 반영이 안된다 -->
+    </header>
     <main>
-        <!-- /* 각 페이지마다 작성한 layout:frament로 대체 */ -->
+        <!-- /* 각 페이지마다 작성한 layout:fragment로 대체 */ -->
         <div layout:fragment="content"></div>
     </main>
     <aside th:replace="~{/fragments/aside::asideFragment(1,2)}"></aside>
