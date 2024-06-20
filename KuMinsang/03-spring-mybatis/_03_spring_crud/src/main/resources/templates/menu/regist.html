@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴 신규 등록</title>
+</head>
+<body>
+    <main layout:fragment="content" class="container">
+    <!--
+        - html(view) 폼은 db 테이블을 적극적으로 고려해 작성해야 한다.
+        - db 컬럼이 not null인 경우는 required 속성을 지정
+        - db 컬럼명 - DTO 필드명 - form name 값을 일치 시켜준다.
+        - 추가적인 유효성 검사가 필요하다면, submit 핸들러를 이용해야 한다.
+    -->
+        <h2>메뉴 신규 등록</h2>
+        <form action="" method="post" name="menuRegistFrm">
+            <label>메뉴 이름 : </label><input type="text" name="menuName" required><br>
+            <label>메뉴 가격 : </label><input type="number" name="menuPrice" required><br>
+            <label>카테고리 코드 : </label>
+            <select name="categoryCode" id="categoryCode" required>
+                <option value="" selected disabled >--카테고리선택--</option>
+                <th:block th:each="category : ${categories}">
+                <option th:value="${category.categoryCode}">[[${category.categoryName}]]</option>
+                </th:block>
+            </select><br>
+            <label>판매 상태 : </label>
+            <select name="orderableStatus">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+            </select>
+            <input type="submit" value="전송">
+        </form>
+    </main>
+    <script layout:fragment="js" th:src="@{/js/menu/regist.js}"></script>
+</body>
+</html>
