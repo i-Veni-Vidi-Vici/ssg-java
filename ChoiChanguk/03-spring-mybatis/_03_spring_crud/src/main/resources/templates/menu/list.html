@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<!--layout/default에 있는 페이지 끌어다가 쓰려고-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메뉴조회</title>
+</head>
+<body>
+    <main layout:fragment="main" class="container">
+        <h2 class="m-3">메뉴 조회</h2>
+        <table class="table" >
+            <thead>
+            <td>메뉴코드</td>
+            <td>메뉴명</td>
+            <td>메뉴가격</td>
+            <td>카테고리코드</td>
+            <td>주문가능 여부</td>
+<!--            <tr th:each="menu : ${menus}">-->
+            <tr th:each="menu,stat : ${menus}" th:object="${menu}">
+                <td th:text="${menu.menuCode}">메뉴코드</td>
+                <td th:text="${menu.menuName}">메뉴명</td>
+                <td th:text="${#numbers.formatInteger(menu.menuPrice,3,'COMMA')}">메뉴가격</td>
+                <td th:text="${menu.categoryCode}">카테고리 코드</td>
+                <td th:text="${menu.orderableStatus}">주문가능 여부</td>
+            </tr>
+            </thead>
+        </table>
+        <script layout:fragment="script">
+        </script>
+    </main>
+    <script layout:fragment="js">
+        const message=`[[${message}]]`; //RedirectAttributes#addFlashAttribute 에 담긴 속성
+        message && alert(message)
+    </script>
+
+</body>
+</html>
