@@ -78,7 +78,7 @@ class MenuMapperTest {
         int menuPrice = 3000;
         int categoryCode = 4;
         OrderableStatus orderableStatus = OrderableStatus.Y;
-        MenuDto menuDto = new MenuDto(null, menuName, menuPrice, categoryCode, orderableStatus);
+        MenuDto menuDto = new MenuDto(null, menuName, menuPrice, categoryCode, orderableStatus,null);
 
         // when
         int result = menuMapper.insertMenu(menuDto);
@@ -117,6 +117,6 @@ class MenuMapperTest {
         assertThat(menus)
                 .isNotNull()
                 .isNotEmpty()
-                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
+                .allMatch((menu) -> menu != null);
     }
 }

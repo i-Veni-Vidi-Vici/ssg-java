@@ -18,7 +18,7 @@ public class MenuQueryService {
     private final MenuMapper menuMapper;
 
     public List<MenuDto> findAll() {
-        return menuMapper.findAll();
+        return menuMapper.findAll2();
     }
 
     public MenuDto findByMenuCode(Long menuCode) {

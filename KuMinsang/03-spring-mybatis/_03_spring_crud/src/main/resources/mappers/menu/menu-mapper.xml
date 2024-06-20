@@ -66,7 +66,14 @@
             ref_category_code;
     </select>
 
-    <select id="findAll2" resultMap="menuDto">
-
+    <select id="findAll2" resultMap="menuDtoMap">
+        select
+            menu_code,
+            menu_name,
+            menu_price,
+            category_name,
+            orderable_status
+        from
+        tbl_menu a join tbl_category b on a.category_code = b.category_code;
     </select>
 </mapper>
