@@ -2,6 +2,7 @@ package com.sh._03_spring_crud.menu.controller;
 
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
 import com.sh._03_spring_crud.menu.model.dto.MenuRegistDto;
 import com.sh._03_spring_crud.menu.model.service.MenuCommandService;
 import com.sh._03_spring_crud.menu.model.service.MenuQueryService;
@@ -28,11 +29,20 @@ public class MenuController {
     private final MenuCommandService menuCommandService;
 
 
+//    @GetMapping("/list")
+//    public void list(Model model) {
+//        log.info("GET /menu/list");
+//        // DB에서 메뉴목록을 조회(List<MenuDto>)후에 view단에 전달해야 한다.
+//        List<MenuDto> menus = menuService.findAll();
+//        log.debug("menus = {}",menus);
+//        model.addAttribute("menus",menus);
+//    }
+
     @GetMapping("/list")
     public void list(Model model) {
         log.info("GET /menu/list");
         // DB에서 메뉴목록을 조회(List<MenuDto>)후에 view단에 전달해야 한다.
-        List<MenuDto> menus = menuService.findAll();
+        List<MenuDto2> menus = menuService.findAll2();
         log.debug("menus = {}",menus);
         model.addAttribute("menus",menus);
     }

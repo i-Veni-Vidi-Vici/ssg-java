@@ -25,7 +25,7 @@
                 <td th:text="${menu.menuCode}">메뉴코드</td>
                 <td th:text="${menu.menuName}">메뉴명</td>
                 <td th:text="${#numbers.formatInteger(menu.menuPrice,3,'COMMA')}">메뉴가격</td>
-                <td th:text="${menu.categoryCode}">카테고리 코드</td>
+                <td th:value="${menu.categoryCode}" th:text="${menu.categoryName}">카테고리 코드</td>
                 <td th:text="${menu.orderableStatus}">주문가능 여부</td>
             </tr>
             </thead>

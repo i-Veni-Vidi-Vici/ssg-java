@@ -2,6 +2,7 @@ package com.sh._03_spring_crud.menu.model.dao;
 
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
 import com.sh._03_spring_crud.menu.model.dto.OrderableStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ class MenuMapperTest {
     void test1() {
         // given
         // when
-        List<MenuDto> menus= menuMapper.findAll();
+        List<MenuDto2> menus= menuMapper.findAll2();
         System.out.println(menus);
 
         // then
