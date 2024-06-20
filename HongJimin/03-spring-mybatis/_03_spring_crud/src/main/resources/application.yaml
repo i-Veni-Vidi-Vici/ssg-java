@@ -1,0 +1,31 @@
+
+spring:
+  application:
+    name: _03_spring_crud
+  datasource:
+    url: jdbc:mysql://localhost:3306/menudb
+    username: sh
+    password: sh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000 # 30\uCD08
+      maximum-pool-size: 50
+      max-lifetime: 60000 # 60\uCD08
+      minimum-idle: 5 #\uC77C \uC548\uD558\uACE0 \uB180\uACE0 \uC788\uB294 \uC560
+      idle-timeout: 30000
+      auto-commit: false
+
+logging:
+  level:
+    root: info
+    com.sh : debug
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package : com.sh
+  mapper-locations: classpath*:mappers/**/*-mapper.xml # \uBAA8\uB4E0 xml \uD30C\uC77C \uD55C\uBC88\uC5D0 \uC801\uB294 \uBC29\uBC95
+
+server:
+  servlet:
+    context-path: /app # server\uB294 \uD1B0\uCEA3\uC124\uC815\uC784!
