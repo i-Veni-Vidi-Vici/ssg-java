@@ -1,4 +1,4 @@
-package com.sh._01_spring_mybatis.menu.model.servie;
+package com.sh._01_spring_mybatis.menu.model.service;
 
 import com.sh._01_spring_mybatis.menu.model.dto.MenuDto;
 import com.sh._01_spring_mybatis.menu.model.dto.OrderableStatus;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
