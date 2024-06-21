@@ -22,7 +22,7 @@
 <!--                    <td th:text="${menu.categoryCode}"></td>-->
 <!--                    <td th:text="${menu.orderableStatus}"></td>-->
                     <td>[[${menu.menuCode}]]</td>
-                    <td>[[${menu.menuName}]]</td>
+                    <td > <a th:href="@{|/menu/detail/${menu.menuCode}|}">[[${menu.menuName}]]</a></td>
                     <td>[[${#numbers.formatInteger(menu.menuPrice, 3, 'COMMA')}]]</td>
                     <td>[[${menu.categoryName}]]</td>
                     <td>[[${menu.orderableStatus}]]</td>
