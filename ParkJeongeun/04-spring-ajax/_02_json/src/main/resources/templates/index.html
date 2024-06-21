@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+<h1>JSON</h1>
+<a href="https://www.json.org/json-ko.html">https://www.json.org/json-ko.html</a>
+<!--
+    JSON Javascript Object Notation
+    - 경량화된 Data 교환 형식 언어이다.
+    - {}, []로 데이터를 표현한다.
+    - 객체의 속성명은 모두 string이며, string은 쌍따옴표로 감싸서 표현한다.
+    - value로 사용할수 있는 타입은 string, number, object, array, boolean, null 이다.
+-->
+<button id="btn1">json 객체 (DTO)</button>
+<button id="btn2">json 배열 (Map)</button>
+<button id="btn3">json 배열 </button>
+<div id="target"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+<script>
+    document.querySelector('#btn3').addEventListener('click', () => {
+        $.ajax({
+            url: '[[@{/array}]]',
+            success(data) {
+                console.log(data);
+            },
+            error: console.log()
+        });
+    });
+
+    document.querySelector('#btn2').addEventListener('click', () => {
+        $.ajax({
+            url: '[[@{/object2}]]',
+            // method: 'get',
+            // dataType: "json",
+            success(data) {
+                console.log(data);
+            },
+            error: console.log()
+        });
+    });
+
+    document.querySelector("#btn1").addEventListener('click', () => {
+        $.ajax({
+            url: '[[@{/object}]]',
+            method: 'get', // 기본값
+            dataType: 'json', // 기대하는 응답 MIME
+            success(data){
+                // jquery가 응답받은 json문자열을 JSON,.parse를 통해 js object 변환 후 success 함수에 전달한 것임
+                // js객체를 json문자열로 변환하는 것은 JSON.stringify(js객체)로 처리가능
+                console.log(data); // js 객체 찍힘
+
+                document.querySelector("#target").innerHTML = `
+                    <p>${data.id}</p>
+                    <p>${data.name}</p>
+                    <p>${data.age}</p>
+                    <p>${data.married}</p>
+                    <p>${data.pet?.name}</p>
+                    `;
+                // optional chaining : 앞선값이 null, undefined가 아닌경우만 뒤의 속성참조
+            },
+            error: console.log // 전달된 인자를 모두 콘솔에 출력
+        });
+    });
+</script>
+</body>
+</html>
