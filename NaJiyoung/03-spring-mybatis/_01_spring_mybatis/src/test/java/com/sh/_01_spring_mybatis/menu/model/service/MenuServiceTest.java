@@ -30,7 +30,7 @@ class MenuServiceTest {
         assertThat(menus)
                 .isNotNull()
                 .isNotEmpty()
-                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
     }
 
     @Test

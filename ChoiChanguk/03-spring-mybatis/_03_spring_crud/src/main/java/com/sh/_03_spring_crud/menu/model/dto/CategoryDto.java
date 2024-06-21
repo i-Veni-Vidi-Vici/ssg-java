@@ -1,0 +1,15 @@
+package com.sh._03_spring_crud.menu.model.dto;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CategoryDto {
+    private Long categoryCode;
+    private String categoryName;
+    private Long refCategoryCode;
+}
