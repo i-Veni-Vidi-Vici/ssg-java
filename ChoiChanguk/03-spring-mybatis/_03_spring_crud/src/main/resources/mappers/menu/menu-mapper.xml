@@ -11,73 +11,96 @@
         <result column="orderable_status" property="orderableStatus"/>
     </resultMap>
 
-    <resultMap id="menuDtoMap2" type="menuDto2">
+    <select id="findAll" resultMap="menuDtoMap">
+        select
+        *
+        from
+        tbl_menu
+        where
+        orderable_status = 'Y'
+        order by
+        menu_code
+    </select>
+
+    <resultMap id="menuCategoryDtoMap" type="menuCategoryDto">
         <id column="menu_code" property="menuCode"/>
         <result column="menu_name" property="menuName"/>
         <result column="menu_price" property="menuPrice"/>
         <result column="category_code" property="categoryCode"/>
         <result column="orderable_status" property="orderableStatus"/>
-        <result column="category_name" property="categoryName"/>
+        <!-- tbl_menu와 tbl_category 조인되는 행수 관계비 1:1 -->
+        <association property="category" javaType="categoryDto">
+            <id column="category_code" property="categoryCode"/>
+            <result column="category_name" property="categoryName"/>
+            <result column="ref_category_code" property="refCategoryCode"/>
+        </association>
     </resultMap>
 
-    <select id="findAll" resultMap="menuDtoMap">
+    <select id="findAll2" resultMap="menuCategoryDtoMap">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu m left join tbl_category c
+        on m.category_code = c.category_code
         where
-            orderable_status = 'Y'
-        order by
-            menu_code
+        orderable_status = 'Y'
     </select>
 
-    <select id="findAll2" resultMap="menuDtoMap2">
-        select menu_code, menu_name,menu_price, ca.category_code, orderable_status, category_name
-        from tbl_menu tm left join tbl_category ca on tm.category_code = ca.category_code
-        where orderable_status='Y';
+    <select id="findAll3" resultType="menuCategoryNameDto">
+        select
+        m.*,
+        (select
+        category_name
+        from
+        tbl_category
+        where
+        category_code =  m.category_code) category_name
+        from
+        tbl_menu m
+        where
+        orderable_status = 'Y'
     </select>
 
     <select id="findByMenuCode" resultMap="menuDtoMap">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu
         where
-            orderable_status = 'Y'
-            and menu_code = #{menuCode}
+        orderable_status = 'Y'
+        and menu_code = #{menuCode}
     </select>
 
     <select id="findByCategoryCode" resultMap="menuDtoMap">
         select
-            *
+        *
         from
-            tbl_menu
+        tbl_menu
         where
-            orderable_status = 'Y'
-            and category_code = #{categoryCode}
+        orderable_status = 'Y'
+        and category_code = #{categoryCode}
     </select>
 
     <insert id="insertMenu" useGeneratedKeys="true" keyProperty="menuCode">
         insert into
-            tbl_menu (menu_name, menu_price, category_code, orderable_status)
+        tbl_menu (menu_name, menu_price, category_code, orderable_status)
         values(
-            #{menuName}, #{menuPrice}, #{categoryCode}, #{orderableStatus}
+        #{menuName}, #{menuPrice}, #{categoryCode}, #{orderableStatus}
         )
     </insert>
 
-<!--    coumn-property 매칭이 자동으로 안되는 경우-->
-<!--    별도의 type-handling이 필요한 경우-->
-<!--    -->
     <resultMap id="categoryDtoMap" type="categoryDto">
-
+        <!-- column-property 매칭이 자동으로 안되는 경우 -->
+        <!-- 별도의 type-handling이 필요한 경우 -->
+        <!-- 명시적인 type 지정 -->
     </resultMap>
 
-    <select id="findAllCategory">
+    <select id="findAllCategory" resultMap="categoryDtoMap">
         select
-            *
+        *
         from
-            tbl_category
+        tbl_category
         where
-            ref_category_code is not null
+        ref_category_code is not null
     </select>
 </mapper>

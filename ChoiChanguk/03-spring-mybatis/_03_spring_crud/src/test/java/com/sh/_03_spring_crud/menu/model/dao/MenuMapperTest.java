@@ -1,9 +1,6 @@
 package com.sh._03_spring_crud.menu.model.dao;
 
-import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
-import com.sh._03_spring_crud.menu.model.dto.OrderableStatus;
+import com.sh._03_spring_crud.menu.model.dto.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class MenuMapperTest {
@@ -23,17 +21,46 @@ class MenuMapperTest {
     void test1() {
         // given
         // when
-        List<MenuDto2> menus= menuMapper.findAll2();
+        List<MenuDto> menus = menuMapper.findAll();
         System.out.println(menus);
-
         // then
         assertThat(menus)
                 .isNotNull()
                 .isNotEmpty()
-                .allMatch((menu)->menu!=null);
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
     }
+
     @Test
-    @DisplayName("메뉴 한 건 조회")
+    @DisplayName("메뉴 전체 조회2 - 조인쿼리로 카테고리명 가져오기")
+    void test1_2() {
+        // given
+        // when
+        List<MenuCategoryDto> menus = menuMapper.findAll2();
+        System.out.println(menus);
+        // then
+        assertThat(menus)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
+    }
+
+    @Test
+    @DisplayName("메뉴 전체 조회3 - 스칼라서브쿼리로 카테고리명 가져오기")
+    void test1_3() {
+        // given
+        // when
+        List<MenuCategoryNameDto> menus = menuMapper.findAll3();
+        System.out.println(menus);
+        // then
+        assertThat(menus)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
+    }
+
+
+    @Test
+    @DisplayName("메뉴 한건 조회")
     void test2() {
         // given
         Long menuCode = 1L;
@@ -51,56 +78,59 @@ class MenuMapperTest {
                                 (orderableStatus) -> assertThat(orderableStatus).isEqualTo(OrderableStatus.N)
                         )
                 );
+
     }
 
     @Test
     @DisplayName("카테고리별 메뉴 조회")
     void test3() {
         // given
-        Long categoryCode=4L;
-
+        int categoryCode = 4; // 한식
         // when
-        List<MenuDto> menu=menuMapper.findByCategoryCode(categoryCode);
-
-        System.out.println("menu = " + menu);
-        for(MenuDto menuDto:menu)
-        {
-            System.out.println("menuDto.getMenuName() = " + menuDto.getMenuName());
-            System.out.println("menuDto.getMenuCode() = " + menuDto.getMenuCode());
-            System.out.println("menuDto.getMenuPrice() = " + menuDto.getMenuPrice());
-            System.out.println("menuDto.getCategoryCode() = " + menuDto.getCategoryCode());
-            System.out.println("menuDto.getOrderableStatus() = " + menuDto.getOrderableStatus());
-        }
-
+        List<MenuDto> menus = menuMapper.findByCategoryCode(categoryCode);
+        System.out.println(menus);
         // then
-        assertThat(menu).isNotNull();
+        assertThat(menus)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu.getCategoryCode() == categoryCode);
     }
-    @Test
+
+
     @DisplayName("메뉴 등록")
+    @Test
     void test4() {
         // given
         String menuName = "녹차막국수";
-        int menuPrice=3000;
-        int categoryCode=4;
-        OrderableStatus orderableStatus= OrderableStatus.Y;
-        MenuDto menuDto=new MenuDto(null,menuName,menuPrice,categoryCode,orderableStatus);
+        int menuPrice = 3000;
+        int categoryCode = 4;
+        OrderableStatus orderableStatus = OrderableStatus.Y;
+        MenuDto menuDto = new MenuDto(null, menuName, menuPrice, categoryCode, orderableStatus);
 
-        int result=menuMapper.insertMenu(menuDto);
         // when
-        assertThat(result).isEqualTo(1);
+        int result = menuMapper.insertMenu(menuDto);
+
         // then
+        assertThat(result).isEqualTo(1);
+        assertThat(menuDto.getMenuCode()).isNotZero();
     }
 
     @Test
-    @DisplayName("카테고리 코드 출력")
+    @DisplayName("카테고리 전체 조회")
     void test5() {
         // given
         // when
-        List<CategoryDto> categories= menuMapper.findAllCategory();
-        for(CategoryDto category:categories)
-            System.out.println("category = " + category);
-        assertThat(categories).isNotNull();
+        List<CategoryDto> categories = menuMapper.findAllCategory();
+        System.out.println(categories);
         // then
+        assertThat(categories)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((category) -> category != null)
+                .allSatisfy((category) -> {
+                    assertThat(category.getCategoryCode()).isNotZero();
+                    assertThat(category.getCategoryName()).isNotNull();
+                    assertThat(category.getRefCategoryCode()).isNotNull(); // where ref_category_code is not null
+                });
     }
-
 }
