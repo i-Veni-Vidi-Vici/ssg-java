@@ -1,4 +1,4 @@
-package com.sh._01_spring_mybatis.menu.model.servie;
+package com.sh._01_spring_mybatis.menu.model.service;
 
 import com.sh._01_spring_mybatis.menu.model.dao.MenuMapper;
 import com.sh._01_spring_mybatis.menu.model.dto.MenuDto;
