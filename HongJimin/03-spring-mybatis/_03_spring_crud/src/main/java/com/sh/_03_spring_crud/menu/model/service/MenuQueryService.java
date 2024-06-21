@@ -17,6 +17,11 @@ public class MenuQueryService {
     // 생성자 의존 주입 처리
     private final MenuMapper menuMapper;
 
+    public MenuDto findByMenuCode(Long menuCode){
+        return menuMapper.findByMenuCode(menuCode);
+    };
+
+
     public List<MenuDto> findAll() {
         return menuMapper.findAll();
     }
