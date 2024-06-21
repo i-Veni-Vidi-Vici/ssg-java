@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class CategoryDto {
     private Long categoryCode;
     private String categoryName;
-    public Long refCategoryCode;
+    private Long refCategoryCode;
 }
