@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+    <title>Spring CRUD</title>
+</head>
+<body>
+    <main layout:fragment="main">
+        <div>
+            <a th:href="@{/menu/list}" class="m-3">메뉴조회</a>
+        </div>
+
+        <div>
+            <a th:href="@{/menu/regist}" class="m-3">메뉴 신규 등록</a>
+        </div>
+
+        <div>
+            <a th:href="@{/order/create}" class="m-3">주문</a>
+        </div>
+    </main>
+
+</body>
+</html>
