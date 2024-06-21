@@ -9,6 +9,13 @@
 </head>
 <body>
     <h1>expression</h1>
+    <!--    thymeleaf 주석은 html 주석과 동일하다-->
+    <!--    <p th:text="안녕"></p>-->
+    <!-- parser-level 주석: 정적페이지 작성시 응답 html 작성시 제거되는 주석-->
+    <!--/* 주석 내용 - 이것은 클라이언트에 전달되지 않는다. 민감한 서버 정보는 이것을 사용 */-->
+    <!-- prototype-only 주석 : 응답 html 처리시 화면에 노출되는 주석   -->
+    <!--/*/ 주석내용 /*/-->
+
     <!--
     제공되는 표현식 종류
     변수 표현식(Variable Expressions): ${...}
@@ -18,6 +25,7 @@
     조각 표현식(Fragment Expressions): ~{...}
     인라인 표현식(Inline Expressions): [[...]] [(...)]
     -->
+
     <h2>변수 표현식</h2>
     <p th:text="${text}">실제 태그의 내용부분에 작성해도 th:text에 의해서 덮어쓰기 된다. 태그는 escaping처리 (XSS공격 대비) </p>
     <p th:utext="${text}">escaping처리 없이 html 파싱</p>
@@ -57,9 +65,47 @@
     <input type="text" th:value="${member.name}"/>
 
     <h2>인라인 표현식</h2>
-    <p>[[${member.id}]]</p>
-    <p>[[${member.name}]]</p>
-    <p>[[${member.age}]]</p>
-    <p>[[${member.regDate}]]</p>
+    <!--/*
+        html 태그 또는 script 태그안에서 인라인 표현식을 활용할 수 있다
+        [[${..}]] th:text와 유사하게 작동한다
+        [(${...})] th:utext와 유사하게 작동한다
+
+        html 태그 안에서 th:inline="text" 선언 없이도 인라인 표현식 가능
+        script 태그안에서 th:inline="javascript" 선언 없이도 인라인 표현식 가능
+      */-->
+
+   <p th:inline="text">[[${member.id}]]</p>
+   <p>[[${member.name}]]</p>
+   <p>[[${member.age}]]</p>
+   <p>[[${member.regDate}]]</p>
+   <p>[[${text}]]</p>
+   <p th:text="${text}"></p>
+   <p>[(${text})]</p>
+   <p th:utext="${text}"></p>
+   <script>
+       let text = "[[${text}]]"
+       console.log(text);
+       let text2 = '[[${text}]]'
+       console.log(text2);
+   </script>
+
+   <h2>문자열 연결 연산</h2>
+   <h3>+</h3>
+   <p th:text="'이름은 '+ ${member.name}"></p>
+   <h3>||</h3>
+   <p th:text="|이름은 + ${member.name}|"></p>
+
+
+   <h2>th:block</h2>
+   <!--  시각화되지 않는 태그, 그룹/범위를 지정하기 위해 사용한다  -->
+    <th:block th:object="${member}">
+        <p th:text="*{id}"></p>
+    </th:block>
+
+     <th:block th:if="${true}">
+         <p>🦄🦄🦄🦄</p>
+     </th:block>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
 </html>
