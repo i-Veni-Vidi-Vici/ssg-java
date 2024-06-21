@@ -1,6 +1,8 @@
 package com.sh._03_spring_crud.menu.model.dao;
 
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryNameDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,4 +19,7 @@ public interface MenuMapper {
     int insertMenu(MenuDto menuDto);
 
     List<CategoryDto> findAllCategory();
+
+    List<MenuCategoryDto> findAll2();
+    List<MenuCategoryNameDto> findAll3();
 }
