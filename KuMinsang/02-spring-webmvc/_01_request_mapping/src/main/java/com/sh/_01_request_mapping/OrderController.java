@@ -19,7 +19,8 @@ public class OrderController {
     public String registOrder(Model model) {
         log.info("GET /order/regist 요청!");
         model.addAttribute("message", "주문 등록 폼을 요청합니다...");
-        return "mappingResult";
+        return "map" +
+                "pingResult";
     }
     @PostMapping("/regist")
     public String registOrder2(Model model) {
