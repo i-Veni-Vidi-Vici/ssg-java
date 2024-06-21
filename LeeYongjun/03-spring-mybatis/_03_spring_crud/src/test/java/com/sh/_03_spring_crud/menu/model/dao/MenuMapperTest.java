@@ -1,6 +1,8 @@
 package com.sh._03_spring_crud.menu.model.dao;
 
-import com.sh._03_spring_crud.menu.model.dto.*;
+import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuDto;
+import com.sh._03_spring_crud.menu.model.dto.OrderableStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,35 +31,6 @@ class MenuMapperTest {
                 .isNotEmpty()
                 .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
     }
-
-    @Test
-    @DisplayName("메뉴 전체 조회2 - 조인쿼리로 카테고리명 가져오기")
-    void test1_2() {
-        // given
-        // when
-        List<MenuCategoryDto> menus = menuMapper.findAll2();
-        System.out.println(menus);
-        // then
-        assertThat(menus)
-                .isNotNull()
-                .isNotEmpty()
-                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
-    }
-
-    @Test
-    @DisplayName("메뉴 전체 조회3 - 스칼라서브쿼리로 카테고리명 가져오기")
-    void test1_3() {
-        // given
-        // when
-        List<MenuCategoryNameDto> menus = menuMapper.findAll3();
-        System.out.println(menus);
-        // then
-        assertThat(menus)
-                .isNotNull()
-                .isNotEmpty()
-                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
-    }
-    
 
     @Test
     @DisplayName("메뉴 한건 조회")
@@ -114,7 +87,7 @@ class MenuMapperTest {
         assertThat(result).isEqualTo(1);
         assertThat(menuDto.getMenuCode()).isNotZero();
     }
-    
+
     @Test
     @DisplayName("카테고리 전체 조회")
     void test5() {
@@ -128,9 +101,9 @@ class MenuMapperTest {
                 .isNotEmpty()
                 .allMatch((category) -> category != null)
                 .allSatisfy((category) -> {
-                   assertThat(category.getCategoryCode()).isNotZero();
-                   assertThat(category.getCategoryName()).isNotNull();
-                   assertThat(category.getRefCategoryCode()).isNotNull(); // where ref_category_code is not null
+                    assertThat(category.getCategoryCode()).isNotZero();
+                    assertThat(category.getCategoryName()).isNotNull();
+                    assertThat(category.getRefCategoryCode()).isNotNull(); // where ref_category_code is not null
                 });
     }
 }
