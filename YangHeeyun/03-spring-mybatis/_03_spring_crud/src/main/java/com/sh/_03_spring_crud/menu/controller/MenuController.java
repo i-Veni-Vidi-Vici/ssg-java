@@ -1,6 +1,7 @@
 package com.sh._03_spring_crud.menu.controller;
 
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuRegistDto;
 import com.sh._03_spring_crud.menu.model.service.MenuCommandService;
@@ -30,7 +31,8 @@ public class MenuController {
         log.info("GET/ menu/ list");
         // DB에서 메뉴목록을 조회(List<MenuDto>)후에 view단 전달해야 한다.
         // menuService가 없으니 Spring에게 달라고한다. @RequiredArgsConstructor & private final MenuService menuService;
-        List<MenuDto> menus = menuQueryService.findAll();
+        // List<MenuDto> menus = menuQueryService.findAll();
+        List<MenuCategoryDto> menus = menuQueryService.findAll2();
         log.debug("menus = {}", menus);
         model.addAttribute("menus", menus);
     }
@@ -53,7 +55,7 @@ public class MenuController {
     public String regist(@ModelAttribute MenuRegistDto menuRegistDto, RedirectAttributes redirectAttributes) {
         log.info("POST/ menu/ regist");
         log.info("menuDto = {}", menuRegistDto);
-        // 사용자 입력값처리할 Dto와 실제 DB쿼리요청에 사용하는 DTO는 다를 수 있다.
+        // 사용자 입력값처리할 DTO와 실제 DB 쿼리요청에 사용하는 DTO는 다를 수 있다.
         // 필요한 DTO로 데이터를 이전해서 서비스작업을 진행한다.
         MenuDto menuDto = menuRegistDto.toMenuDto();
         int result = menuCommandService.insertMenu(menuDto);
