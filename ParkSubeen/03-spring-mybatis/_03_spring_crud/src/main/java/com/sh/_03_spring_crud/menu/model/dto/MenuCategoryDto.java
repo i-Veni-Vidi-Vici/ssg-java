@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuDto2 {
+public class MenuCategoryDto {
     private Long menuCode;
     private String menuName;
     private int menuPrice;
     private int categoryCode;
-    private String categoryName;
+    private String categoryName; // 스칼라서브쿼리로 값대입
     private OrderableStatus orderableStatus;
+    private CategoryDto categoryDto;
 }

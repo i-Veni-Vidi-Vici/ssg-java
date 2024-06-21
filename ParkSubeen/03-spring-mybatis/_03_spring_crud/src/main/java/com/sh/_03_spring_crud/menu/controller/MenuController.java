@@ -2,7 +2,7 @@ package com.sh._03_spring_crud.menu.controller;
 
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuRegistDto;
 import com.sh._03_spring_crud.menu.model.service.MenuCommandService;
 import com.sh._03_spring_crud.menu.model.service.MenuQueryService;
@@ -36,7 +36,7 @@ public class MenuController {
 
         // 과제
         log.info("GET /menu/list");
-        List<MenuDto2> menus2 = menuQueryService.findAll2();
+        List<MenuCategoryDto> menus2 = menuQueryService.findAll2();
         log.debug("menus = {}", menus2);
         model.addAttribute("menus", menus2);
     }
