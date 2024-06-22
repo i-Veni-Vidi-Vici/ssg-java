@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!-- property : 하위에서 사용할 변수선언 -->
-    <property name="LOG_DIR" value="C:/Workspaces/spring_workspace/KimDonghyun/02-spring-webmvc/_04_exception_handling/logs"/>
+    <property name="LOG_DIR" value="C:/Workspaces/spring_workspace/ParkJeongeun/02-spring-webmvc/_04_exception_handling/logs"/>
     <property name="LOG_FILE_NAME" value="spring"/>
 
     <!-- appender : 실제 로그를 수행할 객체 -->
