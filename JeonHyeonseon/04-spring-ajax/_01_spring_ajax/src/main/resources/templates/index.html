@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Ajax</title>
+</head>
+<body>
+    <h1>Spring Ajax</h1>
+    <!--
+        AJAX는 대화형 웹 응용프로그램을 만들기 위한 웹 개발 기술이다.
+        Asynchronous Javascript And XML (비동기적 자바스크립트와 xml)
+        기존 웹 애플리케이션은 동기 요청을 사용하여 서버로부터 정보를 전송한다.
+        form 양식을 작성하고 제출하면 서버의 새 정보가 있는 새 페이지로 이동한다는 의미이다.
+        하지만 AJAX를 사용하면 자바스크립트가 서버에 요청하여 받은 결과를 해석하고, 현재 화면을 업데이트 한다.
+        따라서 클라이언트는 화면 갱신 없이 (데이터가 서버로 전송되었다는 사실을 알지 못해도) 서버 데이터를 수신할 수 있다.
+        AJAX는 서버 소프트웨어와는 별개의 독립적인 웹 브라우저 기술이며, 기술 자체로는 front-end로 분류된다.
+        하지만 서버 전송 이후 back-end와 연동되므로, back-end와 혼동할 수 있다.
+        자바스크립트는 서버와 비동기 상호 작용을 수행하기 위한 XMLHttpRequest 객체를 이용한다.
+
+        AJAX의 장단점
+        장점
+        1. 웹 페이지의 속도 향상 (전체 페이지를 갱신하지 않고, 필요한 데이터만 받아서 처리하므로 동기 방식보다 속도가 빠르다.)
+        2. 서버에서 데이터만 전송하면 되므로 응답에 대한 코드 작성 양이 줄어든다.
+        3. 기존 웹에서 불가능했던 다양한 기능(무한 스크롤, 실시간 아이디 중복 확인 등)을 가능하게 한다.
+
+        단점
+        1. 페이지 이동이 없는 통신으로 발생하는 보안상 문제가 있다.
+        2. 연속적으로 데이터를 요청하면 서버 부하를 가중시킬 수 있다.
+        3. AJAX를 쓸 수 없는 브라우저에 대한 이슈가 있다.
+        4. script로 작성하기 때문에 디버깅이 용이하지 않다.
+     -->
+    <button id="btn1">XMLHttpRequest 직접 사용</button>
+    <button id="btn2">jQuery.ajax - GET</button>
+    <button id="btn3">jQuery.ajax - POST</button>
+    <img th:src="@{images/gif-animations-replace-loading-screen-14.gif}" id="loading" alt="">
+
+    <!-- jQuery 로드 -->
+    <!-- 1. 우리 서버에서 다운로드 받은 jquery.js를 직접 제공 -->
+<!--    <script th:src="@{/js/jquery-3.7.1.js}"></script>-->
+    <!-- 2. CDN(Content Delivery Network)방식으로 제공 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+
+    <script>
+        console.log($);
+        $(() => {
+           // jquery onload 이벤트 핸들러
+           console.log('jQuery load complete🧀');
+           $("h1").css('color', 'blue');
+
+        });
+
+        /**
+         * jQuery
+         * - DOM제어, 네트워킹 관련해서 편의기능을 제공하는 js라이브러리
+         *
+         * jQuery.ajax
+         * - 기존 XMLHttpRequest를 간결하게 사용가능
+         * - IE 호환되지 않는 브라우저에 대한 비동기 요청 처리도 대신 해준다.
+         */
+        document.querySelector("#btn2").onclick = () => {
+            $.ajax({
+                url : '[[@{/first}]]',
+                method: 'get',
+                data : {
+                    // get방식에서는 url뒤에 queryString형태로 추가한다.
+                    username: 'sinsa',
+                },
+                success (responseText, textStatus, jqXhr) {
+                    // 정상 처리
+                    console.log(responseText, textStatus, jqXhr);
+                    alert(responseText);
+                },
+                error (jqXhr, textStatus, error) {
+                    // 오류 발생시 호출
+                    console.log(jqXhr, textStatus, error);
+                }
+            })
+        }
+
+        document.querySelector("#btn3").onclick = () => {
+            $.ajax({
+                url : '[[@{/first}]]',
+                method: 'post',
+                data : {
+                    // post방식에서는 메시지 본분(body)에 queryString형태로 추가한다.
+                    username: 'sinsa',
+                },
+                beforeSend(){
+                    // 요청 전 작업
+                    console.log('beforeSend')
+                    $("#loading").show();
+                },
+                success (responseText, textStatus, jqXhr) {
+                    // 정상 처리
+                    console.log('success')
+                    console.log(responseText, textStatus, jqXhr);
+                    alert(responseText);
+                },
+                error (jqXhr, textStatus, error) {
+                    // 오류 발생시 호출
+                    console.log('error')
+                    console.log(jqXhr, textStatus, error);
+                },
+                complete(){
+                    // 응답완료(정상처리/비정상처리) 후 작업
+                    console.log('complete')
+                    $("#loading").hide();
+                }
+            })
+        }
+
+        document.querySelector("#btn1").onclick = () => {
+          const xmlHttpRequest = new XMLHttpRequest();
+          // readystatechange에 대한 이벤트 핸들러 작성
+          xmlHttpRequest.onreadystatechange = (e) => {
+              // 0 : 객체생성
+              // 1 : 서버와 연결성공
+              // 2 : 서버에 request 전송
+              // 3 : 응답 처리 시작
+              // 4 : 응답 처리 완료
+              if(xmlHttpRequest.readyState == XMLHttpRequest.DONE) {
+                  if (xmlHttpRequest.status == 200) {
+                      // 정상처리된 경우
+                      alert(xmlHttpRequest.responseText);
+                  } else {
+                      // 오류 또는 비정상처리된 경우
+                      alert("Ajax 처리 실패")
+                  }
+              }
+          };
+
+          // 요청을 보낼 때는 연결작업
+          xmlHttpRequest.open('GET', '[[@{/first}]]?username=honngd')
+          // 전송
+          xmlHttpRequest.send()
+        };
+    </script>
+</body>
+</html>
