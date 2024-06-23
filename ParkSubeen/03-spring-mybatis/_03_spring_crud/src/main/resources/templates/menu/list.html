@@ -27,11 +27,21 @@
                     <td>[[${menu.categoryCode}]]</td>
                     <td>[[${menu.orderableStatus}]]</td>
                 </tr>*/-->
+<!--                <tr th:each="menu, stat : ${menus}" th:object="${menu}">-->
+<!--                    <td th:text="*{menuCode}"></td>-->
+<!--                    <td th:text="*{menuName}"></td>-->
+<!--                    <td th:text="*{#numbers.formatInteger(menuPrice, 3, 'COMMA')}"></td>-->
+<!--&lt;!&ndash;                    <td th:text="*{categoryCode}"></td>&ndash;&gt;-->
+<!--                    <td th:text="*{categoryName}"></td>-->
+<!--                    <td th:text="*{orderableStatus}"></td>-->
+<!--                </tr>-->
                 <tr th:each="menu, stat : ${menus}" th:object="${menu}">
+                    <!-- category속성이 null일때, categoryName속성을 참조할 수 없다. 오류발생. null처리 필수로 해줄것  -->
                     <td th:text="*{menuCode}"></td>
-                    <td th:text="*{menuName}"></td>
+                    <td>
+                        <a th:href="@{|/menu/detail/*{menuCode}|}" th:text="*{menuName}"></a>
+                    </td>
                     <td th:text="*{#numbers.formatInteger(menuPrice, 3, 'COMMA')}"></td>
-<!--                    <td th:text="*{categoryCode}"></td>-->
                     <td th:text="*{categoryName}"></td>
                     <td th:text="*{orderableStatus}"></td>
                 </tr>

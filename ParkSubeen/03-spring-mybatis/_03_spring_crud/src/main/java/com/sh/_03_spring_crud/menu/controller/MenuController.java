@@ -2,7 +2,7 @@ package com.sh._03_spring_crud.menu.controller;
 
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuRegistDto;
 import com.sh._03_spring_crud.menu.model.service.MenuCommandService;
 import com.sh._03_spring_crud.menu.model.service.MenuQueryService;
@@ -10,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -36,7 +33,7 @@ public class MenuController {
 
         // 과제
         log.info("GET /menu/list");
-        List<MenuDto2> menus2 = menuQueryService.findAll2();
+        List<MenuCategoryDto> menus2 = menuQueryService.findAll2();
         log.debug("menus = {}", menus2);
         model.addAttribute("menus", menus2);
     }
@@ -65,5 +62,14 @@ public class MenuController {
         int result = menuCommandService.insertMenu(menuDto);
         redirectAttributes.addFlashAttribute("message", "✌메뉴를 성공적으로 등록했습니다.✌");
         return "redirect:/menu/list";
+    }
+
+    @GetMapping("/detail/{id}")
+    public String detail(@PathVariable Long id, Model model) {
+        log.info("GET /detail/{}", id);
+        MenuDto menuDetails = menuQueryService.findByMenuCode(id);
+        log.debug("menuDetails = {}", menuDetails);
+        model.addAttribute("menuDetails", menuDetails);
+        return "menu/detail";
     }
 }
