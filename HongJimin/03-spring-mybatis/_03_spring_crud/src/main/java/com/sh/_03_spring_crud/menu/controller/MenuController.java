@@ -10,12 +10,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.awt.*;
 import java.util.List;
 
 @Controller
@@ -44,7 +42,7 @@ public class MenuController {
         List<CategoryDto> menus = menuQueryService.findAllCategory();
         model.addAttribute("categories", menus);
 
-    } // viewname을 반환하지 않기 때문에 url로 반환하게 됨 -> menu/list.html로 찾아가게 됨
+    } // viewname을 반환하지 않기 때문에 url로 반환하게 됨 -> menu/regist.html로 찾아가게 됨
 
     /**
      * 거의 모든 POST 요청은 redirect로 응답해야 한다.
@@ -59,7 +57,16 @@ public class MenuController {
         // 필요한 DTO로 데이터를 이전해서 서비스 작업을 진행한다.
         MenuDto menuDto = menuRegistDto.toMenuDto();
         int result = menuCommandService.insertMenu(menuDto);
-        redirectAttributes.addFlashAttribute("message", "메뉴를 성공적으로 등록했습니다.✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨");
+        redirectAttributes.addFlashAttribute("message", "메뉴를 성공적으로 등록했습니다.✨");
         return "redirect:/menu/list";
     }
+
+    @GetMapping("/detail/{menuCode}")
+    public String detail(Model model, @PathVariable("menuCode") Long menuCode){
+        log.info("GET /menu/detail/{}", menuCode);
+        MenuDto menu = menuQueryService.findByMenuCode(menuCode);
+        model.addAttribute("menu", menu);
+        return "menu/detail";
+    }
+
 }
