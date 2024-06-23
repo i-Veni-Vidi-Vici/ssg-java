@@ -3,6 +3,8 @@ package com.sh._03_spring_crud.menu.model.service;
 
 import com.sh._03_spring_crud.menu.model.dao.MenuMapper;
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryNameDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,4 +35,9 @@ public class MenuQueryService {
     public List<CategoryDto> findAllCategory() {
         return menuMapper.findAllCategory();
     }
+
+    public List<MenuCategoryDto> findAll2() {
+        return menuMapper.findAll2();
+    }
+
 }
