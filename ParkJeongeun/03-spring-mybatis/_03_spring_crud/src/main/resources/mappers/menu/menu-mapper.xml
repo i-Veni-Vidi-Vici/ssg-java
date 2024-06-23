@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -20,6 +21,45 @@
         orderable_status = 'Y'
         order by
         menu_code
+    </select>
+
+    <resultMap id="menuCategoryDtoMap" type="menuCategoryDto">
+        <id column="menu_code" property="menuCode"/>
+        <result column="menu_name" property="menuName"/>
+        <result column="menu_price" property="menuPrice"/>
+        <result column="category_code" property="categoryCode"/>
+        <result column="orderable_status" property="orderableStatus"/>
+        <!-- tbl_menu와 tbl_category 조인되는 행수 관계비 1:1 -->
+        <association property="category" javaType="categoryDto">
+            <id column="category_code" property="categoryCode"/>
+            <result column="category_name" property="categoryName"/>
+            <result column="ref_category_code" property="refCategoryCode"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll2" resultMap="menuCategoryDtoMap">
+        select
+        *
+        from
+        tbl_menu m left join tbl_category c
+        on m.category_code = c.category_code
+        where
+        orderable_status = 'Y'
+    </select>
+
+    <select id="findAll3" resultType="menuCategoryNameDto">
+        select
+        m.*,
+        (select
+        category_name
+        from
+        tbl_category
+        where
+        category_code =  m.category_code) category_name
+        from
+        tbl_menu m
+        where
+        orderable_status = 'Y'
     </select>
 
     <select id="findByMenuCode" resultMap="menuDtoMap">
