@@ -19,6 +19,7 @@ public class FileUploadController {
 
     @PostMapping("/upload")
     public String upload(@RequestParam("upFile") List<MultipartFile> upFiles) throws IOException {
+        // 1. 파일업로드 처리
         List<FileDto> list = new ArrayList<>();
         for (MultipartFile file : upFiles) {
             if (!file.isEmpty()) {
@@ -27,6 +28,8 @@ public class FileUploadController {
             }
         }
         log.debug("list = {}", list);
+        // 2. 업로드한 파일명/저장된 파일명 정보를 DB 등록
+
         return "redirect:/";
     }
 }
