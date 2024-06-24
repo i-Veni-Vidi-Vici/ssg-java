@@ -33,7 +33,9 @@
 <!--                </tr>-->
                     <tr th:each="menu : ${menus}">
                         <td>[[${menu.menuCode}]]</td>
-                        <td>[[${menu.menuName}]]</td>
+                        <td>
+                            <a th:href="@{|/menu/detail/${menu.menuCode}|}">[[${menu.menuName}]]</a>
+                        </td>
                         <td>[[${#numbers.formatInteger(menu.menuPrice, 3, 'COMMA')}]]원</td>
                         <td>[[${menu.categoryName}]]</td>
 <!--                        <td>[[${menu.categoryCode}]]</td>-->

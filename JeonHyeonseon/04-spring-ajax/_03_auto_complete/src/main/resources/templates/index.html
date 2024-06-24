@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>검색어 자동완성</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#classmates" ).autocomplete({
+                source (request, response) { // 함수일 때는 매개변수가 2개이다
+                    // console.log(request); // { term : 'ㅋㅋㅋ' }사용자 입력값 객체
+                    // console.log(response); // callback function
+
+                    // 1. 사용자 입력값을 서버에 전송해서 일치하는 이름을 응답받기
+                    $.ajax({
+                        url : '[[@{/classmate/search}]]',
+                        method : 'get',
+                        data : {
+                            value : request.term
+                        },
+                        success(data) {
+                            console.log(data);
+                            // 2. response함수를 통해서 값목록을 전달 (시각화처리는 api에서 처리한다)
+                            // { label: '', value: ''} 노출될 값과 내부적인 값을 별도로 지정한다
+                            data.map((classmate) => ({ // 객체 블럭임을 나타내기 위해서 소괄호로 한 번 더 묶어야 한다.
+                                label : classmate,
+                                value : classmate
+                            }));
+                            console.log(data)
+                            response(data);
+                        },
+                        error : console.log
+                    });
+                },
+                focus(e){
+                    e.preventDefault(); // 커서 이동시 선택되지 않도록 처리
+                },
+                select(e, selected) {
+                    // 사용자가 목록중 하나를 선택했을 때 호출되는 이벤트 핸들러
+                    console.log(e, selected);
+                    const {item : {label, value}} = selected;
+                    location.href = `[[@{/classmates/}]]${value}`;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>검색어 자동완성</h1>
+    <div class="ui-widget">
+        <label for="classmates">반 친구 검색 : </label>
+        <input id="classmates">
+    </div>
+</body>
+</html>
