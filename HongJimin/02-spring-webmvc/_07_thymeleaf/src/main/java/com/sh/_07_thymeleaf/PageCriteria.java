@@ -11,5 +11,4 @@ public class PageCriteria {
     private int startPage;
     private int lastPage;
     private int currentPage;
-
 }
