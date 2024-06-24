@@ -1,17 +1,18 @@
-package com.sh._03_spring_crud.menu.controller;
+package com.sh._04_paging.menu.controller;
 
-import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuRegistDto;
-import com.sh._03_spring_crud.menu.model.service.MenuCommandService;
-import com.sh._03_spring_crud.menu.model.service.MenuQueryService;
+
+import com.sh._04_paging.menu.model.dto.CategoryDto;
+import com.sh._04_paging.menu.model.dto.MenuCategoryDto;
+import com.sh._04_paging.menu.model.dto.MenuDto;
+import com.sh._04_paging.menu.model.dto.MenuRegistDto;
+import com.sh._04_paging.menu.model.service.MenuCommandService;
+import com.sh._04_paging.menu.model.service.MenuQueryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import java.util.List;
 
@@ -24,10 +25,12 @@ public class MenuController {
     private final MenuCommandService menuCommandService;
 
     @GetMapping("/list")
-    public void list(Model model) {
-        log.info("GET /menu/list");
+    public void list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit, Model model) {
+        log.info("GET /menu/list?page={}&limit={}",page,limit);
         // DB에서 메뉴목록을 조회(List<MenuDto>)후에 view단 전달해야 한다.
-        List<MenuDto> menus = menuQueryService.findAll();
+//        List<MenuDto> menus = menuQueryService.findAll();
+        int offset = (page - 1) * limit; // 1페이지 - 0, 2페이지 - 10, 3페이지 - 20, ...
+        List<MenuCategoryDto> menus = menuQueryService.findAll2(offset,limit);
         log.debug("menus = {}", menus);
         model.addAttribute("menus", menus);
     }
@@ -58,11 +61,10 @@ public class MenuController {
     }
 
     @GetMapping("/detail/{menuCode}")
-    public String detail(@PathVariable Long menuCode, Model model){
-        log.info("GET /menu/detail");
-        MenuDto Pickmenu = menuQueryService.findByMenuCode(menuCode);
-        log.debug("Pickmenu = {}", Pickmenu);
-        model.addAttribute("menu",Pickmenu);
+    public String detail(@PathVariable Long menuCode, Model model) {
+        log.info("GET /detail/{}", menuCode);
+        MenuDto menu = menuQueryService.findByMenuCode(menuCode);
+        model.addAttribute("menu", menu);
         return "menu/detail";
     }
 }
