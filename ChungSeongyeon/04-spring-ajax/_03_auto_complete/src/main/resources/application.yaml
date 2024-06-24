@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: _03_auto_complete
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    com.sh: debug
+

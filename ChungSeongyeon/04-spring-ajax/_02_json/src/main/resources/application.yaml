@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: _02_json
+
+logging:
+  level:
+    root: info
+    com.sh: debug
+
+server:
+  servlet:
+    context-path: /app

@@ -68,20 +68,43 @@
     </select>
 
 
-    <resultMap id="menuDtoMap2" type="menuDto2">
+    <resultMap id="menuCategoryDtoMap" type="menuCategoryDto">
         <id column="menu_code" property="menuCode"/>
         <result column="menu_name" property="menuName"/>
         <result column="menu_price" property="menuPrice"/>
         <result column="category_code" property="categoryCode"/>
         <result column="category_name" property="categoryName"/>
         <result column="orderable_status" property="orderableStatus"/>
+        <!-- tbl_menu와 tbl_category 조인되는 행수 관계비 1:1-->
+        <association property="categoryDto" javaType="categoryDto">
+            <id column="category_code" property="categoryCode"/>
+            <result column="category_name" property="categoryName"/>
+            <result column="ref_category_code" property="refCategoryCode"/>
+        </association>
     </resultMap>
 
-    <select id="findAll2" resultMap="menuDtoMap2">
+    <select id="findAll2" resultMap="menuCategoryDtoMap">
         select
             *
         from
             tbl_menu tm join tbl_category tc
                 on tm.category_code = tc.category_code
+        where
+            orderable_status = 'Y'
+    </select>
+
+    <select id="findAll3" resultMap="menuCategoryDtoMap">
+        select
+            m.*,
+            (select
+            category_name
+            from
+            tbl_category
+            where
+            m.category_code = category_code) category_name
+        from
+            tbl_menu m
+        where
+            orderable_status = 'Y'
     </select>
 </mapper>

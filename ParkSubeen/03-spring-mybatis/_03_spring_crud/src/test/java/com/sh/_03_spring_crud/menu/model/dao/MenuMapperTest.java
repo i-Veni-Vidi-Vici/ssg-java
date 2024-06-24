@@ -1,7 +1,7 @@
 package com.sh._03_spring_crud.menu.model.dao;
 
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
-import com.sh._03_spring_crud.menu.model.dto.MenuDto2;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.OrderableStatus;
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +24,34 @@ class MenuMapperTest {
         // given
         // when
         List<MenuDto> menus = menuMapper.findAll();
+        System.out.println(menus);
+        // then
+        assertThat(menus)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
+    }
+
+    @Test
+    @DisplayName("메뉴 전체 조회(카테고리를 이름으로 가져오기)")
+    void test1_2() {
+        // given
+        // when
+        List<MenuCategoryDto> menus = menuMapper.findAll2();
+        System.out.println(menus);
+        // then
+        assertThat(menus)
+                .isNotNull()
+                .isNotEmpty()
+                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
+    }
+
+    @Test
+    @DisplayName("메뉴 전체 조회(카테고리를 이름으로 가져오기)")
+    void test1_3() {
+        // given
+        // when
+        List<MenuCategoryDto> menus = menuMapper.findAll3();
         System.out.println(menus);
         // then
         assertThat(menus)
@@ -104,17 +132,5 @@ class MenuMapperTest {
                 });
     }
 
-    @Test
-    @DisplayName("메뉴 전체 조회(카테고리를 이름으로 가져오기)")
-    void test6() {
-        // given
-        // when
-        List<MenuDto2> menus = menuMapper.findAll2();
-        System.out.println(menus);
-        // then
-        assertThat(menus)
-                .isNotNull()
-                .isNotEmpty()
-                .allMatch((menu) -> menu != null); // 모든 요소가 Predicate에 대해 true를 반환해야 한다.
-    }
+
 }

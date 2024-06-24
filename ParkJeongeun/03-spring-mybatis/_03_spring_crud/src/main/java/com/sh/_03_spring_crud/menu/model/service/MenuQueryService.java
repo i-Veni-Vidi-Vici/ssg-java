@@ -3,6 +3,7 @@ package com.sh._03_spring_crud.menu.model.service;
 
 import com.sh._03_spring_crud.menu.model.dao.MenuMapper;
 import com.sh._03_spring_crud.menu.model.dto.CategoryDto;
+import com.sh._03_spring_crud.menu.model.dto.MenuCategoryDto;
 import com.sh._03_spring_crud.menu.model.dto.MenuDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,16 +17,25 @@ import java.util.List;
 public class MenuQueryService {
     // 생성자 의존주입 처리
     private final MenuMapper menuMapper;
+
     public List<MenuDto> findAll() {
         return menuMapper.findAll();
     }
+
     public MenuDto findByMenuCode(Long menuCode) {
         return menuMapper.findByMenuCode(menuCode);
     }
+
     public List<MenuDto> findByCategoryCode(int categoryCode) {
         return menuMapper.findByCategoryCode(categoryCode);
     }
+
+
     public List<CategoryDto> findAllCategory() {
         return menuMapper.findAllCategory();
+    }
+
+    public List<MenuCategoryDto> findAll2() {
+        return menuMapper.findAll2();
     }
 }

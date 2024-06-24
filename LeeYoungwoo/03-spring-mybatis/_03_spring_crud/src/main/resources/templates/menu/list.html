@@ -23,7 +23,9 @@
             <tbody>
                 <tr th:each="menu, stat : ${menus}" th:object="${menu}">
                     <td th:text="*{menuCode}"></td>
-                    <td th:text="*{menuName}"></td>
+                    <td>
+                        <a th:href="@{|/menu/detail/*{menuCode}|}"  th:text="*{menuName}"></a>
+                    </td>
                     <td th:text="*{#numbers.formatInteger(menuPrice, 3,'COMMA')}"></td>
                     <td th:text="*{categoryCode}"></td>
                     <td th:text="*{orderableStatus}"></td>

@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -38,7 +35,6 @@ public class MenuController {
     @GetMapping("/regist")
     public void regist(Model model) {
         log.info("GET /menu/regist");
-        // DB에서 메뉴목록을 조회(List<MenuDto>)후에 view단 전달해야 한다.
         List<CategoryDto> categories = menuQueryService.findAllCategory();
         log.debug("categories = {}", categories);
         model.addAttribute("categories", categories);
@@ -58,7 +54,16 @@ public class MenuController {
         MenuDto menuDto = menuRegistDto.toMenuDto();
         int result = menuCommandService.insertMenu(menuDto);
         redirectAttributes.addFlashAttribute("message", "메뉴를 성공적으로 등록했습니다.👏👏👏");
-        log.debug("result = {}", result); // 성공하면 1, 실패하면 0
+//        log.debug("result = {}", result); // 성공하면 1, 실패하면 0
         return "redirect:/menu/list";
+    }
+
+    @GetMapping("/detail/{menuCode}")
+    public String datail(@PathVariable Long menuCode, Model model) {
+        log.info("GET /detail/{}", menuCode);
+        MenuDto menu = menuQueryService.findByMenuCode(menuCode);
+        log.debug("menu = {}", menu);
+        model.addAttribute("menu", menu);
+        return "menu/detail";
     }
 }
