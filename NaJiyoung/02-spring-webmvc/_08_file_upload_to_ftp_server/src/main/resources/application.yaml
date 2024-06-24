@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: _08_file_upload_to_ftp_server
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 10MB
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    com.sh: debug
+
+ftp:
+  server:
+    host: ssg-java3.iptime.org
+    port: 21
+    username: furni # 팀별 아이디를 사용하세요.
+    password: furni      # 팀별 패스워드를 사용하세요.
