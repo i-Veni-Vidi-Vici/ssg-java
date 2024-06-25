@@ -20,11 +20,11 @@ public class ThymeleafController {
         model.addAttribute("member", new Member(1L, "홍길동", 33, LocalDate.now()));
         model.addAttribute("text", "Hello world! <mark>Hello Thyemeleaf</mark>");
     }
-
+    
     @GetMapping("/statement")
     public void statement(Model model) {
         model.addAttribute("num", 123);
-        model.addAttribute("str", "바나나");
+        model.addAttribute("str", "바나나ㅋㅋㅋㅋ");
 
         model.addAttribute("members", List.of(
                 new Member(1L, "홍길동", 33, LocalDate.now()),
@@ -36,7 +36,7 @@ public class ThymeleafController {
     @GetMapping("/etc")
     public void etc(Model model) {
         model.addAttribute("num", 123);
-        model.addAttribute("str", "바나나");
+        model.addAttribute("str", "바나나ㅋㅋㅋㅋ");
 
         model.addAttribute("pageCriteria", new PageCriteria(1, 10, 3));
 
@@ -55,8 +55,8 @@ public class ThymeleafController {
     }
 
     @GetMapping("/fragment")
-    public void fragment(Model model) {
-        model.addAttribute("foo", "Foo");
+    public void fragment(Model model){
+        model.addAttribute("foo", "FOO");
         model.addAttribute("bar", "BAR");
     }
 
