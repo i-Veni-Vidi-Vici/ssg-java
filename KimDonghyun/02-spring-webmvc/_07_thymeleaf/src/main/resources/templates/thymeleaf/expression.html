@@ -88,10 +88,12 @@
     <p>[(${text})]</p>
     <p th:utext="${text}"></p>
     <script th:inline="javascript">
-        let text = "[[${text}]]";
-        console.log(text);
+        // let text = "[[${text}]]"; // 오류 ""Hello world! <mark>Hello Thyemeleaf</mark>""
+
         let text2 = '[[${text}]]';
-        console.log(text2);
+        console.log(text2); // "Hello world! <mark>Hello Thyemeleaf</mark>"
+        let text3 = [[${text}]];
+        console.log(text3); // Hello world! <mark>Hello Thyemeleaf</mark>
     </script>
 
     <h2>문자열 연결 연산</h2>
@@ -108,6 +110,24 @@
     <th:block th:if="${true}">
         <p>🍕🍕🍕</p>
     </th:block>
+
+    <h2>form태그 관련</h2>
+    <h3>checked 처리</h3>
+    <!-- parameter값을 복수개의 값이 가질수 있으므로, 배열에서 포함여부로 처리해야한다. -->
+    <div>
+        <label for="no10">no1</label><input type="checkbox" name="no" id="no10" value="10" th:checked="${#arrays.contains(param.no, '10')}">
+        <label for="no20">no2</label><input type="checkbox" name="no" id="no20" value="20" th:checked="${#arrays.contains(param.no, '20')}">
+        <label for="no30">no3</label><input type="checkbox" name="no" id="no30" value="30" th:checked="${#arrays.contains(param.no, '30')}">
+    </div>
+
+    <h3>selected 처리</h3>
+    <!-- parameter값과 비교해 selected 처리를 할 수 있다. -->
+    <!-- param값은 여러개일수 있으므로, 0번지값과 비교할 수 있도록 해야한다 -->
+    <select name="lang" id="lang">
+        <option value="">언어를 선택하세요.</option>
+        <option value="en" th:selected="${param.lang[0] eq 'en'}">English</option>
+        <option value="ko" th:selected="${param.lang[0] eq 'ko'}">Korea</option>
+    </select>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
