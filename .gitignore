@@ -3,6 +3,7 @@
 
 ### Custom ###
 # VirtualBox
+**/centos*/
 **/ubuntu-mysql/
 **/ubuntu-mysql2/
 **/*.vbox
