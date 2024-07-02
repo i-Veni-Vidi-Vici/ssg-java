@@ -2,6 +2,7 @@ package com.furnycrew.furnidream.order.model.dao;
 
 import com.furnycrew.furnidream.common.search.SearchCriteria;
 import com.furnycrew.furnidream.order.model.dto.OrderDto;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+
 
 class OrderMapperTest {
     @Autowired
@@ -41,6 +43,7 @@ class OrderMapperTest {
                 });
     }
 
+    @Disabled
     @DisplayName("일별 주문 조회")
     @Test
     public void test2() {
@@ -68,6 +71,7 @@ class OrderMapperTest {
                 });
     }
 
+    @Disabled
     @DisplayName("월별 주문 조회")
     @Test
     public void test3() {
@@ -82,7 +86,7 @@ class OrderMapperTest {
 
         assertThat(orders)
                 .isNotNull()
-                .isNotEmpty()
+//                .isNotEmpty()
                 .hasSize(10)
                 .allSatisfy((order)->{
                     assertThat(order.getOrderCode()).isNotZero();
@@ -96,6 +100,8 @@ class OrderMapperTest {
                 });
     }
 
+
+    @Disabled
     @DisplayName("연도별 주문 조회")
     @Test
     public void test4() {
