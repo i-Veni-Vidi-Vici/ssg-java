@@ -4,7 +4,7 @@ FROM amazoncorretto:17
 LABEL maintainer="seongil<biuld1234@gmail.com>"
 
 # build시 사용할 변수 선언
-ARG JAR_FILE_PATH=build/libs/*.jar
+ARG JAR_FILE_PATH=furnidream/build/libs/*.jar
 
 # 생성할 image의 /디렉토리에 파일 복사
 COPY ${JAR_FILE_PATH} app.jar
