@@ -46,16 +46,16 @@ public class MemberEntityEnumTest {
         /**
          *
          create table tbl_member04 (
-         member_enabled bit,
-         member_gender tinyint check (member_gender between 0 and 1),
-         member_code bigint not null auto_increment,
-         member_created_at datetime(6),
-         member_password varchar(20) not null,
-         member_email varchar(255),
-         member_id varchar(255),
-         member_name varchar(100) default '홍길동',
-         member_role enum ('ROLE_ADMIN','ROLE_MEMBER'),
-         primary key (member_code)
+             member_enabled bit,
+             member_gender tinyint check (member_gender between 0 and 1),
+             member_code bigint not null auto_increment,
+             member_created_at datetime(6),
+             member_password varchar(20) not null,
+             member_email varchar(255),
+             member_id varchar(255),
+             member_name varchar(100) default '홍길동',
+             member_role enum ('ROLE_ADMIN','ROLE_MEMBER'),
+             primary key (member_code)
          ) engine=InnoDB
          */
     }
