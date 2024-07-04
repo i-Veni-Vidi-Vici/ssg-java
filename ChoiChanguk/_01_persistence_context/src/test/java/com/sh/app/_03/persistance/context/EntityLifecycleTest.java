@@ -232,9 +232,7 @@ public class EntityLifecycleTest {
         entityManager.clear();
 
         //then
-        assertThatThrownBy(()->{
-            
-        })
+
     }
 
 }
