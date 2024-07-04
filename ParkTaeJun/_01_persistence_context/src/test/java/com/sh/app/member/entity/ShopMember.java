@@ -1,0 +1,18 @@
+package com.sh.app.member.entity;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ShopMember extends Member {
+    private String adminRole;
+
+    public ShopMember(Long id, String name, String address){
+        super(id,name);
+        this.adminRole = address;
+    }
+}
