@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="jpatest">
+<!--        entity클래스는 ㅇ여기서 반드시 등록 후 사용-->
+        <class>com.sh.app._02_crud.Menu</class>
+        <class>com.sh.app._03.persistence.context.Menu</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/menudb"/>
+            <property name="jakarta.persistence.jdbc.user" value="sh"/>
+            <property name="jakarta.persistence.jdbc.password" value="sh"/>
+<!--            실행하는 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
