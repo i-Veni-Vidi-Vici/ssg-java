@@ -154,7 +154,6 @@ public class EntityLifeCycleTest {
 
     /**
      * remove를 호출하면, 단순히 영속성 컨텍스트에서 제거 뿐 아니라 db로 delete 요청까지 질의함
-     *
      * flush : 영속성 컨텍스트의 변경사항으로 실제 DB에 동기화 하는 작업
      * - 트랜잭션 커밋시에 flush 처리
      */
