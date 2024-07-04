@@ -213,6 +213,5 @@ public class EntityLifeCycleTest {
             entityManager.find(Menu.class, 10L);
         }).isInstanceOf(IllegalStateException.class);
     } // 예외가 안 던져지면 실패하는 test코드
-
     
 }
