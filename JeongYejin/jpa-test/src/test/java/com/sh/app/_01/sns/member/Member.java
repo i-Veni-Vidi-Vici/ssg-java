@@ -27,7 +27,7 @@ import lombok.*;
                 pkJoinColumns = @PrimaryKeyJoinColumn(name = "member_id", referencedColumnName = "id")
         )
 })
-
+@Builder
 public class Member {
     @Id
     @Column(name = "id")

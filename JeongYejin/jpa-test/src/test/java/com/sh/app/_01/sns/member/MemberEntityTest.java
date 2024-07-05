@@ -48,13 +48,12 @@ public class MemberEntityTest {
     @Test
     @DisplayName("Writer Entity 등록")
     void test2() {
-        Member member = new Member(
-                "jeongyj",
-                new Account("찐굴", "jjingul@gmail.com", "1234", "image.jpg", null, null, AccountStatus.활성),
-                new Profile("정예진", LocalDate.of(2000,03,11), Gender.Female, "01082545898", "서울시동작구", "@instagram", "환영합니당..."),
-                new SNS(20, 100, 2, 3, 1, 2),
-                new Settings(true, true, Locale.KOREA, TimeZone.getTimeZone("ko"), true)
-        );
+        Member member = Member.builder()
+                .id("jeongyj")
+                .account(new Account("찐굴", "jjingul@gmail.com", "1234", "image.jpg", null, null, AccountStatus.활성))
+                .profile(new Profile("정예진", LocalDate.of(2000,03,11), Gender.Female, "01082545898", "서울시동작구", "@instagram", "환영합니당..."))
+                .settings(new Settings(true, true, Locale.KOREA, TimeZone.getTimeZone("ko"), true))
+                .build();
 
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
