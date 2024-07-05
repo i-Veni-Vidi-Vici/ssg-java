@@ -26,3 +26,6 @@ from tbl_sequence;
 
 select *
 from tbl_member04;
+
+select *
+from tbl_role_permission_0301;
