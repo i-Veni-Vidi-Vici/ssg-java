@@ -7,6 +7,7 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * <pre>
@@ -100,5 +101,107 @@ public class EntityLifecycleTest {
         // then
         assertThat(menu1).isSameAs(menu2);
         assertThat(entityManager.contains(menu1)).isTrue(); // 조회한 menu1이 영속객체에 포함되었는가?
+    }
+
+    /**
+     * 영속상태의 entity객체를 더이상 영속 컨텍스트에서 관리하지 않도록 하는 것
+     */
+    @Test
+    @DisplayName("준영속 detach")
+    void test4() {
+        // given
+        Menu menu = entityManager.find(Menu.class, 10L);
+        System.out.println(menu); // 영속상태
+        // when
+        entityManager.detach(menu);
+        // then
+        assertThat(entityManager.contains(menu)).isFalse();
+    }
+
+    /**
+     * 모든 영속된 엔티티객체를 영속성 컨텍스트로부터 제거
+     */
+    @Test
+    @DisplayName("준영속 clear")
+    void test5() {
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L);
+        Menu menu11 = entityManager.find(Menu.class, 11L);
+        assertThat(entityManager.contains(menu10)).isTrue();
+        assertThat(entityManager.contains(menu11)).isTrue();
+        // when
+        entityManager.clear(); // 모든 영속 객체 제거
+        // 영속성 컨텍스트 1차캐시 안에 존재하지 않으므로 DB질의를 다시 함
+        Menu menu10_2 = entityManager.find(Menu.class, 10L);
+        // then
+        assertThat(entityManager.contains(menu10)).isFalse();
+        assertThat(entityManager.contains(menu11)).isFalse();
+    }
+
+    /**
+     * remove를 호출하면 단순히 영속성 컨텍스트에서 제거할뿐 아니라 db로 delete요청까지 질의함
+     *
+     * flush : 영속성 컨텍스트의 변경사항으로 실제 DB에 동기화하는 작업
+     *  - 트랜잭션 커밋시 flush처리됨
+     */
+    @Test
+    @DisplayName("삭제 remove")
+    void test6() {
+        // given
+        Menu menu2 = entityManager.find(Menu.class, 2L);
+        System.out.println(menu2);
+        // when
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            entityManager.remove(menu2); // 영속성 컨텍스트에서 삭제처리
+//            entityManager.flush(); // delete 쿼리 질의
+            transaction.commit(); // 커밋 (위의 flush코드 없으면 이때 delete 쿼리 질의 + 커밋)
+        } catch (Exception e){
+            transaction.rollback();
+            e.printStackTrace();
+        }
+        // then
+        assertThat(entityManager.contains(menu2)).isFalse();
+    }
+
+    /**
+     * 준영속 객체를 다시 영속성 컨텍스트에 포함시키기
+     * - 동일한 PK를 가진 엔티티 객체가 없으면 우선 db에서 조회 후 변경사항을 적용
+     * - 동일한 PK를 가진 엔티티 객체가 있으면 수정(갱신)
+     */
+    @Test
+    @DisplayName("다시 영속시키기 merge")
+    void test7() {
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L);
+        System.out.println(menu10);
+        entityManager.detach(menu10);
+        assertThat(entityManager.contains(menu10)).isFalse();
+        // when
+        String newMenuName = "수박죽";
+        menu10.setMenuName(newMenuName);
+        // PK가 10인 Menu객체를 다시 db에서 조회하고, 그 후 menu10 객체와 병합 시도함
+        entityManager.merge(menu10); // 쿼리 날림
+        System.out.println("병합 완료");
+        // then
+        Menu menu10_2 = entityManager.find(Menu.class, 10L);
+        assertThat(menu10_2.getMenuName()).isEqualTo(newMenuName);
+        // 수정사항 DB 반영
+        entityManager.getTransaction().begin();
+        entityManager.getTransaction().commit(); // 시작된 트랜잭션을 가져와서 커밋
+    }
+
+    @Test
+    @DisplayName("영속성 컨텍스트 종료 close")
+    void test8() {
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L);
+        // when
+        entityManager.close();
+        // then
+        assertThatThrownBy(()->{
+            entityManager.find(Menu.class, 10L);
+        }).isInstanceOf(IllegalStateException.class); // 예외가 던져지는 코드인가? (close된 것을 find하려고 하기 때문에 예외 던져짐)
     }
 }

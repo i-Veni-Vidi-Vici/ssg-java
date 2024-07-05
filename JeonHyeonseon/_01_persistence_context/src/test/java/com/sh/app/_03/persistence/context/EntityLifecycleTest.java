@@ -7,6 +7,7 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * <pre>
@@ -107,5 +108,109 @@ public class EntityLifecycleTest {
         // then
         assertThat(menu1).isSameAs(menu2);
         assertThat(entityManager.contains(menu1)).isTrue();
+    }
+
+    /**
+     * 영속상태의 entity객체를 더이상 영속 컨텍스트에서 관리하지 않도록 하는 것이다. (자주 사용하지 않음)
+     */
+    @Test
+    @DisplayName("준영속 detach")
+    void test4() {
+        // given
+        Menu menu = entityManager.find(Menu.class, 10L);
+        System.out.println(menu); // 영속상태
+        // when
+        entityManager.detach(menu); // detach하게 되면 가지고 있지 않는다.
+        // then
+        assertThat(entityManager.contains(menu)).isFalse();
+    }
+
+    /**
+     * 모든 영속된 엔티티 객체를 영속성 컨텍스트로부터 제거한다.
+     */
+    @Test
+    @DisplayName("준영속 clear")
+    public void test5() throws Exception{
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L); // db로 조회
+        Menu menu11 = entityManager.find(Menu.class, 11L); // db로 조회
+        assertThat(entityManager.contains(menu10)).isTrue(); // 엔티티매니저야. 너 메뉴10 가지고 있니
+        assertThat(entityManager.contains(menu11)).isTrue(); // 엔티티매니저야. 너 메뉴11 가지고 있니
+        // when
+        entityManager.clear(); // 모든 영속객체를 제거. 쿼리 두개가 날아간다.
+        // 영속석 컨텍스트 1차캐시 안에 존재하지 않으므로 DB질의를 다시 하게 된다.
+        Menu menu10_2 = entityManager.find(Menu.class, 10L); // 이렇게 작성을 또 하게 되면 쿼리를 또 날리는 것이다.
+        // then
+        assertThat(entityManager.contains(menu10)).isFalse();
+        assertThat(entityManager.contains(menu11)).isFalse();
+    }
+
+    /**
+     * remove를 호출하면, 단순히 영속성컨텍스트에서 제거뿐 아니라, db로 delete요청까지 질의한다.
+     *
+     * flush : 영속성 컨텍스트의 변경사항을 실제 db에 동기화하는 작업. 커밋하면 flush작업이 일어난다.
+     *  - 트랜잭션 커밋시에 flush처리된다.
+     */
+    @Test
+    @DisplayName("삭제 remove")
+    void test6() {
+        // given
+        Menu menu2 = entityManager.find(Menu.class, 2L); // 조회쿼리
+        System.out.println(menu2);
+        // when
+        EntityTransaction transaction = entityManager.getTransaction(); // delete쿼리까지 삭제하려면 트랜잭션처리가 필요하다.
+        transaction.begin();
+        try {
+            entityManager.remove(menu2); // 영속성컨텍스트에서 삭제처리가 된다.
+//            entityManager.flush(); // delete 쿼리 질의하는 곳
+//            transaction.commit(); // 커밋하는 곳
+            transaction.commit(); // delete쿼리 질의 & 커밋
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+        // then
+        assertThat(entityManager.contains(menu2)).isFalse();
+    }
+
+    /**
+     * 준영속객체를 다시 영속성 컨텍스트에 포함시킬 수 있다.
+     *  - 동일한 PK를 가진 엔티티객체가 없다면 우선 DB에서 조회후, 변경사항을 적용한다.
+     *  - 동일한 PK를 가진 엔티티객체가 있다면 수정(갱신)
+     */
+    @Test
+    @DisplayName("다시 영속시키기 merge")
+    void test7() {
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L);
+        System.out.println(menu10);
+        entityManager.detach(menu10);
+        assertThat(entityManager.contains(menu10)).isFalse();
+        // when
+        String newMenuName = "수박죽";
+        menu10.setMenuName(newMenuName);// 코다리마늘빵 -> 수박죽
+        // PK가 10인 Menu객체를 다시 DB에서 조회 후에 menu10객체와 병합을 시도한다.
+        entityManager.merge(menu10); // 쿼리 날아오는 지점. select 질의
+        System.out.println("병합 완료!");
+        // then
+        Menu menu10_2 = entityManager.find(Menu.class, 10L); // 이때 쿼리 날아가지 않는다.
+        assertThat(menu10_2.getMenuName()).isEqualTo(newMenuName);
+
+        // 단순히 DB반영이 목적이라면
+        entityManager.getTransaction().begin();
+        entityManager.getTransaction().commit(); // 시작된 트랜잭션을 가져와서 커밋한다.
+    }
+
+    @Test
+    @DisplayName("영속성컨텍스트 종료 close")
+    void test8() {
+        // given
+        Menu menu10 = entityManager.find(Menu.class, 10L);
+        // when
+        entityManager.close();
+        // then
+        assertThatThrownBy(() -> {
+            entityManager.find(Menu.class, 10L);
+        }).isInstanceOf(IllegalStateException.class); // 예외가 안 던져지면 테스트 실패하게 된다.
     }
 }
