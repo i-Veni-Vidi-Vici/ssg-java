@@ -135,7 +135,7 @@ public class JdbcTest {
      *  -
      * </pre>
      */
-    @Test //🌟🌟🌟🌟강사님이 주신 코드 복붙하기이ㅣ🌟🌟🌟🌟🌟
+    @Test
     @DisplayName("동일 객체를 보장할 수 없다.")
     void test4() throws SQLException{
         // given
@@ -144,7 +144,8 @@ public class JdbcTest {
         System.out.println(menu1);
         System.out.println(menu2);
         // then
-        assertThat(menu1).isNotSameAs(menu2);
+        assertThat(menu1).usingRecursiveAssertion().isEqualTo(menu2); // 모든 값은 동등하다.
+        assertThat(menu1).isNotSameAs(menu2); // 하지만 같은 객체는 아니다.
     }
 
     private Menu getMenu(Long menuCode) throws SQLException {
