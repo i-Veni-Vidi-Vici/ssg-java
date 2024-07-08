@@ -27,4 +27,8 @@ public class User {
     private String website;
     @Column(name = "aboutMe", table = "tbl_userInfo", nullable = false)
     private String bio;
+
+    public void changeBio(String newUserBio) {
+        this.bio = newUserBio;
+    }
 }

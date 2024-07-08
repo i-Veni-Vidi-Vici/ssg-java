@@ -22,4 +22,8 @@ public class SNSInfo {
     private int numberOfComments;
     @Column(name = "numberOfStories", table = "tbl_snsInfo")
     private int numberOfStories;
+
+    public void changeNumOfLike(int newNumOfLike) {
+        this.numberOfLikes = newNumOfLike;
+    }
 }

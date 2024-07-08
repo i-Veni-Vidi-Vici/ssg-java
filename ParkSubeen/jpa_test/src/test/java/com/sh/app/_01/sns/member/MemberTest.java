@@ -5,8 +5,13 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 
 public class MemberTest {
     // application-scope: 1개만 만들어서 재사용 (thread-safe)
@@ -95,11 +100,24 @@ public class MemberTest {
     }
 
     @Test
-    @DisplayName("user")
+    @DisplayName("member entity 등록")
     void test2() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = bCryptPasswordEncoder.encode("pass123");
+//        System.out.println(encodedPassword);
+
         // given
         Member member = Member.builder()
+                .username("subkka")
+                .emailAddress("beeniaa@naver.com")
+                .password(encodedPassword)
+                .profilePicture(new Picture("강아지", "static/dog.jpeg"))
+                .signUpDate(LocalDateTime.of(2024, 7, 8, 12, 10, 35))
+                .lastLoginDate(LocalDateTime.of(2024, 7, 8, 21, 00, 30))
+                .accountStatus(AccountStatus.활성)
                 .user(new User("박수빈", LocalDate.of(1999,1,14), Gender.FEMALE, "010-1111-1111", "서울시", "ssg0114@ssg.com", "안녕하세요"))
+                .snsInfo(new SNSInfo(150, 150, 0, 0, 0, 1))
+                .settingInfo(new SettingInfo(Notification.Y, Account.PRIVATE, Locale.KOREA, TimeZone.getDefault(), Theme.다크모드))
                 .build();
         // when
         EntityTransaction transaction = entityManager.getTransaction();
@@ -112,6 +130,98 @@ public class MemberTest {
             e.printStackTrace();
         }
         // then
+        entityManager.detach(member);
+        Member member2 = entityManager.find(Member.class, member.getUserID());
+        System.out.println(member2);
+    }
+
+    @Test
+    @DisplayName("User Bio 수정")
+    void test3() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = bCryptPasswordEncoder.encode("pass123");
+
+        // given
+        Member member = Member.builder()
+                .username("subkka")
+                .emailAddress("beeniaa@naver.com")
+                .password(encodedPassword)
+                .profilePicture(new Picture("강아지", "static/dog.jpeg"))
+                .signUpDate(LocalDateTime.of(2024, 7, 8, 12, 10, 35))
+                .lastLoginDate(LocalDateTime.of(2024, 7, 8, 21, 00, 30))
+                .accountStatus(AccountStatus.활성)
+                .user(new User("박수빈", LocalDate.of(1999,1,14), Gender.FEMALE, "010-1111-1111", "서울시", "ssg0114@ssg.com", "안녕하세요"))
+                .snsInfo(new SNSInfo(150, 150, 0, 0, 0, 1))
+                .settingInfo(new SettingInfo(Notification.Y, Account.PRIVATE, Locale.KOREA, TimeZone.getDefault(), Theme.다크모드))
+                .build();
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            entityManager.persist(member);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
+        String newUserBio = "안녕하세요, 박수빈입니다😊";
+
+        // when
+        transaction.begin();
+        try {
+            member.changeUserBio(newUserBio);
+            transaction.commit();
+        } catch(Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
+        entityManager.detach(member);
+        Member member2 = entityManager.find(Member.class, member.getUserID());
+        System.out.println(member2);
+    }
+
+    @Test
+    @DisplayName("SNS 좋아요 수 수정")
+    void test4() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = bCryptPasswordEncoder.encode("pass123");
+
+        // given
+        Member member = Member.builder()
+                .username("subkka")
+                .emailAddress("beeniaa@naver.com")
+                .password(encodedPassword)
+                .profilePicture(new Picture("강아지", "static/dog.jpeg"))
+                .signUpDate(LocalDateTime.of(2024, 7, 8, 12, 10, 35))
+                .lastLoginDate(LocalDateTime.of(2024, 7, 8, 21, 00, 30))
+                .accountStatus(AccountStatus.활성)
+                .user(new User("박수빈", LocalDate.of(1999,1,14), Gender.FEMALE, "010-1111-1111", "서울시", "ssg0114@ssg.com", "안녕하세요"))
+                .snsInfo(new SNSInfo(150, 150, 1, 10, 1, 1))
+                .settingInfo(new SettingInfo(Notification.Y, Account.PRIVATE, Locale.KOREA, TimeZone.getDefault(), Theme.다크모드))
+                .build();
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            entityManager.persist(member);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
+        int newNumOfLike = 35;
+
+        // when
+        transaction.begin();
+        try {
+            member.changeNumOfLike(newNumOfLike);
+            transaction.commit();
+        } catch(Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
         entityManager.detach(member);
         Member member2 = entityManager.find(Member.class, member.getUserID());
         System.out.println(member2);
