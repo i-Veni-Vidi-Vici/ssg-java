@@ -38,7 +38,8 @@ public class QuestionEntityTest {
     @DisplayName("ddl-auto=create 확인")
     void test() {
         /**
-         *create table tbl_question_0202 (
+         * Hibernate:
+         *    create table tbl_question_0202 (
          *         id bigint not null auto_increment,
          *         text varchar(255),
          *         primary key (id)
@@ -139,23 +140,6 @@ public class QuestionEntityTest {
         try {
             entityManager.persist(question);
             transaction.commit();
-            /**
-             *     select
-             *         q1_0.id,
-             *         c1_0.question_id,
-             *         c1_0.idx,
-             *         c1_0.a,
-             *         c1_0.b,
-             *         q1_0.text
-             *     from
-             *         tbl_question_0202 q1_0
-             *     left join
-             *         tbl_question_choice_0202 c1_0
-             *             on q1_0.id=c1_0.question_id
-             *     where
-             *         q1_0.id=?
-             */
-
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
