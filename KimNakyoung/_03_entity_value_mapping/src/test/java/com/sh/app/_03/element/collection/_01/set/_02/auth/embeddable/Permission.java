@@ -13,5 +13,5 @@ public class Permission {
     @Column(name = "url", nullable = false)
     private String url;
     @Column(name = "description", nullable = false)
-    private String desc;
+    private String description;
 }
