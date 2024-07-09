@@ -26,11 +26,11 @@ public class Role {
      */
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
-            name = "tbl_role_permission_0301",
-            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+        name = "tbl_role_permission_0301",
+        joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     @Column(name = "permission")
-    Set<String> permissions;
+    private Set<String> permissions;
 
     public void changePermissions(Set<String> newPermissions) {
         this.permissions = newPermissions;

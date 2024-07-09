@@ -34,7 +34,7 @@ public class RoleEntityTest {
     static void afterAll() {
         entityManagerFactory.close();
     }
-
+    
     @Test
     @DisplayName("ddl-auto=create 확인")
     void test() {
@@ -67,8 +67,8 @@ public class RoleEntityTest {
                 .id("ROLE_ADMIN")
                 .name("관리자")
                 .permissions(Set.of(
-                        new Permission("/admin/members", "관리자용 회원관리"),
-                        new Permission("/admin/roles", "관리자용 권한관리")
+                    new Permission("/admin/members", "관리자용 회원관리"),
+                    new Permission("/admin/roles", "관리자용 권한관리")
                 ))
                 .build();
         // when
@@ -78,7 +78,27 @@ public class RoleEntityTest {
             entityManager.persist(role);
             transaction.commit();
             /*
-
+                Hibernate:
+                    insert
+                    into
+                        tbl_role_0302
+                        (name, id)
+                    values
+                        (?, ?)
+                Hibernate:
+                    insert
+                    into
+                        tbl_role_permission_0302
+                        (role_id, description, url)
+                    values
+                        (?, ?, ?)
+                Hibernate:
+                    insert
+                    into
+                        tbl_role_permission_0302
+                        (role_id, description, url)
+                    values
+                        (?, ?, ?)
              */
         } catch (Exception e) {
             transaction.rollback();
@@ -89,16 +109,30 @@ public class RoleEntityTest {
         entityManager.clear();
 
         Role role2 = entityManager.find(Role.class, role.getId());
+        /*
+            select
+                r1_0.id,
+                r1_0.name,
+                p1_0.role_id,
+                p1_0.description,
+                p1_0.url
+            from
+                tbl_role_0302 r1_0
+            left join
+                tbl_role_permission_0302 p1_0
+                    on r1_0.id=p1_0.role_id
+            where
+                r1_0.id=?
+         */
         System.out.println(role2);
         assertThat(role2).isNotNull();
         assertThat(role2.getPermissions()).isNotEmpty();
     }
-
-
+    
     @Test
-    @DisplayName("Role 엔티티에 커미션들 수정하기")
+    @DisplayName("Role Entity의 permissions 수정하기")
     void test3() {
-        //given
+        // given
         Role role = Role.builder()
                 .id("ROLE_ADMIN")
                 .name("관리자")
@@ -112,31 +146,47 @@ public class RoleEntityTest {
         try {
             entityManager.persist(role);
             transaction.commit();
-
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
         }
-        //when
+        // when
         Set<Permission> newPermissions = Set.of(
-                new Permission("/admin/members", "관리자용 회원관리")
+            new Permission("/admin/members", "관리자용 회원관리")
         );
         transaction.begin();
         try {
-            //수정
-
+            // 수정
             role.changePermissions(newPermissions);
-            transaction.commit();
+            System.out.println(System.identityHashCode(role.getPermissions())); // 672058419
 
+            transaction.commit(); // flush작업중에 Set<Permission>객체가 대체되었다.
+            /*
+                Hibernate:
+                    delete
+                    from
+                        tbl_role_permission_0302
+                    where
+                        role_id=?
+                Hibernate:
+                    insert
+                    into
+                        tbl_role_permission_0302
+                        (role_id, description, url)
+                    values
+                        (?, ?, ?)
+
+
+             */
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
         }
 
-
-
-        //then
-        assertThat(role.getPermissions()).isSameAs(newPermissions);
+        // then
+        System.out.println(System.identityHashCode(role.getPermissions())); // 1378376287
+        System.out.println(System.identityHashCode(newPermissions)); // 672058419
+        assertThat(role.getPermissions()).isNotSameAs(newPermissions);
     }
-
+    
 }
