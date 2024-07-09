@@ -63,9 +63,9 @@ public class EmployeeEntityTest {
 //        EntityTransaction transaction = entityManager.getTransaction();
 //        transaction.begin();
 
+        // when
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
-
         /**
          * insert
          *     into
@@ -81,6 +81,7 @@ public class EmployeeEntityTest {
          *     values
          *         (?, ?, ?, 'manager')
          */
+
         // then
         assertThat(developer.getId()).isNotZero();
         assertThat(manager.getId()).isNotZero();
@@ -92,10 +93,6 @@ public class EmployeeEntityTest {
         // given
         Developer developer = new Developer(null, "홍길동", "010-1234-1234", "java");
         Manager manager = new Manager(null, "신사임당", "010-6789-6789", "M3");
-        // when
-//        EntityTransaction transaction = entityManager.getTransaction();
-//        transaction.begin();
-
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
         this.entityManager.flush();

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity(name = "Manager0402")
+@Entity
 @DiscriminatorValue("manager") // 🙉Manager 타입 구분하는 값을 manager로 지정(기본값 = Manager - class 이름!)
 @Data
 @NoArgsConstructor
