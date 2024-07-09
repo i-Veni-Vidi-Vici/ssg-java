@@ -2,7 +2,18 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="jpatest">
         <!-- entity클래스는 여기서 반드시 등록 후 사용 -->
-        <class>com.sh.app._02.embeddable._01.single.table.Restaurant</class>
+<!--        <class>com.sh.app._02.embeddable._01.single.table.Restaurant</class>-->
+<!--        <class>com.sh.app._03.element.collection._01.set._01.auth.Role</class>-->
+<!--        <class>com.sh.app._03.element.collection._02.list._01.question.Question</class>-->
+<!--        <class>com.sh.app._03.element.collection._03.map._01.setting.UserSetting</class>-->
+<!--        <class>com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting</class>-->
+
+        <class>com.sh.app._04.inheritance._01.single.table.Employee</class>
+        <class>com.sh.app._04.inheritance._01.single.table.Developer</class>
+        <class>com.sh.app._04.inheritance._01.single.table.Manager</class>
+        <class>com.sh.app._04.inheritance._02.joined.Employee</class>
+        <class>com.sh.app._04.inheritance._02.joined.Developer</class>
+        <class>com.sh.app._04.inheritance._02.joined.Manager</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
