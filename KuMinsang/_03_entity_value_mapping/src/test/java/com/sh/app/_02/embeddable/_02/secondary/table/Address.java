@@ -10,10 +10,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
-    @Column(name = "addr1")
+    @Column(name = "addr1", table="tbl_address")
     private String address1;
-    @Column(name = "addr2")
+    @Column(name = "addr2", table="tbl_address")
     private String address2;
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", table="tbl_address")
     private String zipCode;
 }
