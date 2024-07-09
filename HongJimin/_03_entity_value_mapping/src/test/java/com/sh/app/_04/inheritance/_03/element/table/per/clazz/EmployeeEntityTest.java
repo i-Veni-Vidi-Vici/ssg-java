@@ -48,7 +48,7 @@ public class EmployeeEntityTest {
          *         sequence_name varchar(255) not null,
          *         primary key (sequence_name)
          *     ) engine=InnoDB
-
+         * Hibernate:
          *     insert into hibernate_sequences(sequence_name, next_val) values ('default',0)
          * Hibernate:
          *     create table tbl_developer_0403 (
@@ -77,9 +77,6 @@ public class EmployeeEntityTest {
         Developer developer = new Developer(null, "홍길동", "010-1234-1234", "java");
         Manager manager = new Manager(null, "신사임당", "010-6789-6789", "M3");
         // when 이부분 @BeforeEach @AfterEach
-//        EntityTransaction transaction = entityManager.getTransaction();
-//        transaction.begin();
-
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
 
@@ -98,6 +95,21 @@ public class EmployeeEntityTest {
          *     where
          *         next_val=?
          *         and sequence_name=?
+         *   Hibernate:
+         *       select
+         *           tbl.next_val
+         *       from
+         *           hibernate_sequences tbl
+         *       where
+         *           tbl.sequence_name=? for update
+         *  Hibernate:
+         *       update
+         *           hibernate_sequences
+         *       set
+         *           next_val=?
+         *       where
+         *            next_val=?
+         *            and sequence_name=?
          * Hibernate:
          *     insert
          *     into
