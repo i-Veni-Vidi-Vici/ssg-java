@@ -12,16 +12,16 @@ import java.time.LocalDateTime;
 
 /**
  * <pre>
- * 컬럼 매핑 시 @Column 어노테이션에 사용 가능한 속성들
- * 1. name : 매핑할 테이블의 컬럼 이름
- * 2. insertable : 엔티티 저장 시 필드 저장 여부 (default : true)
- * 3. updatable : 엔티티 수정 시 필드 수정 여부 (default : true)
- * 4. table : 엔티티와 매핑될 테이블 이름. 하나의 엔티티를 두 개 이상의 테이블에 매핑할 때 사용. (@SecondaryTable 사용)
- * 5. nullable : null값 허용 여부 설정. not null 제약조건에 해당함 (true 기본값)
- * 6. unique : 컬럼의 유일성 제약 조건
- * (두 개 이상 컬럼에 unique 제약조건을 설정하기 위해서는 클래스 레벨에서 @Table의 uniqueConstraints 속성에 설정)
- * 7. columnDefinition : 직접 컬럼의 DDL을 지정
- * 8. length : 문자열 길이. String 타입에서만 사용. (default : 255)
+ * @GeneratedValue
+ * - 항상 @Id와 함께 작성한다.
+ * - strategy : 자동 생성 전략을 지정
+ *     - GenerationType.IDENTITY : 기본 키 생성을 데이터베이스에 위임(MySQL의 AUTO_INCREMENT)
+ *     - GenerationType.SEQUENCE : 데이터베이스 시퀀스 객체 사용(ORACLE의 SEQUENCE)
+ *     - GenerationType.TABLE : 키 생성 테이블 사용
+ *     - GenerationType.AUTO : 자동 선택 (MySQL이라면 IDENTITY, ORACLE이라면 SEQUENCE로 선택)
+ * - generator : strategy 값을 GenerationType.TABLE로 지정한 경우 사용되는 테이블 이름을 지정
+ * - initialValue : strategy 값을 GenerationType.SEQUENCE로 지정한 경우 시퀀스 초기값을 지정
+ * - allocationSize : strategy 값을 GenerationType.SEQUENCE로 지정한 경우 시퀀스 증가치를 지정
  * </pre>
  */
 @Entity(name = "Member0302") // 영속성 컨텍스트에서 관리되는 이름
