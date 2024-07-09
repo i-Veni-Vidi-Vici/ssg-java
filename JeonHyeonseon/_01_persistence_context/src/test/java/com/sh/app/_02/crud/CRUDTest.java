@@ -142,7 +142,7 @@ public class CRUDTest {
             // entity 등록/수정/삭제 코드 (DML 관련 코드)
             entityManager.remove(menu); // entity매니저야. 너가 가지고 있는 menu 지워. 실제로 영속성컨텍스트(메모리db)에서는 삭제된다.
             System.out.println("영속성컨텍스트 메뉴 객체의 정보가 삭제되었습니다. : " + menu);
-            transaction.commit(); // update쿼리가 나온다.
+            transaction.commit(); // delete쿼리가 나온다.
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
