@@ -6,12 +6,11 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
-import java.awt.*;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class QuestionTest {
+public class QuestionEntityTest {
     private static EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
@@ -40,17 +39,22 @@ public class QuestionTest {
     void test() {
         /**
          *  create table tbl_question (
-         *         id bigint not null auto_increment,
-         *         text varchar(255),
-         *         primary key (id)
-         *     ) engine=InnoDB
+         *                 id bigint not null auto_increment,
+         *                 text varchar(255),
+         *                 primary key (id)
+         *             ) engine=InnoDB
          *
-         *     create table tbl_question_choice (
-         *         idx integer not null,
-         *         question_id bigint not null,
-         *         text varchar(255),
-         *         primary key (idx, question_id)
-         *     ) engine=InnoDB
+         *    create table tbl_question_choice (
+         *                 idx integer not null,
+         *                 question_id bigint not null,
+         *                 text varchar(255),
+         *                 primary key (idx, question_id)
+         *             ) engine=InnoDB
+         *
+         *    alter table tbl_question_choice
+         *          add constraint FKnrcac8c0g5gp794wy85aecfoh
+         *          foreign key (question_id)
+         *          references tbl_question (id)
          */
     }
 
@@ -68,7 +72,8 @@ public class QuestionTest {
             entityManager.persist(question);
             transaction.commit();
             /**
-             * insert
+             * Hibernate:
+             *     insert
              *     into
              *         tbl_question
              *         (text)
@@ -157,7 +162,8 @@ public class QuestionTest {
             question2.changeChoices(newChoices);
             transaction.commit(); // ✨이 안에는 flush & commit이 다 포함되어 있음!
             /**
-             *   delete ✨update가 아니라 delete로 함! -> 🙉List의 개수가 바뀔 수 있기 때문!🙉
+             * Hibernate:
+             *     delete ✨update가 아니라 delete로 함! -> 🙉List의 개수가 바뀔 수 있기 때문!🙉
              *     from
              *         tbl_question_choice
              *     where
