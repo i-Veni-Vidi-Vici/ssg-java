@@ -1,4 +1,4 @@
-package com.sh.app._02.embeddable._02.secondary.table;
+package com.sh.app._01.sns.member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -10,10 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
-    @Column(name = "addr1", table="tbl_address")
     private String address1;
-    @Column(name = "addr2", table="tbl_address")
     private String address2;
-    @Column(name = "zip_code", table="tbl_address")
     private String zipCode;
 }
