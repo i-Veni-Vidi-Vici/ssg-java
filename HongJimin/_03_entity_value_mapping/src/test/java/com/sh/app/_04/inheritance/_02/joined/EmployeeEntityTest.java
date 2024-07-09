@@ -81,10 +81,7 @@ public class EmployeeEntityTest {
         // given
         Developer developer = new Developer(null, "홍길동", "010-1234-1234", "java");
         Manager manager = new Manager(null, "신사임당", "010-6789-6789", "M3");
-        // when 이부분 @BeforeEach @AfterEach
-//        EntityTransaction transaction = entityManager.getTransaction();
-//        transaction.begin();
-
+        // when
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
 
@@ -131,9 +128,6 @@ public class EmployeeEntityTest {
         // given
         Developer developer = new Developer(null, "홍길동", "010-1234-1234", "java");
         Manager manager = new Manager(null, "신사임당", "010-6789-6789", "M3");
-        // when
-
-
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
         this.entityManager.flush();
