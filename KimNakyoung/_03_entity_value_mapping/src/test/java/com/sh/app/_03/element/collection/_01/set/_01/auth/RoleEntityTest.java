@@ -35,7 +35,7 @@ public class RoleEntityTest {
     static void afterAll() {
         entityManagerFactory.close();
     }
-
+    
     @Test
     @DisplayName("ddl-auto=create 확인")
     void test() {
@@ -57,7 +57,7 @@ public class RoleEntityTest {
                references tbl_role_0301 (id)
          */
     }
-
+    
     @Test
     @DisplayName("Role Entity 등록 - FetchType.LAZY")
     void test2() {
@@ -115,12 +115,12 @@ public class RoleEntityTest {
         */
         System.out.println(role2.getName()); // 관리자
         /*
-            Hibernate:
+            Hibernate: 
                 select
                     p1_0.role_id,
-                    p1_0.permission
+                    p1_0.permission 
                 from
-                    tbl_role_permission_0301 p1_0
+                    tbl_role_permission_0301 p1_0 
                 where
                     p1_0.role_id=?
          */
@@ -182,12 +182,12 @@ public class RoleEntityTest {
                 r1_0.id,
                 r1_0.name,
                 p1_0.role_id,
-                p1_0.permission
+                p1_0.permission 
             from
-                tbl_role_0301 r1_0
+                tbl_role_0301 r1_0 
             left join
-                tbl_role_permission_0301 p1_0
-                    on r1_0.id=p1_0.role_id
+                tbl_role_permission_0301 p1_0 
+                    on r1_0.id=p1_0.role_id 
             where
                 r1_0.id=?
         */
@@ -260,5 +260,5 @@ public class RoleEntityTest {
 
 
     }
-
+    
 }
