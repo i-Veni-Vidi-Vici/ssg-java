@@ -52,31 +52,31 @@ public class MemberEntityEnumTest {
             ) engine=InnoDB
          */
     }
-
+    
     @Test
     @DisplayName("Member Entity객체 등록")
     void test2() {
         // given
         Member honggd = Member.builder()
-                .id("honggd")
-                .password("1234")
-                .name("홍길동")
-                .gender(Gender.MALE)
-                .memberRole(MemberRole.ROLE_MEMBER)
-                .email("honggd@gmail.com")
-                .createdAt(LocalDateTime.now())
-                .enabled(true)
-                .build();
+                            .id("honggd")
+                            .password("1234")
+                            .name("홍길동")
+                            .gender(Gender.MALE)
+                            .memberRole(MemberRole.ROLE_MEMBER)
+                            .email("honggd@gmail.com")
+                            .createdAt(LocalDateTime.now())
+                            .enabled(true)
+                            .build();
         Member sinsa = Member.builder()
-                .id("sinsa")
-                .password("1234")
-                .name("신사임당")
-                .gender(Gender.FEMALE)
-                .memberRole(MemberRole.ROLE_ADMIN)
-                .email("sinsa@gmail.com")
-                .createdAt(LocalDateTime.now())
-                .enabled(true)
-                .build();
+                            .id("sinsa")
+                            .password("1234")
+                            .name("신사임당")
+                            .gender(Gender.FEMALE)
+                            .memberRole(MemberRole.ROLE_ADMIN)
+                            .email("sinsa@gmail.com")
+                            .createdAt(LocalDateTime.now())
+                            .enabled(true)
+                            .build();
 
         // when
         EntityTransaction transaction = entityManager.getTransaction();

@@ -1,4 +1,4 @@
-package com.sh.app._06.composite.primary.key._01.embeddedid;
+package com.sh.app._06.composite.primary.key._01.embeddedId;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,11 +32,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+// 임베디드 받을 클래스. ProfessorClazzId가 ProfessorClazz에 임베디드 됐다
 public class ProfessorClazz {
-    @EmbeddedId
+    @EmbeddedId // 복합PK키
     private ProfessorClazzId id;
 
     @Enumerated(EnumType.STRING)
     private Classroom classroom;
-
 }
