@@ -26,7 +26,7 @@ public class Role {
      * </pre>
      */
     @Embedded
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.EAGER) // 🙉어차피 한 흐름이어서 cascade가 필요 없음
     @CollectionTable(
             name = "tbl_role_permission_0302",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
