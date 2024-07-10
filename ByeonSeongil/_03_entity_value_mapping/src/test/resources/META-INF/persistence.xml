@@ -2,8 +2,8 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="jpatest">
         <!-- entity클래스는 여기서 반드시 등록후 사용한다. -->
-<!--        <class>com.sh._03.element.collection._02.list._01.question.Question</class>-->
-<!--        <class>com.sh._03.element.collection._02.list._02.question.embeddable.Question</class>-->
+<!--        <class>com.sh._03.element.collection._02.list._01.inquiry.Question</class>-->
+<!--        <class>com.sh._03.element.collection._02.list._02.inquiry.embeddable.Question</class>-->
 <!--        <class>com.sh._03.element.collection._02.list._03.map._01.setting.UserSetting</class>-->
 <!--        <class>com.sh._03.element.collection._02.list._03.map._02.setting.embeddable.UserSetting</class>-->
 
