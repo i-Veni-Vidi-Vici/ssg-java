@@ -1,13 +1,12 @@
 package com.sh._03_spring_crud.menu.model.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class MenuRegistDto {
     private String menuName;
     private int menuPrice;

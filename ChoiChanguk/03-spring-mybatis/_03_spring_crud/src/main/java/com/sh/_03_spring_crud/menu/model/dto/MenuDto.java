@@ -1,13 +1,12 @@
 package com.sh._03_spring_crud.menu.model.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class MenuDto {
     private Long menuCode;
     private String menuName;
@@ -15,5 +14,3 @@ public class MenuDto {
     private int categoryCode;
     private OrderableStatus orderableStatus;
 }
-
-

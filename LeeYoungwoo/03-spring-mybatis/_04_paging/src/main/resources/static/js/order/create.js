@@ -1,0 +1,48 @@
+document.orderCreateFrm.onsubmit = (e) => {
+  const $frm = e.target;
+  const $fieldsets = $frm.querySelectorAll('fieldset');
+  const $totalOrderPrice = $frm.totalOrderPrice; // name값으로 직접 참조
+  let totalOrderPrice = 0;
+  // 총 결제금액 -> #totalOrderPrice.value 대입
+    [...$fieldsets].forEach(($fieldset) => {
+            const [, $menuCode, $orderAmout, $menuPrice] = $fieldset.children;
+            console.log($menuCode, $orderAmout, $menuPrice);
+            totalOrderPrice += $orderAmout.value * $menuPrice.value;
+    });
+    $totalOrderPrice.value = totalOrderPrice;
+  // 총 결제금액 확인
+    confirm(`총 결제금액은 ${totalOrderPrice}원입니다. 주문하시겠습니까?`) || e.preventDefault();
+
+};
+
+const removeMenu = ($btn) => {
+    const $fieldset = $btn.parentElement;
+    $fieldset.remove();
+};
+
+const addMenu = () => {
+    const $fieldsets = document.querySelectorAll("fieldset");
+    // 부여된 최대 menuNo 가져오기
+    // 유사배열을 찐 배열로 변환하기 [...$fieldsets], Array.from[$fieldsets]
+    const maxMenuNo = Array.from($fieldsets).reduce((max, $fieldset) => {
+        const menuNo = Number($fieldset.dataset.menuNo)
+        return max > menuNo ? max : menuNo;
+    }, 0);
+    const nextMenuNo = maxMenuNo + 1;
+    const html = `
+        <fieldset data-menu-no="${nextMenuNo}">
+          <legend>메뉴${nextMenuNo}</legend>
+          <input type="text" name="orderMenus[${nextMenuNo - 1}].menuCode" placeholder="메뉴코드" value="">
+          <input type="text" name="orderMenus[${nextMenuNo - 1}].orderAmount" placeholder="수량" value="">
+          <input type="number" class="menu-price" id="menu-price${nextMenuNo}" value="">
+          <button type="button" class="btn btn-danger" onclick="removeMenu(this)">X</button>
+        </fieldset>
+      `;
+    const $menuWrapper = document.querySelector(".menu-wrapper");
+    // 새 요소를 추가하는 메소드
+    // before() : 이전 형제요소로 추가하기 - insertAdjacentHTML('beforebegin', html)
+    // prepend() : 첫번째 자식요소로 추가하기 - insertAdjacentHTML('afterbegin', html)
+    // append() : 마지막 자식요소로 추가하기 - insertAdjacentHTML('beforeend', html)
+    // after() : 다음 형제요소로 추가하기 - insertAdjacentHTML('afterend', html)
+    $menuWrapper.insertAdjacentHTML('beforeend', html);
+};
