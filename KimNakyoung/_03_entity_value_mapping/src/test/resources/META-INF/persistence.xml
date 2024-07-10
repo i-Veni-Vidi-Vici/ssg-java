@@ -1,20 +1,34 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="jpatest">
         <!-- entity클래스는 여기서 반드시 등록후 사용한다. -->
-        <class>com.sh.app._02.embeddable._01.single.table.Restaurant</class>
-        <class>com.sh.app._01.aggregate.Address</class>
-        <class>com.sh.app._02.embeddable._02.secondary.table.Writer</class>
-        <class>com.sh.app._02.embeddable._03.attribute.override.User</class>
-        <class>com.sh.app._03.element.collection._01.set._02.auth.embeddable.Role</class>
+        <!--        <class>com.sh.app._02.embeddable._01.single.table.Restaurant</class>-->
+        <!--        <class>com.sh.app._02.embeddable._02.secondary.table.Writer</class>-->
+        <!--        <class>com.sh.app._02.embeddable._03.attribute.override.User</class>-->
+        <!--        <class>com.sh.app._03.element.collection._01.set._01.auth.Role</class>-->
+        <!--        <class>com.sh.app._03.element.collection._01.set._02.auth.embeddable.Role</class>-->
+        <!--        <class>com.sh.app._03.element.collection._02.list._01.question.Question</class>-->
+        <!--        <class>com.sh.app._03.element.collection._02.list._02.question.embeddable.Question</class>-->
+        <!--        <class>com.sh.app._03.element.collection._03.map._01.setting.UserSetting</class>-->
+        <!--        <class>com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting</class>-->
 
-<!--        <class>com.sh.app._03.persistence.context.Menu</class>-->
+        <!--        <class>com.sh.app._04.inheritance._01.single.table.Employee</class>-->
+        <!--        <class>com.sh.app._04.inheritance._01.single.table.Developer</class>-->
+        <!--        <class>com.sh.app._04.inheritance._01.single.table.Manager</class>-->
+        <!--        <class>com.sh.app._04.inheritance._02.joined.Employee</class>-->
+        <!--        <class>com.sh.app._04.inheritance._02.joined.Developer</class>-->
+        <!--        <class>com.sh.app._04.inheritance._02.joined.Manager</class>-->
+        <class>com.sh.app._04.inheritance._03.table.per.clazz.Employee</class>
+        <class>com.sh.app._04.inheritance._03.table.per.clazz.Developer</class>
+        <class>com.sh.app._04.inheritance._03.table.per.clazz.Manager</class>
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb"/>
             <property name="jakarta.persistence.jdbc.user" value="sh"/>
             <property name="jakarta.persistence.jdbc.password" value="sh"/>
-<!--            실행하는 sql구문을 여러줄에 걸쳐 확인하기 위한 속성-->
+            <!-- 실행하는 sql구문을 여러줄에 걸쳐 확인하기 위한 속성 -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <!-- DDL 자동생성 옵션 -->
