@@ -7,6 +7,8 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.*;
 
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -66,5 +68,52 @@ public class MembershipCard2UserTest {
          */
     }
 
+    @Test
+    @DisplayName("MembershipCard_User 등록")
+    void test2() {
+        User user=User.builder()
+                .email("honggd@naver.com")
+                .name("홍길동")
+                .build();
+
+        MembershipCard membershipCard = MembershipCard.builder()
+                .number("1111-2222-3333-4444")
+                .owner(user)
+                .expiryDate(YearMonth.of(2028,7))
+                .enabled(true)
+                .build();
+
+        this.entityManager.persist(user);
+        this.entityManager.persist(membershipCard);
+        this.entityManager.flush(); // 쿼리 날라감
+
+        // 지금 위에는 영속성컨텍스트에 존재해서 select쿼리가 안날라간다 그래서
+        this.entityManager.clear(); // 여기서 영속성객체를 제거 한다 (준영속처리)
+        MembershipCard membershipCard2=entityManager.find(MembershipCard.class,membershipCard.getNumber());
+        System.out.println("membershipCard2 = " + membershipCard2);
+
+        assertThat(membershipCard2).isNotNull();
+        assertThat(membershipCard2.getOwner()).isNotNull();
+
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
