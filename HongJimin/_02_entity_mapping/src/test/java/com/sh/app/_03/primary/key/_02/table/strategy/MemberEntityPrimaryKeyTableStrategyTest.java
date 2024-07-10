@@ -91,7 +91,7 @@ public class MemberEntityPrimaryKeyTableStrategyTest {
         transaction.begin();
         try {
             entityManager.persist(honggd);
-            entityManager.persist(sinsa);
+//            entityManager.persist(sinsa);
             transaction.commit();
 
             /**

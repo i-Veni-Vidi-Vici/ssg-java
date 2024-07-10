@@ -12,13 +12,13 @@ import java.time.LocalDateTime;
 
 /**
  * <pre>
- *     ## Access
- *
+ *   @Access
  * - JPA가 엔티티의 필드값을 읽거나 쓰기하는 방식을 결정함
- * - `@Access(AccessType.*FIELD*)` → 기본값
+ * - `@Access(AccessType.*FIELD*)` → ✨기본값
  *     - field에 직접 접근해서 읽기/쓰기 처리
  * - `@Access(AccessType.*PROPERTY*)`
  *     - Getter/Setter를 사용해 읽기/쓰기 처리
+ *     - @Id @GeneratedValue @Column 모두 getter위에 작성해야 한다.
  * </pre>
  */
 @Entity(name = "Member0502") // 영속성 컨텍스트에서 관리되는 이름
