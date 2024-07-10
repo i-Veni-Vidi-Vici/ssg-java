@@ -7,8 +7,8 @@
         <class>com.sh.app._02.embeddable._03.attribute.override.User</class>
         <class>com.sh.app._03.element.collection._01.set._01.auth.Role</class>
         <class>com.sh.app._03.element.collection._01.set._02.auth.embeddable.Role</class>
-        <class>com.sh.app._03.element.collection._02.list._01.question.Question</class>
-        <class>com.sh.app._03.element.collection._02.list._02.question.embeddable.Question</class>
+        <class>com.sh.app._03.element.collection._02.list._01.inquiry.Question</class>
+        <class>com.sh.app._03.element.collection._02.list._02.inquiry.embeddable.Question</class>
         <class>com.sh.app._03.element.collection._03.map._01.setting.UserSetting</class>
         <class>com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting</class>
 
