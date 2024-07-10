@@ -3,6 +3,7 @@
     <persistence-unit name="jpatest">
         <!-- entity클래스는 여기서 반드시 등록 후 사용한다. -->
         <class>com.sh.app._01.sns.member.Member</class>
+        <class>com.sh.app._02.survey.Survey</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
