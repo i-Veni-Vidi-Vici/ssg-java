@@ -11,6 +11,7 @@
 <!--            실행하는 sql구문을 여러줄에 걸쳐 확인하기 위한 속성-->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+
 <!--            DDL 자동생성 옵션-->
             <!-- DDL 자동생성 옵션 -->
             <!-- 개발초기 -->
