@@ -20,7 +20,7 @@ public class Game {
     private Long id;
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "game_id") // tbl_game_member.game_id컬럼(FK)이 tbl_game.id컬럼(PK)을 참조
-    @MapKeyColumn(name = "role_name")
+    @MapKeyColumn(name = "role_name") // role_name을 Map의 key로 쓴다는 의미
     @Builder.Default
     private Map<String, GameMember> participants = new HashMap<>();
     @Column(name = "game_date")

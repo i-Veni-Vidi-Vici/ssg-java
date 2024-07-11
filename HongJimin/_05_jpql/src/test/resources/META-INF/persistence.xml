@@ -2,24 +2,15 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="jpatest">
         <!-- entity 클래스는 여기서 반드시 등록 후 사용한다.-->
-
-<!--        <class>com.sh.app._01.one2one._01.non.identifying.User</class>-->
-<!--        <class>com.sh.app._01.one2one._01.non.identifying.MembershipCard</class>-->
-<!--        <class>com.sh.app._01.one2one._02.identifying.Person</class>-->
-<!--        <class>com.sh.app._01.one2one._02.identifying.Vote</class>-->
-<!--        <class>com.sh.app._02.many2one.Grade</class>-->
-<!--        <class>com.sh.app._02.many2one.Review</class>-->
-<!--        <class>com.sh.app._02.many2one.Restaurant</class>-->
-<!--        <class>com.sh.app._03.one2many._01.set.Team</class>-->
-<!--        <class>com.sh.app._03.one2many._01.set.Player</class>-->
-<!--        <class>com.sh.app._03.one2many._02.list.Inquiry</class>-->
-<!--        <class>com.sh.app._03.one2many._02.list.Survey</class>-->
-<!--        <class>com.sh.app._03.one2many._03.map.Game</class>-->
-<!--        <class>com.sh.app._03.one2many._03.map.GameMember</class>-->
-<!--        <class>com.sh.app._04.persist.cascade.Club</class>-->
-<!--        <class>com.sh.app._04.persist.cascade.Student</class>-->
-        <class>com.sh.app._05.aggregate.association.Student</class>
-        <class>com.sh.app._05.aggregate.association.Department</class>
+<!--        <class>com.sh.app._01.jpql.Menu</class>-->
+<!--        <class>com.sh.app._02.parameter.Menu</class>-->
+<!--        <class>com.sh.app._03.projection.MenuEntity</class>-->
+<!--        <class>com.sh.app._03.projection.Category</class>-->
+<!--        <class>com.sh.app._04.grouping.Menu</class>-->
+<!--        <class>com.sh.app._05.paging.Menu</class>-->
+        <class>com.sh.app._06.join.Category</class>
+        <class>com.sh.app._06.join.Menu</class>
+        <class>com.sh.app._06.join.MenuEntity</class>
 
 
 
@@ -27,7 +18,7 @@
         <!-- test 할 때, 필요한거 빼고 주석처리 해도됨 -->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/menudb"/>
             <property name="jakarta.persistence.jdbc.user" value="sh"/>
             <property name="jakarta.persistence.jdbc.password" value="sh"/>
             <!-- 실행하는 sql 구문을 여러줄에 걸쳐 확인하기 위한 속성-->
@@ -42,7 +33,7 @@
             <!-- ✨운영시, 위에거 절대 쓰면 안됨!! -->
             <!-- validate : 생성/수정 DDL은 실행하지 않고, 유효성검사만 수행(테이블/컬럼 매핑에 문제있는 경우, 예외 던짐) -->
             <!-- none : 아무것도 하지 않음, 기본값 -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/><!-- value="create"이면 menudb 다 날아감 -->
         </properties>
     </persistence-unit>
 </persistence>
