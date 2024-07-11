@@ -1,14 +1,11 @@
-package com.sh.app._03.one2many._04.persist.cascade;
+package com.sh.app._04.persist.cascade;
 
 
-import com.sh.app._03.one2many._03.map.Game;
-import com.sh.app._03.one2many._03.map.GameMember;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
-import java.util.Map;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
