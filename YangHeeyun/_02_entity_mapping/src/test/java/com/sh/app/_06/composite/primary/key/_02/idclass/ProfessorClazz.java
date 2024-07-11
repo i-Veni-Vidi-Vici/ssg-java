@@ -26,6 +26,7 @@ import lombok.NoArgsConstructor;
  * 다만 @EmbeddedId 가 조금 더 객체 지향다운 방법이고, @IdClass는 관계형 데이터 베이스에 가까운 방법이다.
  * </pre>
  */
+
 @Entity(name = "ProfessorClazz0602")
 @Table(name = "tbl_professor_clazz0602")
 @Data
@@ -43,5 +44,4 @@ public class ProfessorClazz {
 
     @Enumerated(EnumType.STRING)
     private Classroom classroom;
-
 }

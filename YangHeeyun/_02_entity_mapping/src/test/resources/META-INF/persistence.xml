@@ -9,7 +9,8 @@
         <class>com.sh.app._04._enum.Member</class>
         <class>com.sh.app._05.access._01.field.Member</class>
         <class>com.sh.app._05.access._02.property.Member</class>
-        <class>com.sh.app._06.composite.primary.key._01.embeddedid.ProfessorClazz</class>
+        <class>com.sh.app._06.composite.primary.key._01.embeddedId.ProfessorClazz</class>
+        <class>com.sh.app._06.composite.primary.key._02.idclass.ProfessorClazz</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb"/>

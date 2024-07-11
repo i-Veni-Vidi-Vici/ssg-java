@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
  *
  *  STRING 사용 시의 장점은 저장된 enum의 순서가 바뀌거나 enum이 추가 되어도 안전하다는 것이고
  *  단점은 데이터 베이스에 저장 되는 데이터의 크기가 ordinal에 비해 크다는 것이다.
- *  (mysql의 enum타입을 사용하면, 노출되는 값은 name값이지만, 내부적으로 숫자값으로 관리하기떄문에 효율성 역시 좋다.)
+ *  (mysql의 enum타입을 사용하면, 노출되는 값 name값이지만, 내부적으로는 숫자값으로 관리하기때문에 효율성 역시 좋다.)
  * </pre>
  */
 @Entity(name = "Member04")
@@ -41,11 +41,11 @@ public class Member {
     private String name;
 
     @Column(name = "member_gender")
-    // enum은 Enumerated를 써줘야한다
-    @Enumerated(EnumType.STRING) // enum name값을 문자열로 db에서 관리
+    @Enumerated(EnumType.ORDINAL) // enum name 선언 인덱스를 db에서 관리. Member -> 0, Female -> 1
     private Gender gender;
 
     @Column(name = "member_role")
+    @Enumerated(EnumType.STRING) // enum name값은 문자열로 db에서 관리
     private MemberRole memberRole;
 
     @Column(name = "member_email", unique = true)
@@ -54,5 +54,6 @@ public class Member {
     private LocalDateTime createdAt;
     @Column(name = "member_enabled")
     private boolean enabled;
+    
 
 }
