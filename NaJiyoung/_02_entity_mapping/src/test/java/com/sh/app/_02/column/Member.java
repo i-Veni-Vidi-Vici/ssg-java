@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder // 어노테이션 사용 시 밑의 클래스는 작성하지 않아도 된다
+//@Builder // 어노테이션 사용 시 밑의 클래스는 작성하지 않아도 된다
 public class Member {
     @Id
     @Column(name = "member_id")
@@ -49,44 +49,44 @@ public class Member {
     @Column(name = "member_enabled")
     private boolean enabled;
 
-//    public static Builder builder() {
-//        return new Builder(); // 내부클래스객체 반환
-//    }
-//
-//    public static class Builder {
-//        private String id;
-//        private String password;
-//        private String name;
-//        private String email;
-//        private LocalDateTime createdAt;
-//        private boolean enabled;
-//
-//        public Builder id(String id) {
-//            this.id = id;
-//            return this; // 내부클래스객체를 반환해서 연속적으로 메소드를 호출할 수 있게 한다. (메소드 체이닝기법)
-//        }
-//        public Builder password(String password) {
-//            this.password = password;
-//            return this;
-//        }
-//        public Builder name(String name) {
-//            this.name = name;
-//            return this;
-//        }
-//        public Builder email(String email) {
-//            this.email = email;
-//            return this;
-//        }
-//        public Builder createdAt(LocalDateTime createdAt) {
-//            this.createdAt = createdAt;
-//            return this;
-//        }
-//        public Builder enabled(boolean enabled) {
-//            this.enabled = enabled;
-//            return this;
-//        }
-//        public Member build() {
-//            return new Member(id, password, name, email, createdAt, enabled);
-//        }
-//    }
+    public static Builder builder() {
+        return new Builder(); // 내부클래스객체 반환
+    }
+
+    public static class Builder {
+        private String id;
+        private String password;
+        private String name;
+        private String email;
+        private LocalDateTime createdAt;
+        private boolean enabled;
+
+        public Builder id(String id) {
+            this.id = id;
+            return this; // 내부클래스객체를 반환해서 연속적으로 메소드를 호출할 수 있게 한다. (메소드 체이닝기법)
+        }
+        public Builder password(String password) {
+            this.password = password;
+            return this;
+        }
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+        public Builder createdAt(LocalDateTime createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+        public Builder enabled(boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+        public Member build() {
+            return new Member(id, password, name, email, createdAt, enabled);
+        }
+    }
 }
