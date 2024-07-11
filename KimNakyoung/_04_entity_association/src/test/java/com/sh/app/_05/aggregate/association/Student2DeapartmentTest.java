@@ -35,7 +35,7 @@ public class Student2DeapartmentTest {
     static void afterAll() {
         entityManagerFactory.close();
     }
-    
+
     @Test
     @DisplayName("ddl-auto=create 확인")
     void test() {
@@ -58,14 +58,39 @@ public class Student2DeapartmentTest {
             ) engine=InnoDB
          */
     }
-    
+
     @Test
-    @DisplayName("Stduent Entity 등록")
+    @DisplayName("Student Entity 등록")
     void test2() {
         // given
+        Department department = new Department(null, "컴퓨터 공학과", 30);
+        this.entityManager.persist(department);
+        /*
+            Hibernate:
+                insert
+                into
+                    tbl_department
+                    (capacity, name)
+                values
+                    (?, ?)
+         */
         // when
+        Student student = new Student(null, "홍길동", department.getId(),
+                new Address("서울시 강남구", "삼성동 1234", "01234"));
+        this.entityManager.persist(student);
+        /*
+            Hibernate:
+                insert
+                into
+                    tbl_student
+                    (address1, address2, zipCode, department_id, name)
+                values
+                    (?, ?, ?, ?, ?)
+         */
         // then
+        assertThat(student.getId()).isNotNull();
+        assertThat(student.getDepartmentId()).isEqualTo(department.getId());
     }
-    
+
 
 }
