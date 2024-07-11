@@ -1,4 +1,4 @@
-package com.sh.app._02.embeddable._01.single.table;
+package com.sh.app._05.aggregate.association;
 
 import jakarta.persistence.Embeddable;
 import lombok.*;
