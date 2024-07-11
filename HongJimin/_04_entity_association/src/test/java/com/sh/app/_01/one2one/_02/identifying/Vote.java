@@ -26,7 +26,7 @@ public class Vote {
     @Column(name = "candidate_name", nullable = false)
     private String candidateName; // 투표한 회장 이름
 
-    public Vote(@NonNull Person person, String candidateName) {
+    public Vote(@NonNull Person person, String candidateName) { // @NonNull -> Person이 Not Null이기 위한 조건 추가
         if(person == null)
             throw new IllegalArgumentException("person객체는 null일 수 없습니다.");
         this.person = person;

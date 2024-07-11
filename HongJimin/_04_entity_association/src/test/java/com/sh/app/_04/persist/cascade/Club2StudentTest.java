@@ -77,7 +77,61 @@ public class Club2StudentTest {
         Club club = new Club(null, "우리동네 코딩방", students);
         // when
         this.entityManager.persist(club);
+        /**
+         * Hibernate:
+         *     insert
+         *     into
+         *         tbl_club
+         *         (name)
+         *     values
+         *         (?)
+         * Hibernate:
+         *     insert
+         *     into
+         *         tbl_student
+         *         (name)
+         *     values
+         *         (?)
+         * Hibernate:
+         *     insert
+         *     into
+         *         tbl_student
+         *         (name)
+         *     values
+         *         (?)
+         * Hibernate:
+         *     insert
+         *     into
+         *         tbl_student
+         *         (name)
+         *     values
+         *         (?)
+         */
         this.entityManager.flush();
+
+        /**
+         * Hibernate:
+         *     update
+         *         tbl_student
+         *     set
+         *         club_id=?
+         *     where
+         *         id=?
+         * Hibernate:
+         *     update
+         *         tbl_student
+         *     set
+         *         club_id=?
+         *     where
+         *         id=?
+         * Hibernate:
+         *     update
+         *         tbl_student
+         *     set
+         *         club_id=?
+         *     where
+         *         id=?
+         */
         System.out.println(club);
         // then
         assertThat(club.getId()).isNotZero();
