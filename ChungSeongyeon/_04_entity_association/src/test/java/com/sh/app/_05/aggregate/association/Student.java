@@ -1,4 +1,4 @@
-package com.sh.app._03.one2many._04.persist.cascade;
+package com.sh.app._05.aggregate.association;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,5 +14,8 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(name = "department_id")
+    private Long departmentId;
+    @Embedded
+    private Address address;
 }
-
