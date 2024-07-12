@@ -1,4 +1,4 @@
-package com.sh._04_paging.common.paging;
+package com.sh.app.common.paging;
 
 import lombok.Data;
 

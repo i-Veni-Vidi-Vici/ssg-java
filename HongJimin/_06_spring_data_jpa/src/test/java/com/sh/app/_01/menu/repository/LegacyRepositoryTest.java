@@ -1,7 +1,7 @@
 package com.sh.app._01.menu.repository;
 
 import com.sh.app.menu.entity.Menu;
-import com.sh.app.menu.repository.MenuRepository;
+import com.sh.app.menu.repository.LegacyRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,9 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * </pre>
  */
 @SpringBootTest
-class MenuRepositoryTest {
+class LegacyRepositoryTest {
     @Autowired
-    private MenuRepository menuRepository;
+    private LegacyRepository legacyRepository;
 
 
     @Test
@@ -30,7 +30,7 @@ class MenuRepositoryTest {
         // given
         Long menuCode = 10L;
         // when
-        Menu menu = menuRepository.findByMenuCode(menuCode);
+        Menu menu = legacyRepository.findByMenuCode(menuCode);
         /*
             Hibernate:
                 select
@@ -68,7 +68,7 @@ class MenuRepositoryTest {
         Long menuCode = 10L; // 10번 메뉴 찾아서
         int newMenuPrice = 10000; // 가격 수정해줘~
         // when
-        menuRepository.updateMenuPrice(menuCode, newMenuPrice);
+        legacyRepository.updateMenuPrice(menuCode, newMenuPrice);
         /**
          * Hibernate:
          *     select
@@ -84,7 +84,7 @@ class MenuRepositoryTest {
          */
 
         // then
-        Menu menu = menuRepository.findByMenuCode(menuCode); // 영속성 컨텍스트에 있으니까 쿼리 안날라감
+        Menu menu = legacyRepository.findByMenuCode(menuCode); // 영속성 컨텍스트에 있으니까 쿼리 안날라감
         assertThat(menu.getMenuPrice()).isEqualTo(newMenuPrice);
     }
 }

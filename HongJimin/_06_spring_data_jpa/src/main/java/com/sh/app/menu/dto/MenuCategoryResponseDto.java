@@ -1,4 +1,4 @@
-package com.sh.app._09.nativequery;
+package com.sh.app.menu.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class MenuCategoryResponseDto {
-    private Long menuCode;
-    private String menuName;
-    private String categoryName;
+/**
+ * 인터페이스 기반의 DTO 프로젝션
+ * - 하는 일은 DTO인데 인터페이스로 만듦
+ */
+public interface IMenuCategoryResponseDto {
+    Long getMenuCode();
+    String getMenuName();
+    String getCategoryName();
 }
