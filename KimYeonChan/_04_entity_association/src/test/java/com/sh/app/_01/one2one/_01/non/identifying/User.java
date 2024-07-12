@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tbl_user")
 @Data
-@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter(AccessLevel.PRIVATE)
 @Builder
 public class User {
     @Id
