@@ -27,7 +27,7 @@ public class Role {
     @ElementCollection(fetch = FetchType.LAZY) // 가능한 늦게 조회
     @CollectionTable(
             name = "tbl_role_permission_0301",
-            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id") // 위에 잇는 String id 갖다 쓴 것
     )
     @Column(name = "permission")
     Set<String> permissions; // manager/members "매니져용 회원 관리"
