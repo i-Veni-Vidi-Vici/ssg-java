@@ -1,7 +1,9 @@
 package com.sh.app._02.embeddable._01.single.table;
 
+import jakarta.persistence.Embeddable;
 import lombok.*;
 
+@Embeddable
 @Data
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor

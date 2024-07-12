@@ -7,6 +7,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.*;
 
+import java.time.YearMonth;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -66,5 +67,122 @@ public class MembershipCard2UserTest {
          */
     }
 
+
+    @Test
+    @DisplayName("MembershipCard-User 등록")
+    void test2() {
+        // given
+        User user = User.builder()
+                .email("honggd@naver.com")
+                .name("홍길동")
+                .build();
+        MembershipCard membershipCard = MembershipCard.builder()
+                .number("1111-2222-3333-4444")
+                .owner(user)
+                .expiryDate(YearMonth.of(2028, 7))
+                .enabled(true)
+                .build();
+        // when
+        this.entityManager.persist(user);
+        this.entityManager.persist(membershipCard);
+        this.entityManager.flush();
+        /*
+        Hibernate:
+            insert
+            into
+                tbl_user
+                (created_at, name, email)
+            values
+                (?, ?, ?)
+        Hibernate:
+            insert
+            into
+                tbl_membership_card
+                (enabled, expiry_date, user_email, number)
+            values
+                (?, ?, ?, ?)
+         */
+        // then
+        this.entityManager.clear(); // 영속성컨텍스트 안의 영속객체 모두 제거(준영속처리)
+
+        MembershipCard membershipCard2 = this.entityManager.find(MembershipCard.class, membershipCard.getNumber());
+        /*
+            FetchType.EAGER인 경우 :
+            Hibernate:
+                select
+                    mc1_0.number,
+                    mc1_0.enabled,
+                    mc1_0.expiry_date,
+                    o1_0.email,
+                    o1_0.created_at,
+                    o1_0.name
+                from
+                    tbl_membership_card mc1_0
+                left join
+                    tbl_user o1_0
+                        on o1_0.email=mc1_0.user_email
+                where
+                    mc1_0.number=?
+
+                FetchType.LAZY인 경우 :
+                Hibernate:
+                    select
+                        mc1_0.number,
+                        mc1_0.enabled,
+                        mc1_0.expiry_date,
+                        mc1_0.user_email
+                    from
+                        tbl_membership_card mc1_0
+                    where
+                        mc1_0.number=?
+                Hibernate:
+                    select
+                        u1_0.email,
+                        u1_0.created_at,
+                        u1_0.name
+                    from
+                        tbl_user u1_0
+                    where
+                        u1_0.email=?
+         */
+        System.out.println(membershipCard2.toString());
+
+        assertThat(membershipCard2).isNotNull();
+        assertThat(membershipCard2.getOwner()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("MembershipCard 등록(User가 null인 경우)")
+    void test3() {
+        // given
+        MembershipCard membershipCard = MembershipCard.builder()
+                .number("8888-2222-3333-4444")
+                .expiryDate(YearMonth.of(2028, 7))
+                .enabled(true)
+                .build();
+        // when
+        this.entityManager.persist(membershipCard);
+        this.entityManager.flush();
+        /*
+        Hibernate:
+            insert
+            into
+                tbl_membership_card
+                (enabled, expiry_date, user_email, number)
+            values
+                (?, ?, ?, ?)
+         */
+        // then
+        this.entityManager.clear(); // 영속성컨텍스트 안의 영속객체 모두 제거(준영속처리)
+
+        MembershipCard membershipCard2 = this.entityManager.find(MembershipCard.class, membershipCard.getNumber());
+        /*
+
+         */
+        System.out.println(membershipCard2.toString());
+
+        assertThat(membershipCard2).isNotNull();
+        assertThat(membershipCard2.getOwner()).isNull();
+    }
 
 }
