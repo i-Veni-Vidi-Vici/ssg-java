@@ -1,12 +1,10 @@
-package com.sh.app._04.grouping;
+package com.sh.app._04.jpql.grouping;
 
 
 import jakarta.persistence.*;
 import org.junit.jupiter.api.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 /**

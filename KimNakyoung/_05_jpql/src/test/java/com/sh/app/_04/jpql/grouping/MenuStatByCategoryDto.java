@@ -1,4 +1,4 @@
-package com.sh.app._04.grouping;
+package com.sh.app._04.jpql.grouping;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

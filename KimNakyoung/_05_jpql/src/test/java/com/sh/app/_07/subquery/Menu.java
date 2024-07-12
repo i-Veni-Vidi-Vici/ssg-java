@@ -1,9 +1,9 @@
-package com.sh.app._04.grouping;
+package com.sh.app._07.subquery;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "Menu04")
+@Entity(name = "Menu07")
 @Table(name = "tbl_menu")
 @Data
 @Setter(AccessLevel.PRIVATE)
