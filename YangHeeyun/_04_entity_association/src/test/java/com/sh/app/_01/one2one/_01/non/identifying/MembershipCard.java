@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 
 /**
  * <pre>
@@ -24,11 +25,11 @@ public class MembershipCard {
     @Id
     private String number;
     
-    @OneToOne(fetch = FetchType.EAGER) // @OneToOne fetch 기본값은 EAGER이다.
-    @JoinColumn(name = "user_email") // User @Id 컬럼을 user_email 컬럼으로 참조
+    @OneToOne(fetch = FetchType.EAGER) // @OneToOne fetch 기본값은 EAGER
+    @JoinColumn(name = "user_email") // User @Id 컬럼을 tbl_membership_card.user_email 컬럼(FK)으로 참조
     private User owner;
     
     @Column(name = "expiry_date")
-    private LocalDate expiryDate;
+    private YearMonth expiryDate; // 연,열만 관리하는 YearMonth 자료형
     private boolean enabled;
 }
