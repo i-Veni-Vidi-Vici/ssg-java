@@ -1,4 +1,4 @@
-package com.sh.app._04.persist.cascade;
+package com.sh.app._04.jpql.persist.cascade;
 
 import jakarta.persistence.*;
 import lombok.*;

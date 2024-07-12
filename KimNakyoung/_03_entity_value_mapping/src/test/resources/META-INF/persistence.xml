@@ -12,15 +12,15 @@
         <!--        <class>com.sh.app._03.element.collection._03.map._01.setting.UserSetting</class>-->
         <!--        <class>com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting</class>-->
 
-        <!--        <class>com.sh.app._04.inheritance._01.single.table.Employee</class>-->
-        <!--        <class>com.sh.app._04.inheritance._01.single.table.Developer</class>-->
-        <!--        <class>com.sh.app._04.inheritance._01.single.table.Manager</class>-->
-        <!--        <class>com.sh.app._04.inheritance._02.joined.Employee</class>-->
-        <!--        <class>com.sh.app._04.inheritance._02.joined.Developer</class>-->
-        <!--        <class>com.sh.app._04.inheritance._02.joined.Manager</class>-->
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Employee</class>
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Developer</class>
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Manager</class>
+        <!--        <class>table.single._01.inheritance.com.sh.app._04.jpql.Employee</class>-->
+        <!--        <class>table.single._01.inheritance.com.sh.app._04.jpql.Developer</class>-->
+        <!--        <class>table.single._01.inheritance.com.sh.app._04.jpql.Manager</class>-->
+        <!--        <class>joined._02.inheritance.com.sh.app._04.jpql.Employee</class>-->
+        <!--        <class>joined._02.inheritance.com.sh.app._04.jpql.Developer</class>-->
+        <!--        <class>joined._02.inheritance.com.sh.app._04.jpql.Manager</class>-->
+        <class>com.sh.app._04.jpql.inheritance._03.table.per.clazz.Employee</class>
+        <class>com.sh.app._04.jpql.inheritance._03.table.per.clazz.Developer</class>
+        <class>com.sh.app._04.jpql.inheritance._03.table.per.clazz.Manager</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

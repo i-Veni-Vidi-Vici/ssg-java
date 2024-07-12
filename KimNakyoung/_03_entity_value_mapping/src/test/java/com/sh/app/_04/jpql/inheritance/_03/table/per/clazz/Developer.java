@@ -1,6 +1,5 @@
-package com.sh.app._04.inheritance._03.table.per.clazz;
+package com.sh.app._04.jpql.inheritance._03.table.per.clazz;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;

@@ -1,8 +1,8 @@
-package com.sh.app._04.inheritance._02.joined;
-
+package com.sh.app._04.jpql.inheritance._01.single.table;
 
 
 import jakarta.persistence.*;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
@@ -39,36 +39,15 @@ public class EmployeeEntityTest {
     @DisplayName("ddl-auto=create 확인")
     void test() {
         /*
-            Hibernate:
-                create table tbl_developer_0402 (
-                    id bigint not null,
-                    lang varchar(255),
-                    primary key (id)
-                ) engine=InnoDB
-            Hibernate:
-                create table tbl_employee_0402 (
-                    id bigint not null auto_increment,
-                    emp_type varchar(31) not null,
-                    contact varchar(255),
-                    name varchar(255),
-                    primary key (id)
-                ) engine=InnoDB
-            Hibernate:
-                create table tbl_manager_0402 (
-                    id bigint not null,
-                    level varchar(255),
-                    primary key (id)
-                ) engine=InnoDB
-            Hibernate:
-                alter table tbl_developer_0402
-                   add constraint FKmj9gqcebwhr6rb47vwqrwgk1b
-                   foreign key (id)
-                   references tbl_employee_0402 (id)
-            Hibernate:
-                alter table tbl_manager_0402
-                   add constraint FKm4hi74o867f82v8nnqnr9yrqq
-                   foreign key (id)
-                   references tbl_employee_0402 (id)
+            create table tbl_employee (
+                id bigint not null auto_increment,
+                emp_type varchar(31) not null,
+                contact varchar(255),
+                lang varchar(255),
+                level varchar(255),
+                name varchar(255),
+                primary key (id)
+            ) engine=InnoDB
          */
     }
     
@@ -82,34 +61,20 @@ public class EmployeeEntityTest {
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
         /*
-            Hibernate:
-                insert
-                into
-                    tbl_employee_0402
-                    (contact, name, emp_type)
-                values
-                    (?, ?, 'dev')
-            Hibernate:
-                insert
-                into
-                    tbl_developer_0402
-                    (lang, id)
-                values
-                    (?, ?)
-            Hibernate:
-                insert
-                into
-                    tbl_employee_0402
-                    (contact, name, emp_type)
-                values
-                    (?, ?, 'manager')
-            Hibernate:
-                insert
-                into
-                    tbl_manager_0402
-                    (level, id)
-                values
-                    (?, ?)
+        Hibernate:
+            insert
+            into
+                tbl_employee
+                (contact, name, lang, emp_type)
+            values
+                (?, ?, ?, 'dev')
+        Hibernate:
+            insert
+            into
+                tbl_employee
+                (contact, name, level, emp_type)
+            values
+                (?, ?, ?, 'manager')
          */
         // then
         assertThat(developer.getId()).isNotZero();
@@ -126,33 +91,16 @@ public class EmployeeEntityTest {
         this.entityManager.persist(manager);
         this.entityManager.flush();
         // when
-        String jpql = "select e from Employee0402 e"; // Class이름이 아닌 Entity이름을 작성
+        String jpql = "select e from Employee e";
         TypedQuery<Employee> query = this.entityManager.createQuery(jpql, Employee.class);
         List<Employee> employees = query.getResultList();
-        /*
-            select
-                e1_0.id,
-                e1_0.emp_type,
-                e1_0.contact,
-                e1_0.name,
-                e1_1.lang,
-                e1_2.level
-            from
-                tbl_employee_0402 e1_0
-            left join
-                tbl_developer_0402 e1_1
-                    on e1_0.id=e1_1.id
-            left join
-                tbl_manager_0402 e1_2
-                    on e1_0.id=e1_2.id
-         */
         employees.forEach(System.out::println);
         // then
         // List - allSatisfy(List의 모든 요소는 다음 단정문을 만족해야 한다.)
         //          Employee - satisfiesAnyOf(Employee객체는 다음 하나는 만족해야 한다.)
         //                 Employee객체는 Developer 타입이다.
         //                 Employee객체는 Manager 타입이다.
-        assertThat(employees).allSatisfy(
+        Assertions.assertThat(employees).allSatisfy(
                 employee -> assertThat(employee).satisfiesAnyOf(
                         (_employee) -> assertThat(_employee).isInstanceOf(Developer.class),
                         (_employee) -> assertThat(_employee).isInstanceOf(Manager.class)

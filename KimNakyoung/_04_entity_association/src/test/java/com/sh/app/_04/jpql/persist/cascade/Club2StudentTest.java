@@ -1,4 +1,4 @@
-package com.sh.app._04.persist.cascade;
+package com.sh.app._04.jpql.persist.cascade;
 
 
 import com.sh.app._03.one2many._03.map.Game;

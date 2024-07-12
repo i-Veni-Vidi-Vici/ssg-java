@@ -1,14 +1,13 @@
-package com.sh.app._04.inheritance._03.table.per.clazz;
+package com.sh.app._04.jpql.inheritance._01.single.table;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity(name = "Manager0403")
-@Table(name = "tbl_manager_0403")
+@Entity
+@DiscriminatorValue("manager") // Manager타입 구분하는 값을 manager로 지정 (기본값: Manager)
 @Data
 @NoArgsConstructor
 @ToString(callSuper = true)

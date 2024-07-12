@@ -1,13 +1,11 @@
-package com.sh.app._04.inheritance._01.single.table;
+package com.sh.app._04.jpql.inheritance._02.joined;
 
 
-import com.sh.app._03.element.collection._03.map._02.setting.embeddable.PropValue;
-import com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting;
+
 import jakarta.persistence.*;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,15 +39,36 @@ public class EmployeeEntityTest {
     @DisplayName("ddl-auto=create 확인")
     void test() {
         /*
-            create table tbl_employee (
-                id bigint not null auto_increment,
-                emp_type varchar(31) not null,
-                contact varchar(255),
-                lang varchar(255),
-                level varchar(255),
-                name varchar(255),
-                primary key (id)
-            ) engine=InnoDB
+            Hibernate:
+                create table tbl_developer_0402 (
+                    id bigint not null,
+                    lang varchar(255),
+                    primary key (id)
+                ) engine=InnoDB
+            Hibernate:
+                create table tbl_employee_0402 (
+                    id bigint not null auto_increment,
+                    emp_type varchar(31) not null,
+                    contact varchar(255),
+                    name varchar(255),
+                    primary key (id)
+                ) engine=InnoDB
+            Hibernate:
+                create table tbl_manager_0402 (
+                    id bigint not null,
+                    level varchar(255),
+                    primary key (id)
+                ) engine=InnoDB
+            Hibernate:
+                alter table tbl_developer_0402
+                   add constraint FKmj9gqcebwhr6rb47vwqrwgk1b
+                   foreign key (id)
+                   references tbl_employee_0402 (id)
+            Hibernate:
+                alter table tbl_manager_0402
+                   add constraint FKm4hi74o867f82v8nnqnr9yrqq
+                   foreign key (id)
+                   references tbl_employee_0402 (id)
          */
     }
     
@@ -63,20 +82,34 @@ public class EmployeeEntityTest {
         this.entityManager.persist(developer);
         this.entityManager.persist(manager);
         /*
-        Hibernate:
-            insert
-            into
-                tbl_employee
-                (contact, name, lang, emp_type)
-            values
-                (?, ?, ?, 'dev')
-        Hibernate:
-            insert
-            into
-                tbl_employee
-                (contact, name, level, emp_type)
-            values
-                (?, ?, ?, 'manager')
+            Hibernate:
+                insert
+                into
+                    tbl_employee_0402
+                    (contact, name, emp_type)
+                values
+                    (?, ?, 'dev')
+            Hibernate:
+                insert
+                into
+                    tbl_developer_0402
+                    (lang, id)
+                values
+                    (?, ?)
+            Hibernate:
+                insert
+                into
+                    tbl_employee_0402
+                    (contact, name, emp_type)
+                values
+                    (?, ?, 'manager')
+            Hibernate:
+                insert
+                into
+                    tbl_manager_0402
+                    (level, id)
+                values
+                    (?, ?)
          */
         // then
         assertThat(developer.getId()).isNotZero();
@@ -93,9 +126,26 @@ public class EmployeeEntityTest {
         this.entityManager.persist(manager);
         this.entityManager.flush();
         // when
-        String jpql = "select e from Employee e";
+        String jpql = "select e from Employee0402 e"; // Class이름이 아닌 Entity이름을 작성
         TypedQuery<Employee> query = this.entityManager.createQuery(jpql, Employee.class);
         List<Employee> employees = query.getResultList();
+        /*
+            select
+                e1_0.id,
+                e1_0.emp_type,
+                e1_0.contact,
+                e1_0.name,
+                e1_1.lang,
+                e1_2.level
+            from
+                tbl_employee_0402 e1_0
+            left join
+                tbl_developer_0402 e1_1
+                    on e1_0.id=e1_1.id
+            left join
+                tbl_manager_0402 e1_2
+                    on e1_0.id=e1_2.id
+         */
         employees.forEach(System.out::println);
         // then
         // List - allSatisfy(List의 모든 요소는 다음 단정문을 만족해야 한다.)

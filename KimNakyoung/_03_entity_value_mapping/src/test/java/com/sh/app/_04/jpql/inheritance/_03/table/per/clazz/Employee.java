@@ -1,4 +1,4 @@
-package com.sh.app._04.inheritance._01.single.table;
+package com.sh.app._04.jpql.inheritance._03.table.per.clazz;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,16 +8,14 @@ import lombok.NoArgsConstructor;
 /**
  * 부모클래스
  */
-@Entity
-@Table(name = "tbl_employee")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "emp_type") // 자식클래스 타입을 결정하는 컬럼명
+@Entity(name = "Employee0403")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // 자식클래스당 테이블하나
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE) // IDENTITY 전략은 사용할수 없다.
     private Long id;
     private String name;
     private String contact;
