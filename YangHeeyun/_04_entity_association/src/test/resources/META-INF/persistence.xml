@@ -14,8 +14,10 @@
         <class>com.sh.app._03.one2many._02.list.Inquiry</class>
         <class>com.sh.app._03.one2many._03.map.Game</class>
         <class>com.sh.app._03.one2many._03.map.GameMember</class>
-        <class>com.sh.app._04.persist.cascade.Club</class>
-        <class>com.sh.app._04.persist.cascade.Student</class>
+<!--        <class>com.sh.app._04.persist.cascade.Club</class>-->
+<!--        <class>com.sh.app._04.persist.cascade.Student</class>-->
+        <class>com.sh.app._05.aggregate.association.Department</class>
+        <class>com.sh.app._05.aggregate.association.Student</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb"/>
