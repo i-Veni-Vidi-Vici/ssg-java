@@ -25,14 +25,12 @@ public class Role {
      *   - fetch = FetchType.EAGER : Role 객체 조회 시, 함께 조회
      * </pre>
      */
-    @Embedded
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.EAGER) // 🙉어차피 한 흐름이어서 cascade가 필요 없음
     @CollectionTable(
             name = "tbl_role_permission_0302",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
-    @Column(name = "permission")
-    Set<Permission> permissions; // manager/members "매니져용 회원 관리"
+    private Set<Permission> permissions; // manager/members "매니져용 회원 관리"
 
     public void changePermissions(Set<Permission> newPermissions) {
         this.permissions = newPermissions;
