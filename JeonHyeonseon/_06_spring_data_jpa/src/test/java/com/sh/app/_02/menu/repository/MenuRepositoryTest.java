@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * </pre>
  */
 
-@DataJpaTest // 기본적으로 jpa관련 빈만 로드해서 @SpringBootTestd 대비 가볍다. 실제 db를 사용하겠다는 어노테이션 필요.
+@DataJpaTest // 기본적으로 jpa관련 빈만 로드해서 @SpringBootTest 대비 가볍다. 실제 db를 사용하겠다는 어노테이션 필요.
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // 테스트용 메모리 DB를 사용하지 않고 실제 db에 붙어서 사용하겠다는 어노테이션
 class MenuRepositoryTest {
     @Autowired
