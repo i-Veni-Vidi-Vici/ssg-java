@@ -9,9 +9,13 @@
 <!--        <class>com.sh.app._03.projection.MenuEntity</class>-->
 <!--        <class>com.sh.app._04.grouping.Menu</class>-->
 <!--        <class>com.sh.app._05.paging.Menu</class>-->
-        <class>com.sh.app._06.join.Menu</class>
-        <class>com.sh.app._06.join.Category</class>
-        <class>com.sh.app._06.join.MenuEntity</class>
+<!--        <class>com.sh.app._06.join.Menu</class>-->
+<!--        <class>com.sh.app._06.join.Category</class>-->
+<!--        <class>com.sh.app._06.join.MenuEntity</class>-->
+<!--        <class>com.sh.app._07.subquery.Category</class>-->
+<!--        <class>com.sh.app._07.subquery.Menu</class>-->
+<!--        <class>com.sh.app._08.namedquery.Menu</class>-->
+        <class>com.sh.app._09.nativequery.Menu</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/menudb"/>
