@@ -13,17 +13,17 @@
         <class>com.sh.app._03.element.collection._03.map._02.setting.embeddable.UserSetting</class>
 
         <!-- 상속할 때는 모든 클래스가 다 작성되어야 한다. -->
-        <class>com.sh.app._04.inheritance._01.single.table.Employee</class>
-        <class>com.sh.app._04.inheritance._01.single.table.Developer</class>
-        <class>com.sh.app._04.inheritance._01.single.table.Manager</class>
+        <class>table.single._01.inheritance.com.sh.app._04.jpql.Employee</class>
+        <class>table.single._01.inheritance.com.sh.app._04.jpql.Developer</class>
+        <class>table.single._01.inheritance.com.sh.app._04.jpql.Manager</class>
 
-        <class>com.sh.app._04.inheritance._02.joined.Employee</class>
-        <class>com.sh.app._04.inheritance._02.joined.Developer</class>
-        <class>com.sh.app._04.inheritance._02.joined.Manager</class>
+        <class>joined._02.inheritance.com.sh.app._04.jpql.Employee</class>
+        <class>joined._02.inheritance.com.sh.app._04.jpql.Developer</class>
+        <class>joined._02.inheritance.com.sh.app._04.jpql.Manager</class>
 
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Employee</class>
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Developer</class>
-        <class>com.sh.app._04.inheritance._03.table.per.clazz.Manager</class>
+        <class>clazz.per.table._03.inheritance.com.sh.app._04.jpql.Employee</class>
+        <class>clazz.per.table._03.inheritance.com.sh.app._04.jpql.Developer</class>
+        <class>clazz.per.table._03.inheritance.com.sh.app._04.jpql.Manager</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
