@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.authapp.authentication.model.dao.AuthMapper">
+    <resultMap id="MemberDtoMap" type="MemberDto">
+        <id column="username" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="createdAt" property="createdAt"/>
+    </resultMap>
+    <select id="findMemberByUserName" resultMap="MemberDtoMap">
+        select
+            *
+        from
+            tbl_member
+        where
+            username = #{userName}
+    </select>
+
+</mapper>
