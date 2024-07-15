@@ -50,13 +50,20 @@
     <h2>메뉴 상세보기</h2>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{메뉴명}</h5>
-            <p class="card-text"><strong>메뉴가격 : </strong>{메뉴가격}</p>
-            <p class="card-text"><strong>카테고리명 : </strong>{카테고리명}</p>
-            <p class="card-text"><strong>주문가능여부 : </strong>{주문가능여부}</p>
+            <h5 class="card-title">[[${menu.menuName}]]</h5>
+            <p class="card-text"><strong>메뉴가격 : </strong>[[${#numbers.formatInteger(menu.menuPrice, 3, 'COMMA')}]]</p>
+            <p class="card-text"><strong>카테고리명 : </strong>[[${menu.categoryName}]]</p>
+            <p class="card-text"><strong>주문가능여부 : </strong>[[${menu.orderableStatus}]]</p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-secondary" th:onclick="|location.href = '@{/menu/menuUpdate(menuCode=${menu.menuCode})}'|">수정</button>
         </div>
     </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const message = '[[${message}]]';
+    message && alert(message);
+</script>
 </body>
 </html>

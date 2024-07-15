@@ -1,24 +1,8 @@
 package com.sh.app.menu.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.ColumnResult;
-import jakarta.persistence.ConstructorResult;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.NamedNativeQueries;
-import jakarta.persistence.NamedNativeQuery;
-import jakarta.persistence.SqlResultSetMapping;
-import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.sh.app.menu.dto.MenuUpdateRequestDto;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "tbl_menu")
@@ -42,11 +26,18 @@ public class Menu {
     @Enumerated(EnumType.STRING)
     private OrderableStatus orderableStatus;
 
-    public void changeMenuPrice(int newMEnuPrice) {
-        this.menuPrice = newMEnuPrice;
+    public void changeMenuPrice(int newMenuPrice) {
+        this.menuPrice = newMenuPrice;
     }
 
     public void changeMenuName(String newMenuName) {
         this.menuName = newMenuName;
+    }
+
+    public void update(MenuUpdateRequestDto dto) {
+        this.menuName = dto.getMenuName();
+        this.menuPrice = dto.getMenuPrice();
+        this.categoryCode = dto.getCategoryCode();
+        this.orderableStatus = dto.getOrderableStatus();
     }
 }

@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuCategoryResponseDto {
+public class MenuUpdateRequestDto {
     private Long menuCode;
     private String menuName;
     private int menuPrice;
-    private String categoryName;
+    private Long categoryCode;
     private OrderableStatus orderableStatus;
 }

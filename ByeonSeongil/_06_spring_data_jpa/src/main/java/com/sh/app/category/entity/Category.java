@@ -1,16 +1,7 @@
 package com.sh.app.category.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "tbl_category")
@@ -28,7 +19,7 @@ public class Category {
     @Column(name = "ref_category_code")
     private Long refCategoryCode;
 
-    public void changeCateogoryName(String newCategoryName) {
+    public void changeCategoryName(String newCategoryName) {
         this.categoryName = newCategoryName;
     }
 }
