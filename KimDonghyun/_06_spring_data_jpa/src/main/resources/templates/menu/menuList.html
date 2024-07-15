@@ -47,6 +47,10 @@
 </nav>
 
 <main class="container">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary"
+            th:onclick="|location.href = '@{/menu/menuRegist}'|">메뉴 등록</button>
+    </div>
     <div class="table-container my-3">
         <table class="table table-hover">
             <thead class="thead-light">
@@ -61,7 +65,9 @@
             <tbody>
             <tr th:each="menu : ${menus}">
                 <td th:text="${menu.menuCode}"></td>
-                <td th:text="${menu.menuName}"></td>
+                <td>
+                    <a th:href="|@{/menu/menuDetail?menuCode=}${menu.menuCode}|" th:text="${menu.menuName}"></a>
+                </td>
                 <td th:text="${menu.menuPrice}"></td>
                 <td th:text="${menu.categoryCode}"></td>
                 <td th:text="${menu.orderableStatus}"></td>
@@ -69,12 +75,11 @@
             </tbody>
         </table>
     </div>
-    <nav th:if="${pageCriteria != null}" th:object="${pageCriteria}" aria-label="Page navigation example">
-        <!--    [[${pageCriteria}]]-->
+    <nav class="position-relative" th:if="${pageCriteria != null}" th:object="${pageCriteria}" aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <!--/* 이전 영역 */-->
             <li th:class="|page-item *{pagebarStart == 1 ? 'disabled' : ''}|">
-                <a class="page-link" th:href="|*{url}*{pagebarStart - 1}|">&lt;</a>
+                <a class="page-link" th:href="|*{url}*{pagebarStart - 1}|">이전</a>
             </li>
 
             <!--/* 페이지숫자 영역 */-->
@@ -87,11 +92,15 @@
 
             <!--/* 다음 영역 */-->
             <li th:class="|page-item *{pagebarEnd > maxPage ? 'disabled' : ''}|">
-                <a class="page-link" th:href="|*{url}*{pagebarEnd + 1}|">&gt;</a>
+                <a class="page-link" th:href="|*{url}*{pagebarEnd + 1}|">다음</a>
             </li>
         </ul>
     </nav>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const message = '[[${message}]]';
+    message && alert(message);
+</script>
 </body>
 </html>

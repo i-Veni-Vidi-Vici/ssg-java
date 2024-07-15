@@ -50,10 +50,10 @@
     <h2>메뉴 상세보기</h2>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{메뉴명}</h5>
-            <p class="card-text"><strong>메뉴가격 : </strong>{메뉴가격}</p>
-            <p class="card-text"><strong>카테고리명 : </strong>{카테고리명}</p>
-            <p class="card-text"><strong>주문가능여부 : </strong>{주문가능여부}</p>
+            <h5 class="card-title">[[${menu.menuName}]]</h5>
+            <p class="card-text"><strong>메뉴가격 : </strong>[[${#numbers.formatInteger(menu.menuPrice, 3, 'COMMA')}]]</p>
+            <p class="card-text"><strong>카테고리명 : </strong>[[${menu.categoryName}]]</p>
+            <p class="card-text"><strong>주문가능여부 : </strong>[[${menu.orderableStatus}]]</p>
         </div>
     </div>
 </main>

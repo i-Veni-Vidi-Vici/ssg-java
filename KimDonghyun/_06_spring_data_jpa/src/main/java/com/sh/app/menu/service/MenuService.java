@@ -1,5 +1,7 @@
 package com.sh.app.menu.service;
 
+import com.sh.app.menu.dto.MenuCategoryResponseDto;
+import com.sh.app.menu.dto.MenuRegistRequestDto;
 import com.sh.app.menu.entity.Menu;
 import com.sh.app.menu.repository.MenuRepository;
 import jakarta.transaction.Transactional;
@@ -18,5 +20,14 @@ public class MenuService {
 
     public Page<Menu> findAll(Pageable pageable) {
         return menuRepository.findAll(pageable);
+    }
+
+    public MenuCategoryResponseDto findByMenuCode(Long menuCode) {
+        return menuRepository.findMenuAndCategory(menuCode);
+    }
+
+    public void regist(MenuRegistRequestDto dto) {
+        Menu menu = dto.toMenu();
+        menuRepository.save(menu);
     }
 }

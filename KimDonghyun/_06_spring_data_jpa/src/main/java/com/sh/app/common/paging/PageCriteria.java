@@ -32,7 +32,7 @@ public class PageCriteria {
         this.url = url + (url.contains("?") ? "&page=" : "?page="); // 검색어 쿼리스트링이 있는 경우는 &page=를 추가한다.
         this.maxPage = (int) Math.ceil((double) totalCount / limit);
         this.pagebarSize = 5;
-        this.pagebarStart = (page - 1) / pagebarSize * pagebarSize + 1;
+        this.pagebarStart = (this.page - 1) / pagebarSize * pagebarSize + 1;
         this.pagebarEnd = pagebarStart + pagebarSize - 1;
     }
 }

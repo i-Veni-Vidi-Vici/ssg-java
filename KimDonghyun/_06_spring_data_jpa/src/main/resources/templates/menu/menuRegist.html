@@ -51,7 +51,7 @@
 
 <main class="container">
     <h2>메뉴 등록</h2>
-    <form name="menuRegistFrm" action="" method="post">
+    <form name="menuRegistFrm" method="post">
         <div>
             <label>메뉴 이름 : </label>
             <input type="text" name="menuName">
@@ -64,6 +64,7 @@
             <label>카테고리 : </label>
             <select name="categoryCode" id="categoryCode">
                 <!-- 카테고리명을 노출하고, 폼제출시 카테고리코드를 전송한다. -->
+                <option th:each="category : ${categories}" th:value="${category.categoryCode}" th:text="${category.categoryName}"></option>
             </select>
         </div>
         <div>
