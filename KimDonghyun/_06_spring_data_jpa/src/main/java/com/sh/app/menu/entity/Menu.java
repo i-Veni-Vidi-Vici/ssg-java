@@ -1,5 +1,6 @@
 package com.sh.app.menu.entity;
 
+import com.sh.app.menu.dto.MenuUpdateRequestDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,5 +32,12 @@ public class Menu {
 
     public void changeMenuName(String newMenuName) {
         this.menuName = newMenuName;
+    }
+
+    public void update(MenuUpdateRequestDto dto) {
+        this.menuName = dto.getMenuName();
+        this.menuPrice = dto.getMenuPrice();
+        this.categoryCode = dto.getCategoryCode();
+        this.orderableStatus = dto.getOrderableStatus();
     }
 }

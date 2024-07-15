@@ -17,6 +17,8 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
 
     List<Menu> findByMenuNameContaining(String menuName);
 
+    Page<Menu> findByMenuNameContaining(String menuName, Pageable pageable);
+
     List<Menu> findByMenuPriceGreaterThanEqual(int minMenuPrice);
 
     List<Menu> findByMenuPriceLessThanEqual(int maxMenuPrice);
