@@ -1,0 +1,25 @@
+### user 목록 조회
+GET http://localhost:8080/api/users
+
+### user 한건 조회
+GET http://localhost:8080/api/users/1
+
+### user 등록
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name" : "이오리",
+  "birthday" : "1944-04-04"
+}
+
+### user 수정
+PATCH http://localhost:8080/api/users/2
+Content-Type: application/json
+
+{
+  "name" : "고길동"
+}
+
+### user 삭제
+DELETE http://localhost:8080/api/users/1
