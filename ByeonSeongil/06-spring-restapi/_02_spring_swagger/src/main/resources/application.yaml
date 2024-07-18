@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: _02_spring_swagger
+server:
+  servlet:
+    context-path: /api
+logging:
+  level:
+    root: info
+    com.sh.app: debug
