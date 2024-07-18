@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: _01_naver_clova_ocr_api
+
+  servlet:
+    multipart:
+      location: ByeonSeongil/07-api/_01_naver_clova_ocr_api/build/resources/main/static/ocr
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh.app: debug
+
+naver:
+  clova-ocr:
+      general:
+        url: https://ttdjjnai4d.apigw.ntruss.com/custom/v1/32750/d2df62dff83477eb578cd987fd110201bfa168777b81a4812eb0d92cdd8e0fc0/general
+        secretKey: a1RnSklreXdQQlBvVVdITnZvVE1nSWtrdlBPdXdySlM=
+      template:
+        url: https://ttdjjnai4d.apigw.ntruss.com/custom/v1/32768/9d65aa28411b8a1b019b4188c099cabe9da4529643897e609d4a7478d134969c/infer
+        secretKey: Zk5QaUthaktEYWxzRllYd3hldHlIdFBFT3NYRFBKb04=
