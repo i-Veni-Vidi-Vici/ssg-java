@@ -18,7 +18,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-        OAuth2User t commit  = super.loadUser(userRequest);
+        OAuth2User user = super.loadUser(userRequest);
         saveOrUpdate(user);
         return user;
     }
