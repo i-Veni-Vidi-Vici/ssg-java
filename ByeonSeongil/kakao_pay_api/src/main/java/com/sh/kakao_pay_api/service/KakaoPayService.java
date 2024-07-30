@@ -106,11 +106,48 @@ public class KakaoPayService {
         // Request param
         RefundRequest cancelRequest = RefundRequest.builder()
                 .cid(cid)
-                .tid(tid) // 임의
+                .tid("T6a8d38329fd342cdd38") // 임의 tid
                 .cancelAmount("1100")  // 임의
                 .cancelTaxFreeAmount("0")
                 .build();
-
+        //승인 결과(result of approval)
+        //{"aid":"A6a8d3a301d33ed2dc3c",
+        // "tid":"T6a8d38329fd342cdd38",
+        // "cid":"TC0ONETIME",
+        // "sid":null,
+        // "partner_order_id":"1",
+        // "partner_user_id":"1",
+        // "item_name":"초코파이",
+        // "item_code":null,
+        // "payload":null,
+        // "quantity":1,
+        // "amount":{"total":1100000,"tax_free":0,"vat":100000,"point":0,"discount":0,"green_deposit":0},
+        // "payment_method_type":"CARD",
+        // "card_info":{"kakaopay_purchase_corp":"신한","kakaopay_purchase_corp_code":"701","kakaopay_issuer_corp":"신한","kakaopay_issuer_corp_code":"101","bin":"111111","card_type":"신용","install_month":"00","approved_id":"11111111","card_mid":"111111","interest_free_install":"N","card_item_code":"111111","installment_type":"CARD_INSTALLMENT"},
+        // "sequential_payment_methods":null,
+        // "created_at":"2024-07-30T20:50:27",
+        // "approved_at":"2024-07-30T20:51:00"}
+        //
+        //취소 결과(result of approval)
+        //{"tid":"T6a8d38329fd342cdd38",
+        // "cid":"TC0ONETIME",
+        // "status":"PART_CANCEL_PAYMENT",
+        // "partner_order_id":"1",
+        // "partner_user_id":"1",
+        // "payment_method_type":"CARD",
+        // "item_name":"초코파이",
+        // "aid":"A6a8d6a129fd342cdd3c",
+        // "quantity":1,
+        // "amount":{"total":1100000,
+        // "tax_free":0,"vat":100000,
+        // "point":0,"discount":0,
+        // "green_deposit":0},
+        // "canceled_amount":{"total":1100,"tax_free":0,"vat":100,"point":0,"discount":0,"green_deposit":0},
+        // "cancel_available_amount":{"total":1098900,"tax_free":0,"vat":99900,"point":0,"discount":0,"green_deposit":0},
+        // "approved_cancel_amount":{"total":1100,"tax_free":0,"vat":100,"point":0,"discount":0,"green_deposit":0},
+        // "created_at":"2024-07-30T20:50:27",
+        // "approved_at":"2024-07-30T20:51:01",
+        // "canceled_at":"2024-07-30T21:03:45"}
         // Send Request
         HttpEntity<RefundRequest> entityMap = new HttpEntity<>(cancelRequest, headers);
         try {
