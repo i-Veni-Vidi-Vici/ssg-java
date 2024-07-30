@@ -21,7 +21,7 @@ public class KakaoPayController {
 
     }
 
-    @GetMapping("/readyToKakaoPay/{openType}")
+    @GetMapping("/readyToKakaoPay/pay/{openType}")
     public String readyToKakaoPay(@PathVariable("openType")String openType, Model model) {
         ReadyResponse readyResponse = kakaoPayService.ready(openType);
 
@@ -35,6 +35,13 @@ public class KakaoPayController {
         String approveResponse = kakaoPayService.approve(pgToken);
         model.addAttribute("response", approveResponse);
         return  openType + "/approve";
+    }
+
+    @GetMapping("/readyToKakaoPay/refund/{openType}")
+    public String refund( @PathVariable("openType") String openType, Model model) {
+        String refundRequest = kakaoPayService.refund();
+        model.addAttribute("response", refundRequest);
+        return  openType + "/refund";
     }
 
     @GetMapping("/cancel/{openType}")

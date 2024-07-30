@@ -1,6 +1,7 @@
 package com.sh.kakao_pay_api.service;
 
 import com.sh.kakao_pay_api.model.dto.ApproveRequest;
+import com.sh.kakao_pay_api.model.dto.RefundRequest;
 import com.sh.kakao_pay_api.model.dto.ReadyRequest;
 import com.sh.kakao_pay_api.model.dto.ReadyResponse;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,7 @@ public class KakaoPayService {
     private String secretKey;
     private static final String KAKAO_PAY_READY_URL = "https://open-api.kakaopay.com/online/v1/payment/ready";
     private static final String KAKAO_PAY_APPROVE_URL = "https://open-api.kakaopay.com/online/v1/payment/approve";
+    private static final String KAKAO_PAY_CANCEL_URL = "https://open-api.kakaopay.com/online/v1/payment/cancel";
     @Value("${cid}")
     private String cid;
     private String tid;
@@ -91,6 +93,37 @@ public class KakaoPayService {
             // save the result of approval
             String approveResponse = response.getBody();
             return approveResponse;
+        } catch (HttpStatusCodeException ex) {
+            return ex.getResponseBodyAsString();
+        }
+    }
+
+    public String refund() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "SECRET_KEY " + secretKey);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // Request param
+        RefundRequest cancelRequest = RefundRequest.builder()
+                .cid(cid)
+                .tid(tid) // 임의
+                .cancelAmount("1100")  // 임의
+                .cancelTaxFreeAmount("0")
+                .build();
+
+        // Send Request
+        HttpEntity<RefundRequest> entityMap = new HttpEntity<>(cancelRequest, headers);
+        try {
+            ResponseEntity<String> response = new RestTemplate().postForEntity(
+                    KAKAO_PAY_CANCEL_URL,
+                    entityMap,
+                    String.class
+            );
+
+            // 취소 결과를 저장한다.
+            // save the result of cancel
+            String cancelResponse = response.getBody();
+            return cancelResponse;
         } catch (HttpStatusCodeException ex) {
             return ex.getResponseBodyAsString();
         }
