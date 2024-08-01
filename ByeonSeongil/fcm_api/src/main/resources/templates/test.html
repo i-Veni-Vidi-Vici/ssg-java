@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+    import {getMessaging, getToken, onMessage} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-messaging.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBvGdg0yTELVh4DS1C3csTNljaqMAXy16E",
+        authDomain: "test-53056.firebaseapp.com",
+        projectId: "test-53056",
+        storageBucket: "test-53056.appspot.com",
+        messagingSenderId: "973719521176",
+        appId: "1:973719521176:web:d9af43fe7f3c391e088ded",
+        measurementId: "G-ZD561LYMT7"
+    };
+    // 공개키
+    const vapidKey = 'BEJU0dLzlsi2mrg55EuhDk7E2lnWWIAgLvwf1r3ih-iSEdks9VEKzB9Lslt3hIGP4FJIWI8GBoiNYu8CZ_t2SRk';
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    const messaging = getMessaging();
+    // Add the public key generated from the console here.
+    // getToken(messaging, {vapidKey});
+ r
+    // function resetUI() {
+    //     clearMessages();
+    //     showToken('loading...');
+    //     // Get registration token. Initially this makes a network call, once retrieved
+    //     // subsequent calls to getToken will return from cache.
+    //     getToken(messaging, { vapidKey }).then((currentToken) => {
+    //         if (currentToken) {
+    //             sendTokenToServer(currentToken);
+    //             updateUIForPushEnabled(currentToken);
+    //         } else {
+    //             // Show permission request.
+    //             console.log('No registration token available. Request permission to generate one.');
+    //             // Show permission UI.
+    //             updateUIForPushPermissionRequired();
+    //             setTokenSentToServer(false);
+    //         }
+    //     }).catch((err) => {
+    //         console.log('An error occurred while retrieving token. ', err);
+    //         showToken('Error retrieving registration token.');
+    //         setTokenSentToServer(false);
+    //     });
+    // }
+
+    messaging.requestPermission()
+        .then(function() {
+            // 알람이 허용되었을 때 토큰을 반환합니다.
+            // 해당 토큰을 통해 FCM 특정 사용자에게 메시지를 보낼 수 있습니다.
+            return messaging.getToken();
+        })
+        .then(async function(token) {
+            console.log(token);
+            // 해당 onMessage는 데이터메시지로, 포그라운드인 상태에서
+            // FCM 메시지를 전송하는 경우 콘솔에 표기하도록 작성된 코드입니다.
+
+            messaging.onMessage(payload => {
+                console.log(payload);
+
+            })
+        })
+
+
+    // function requestPermission() {
+    //     console.log('Requesting permission...');
+    //     Notification.requestPermission().then((permission) => {
+    //         if (permission === 'granted') {
+    //             console.log('Notification permission granted.');
+    //             // TODO(developer): Retrieve a registration token for use with FCM.
+    //             // In many cases once an app has been granted notification permission,
+    //             // it should update its UI reflecting this.
+    //             resetUI();
+    //         } else {
+    //             console.log('Unable to get permission to notify.');
+    //         }
+    //     });
+    // }
+</script>
+</body>
+</html>
