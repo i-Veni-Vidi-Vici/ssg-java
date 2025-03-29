@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js | event object</title>
+  <style>
+    .area {
+      width: 500px;
+      height: 300px;
+      border: 3px solid #000;
+      margin: 30px 0;
+      background-color: thistle;
+    }
+  </style>
+</head>
+<body>
+  <h1>event object</h1>
+  <input type="button" value="click me" id="btn">
+
+  <div class="area" title="아무곳이나 클릭하세요. 클릭한 좌표를 알려드립니다."></div>
+  <span id="coords"></span>
+
+  <input type="button" value="click me again" id="btn-attr" onclick="test1(event); console.log(1234);">
+
+  <script src="js/09_event_object.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "js/02_access_dom.js"></script>
+</head>
+<body>
+    <h1>access dom</h1>
+    <!-- 
+        DOM : Document Object Model
+        - document 객체 : html 페이지 내 모든 태그를 계층 구조를 고려해 만들어진 js객체
+     -->
+     <input type="button" value="getElementById" onclick="test1();">
+     <input type="button" value="getElementByTagName" onclick="test2();">
+     <input type="button" value="getElementByClassName" onclick="test3();">
+     <input type="button" value="querySelector" onclick="test4();">
+     <input type="button" value="querySelectorAll" onclick="test5();">
+    <ul id="">
+        <li id="li1" class="group1">안녕1 JS</li>
+        <li id="li2" class="group1">안녕2 JS</li>
+        <li id="li3" class="group1">안녕3 JS</li>
+        <li id="li4" class="group1">안녕4 JS</li>
+        <li id="li5" class="group1">안녕5 JS</li>
+    </ul>
+</body>
+</html>

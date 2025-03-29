@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js | dom traversing</title>
+</head>
+<body>
+  <h1>dom traversing</h1>
+
+  <div>
+    <input type="button" value="자식요소" onclick="test1();">
+    <input type="button" value="부모요소" onclick="test2();">
+    <input type="button" value="형제요소" onclick="test3();">
+  </div>
+  <!-- .wrapper>p#p${Hello World $}*5 -->
+  <div class="wrapper">
+    <p id="p1">Hello World 1</p>
+    <p id="p2">Hello World 2</p>
+    <p id="p3">Hello World 3</p>
+    <p id="p4">Hello World 4</p>
+    <p id="p5">Hello World 5</p>
+  </div>
+
+  <script src="js/04_dom_traversing.js"></script>
+</body>
+</html>

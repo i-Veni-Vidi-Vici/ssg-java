@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- ! + tab 하면, emmet 기능에 의해 html 문서구조를 자동생성해줌-->
+<html lang="en">
+<head>
+    <!-- html 주석 (한줄/여러줄 가능)-->
+    <!--
+        html 주석
+        (한줄/여러줄 가능)
+    -->
+    <!-- head 태그 : 페이지 설정 정보, 화면에 노출되지 않음-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ✨HTML✨ </title> <!-- 페이지 이름이 됨! 얘만 유일하게 노출됨! -->
+</head>
+<body>
+    <!-- body 태그 : 페이지 내용, 화면에 노출됨 -->
+    <h1> ✨HTML✨</h1>
+    <h2> ⛳Hyper Text Markup Language⛳</h2>
+
+    <!--
+        index.html은 랜딩페이지이다. 디렉토리까지 요청을 보내면,
+        브라우저는 자동으로 랜딩 페이지를 탐색한다.
+        만약, index.html이 없다면 NotFound(404)로 응답한다.
+    -->
+
+    <!--주소
+        - 상대 경로 : 현재 페이지 기준으로 경로 탐색
+            - ./ 현재 디렉토리(파일/디렉토리 명으로 시작한다면, ./ 생략된 것)
+            - ../ 부모 디렉토리
+
+        - 절대 경로 : 최상위 디렉토리부터 경로 탐색
+            - / 최상위 디렉토리
+            - http://127.0.0.1:5500/와 동일
+        
+    -->
+    <ul>
+        <!-- <li> <a href = "주소"> 노출될 이름 <li/> -->
+            <li><a href="01_text.html"> text</a></li>
+            <li><a href="./01_text.html"> text</a></li>
+            <li><a href="../01_html/01_text.html"> text</a></li>
+            
+
+            <li><a href="/HongJimin/01_html/01_text.html">text</a></li>
+            <li><a href="http://127.0.0.1:5500/HongJimin/01_html/01_text.html">text</a></li>
+
+            <li><a href="../02_css/bar.html">02_css/bar</a></li>
+            <li><a href="/HongJimin/02_css/bar.html">02_css/bar</a></li>
+        </ul>
+</body>

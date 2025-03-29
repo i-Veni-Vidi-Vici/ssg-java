@@ -1,0 +1,46 @@
+.color1{ background-color:brown;}
+.color2{ background-color:aliceblue;}
+.color3{ background-color:aquamarine;}
+.color4{ background-color:blanchedalmond;}
+.color5{ background-color:cadetblue}
+
+.box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.d-block {
+    display: block;
+}
+.d-inline{
+    display: inline;
+}
+/* block 요소 처럼 w/h적용, inline요소처럼 좌우배치*/
+.d-inline-block {
+    display: inline-block;
+}
+/* 숨김 처리 */
+.d-none {
+    /* 요소 숨김, 요소 영역 제거*/
+    display: none;
+}
+.v-hidden {
+    /* 시각화 여부 hidden | visibility(기본값)*/
+    /* 요소 숨김, 요소 영역 유지*/
+    visibility: hidden;
+}
+.opacity-0 {
+    /*투명도 0(투명) ~ 1(불투명: 기본값)*/
+    /* 요소 숨김, 요소 영역 유지*/
+    opacity: 0;
+}
+.v-hidden:hover {
+    /* 실제 요소 hover 불가 */
+    visibility: visible;
+}
+.opacity-0:hover {
+    opacity: 1;
+}

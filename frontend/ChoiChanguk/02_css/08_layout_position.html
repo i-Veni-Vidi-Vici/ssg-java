@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/08_layout_position.css">
+</head>
+<body>
+    <h1>layout_position</h1>
+    <!-- 
+        position: 요소의 화면상 배치를 결정하는 속성
+        - static : (기본값) 문서에 정의된 대로 위에서 아래로, 좌에서 우로 화면 배치. offset적용 안됨
+        - relative : static과 유사하지만, offset적용 가능.
+        - absolute : 가장 가까운 부모요소 (static이 아닌 부모요소 기준으로 offset적용)
+        - fixed : 브라우저 viewport 기준 offset 적용
+        - sticky : relative처럼 작동하다가, 특정 offset에 이르면, fixed처럼 작동
+     -->
+     <h2 class="p-sticky">sticky</h2>
+
+     <h2>static</h2>
+     <div class="outer">
+        <div class="first">a</div>
+        <div class="second">b</div>
+        <div class="third">c</div>
+     </div>
+
+     <h2>relative</h2>
+     <div class="outer">
+        <div class="first">first</div>
+        <div class="second p-relative">second</div>
+        <div class="third p-relative">third</div>
+     </div>
+
+     <!-- <h2 style="margin-top: 150px;"> absolute</h2>
+     <div class="outer p-relative">
+        <div class="first">first</div>
+        <div class="second p-absolute">second</div>
+        <div class="third p-absolute">third</div>
+     </div> -->
+
+     <h2>fixed</h2>
+     <div class="circle p-fixed">fixed</div>
+
+     <h2>z-index</h2>
+     <!-- z-index : 0 (기본값) -->
+     <!-- z-index가 동일하면, 문서상 나중에 선언된 요소가 앞에 온다 -->
+     <!-- z-index는 position:static에서는 적용되지 않는다 -->
+     <div class="wrap p-relative">
+        <div class="box box1 p-absolute"></div>
+        <div class="box box2 p-absolute"></div>
+        <div class="box box3 p-absolute"></div>
+     </div>
+
+
+
+     <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

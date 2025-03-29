@@ -1,0 +1,94 @@
+/* 태그 선택자 */
+/* ul{
+    background-color: antiquewhite;
+} */
+/* 아이디 선택자 */
+/* #foo1{
+    font-weight: bold;
+}
+#foo3{
+    color:crimson;
+} */
+
+/* 클래스 선택자 */
+/* .group1{
+    text-decoration: underline;
+}
+
+.group1.group2{
+    text-decoration: line-through
+} */
+
+/* 속성 선택자 */
+/* [title]{
+    font-size: 24px;
+
+} */
+/* [title=안녕3]{
+    cursor:pointer;
+} */
+/* 혼용 */
+/* li#foo3.group2{
+    background-color: cadetblue;
+} */
+/* 복수지정 */
+/* .group1.group2{
+    text-align :center;
+} */
+/* 자식 선택자 : 부모 > 자식  */
+div#parent > h4{
+    color : springgreen;
+}
+/* 후손 선택자 : 부모 > 후손  */
+div#parent h4{
+    text-decoration: underline;
+}
+/* 부모 -> 자식 -> 자식  */
+div#parent>div#child>ul{
+    background-color: blueviolet;
+}
+/* 형제 선택자 */
+/* + 다음 형제 요소 하나 */
+/* * : 모든 태그를 의미하는 와일드 카드  */
+div#siblings >p#p1 + p{
+    color:chartreuse;
+}
+/* ~ 다음 형제 요소 모두 */
+div#siblings > p#p2 ~p{
+    font-size:24px;
+    color : hotpink;
+}
+
+/* 가상 클래스 :  */
+/* 특정 상태 / 상황에 적용 */
+
+#pseudo-class:hover{
+    background-color: tomato;
+    color:white;
+}
+#pseudo-class:active{
+    text-decoration: underline;
+}
+/* 최상위 태그를 가리키는 선택자 : html */
+:root{
+    background-color: antiquewhite;
+}
+/* 최상위 태그 안에 있는 모든 요소를 가리킴 */
+:root *{ 
+    font-family: '궁서';
+}
+/* 부정 선택자 : not(선택자) */
+h2:not(#pseudo-class){
+    text-decoration: underline;
+}
+
+/* 가상 요소 선택자 :: */
+/* 화면에 없는 요소를 추가 */
+ul#element li:before{
+    /*시작 태그와 내용 사이  */
+    content: '!';
+}
+ul#element li:before{
+    /*내용과 종료 태그 사이 */
+    content: "원";
+}

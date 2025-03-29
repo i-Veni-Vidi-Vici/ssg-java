@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합실습</title>
+</head>
+<body>
+    <form action="" name="provideFrm">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+            <div>
+                <li>
+                    <label for="provider">납품자명(필수) : </label>
+                    <input type="text" name="provider" id="provider" required>
+                </li>
+            </div>
+            <br>
+            <div>
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="email" name="email" id="email" placeholder="email을 입력하세요" required>
+                </li>
+            </div>
+            <br>
+            <div>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="text" name="homepage" id="homepage" value="http://">
+                </li>
+            </div>
+            <br>
+            <div>
+                <li>
+                    <label for="region">지역 : </label>
+                    <select type="menu" name="region" id="region">
+                        <option value="menu001">부산</option>
+                        <option value="menu002">서울</option>
+                        <option value="menu003">대전</option>
+                    </select>
+                </li>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <div>
+                    <li>
+                        <label for="productname">상품명(필수) : </label>
+                        <input type="text" required>
+                    </li>
+                </div>
+                <br>
+                <div>
+                    <li>
+                        <label for="quantity">납품수량(필수) : </label>
+                        <input type="number" placeholder="최소 100" min="100" required>
+                    </li>
+                </div>
+                <br>
+
+                <div>
+                    <li>
+                        <label for="grade">납품등급(필수) : </label>
+                        <input type="range" required>
+                    </li>
+                </div>
+                <br>
+                <div>
+                    <li>
+                        <label for="etc">기타사항 : </label>
+                        <textarea name="etc" id="etc"></textarea>
+                    </li>
+                </div>
+            </ul>
+        </fieldset>
+        <input type="submit" value="send message">
+    </form>
+</body>
+</html>

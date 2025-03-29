@@ -1,0 +1,49 @@
+.color1 {background-color: red;}
+.color2 {background-color: orange;}
+.color3 {background-color: yellow;}
+.color4 {background-color: green;}
+.color5 {background-color: blue;}
+
+.box {
+    width: 150px; height: 150px;
+    padding: 5px; 
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-none {
+    /* 요소 영역 제거 */
+    display: none;
+}
+
+.v-hidden {
+    /* 시각화여부: hidden */
+    /* 요소 영역 유지 */
+    visibility: hidden;
+}
+
+.opacity-0 {
+    /* 투명도 */
+    /* 요소 영역 유지 */
+    opacity: 0;
+}
+
+.v-hidden:hover {
+    visibility: visible;
+}
+
+.opacity-0:hover {
+    opacity: 1;
+}

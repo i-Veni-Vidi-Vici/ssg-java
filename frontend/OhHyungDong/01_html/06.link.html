@@ -1,0 +1,78 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html | link</title>
+</head>
+<body>
+    <h1></h1>
+    <!-- 
+        a 태그 
+        - href속성 : 이동할 경로 (상대 / 절대 주소 )
+        - target 속성 : 지정한 윈도우에서 경로이동 
+            -_self(기본값) : 현재창 -> 링크로 이동 
+            - _blank : 현재창 -> 새로운 탭 생성하고, 거기서 링크로 이동 
+     -->
+
+     <a href = "https://www.naver.com" target="_blank">네이버</a>
+     <a href = "https://www.naver.com" target="_self">네이버</a>
+
+     <hr>
+
+     <h2>image link</h2>
+     <a href = "index.html">
+        <img src = "../sample/image/img1.jpg" style="width : 200px" alt = "">
+     </a>
+
+
+     <h2>bookmark(anchor)</h2>
+     <!-- 태그의 아이디값을 이용해서 한페이지 상의 특정부분에 대한 링크를 생성
+        모든 태그는 공통속성을 가지고있다. (id,class,title,...)
+        - id 속성 : 한페이지내에 태그에 대한 식별자이다. (한페이지 내에서 중복되면 안된다._)
+        - class 속성 : 태그 그룹핑을 위한 속성
+        - title 속성 : 태그 간단 설명. hover시에 툴팁형대로 노출된다.
+    -->
+
+    <!--  div>ul>(li>a)*3
+        - id값으로 가기 떄문에 bookmarking 기능이라고 할 수 있음.  
+    -->
+    <div>
+        <ul>
+            <li><a href="#content1"></a>제목1</li>
+            <li><a href="#content2"></a>제목2</li>
+            <li><a href="#content3"></a>제목3</li>
+        </ul>
+    </div>
+    <!-- div>(h3#content${제목}+(p>lorem)*5)*3 
+        # : id
+        content : 내용 
+
+    -->
+    <!-- p>lorem : 알아서 P태그 안에 내용을 추가해줌 -->
+    <div>
+        <h3 id="content1">제목1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur laborum, accusantium rem aperiam ratione cum facere deserunt magnam ad officia fugit iusto, reiciendis vero quidem? Similique pariatur ab ipsum unde.</p>
+        <p>Ipsa reiciendis ipsam doloremque, vitae blanditiis laudantium ex eum quam, accusamus provident numquam! Veritatis illo error amet exercitationem fuga animi dolorum non ullam recusandae eos! Ratione minima quia mollitia hic!</p>
+        <p>Consequuntur eius ipsam amet quam saepe quos distinctio recusandae iusto soluta? Vel amet eius iure delectus quisquam dolorem corporis adipisci velit, labore incidunt distinctio odit cum unde! Neque, perferendis ipsum!</p>
+        <p>Sed earum provident sequi omnis optio numquam alias quia velit exercitationem consectetur minima corporis fugit amet nostrum corrupti nihil modi eos voluptatibus laboriosam, laborum harum enim quasi rerum! A, at.</p>
+        <p>Recusandae, blanditiis. Molestiae inventore enim deleniti harum dolorum ducimus ut maiores ratione quod quasi, fuga voluptates repudiandae, perferendis adipisci nesciunt reprehenderit reiciendis magnam laudantium doloribus iusto. Deleniti sed totam provident.</p>
+        <h3 id="content2">제목2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptatem vero obcaecati reprehenderit laboriosam beatae totam nesciunt enim, deserunt aliquam in, corrupti suscipit consectetur placeat consequuntur quibusdam veniam distinctio non.</p>
+        <p>Libero delectus rem ut facere voluptates quas neque. Porro eaque nostrum nesciunt, voluptatem iure minima natus velit dolorem ex cumque rerum quo fuga inventore, blanditiis obcaecati labore odio expedita magnam!</p>
+        <p>Accusantium corrupti rerum consequuntur nisi temporibus ex laudantium, voluptatibus itaque sequi, similique voluptatum explicabo, veniam consequatur beatae magni culpa distinctio! Ea mollitia corrupti velit repudiandae consequuntur cum impedit quisquam eum.</p>
+        <p>Officiis sit odit vitae ut doloremque, nulla nisi harum, expedita dicta eveniet et. Dignissimos ratione fuga molestias dolores sit? Nobis sint adipisci qui rem, quisquam repellendus dicta accusantium? Rerum, fugit?</p>
+        <p>Corrupti, aliquid. Ratione voluptates recusandae quibusdam amet adipisci cum minima laudantium magnam quod blanditiis saepe alias labore laborum natus doloribus tempora odio, omnis officiis, qui ducimus accusantium. Enim, iure asperiores.</p>
+        <h3 id="content3">제목3</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis amet eveniet, nihil iure quis inventore fugit a odio dolores eum. Beatae deserunt fugiat molestias eius dignissimos quibusdam quaerat error placeat?</p>
+        <p>Sint, ipsam inventore? Quaerat repellendus, eligendi provident vero neque dolore dolorum cupiditate ullam aspernatur fuga explicabo temporibus pariatur nisi commodi. Dignissimos dolore explicabo qui laborum officiis accusantium, esse consequatur quis!</p>
+        <p>Consectetur doloribus fugit, pariatur minima veritatis dolorem vel unde laboriosam deserunt provident voluptas nesciunt distinctio quos totam culpa? Rerum consectetur exercitationem cumque error quidem expedita laudantium, nisi asperiores ab deserunt.</p>
+        <p>Esse nisi inventore asperiores odio quae eos consequatur, ut veniam voluptatum adipisci quaerat, minima officiis iste nam ducimus deserunt, distinctio atque deleniti sunt! Laboriosam possimus quos autem praesentium dolor eaque.</p>
+        <p>Ipsa fuga harum ea doloribus iusto quaerat molestiae perferendis minima, soluta quibusdam mollitia nihil tenetur, itaque sed quidem rem assumenda reprehenderit dicta! Illum dolore numquam inventore, consectetur sequi rem deleniti.</p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href = "#top">맨 위로</a>
+</body>
+</html>

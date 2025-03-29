@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form action="" name = "userInfo">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label for="name">납품자명(필수) : </label>
+                    <input type="text" name = "name", id ="name" required>    
+                </li>
+
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="email" name = "email", id ="email" placeholder = "answer@naver.com" required>
+                </li>
+
+                <li>
+                    <label for="url">홈페이지 : </label>
+                    <input type="url" name = "url", id = "url" value = "http://">
+                </li>
+                <li>
+                    <label for="local">지역 : </label>
+                    <select name="local" id="local">
+                        <option value="서울">서울</option>
+                        <option value="경기">경기</option>
+                        <option value="부산" selected>부산</option>
+                    </select>
+                </li>
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>납품 정보</legend>
+                <ol>
+                    <li>
+                        <label for="name">상품명(필수) : </label>
+                        <input type="text" name = "name", id ="name" required>    
+                    </li>
+                    <li>
+                        <label for="amount">납품수량(필수) : </label>
+                        <input type="number" name = "amount", id ="email" min ="100" placeholder = "최소 100" required>
+                    </li>
+                    <li>
+                        <label for="grade">납품등급(필수) : </label>
+                        <input type="range" name = "grade", id = "grade" required>
+                    </li>
+                    <li>
+                        <label for="etc">기타사항 : </label>
+                        <textarea name ="etc" id="etc" rows="2"></textarea>
+                    </li>
+                </ol>
+        </fieldset>
+        <input type="submit" value = "send message">
+    </form>
+</body>
+</html>

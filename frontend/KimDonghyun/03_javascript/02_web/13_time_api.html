@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js | timer api</title>
+</head>
+<body>
+  <h1>timer api</h1>
+  <!-- 
+    13_time_api.html:10 Scripts may close only the windows that were opened by them.
+  -->
+  <button onclick="self.close();">close</button>
+  
+  <input type="button" value="setTimeout" id="btn1">
+  <input type="button" value="setInterval" id="btn2">
+  <input type="button" value="clearInterval" id="btn3" onclick="clearInterval(intervalId)">
+
+  <h2 id="clock"></h2>
+
+  <script src="js/13_timer_api.js"></script>
+</body>
+</html>

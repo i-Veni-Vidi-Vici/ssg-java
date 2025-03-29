@@ -1,0 +1,40 @@
+#gallery{
+    margin: 0;
+    border: 0;
+    width: 500px;
+    height: 300px;
+    background-color: rgb(48, 48, 48);
+    border: 10px solid black;
+    display:flex;
+        justify-content:center;
+
+
+}
+
+ul{
+    margin: 0;
+    border: 0;
+    list-style: none;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+li{
+    padding-left:0;
+    margin-left: 0;
+    border: 0;
+}
+
+small{
+    margin: 0;
+    border: 0;
+
+}
+
+.pic{
+    border: 0;
+    display: none;
+    width: 100px;
+    height: 75px;
+}

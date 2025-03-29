@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+div             { padding:10px;}
+#container		{ background-color:#F0F0F0; width:960px; margin:0 auto; padding:10px; }
+#header			{ background-color:#908886; height:100px; }
+#content		{ background-color:#F5F5F5; float:left; width:640px; height:400px; }
+#sideinfo		{ background-color:#DCDAD9; float:right; width:280px; height:400px; }
+#footer			{ background-color:#555555; clear:both; height:100px; }
+</style>
+<title>html5이전 페이지 레이아웃</title>
+</head>
+	<body>
+		<!-- 
+    semantic tag란
+    - 의미가 부여된 태그. 태그의 의미와 작성될 내용을 매칭해야 한다. 
+    - 페이지 레이아웃과 관련된 semantic tag 제공
+    - 웹접근성 향상
+
+    <header>
+      - 헤더내용
+      - 웹페이지 전체의 헤더 또는 article의 헤더일수 있음.
+
+    <nav>
+      - 네비게이션 내용
+      - 메뉴, 사이트맵
+      - header/aside/footer하위에 위치하거나, 단독으로 사용가능
+
+    <main>
+      - 한페이지의 주요컨텐츠영역
+      - 페이지당 하나만 존재해야 함.
+      - 모든 페이지의 공통부분은 제외할 것
+
+    <article>
+      - 실제내용(독립적)
+      - 하위에 header/footer 가질수 있음.
+
+    <section>
+      - 의미적으로 그룹핑 가능한 영역
+      - div의 css효과등을 위한 그룹핑과는 대비됨.
+
+    <aside>
+      - 부가적인 내용
+      - 광고/날씨/달력
+
+    <footer>
+      - 페이지 푸터내용
+      - 저작권/사이트맵
+  -->
+
+		<div id="container">
+			<div id="header">Header</div>
+			<div id="content">Content</div>
+			<div id="sideinfo">SideInfo</div>
+			<div id="footer">Footer</div>
+		</div>
+	</body>
+</html>

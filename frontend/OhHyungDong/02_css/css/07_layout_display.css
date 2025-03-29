@@ -1,0 +1,45 @@
+.color1{background-color: burlywood;}
+.color2{background-color: thistle;}
+.color3{background-color: tomato;}
+.color4{background-color: slateblue;}
+.color5{background-color: aquamarine;}
+
+.block{
+    width : 150px;
+    height : 150 px;
+    border : 1px solid black;
+    padding:5px;
+    margin: 5px;
+}
+
+.d-block{
+    display: block;
+}
+
+.d-inline{
+    display: inline;
+}
+
+.d-inline-block{
+    display: inline-block;
+}
+
+/* 숨김처리  */
+.d-none{
+    /* 요소 숨김 , 요소 영역 제거  */
+    display: none;
+}
+
+.v-hidden{
+    /* 시각화 여부 : hidden | visible(기본값) */
+    /* 요소 숨김 , 요소 영역 유지  */
+    visibility:hidden;
+}
+.v-hidden:hover{
+    /* 실제 요소 hover불가 */
+    visibility:visible;
+}
+
+.opacity-0{
+    /* 투명도 0 ~ 1(불투명 : ;기본값 */
+}

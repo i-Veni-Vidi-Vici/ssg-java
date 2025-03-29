@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/03_selector_priority.css">
+</head>
+<body>
+    <h1>selector priority</h1>
+    <!-- div#box.foo[title=box] -->
+    <div id="box" class="foo" title="box"></div>
+
+    <!-- 
+        선택자는 우선순위에 따라 적용된다.
+        - 지정한 선택자에 따라 점수가 부여되고, 높은 점수를 부여받은 style이 우선적용된다.
+        - important(오버라이드 금지))
+        - inline 스타일 속성
+        - 금 : 아이디
+        - 은 : 클래스 / 속성 / 가상클래스
+        - 동 : 태그 / 가상요소(::)
+     -->
+</body>
+</html>

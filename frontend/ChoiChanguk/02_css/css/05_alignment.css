@@ -1,0 +1,26 @@
+div#parent1{
+    background-color: aqua;
+    text-align:center;
+}
+
+h1{
+    text-align: center;
+}
+
+div.box{
+    width: 300;
+    height: 500;
+    border: 2px solid;
+}
+div.item{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    /* text-align: center; */
+
+    /* 자식요소 상하좌우 가운데 정렬 */
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}

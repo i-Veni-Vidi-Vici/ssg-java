@@ -1,0 +1,9 @@
+/* 브라우저에서 Ctrl + shift + c로 영역이 늘어난 것을 확인 */
+div.item {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 50px;
+    background-color: thistle;
+}

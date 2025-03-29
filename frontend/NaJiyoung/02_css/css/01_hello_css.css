@@ -1,0 +1,11 @@
+/* css 영역 */
+/* 한줄 주석 */
+/*
+    여러줄
+    여러줄
+    주석
+*/
+#bar {
+    font-size: 32px; /* 기본 font-size 16px */
+    color: crimson;
+}

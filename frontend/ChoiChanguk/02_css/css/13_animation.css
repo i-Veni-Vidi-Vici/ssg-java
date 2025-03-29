@@ -1,0 +1,54 @@
+body:hover .box{
+    animation-name: my-keyframes;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.box{
+    width: 300px;
+    height: 300px;
+    border: 2px solid violet;
+    background-color: blue;
+
+    animation-name: my-keyframes;
+    animation-duration: 3s;
+}
+
+@keyframes my-keyframes {
+    /* keyframes블럭 */
+    /* from ~ to */
+    /* 10% 20% ~ 100% */
+
+
+    25%{
+        transform:translate(300px,0);
+    }
+    50%{
+        transform:translate(300px,300px);
+    }
+    75%{
+        transform:translate(0,300px);
+    }
+    100%{
+        transform:translate(0,0);
+    }
+}
+
+.img-wrapper{
+    width: 300px;
+    border-radius:15%;
+}
+body:hover .img-wrapper{
+    animation-name: spinner;
+    animation-duration: 0.7s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(720deg);
+    }
+}

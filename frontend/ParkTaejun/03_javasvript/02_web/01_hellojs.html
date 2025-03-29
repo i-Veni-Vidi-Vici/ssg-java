@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <script>
+        //head태그 안 내부 script 
+        //javascript 영역
+        console.log(123);
+    </script>
+</head>
+<body>
+    <h1>hello js</h1>
+    <!-- 
+        html페이지에서 js를 적용하는 방법은 3가지가 있다.
+        1. html의 event 속성값부분에 js 작성가능 (html attribute로 작성)
+        2. 페이지 내 script 태그를 통해 작성가능
+        3. 외부 js 작성 후, 현재페이지에서 로드하는 방식이 있다.
+     -->
+     <button type="button" onclick="alert('바보 멍청이'); console.log('고기고기고기고기');">클릭미</button>
+     <button type = "button" onclick = "foo();">foo </button>
+     <button type = "button" onclick = "bar();">bar</button>
+
+
+    
+    
+     <script>
+        //2. body 종료태그 앞 script 
+        console.log(456);
+
+        function foo(){
+            console.log("foooooooooooooo");
+        }
+     </script>
+      <script src ="js/01_hellojs.js"></script>
+</body>
+</html>

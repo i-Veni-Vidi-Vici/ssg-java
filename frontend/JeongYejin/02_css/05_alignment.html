@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css | alignment</title>
+  <link rel="stylesheet" href="css/05_alignment.css">
+</head>
+<body>
+  <h1>alignment</h1>
+  <h2>inline요소의 정렬</h2>
+  <!-- 
+    inline요소는 스스로 정렬할 수 없다.
+    부모 block요소의 text-align속성에 따라 정렬된다.
+    - span, img, strong, ...
+    - p, h1태그하위의 텍스트도 동일하게 처리
+  -->
+  <div id="parent1">
+    <span>Helloworld</span>
+  </div>
+
+  <h2>block요소의 정렬</h2>
+  <!-- 
+    block요소의 정렬은 margin값을 이용한다.
+    margin이란 다른 요소(부모요소의 경계)와의 여백을 의미한다.
+  -->
+  <div class="box"></div>
+
+  <hr>
+  
+  <div class="item">
+    <span class="text">🎃</span>
+  </div>
+
+  
+</body>
+</html>

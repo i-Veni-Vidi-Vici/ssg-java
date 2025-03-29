@@ -1,0 +1,25 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper img{
+    width: 300px;
+    margin: 50px;
+}
+
+.wrapper img:first-of-type{
+    /* position변경 없이 요소를 이동하는 간단한 방법 */
+    transform:translate(100px,100px);
+}
+
+
+.wrapper > img:last-of-type:hover{
+    transform: rotate(-30deg);
+}
+
+.wrapper>img:first-of-type:hover{
+    /* 가로 offset 세로 offset spread color */
+    box-shadow: 10px 10px 10px gray;
+}
