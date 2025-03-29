@@ -1,0 +1,229 @@
+package com.sh.app._03.element.collection._02.list._02.question.embeddable;
+
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import org.junit.jupiter.api.*;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class QuestionEntityTest {
+    private static EntityManagerFactory entityManagerFactory;
+    private EntityManager entityManager;
+
+    @BeforeAll
+    static void beforeAll() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("jpatest");
+    }
+
+    @BeforeEach
+    void setUp() {
+        this.entityManager = entityManagerFactory.createEntityManager();
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.entityManager.close();
+    }
+
+    @AfterAll
+    static void afterAll() {
+        entityManagerFactory.close();
+    }
+
+    @Test
+    @DisplayName("ddl-auto=create 확인")
+    void test() {
+        /*
+            create table tbl_question0202 (
+                id bigint not null auto_increment,
+                text varchar(255),
+                primary key (id)
+            ) engine=InnoDB
+
+            create table tbl_question_choice0202 (
+                idx integer not null,
+                queston_id bigint not null,
+                a varchar(255),
+                b varchar(255),
+                primary key (idx, queston_id)
+            ) engine=InnoDB
+
+            alter table tbl_question_choice0202
+               add constraint FK6unwci3g8hcr8r0dqlapd5i4h
+               foreign key (queston_id)
+               references tbl_question0202 (id)
+         */
+    }
+
+    @Test
+    @DisplayName("Question 등록")
+    void test2() {
+        // given
+        String text = "다음 중 과일과 색깔이 잘 매칭된 것을 고르세요.";
+        List<Choice> choices = List.of(
+                new Choice("사과", "검정색"),
+                new Choice("바나나", "파란색"),
+                new Choice("토마토", "토마토색"),
+                new Choice("딸기", "아이보리색")
+        );
+        Question question = new Question(null, text, choices);
+
+        // when
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            entityManager.persist(question);
+            transaction.commit();
+            /*
+            insert
+            into
+                tbl_question0202
+                (text)
+            values
+                (?)
+        Hibernate:
+            insert
+            into
+                tbl_question_choice0202
+                (queston_id, idx, a, b)
+            values
+                (?, ?, ?, ?)
+        Hibernate:
+            insert
+            into
+                tbl_question_choice0202
+                (queston_id, idx, a, b)
+            values
+                (?, ?, ?, ?)
+        Hibernate:
+            insert
+            into
+                tbl_question_choice0202
+                (queston_id, idx, a, b)
+            values
+                (?, ?, ?, ?)
+        Hibernate:
+            insert
+            into
+                tbl_question_choice0202
+                (queston_id, idx, a, b)
+            values
+                (?, ?, ?, ?)
+             */
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+        System.out.println(question);
+
+        // then
+        assertThat(question.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("Question객체 가져와서 수정하기")
+    void test3() {
+        // given
+        String text = "음식점과 메뉴의 조합이 올바른 것은?";
+        List<Choice> choices = List.of(
+                new Choice("맥도날드", "와퍼"),
+                new Choice("스타벅스", "누룽지죽"),
+                new Choice("버거킹", "와퍼"),
+                new Choice("뱅뱅막국수", "치즈피자")
+        );
+        Question question = new Question(null, text, choices);
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            entityManager.persist(question);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+        System.out.println(question);
+
+        // when
+        entityManager.clear(); // 영속성에 담겨있어서 select 안날라가니까 보려고 지움
+        Question question2 = entityManager.find(Question.class, question.getId());
+        System.out.println(question2);
+        /*
+            select
+                q1_0.id,
+                c1_0.queston_id,
+                c1_0.idx,
+                c1_0.a,
+                c1_0.b,
+                q1_0.text
+            from
+                tbl_question0202 q1_0
+            left join
+                tbl_question_choice0202 c1_0
+                    on q1_0.id=c1_0.queston_id
+            where
+                q1_0.id=?
+         */
+        System.out.println(question);
+
+        List<Choice> newChoices = List.of(
+                new Choice("뱅뱅막국수", "치즈피자"),
+                new Choice("버거킹", "와퍼"),
+                new Choice("스타벅스", "누룽지죽"),
+                new Choice("맥도날드", "와퍼")
+        );
+        transaction.begin();
+        try {
+            question2.changeChoices(newChoices);
+            transaction.commit();
+            /*
+            // 수정 시 Update문이 실행되지 않고 Delete 후 다시 insert 하는 흐름
+                delete
+                    from
+                        tbl_question_choice0202
+                    where
+                        queston_id=?
+                Hibernate:
+                    insert
+                    into
+                        tbl_question_choice0202
+                        (queston_id, idx, a, b)
+                    values
+                        (?, ?, ?, ?)
+                Hibernate:
+                    insert
+                    into
+                        tbl_question_choice0202
+                        (queston_id, idx, a, b)
+                    values
+                        (?, ?, ?, ?)
+                Hibernate:
+                    insert
+                    into
+                        tbl_question_choice0202
+                        (queston_id, idx, a, b)
+                    values
+                        (?, ?, ?, ?)
+                Hibernate:
+                    insert
+                    into
+                        tbl_question_choice0202
+                        (queston_id, idx, a, b)
+                    values
+                        (?, ?, ?, ?)
+             */
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+
+        // then
+        Question question3 = entityManager.find(Question.class, question.getId());
+        assertThat(question3.getChoices()).isEqualTo(newChoices);
+    }
+
+}

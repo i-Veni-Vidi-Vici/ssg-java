@@ -1,0 +1,21 @@
+package com.sh.app._03.one2many._01.set;
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
+
+
+@Entity
+@Table(name = "tbl_player")
+@Data
+@Setter(AccessLevel.PRIVATE)
+@NoArgsConstructor
+@AllArgsConstructor
+public class Player {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+}
