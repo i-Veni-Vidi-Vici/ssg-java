@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" th:fragment="styles"/>
+    <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">분기별 매출 통계</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<main layout:fragment="main" class="container">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script th:inline="javascript">
+
+        var salesMngQuarterDtos = [[${salesMngQuarterDtoLists}]];
+
+        // 데이터 변환을 통해 Chart.js의 데이터 형식에 맞게 준비-->
+        var labels = salesMngQuarterDtos.map(function (item) {
+            return item.dateQuarter; // 월 정보 필드를 사용했다고 가정-->
+        });
+
+        var salesData = salesMngQuarterDtos.map(function (item) {
+            return item.totalSales; // 월별 매출 필드를 사용했다고 가정-->
+        });
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '분기별 매출 통계',
+                    data:
+                    salesData,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div style="padding-top: 20px">
+
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            <a class="flex-sm-fill text-sm-center nav-link " aria-current="page"
+               th:href="@{/salesStatistics/totalSalesList}">일별 매출 통계</a><!-- ✨active 추가하면 파래짐 -->
+            <a class="flex-sm-fill text-sm-center nav-link" aria-current="page"
+               th:href="@{/salesStatistics/totalMonthlySales}">월별 매출 통계</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" th:href="@{/salesStatistics/totalQuarterSales}">분기별
+                매출 통계</a>
+        </nav>
+
+
+        <table class="table table-hover"> <!--/* 표형식으로 구조화되어 보여준다. */-->
+            <thead class="table-primary">
+            <tr>
+                <th>연별 분기</th>
+                <th>주문 건수(건)</th>
+                <th>결제 합계(원)</th>
+                <th>환불 합계(원)</th>
+                <th>매출 합계(원)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="salesMngQuarterDtos, stat : ${salesMngQuarterDtoLists}" th:object="${salesMngQuarterDtos}">
+                <!-- salesMngDailyDtoLists = model.addAttribute에서의 attributeName -->
+                <td th:text="*{dateQuarter}"></td>
+                <td th:text="*{orderAmount}"></td>
+                <td th:text="*{#numbers.formatInteger(totalPrice, 0, 'COMMA')}"></td>
+                <td th:text="*{#numbers.formatInteger(refundAmount, 0, 'COMMA')}"></td>
+                <td th:text="*{#numbers.formatInteger(totalSales, 0, 'COMMA')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</div>
+
+<script th:src="@{/js/scripts.js}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossOrigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" th:fragment="styles">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="sb-nav-fixed">
+<!--<main layout:fragment="main" style="text-align: center; margin-top: 280px;">-->
+<main layout:fragment="main" class="container">
+    <h1 th:text="${message}" class="center"></h1>
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+
+                    <div class="container-fluid px-4">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                <span id="current-year"></span>년 월 매출 통계
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                            </div>
+                            <div class="card-footer small text-muted" id="update-time1"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-pie me-1"></i>
+                                주문 상태
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myPieChart" width="100%" height="50"></canvas>
+                            </div>
+                            <div class="card-footer small text-muted" id="update-time2"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-bar me-1"></i>
+                                연령별 매출 Top7
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart" width="100%" height="50"></canvas>
+                            </div>
+                            <div class="card-footer small text-muted" id="update-time3"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"
+            crossorigin="anonymous"></script>
+
+    <script th:inline="javascript">
+
+        // 현재 날짜와 시간 가져오기
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
+        var year = currentDate.getFullYear();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+
+        // 시간이 한 자리 수일 경우 앞에 0을 붙입니다.
+        var formattedHours = hours < 10 ? '0' + hours : hours;
+        var formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+        var dateTimeString = year + '년 ' + month + '월 ' + day + '일 ' + formattedHours + ':' + formattedMinutes;
+        document.getElementById('update-time1').textContent = 'Updated on ' + dateTimeString;
+        document.getElementById('update-time2').textContent = 'Updated on ' + dateTimeString;
+        document.getElementById('update-time3').textContent = 'Updated on ' + dateTimeString;
+        document.getElementById('current-year').textContent = year.toString();
+
+        // sales
+        var orderSalesData = /*[[${orderSales}]]*/ [];
+        var orderSalesLabels = [];
+        var orderSalesDataPoints = [];
+
+        orderSalesData.forEach(function (item) {
+            orderSalesLabels.push(item.month);
+            orderSalesDataPoints.push(item.totalPrice);
+        });
+
+        // status
+        var orderStatusResult = /*[[${orderStatus}]]*/ [];
+        var orderStatusLabels = [];
+        var orderStatusData = [];
+
+        orderStatusResult.forEach(function (stat) {
+            orderStatusLabels.push(stat.orderStatus);
+            orderStatusData.push(stat.statusCount);
+        });
+
+        var total = orderStatusData.reduce((acc, curr) => acc + curr, 0);
+
+        // 퍼센티지 계산 함수
+        function calculatePercentage(value, total) {
+            return ((value / total) * 100).toFixed(2) + '%';
+        }
+
+
+        var salesDailyDtos = /*[[${salesByAgeAndTotalSales}]]*/ [];
+
+        var labels = salesDailyDtos.map(function (item) {
+            return item.productName;
+        });
+
+        var salesData1 = salesDailyDtos.map(function (item) {
+            return item.earlyToMid20s;
+        });
+
+        var salesData2 = salesDailyDtos.map(function (item) {
+            return item.midToLate20s;
+        });
+
+        var salesData3 = salesDailyDtos.map(function (item) {
+            return item.earlyToMid30s;
+        });
+
+        var salesData4 = salesDailyDtos.map(function (item) {
+            return item.midToLate30s;
+        });
+    </script>
+
+
+    <script th:src="@{/assets/statistics/order-sales-chart.js}"></script>
+    <script th:src="@{/assets/statistics/order-status-chart.js}"></script>
+    <script th:src="@{/assets/statistics/order-age-sales.js}"></script>
+</main>
+
+<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

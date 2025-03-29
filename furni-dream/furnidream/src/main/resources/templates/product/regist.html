@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/default}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>상점 등록</title>
+    <link rel="stylesheet" th:fragment="styles" th:href="@{/css/styles.css}" type="text/css"/>
+</head>
+<body>
+<main class="ms-4 mt-4 me-4" layout:fragment="main">
+    <div class="card mb-4 m-0 shadow">
+        <div class="card-header text-center"><h2>상품 신규 등록</h2></div>
+        <form class="container mt-2 px-4 ms-3 me-3" enctype="multipart/form-data" method="post" name="productRegistFrm"
+              th:action="@{/product/regist}">
+            <div class="mt-2">
+                <div class="input-group mb-3 shadow-sm">
+                    <span class="input-group-text" id="productName-addon">* 상품명</span>
+                    <input aria-describedby="productName-addon" aria-label="productName" class="form-control" name="productName"
+                           required type="text">
+                </div>
+                <div class="input-group mb-3 shadow-sm">
+                    <span class="input-group-text" id="productCode-addon">  상품코드</span>
+                    <input aria-describedby="productCode-addon" aria-label="productCode" class="form-control" name="productCode"
+                           type="text">
+                </div>
+
+
+                <div class="row mb-3 text-center">
+                    <div class="col-md-6 themed-grid-col">
+                        <div class="form-floating">
+                            <select aria-label="Floating label select example" name="productStatus" class="form-select" id="productStatus">
+                                <option selected value="AVAILABLE">AVAILABLE</option>
+                                <option value="UNAVAILABLE">UNAVAILABLE</option>
+                            </select>
+                            <label for="productStatus">판매가능/불가</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 themed-grid-col">
+                        <div class="form-floating">
+                            <select aria-label="Floating label select example" name="category" class="form-select" id="category">
+                                <option selected value="소파">소파</option>
+                                <option value="침대">침대</option>
+                                <option value="책상">책상</option>
+                                <option value="의자">의자</option>
+                                <option value="책장/진열장">책장/진열장</option>
+                                <option value="옷장">옷장</option>
+                            </select>
+                            <label for="category">카테고리</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-6 themed-grid-col">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text" id="stock-addon">* 재고</span>
+                            <input aria-describedby="stock-addon" aria-label="stock" class="form-control" name="stock"
+                                   required type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-3 themed-grid-col">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text" id="color-addon"> 색상</span>
+                            <input aria-describedby="color-addon" aria-label="color" class="form-control" name="color"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-3 themed-grid-col">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text" id="size-addon"> 사이즈</span>
+                            <input aria-describedby="size-addon" aria-label="size" class="form-control" name="size"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3 shadow-sm">
+                    <span class="input-group-text" id="costPrice-addon">* 원가</span>
+                    <input aria-describedby="costPrice-addon" aria-label="costPrice" class="form-control" name="costPrice"
+                           required type="text">
+                </div>
+
+                <div class="input-group mb-3 shadow-sm">
+                    <span class="input-group-text" id="retailPrice-addon">* 판매가</span>
+                    <input aria-describedby="retailPrice-addon" aria-label="retailPrice" class="form-control" name="retailPrice"
+                           required type="text">
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-6 themed-grid-col">
+                        <div class="input-group shadow-sm">
+
+                            <span class="input-group-text" id="discountRate-addon"> 할인율</span>
+                            <input aria-describedby="discountRate-addon" aria-label="discountRate" class="form-control" name="discountRate"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 themed-grid-col">
+                        <div class="input-group shadow-sm">
+
+                            <span class="input-group-text" id="shippingFee-addon"> 배송비</span>
+                            <input aria-describedby="shippingFee-addon" aria-label="shippingFee" class="form-control" name="shippingFee"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3 shadow-sm">
+                    <span class="input-group-text">상세 정보</span>
+                    <textarea aria-label="description" name="description" class="form-control"></textarea>
+                </div>
+
+                <div class="input-group mb-3 shadow-sm">
+                    <input class="form-control" id="productImage" name="upFile" type="file">
+                    <label class="input-group-text" for="productImage">Upload</label>
+                </div>
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-3" type="submit">등록</button>
+            </div>
+        </form>
+
+    </div>
+</main>
+<script layout:fragment="script"></script>
+</body>
+</html>
+
+
+<!------------------------------------------------>
+<!--/*
+    <form name="productRegistFrm" class="container" th:action="@{/product/regist}" method="post" enctype="multipart/form-data">
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="productName">* 상품명</label>
+            <div class="col-sm-3">
+                <input type="text" id="productName" name="productName" required>
+            </div>
+
+            <label class="col-sm-2" for="productStatus">* 상품상태</label>
+            <div class="col-sm-3">
+                <select name="productStatus" id="productStatus" required>
+                    <option value="AVAILABLE">AVAILABLE</option>
+                    <option value="UNAVAILABLE">UNAVAILABLE</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="productCode">* 상품코드</label>
+            <div class="col-sm-3">
+                <input type="text" id="productCode" name="productCode" placeholder="카테고리(영어) + 숫자" required>
+            </div>
+
+            <label class="col-sm-2" for="category">* 카테고리</label>
+            <div class="col-sm-3">
+                <select name="category" id="category" required>
+                    <option value="소파">소파</option>
+                    <option value="침대">침대</option>
+                    <option value="책상">책상</option>
+                    <option value="의자">의자</option>
+                    <option value="책장/진열장">책장/진열장</option>
+                    <option value="옷장">옷장</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="stock">* 재고</label>
+            <div class="col-sm-3">
+                <input type="number" id="stock" name="stock" required>
+            </div>
+
+            <div class="col-sm-3">
+                <label class="col-sm-2">color</label>
+                <input type="text" id="color" name="color">
+                <label class="col-sm-2">size</label>
+                <input type="text" id="size" name="size">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="costPrice">* 원가</label>
+            <div class="col-sm-3">
+                <input type="number" id="costPrice" name="costPrice" required>
+            </div>
+
+            <label class="col-sm-2" for="retailPrice">* 판매가</label>
+            <div class="col-sm-3">
+                <input type="number" id="retailPrice" name="retailPrice" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="discountRate">할인율</label>
+            <div class="col-sm-3">
+                <input type="number" id="discountRate" name="discountRate">
+            </div>
+
+            <label class="col-sm-2" for="shippingFee">배송비</label>
+            <div class="col-sm-3">
+                <input type="number" id="shippingFee" name="shippingFee">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2" for="description">상세 정보</label>
+            <div class="col-sm-3">
+                <textarea name="description" id="description" cols="40" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2" for="productImage">이미지</label>
+            <div class="col-sm-3">
+                <input type="file" name="upFile" id="productImage" multiple>
+            </div>
+        </div>
+        <div class="form-group row">
+            <button type="submit" class="btn btn-primary">등록</button>
+        </div>
+
+    </form>
+
+</main>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
+
+*/-->
