@@ -3,8 +3,11 @@ package com.sh.spring._02.reflection;
 import com.sh.spring.common.account.Account;
 import com.sh.spring.common.account.DefaultAccount;
 
+import java.io.File;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -35,8 +38,108 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) {
         App app=new App();
-//        app.test1();
-        app.test2();
+//        app.test1(); // 클래스 객체 가져오기
+//        app.test2(); // 생성자 - 객체생성
+//        app.test3(); // 필드 제어 필드.get(어떤 개체) ,
+        app.test4(); // 메소드 제어
+    }
+
+    private void test4() {
+        /**
+         * 4. 메소드 제어
+         */
+
+        DefaultAccount account=new DefaultAccount(20,"100-200-300000",3_000_000);
+        Class<DefaultAccount> classes = (Class<DefaultAccount>) account.getClass();
+
+        Method[] declaredMethods = classes.getDeclaredMethods();
+        System.out.println("모든 메소드가 나온다");
+        Arrays.stream(declaredMethods).forEach(System.out::println);
+//        public boolean com.sh.spring.common.account.DefaultAccount.equals(java.lang.Object)
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.toString()
+//        public int com.sh.spring.common.account.DefaultAccount.hashCode()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.getBalanceInfo()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.deposit(int)
+//        public int com.sh.spring.common.account.DefaultAccount.getBankCode()
+//        protected boolean com.sh.spring.common.account.DefaultAccount.canEqual(java.lang.Object)
+//        public long com.sh.spring.common.account.DefaultAccount.getBalance()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.getAccountNo()
+//        public java.lang.String com.sh.spring.common.account.DefaultAccount.withdraw(int)
+//        public void com.sh.spring.common.account.DefaultAccount.setBankCode(int)
+//        public void com.sh.spring.common.account.DefaultAccount.setBalance(long)
+//        public void com.sh.spring.common.account.DefaultAccount.setAccountNo(java.lang.String)
+
+        try {
+            // 1. 매개인자 없는 메소드
+            Method getBalanceMethod = classes.getDeclaredMethod("getBalance");
+            System.out.println("getBalanceMethod = " + getBalanceMethod);
+
+            // invoke(타겟객체, ...매개인자) : Object 리턴값을 반환한다
+            Object returnValue = getBalanceMethod.invoke(account);// 어느 객체에서 getBalanceMethod 인가?? // getBalanceMethod만큼의 arguement를 쓸 수 있다
+            System.out.println("returnValue = " + returnValue);
+
+            // 2. 매개인자 있는 메소드
+            Method depositMethod = classes.getDeclaredMethod("deposit", int.class);
+            Object depositReturnValue = depositMethod.invoke(account, 500_000);// invoke도 호출 함수 이다
+            System.out.println("depositReturnValue = " + depositReturnValue);
+            System.out.println("account = " + account);
+
+
+
+
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    private void test3() {
+        /**
+         * 3. 필드 제어
+         */
+        DefaultAccount account=new DefaultAccount(20,"100-200-300000",3_000_000);
+
+        // 이렇게 해도 된다
+//        Class<DefaultAccount> classes = (Class<DefaultAccount>) account.getClass();
+        Class<?> classes =account.getClass();
+
+        // 필드 객체 가져오기
+        Field[] declaredFields = classes.getDeclaredFields();
+        System.out.println("declaredFields : "+Arrays.toString(declaredFields));
+//        declaredFields :
+//        [private int com.sh.spring.common.account.DefaultAccount.bankCode,
+//         private java.lang.String com.sh.spring.common.account.DefaultAccount.accountNo,
+//         private long com.sh.spring.common.account.DefaultAccount.balance]
+
+
+        try {
+            Field declaredFields1 = classes.getDeclaredField("bankCode");
+            System.out.println("declaredFields1 = " + declaredFields1);
+//            private int com.sh.spring.common.account.DefaultAccount.bankCode
+
+
+            Field bankCode=classes.getDeclaredField("bankCode");
+            System.out.println("bankCode = " + bankCode);
+
+
+//            bankCode 필드가 private라서 안된다, 그래서 public으로 하면 접근이 된다
+//            Object bankCodeValue=bankCode.get(account);
+//            System.out.println("bankCodeValue = " + bankCodeValue);
+
+            // private라도 힘이 쎄서 바로 접근이 가능하다
+            bankCode.setAccessible(true);
+            System.out.println("(setAccessible)bankCode = " + bankCode);
+
+            // bankCode 필드값 설정
+            bankCode.set(account,30);
+            System.out.println("(필드 값 바뀐 후)account = " + account); // bankCode = 30으로 바뀜
+
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -76,10 +179,13 @@ public class App {
             System.out.println("clz6 = " + clz6);
             System.out.println("clz7 = " + clz7);
 
-            // 부모클래스 객체
-            System.out.println("부모클래스 객체");
+            // 부모클래스의 클래스 객체
+            System.out.println("부모클래스의 클래스 객체");
             Class clz8=clz1.getSuperclass(); // 부모클래스객체 (extends)
             System.out.println("clz8 = " + clz8);
+
+            //부모인터페이스 클래스 객체
+            System.out.println("부모인터페이스 클래스 객체");
             Class[] interfaces = clz1.getInterfaces();
             System.out.println(Arrays.toString(interfaces));
 
@@ -89,6 +195,9 @@ public class App {
         }
     }
 
+    /**
+     * 2. 생성자 - 객체 생성
+     */
     private void test2()  {
         Class<DefaultAccount> clz=DefaultAccount.class;
 
@@ -102,12 +211,13 @@ public class App {
         try {
 
             Constructor<DefaultAccount> constructor1=(Constructor<DefaultAccount>) clz.getDeclaredConstructor();
-            DefaultAccount account1=(DefaultAccount) constructor1.newInstance(null);
+            DefaultAccount account1=(DefaultAccount) constructor1.newInstance(null); // 객체를 만드는 방법 중에 하나이다
             System.out.println("account1 = " + account1);
 
-            Constructor<DefaultAccount> constructor2=
-                    (Constructor<DefaultAccount>) clz.getDeclaredConstructor(int.class,String.class,long.class);
-            DefaultAccount account2=(DefaultAccount) constructor2.newInstance(30,"111-22-333333",1_000_000);
+                                                    // 생성자중에 int.class,String.class,long.class 이거를 속성으로 갖는 객체 있잖아 그걸 줘 라는 뜻
+            Constructor<DefaultAccount> constructor2= clz.getDeclaredConstructor(int.class,String.class,long.class);
+
+            DefaultAccount account2= constructor2.newInstance(30,"111-22-333333",1_000_000);
             System.out.println("account2 = " + account2);
 
         } catch (InstantiationException | IllegalAccessException |InvocationTargetException |NoSuchMethodException e) {

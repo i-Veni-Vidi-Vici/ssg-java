@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: _01_spirng_ajax
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh: debug

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>expression</title>
 </head>
 <body>
     <h1>expression</h1>
+    <!-- thymeleaf주석은 html주석과 동일하다. -->
+<!--    <p th:text="안녕"></p>-->
+
+    <!-- parser-level 주석 : 응답 html 처리시 제거되는 주석 -->
+    <!--/* 주석 내용 - 저는 클라이언트에 전달되지 않습니다. 민감한 서버정보는 저를 사용하세요. */-->
+
+    <!-- prototype-only 주석 : 응답 html 처리시 화면에 노출되는 주석 -->
+    <!--/*/ 주석내용 /*/-->
+
     <!--
         제공되는 표현식 종류
         변수 표현식(Variable Expressions): ${...}
@@ -33,11 +42,11 @@
     <p th:text="${member.regDate}"></p>
 
     <h2>선택변수 표현식</h2>
-    <div th:object="${member}">
-        <p th:text="*{id}"></p>
-        <p th:text="*{name}"></p>
-        <p th:text="*{age}"></p>
-        <p th:text="*{regDate}"></p>
+    <div th:object="${ member }">
+        <p th:text="*{ id }"></p>
+        <p th:text="*{ name }"></p>
+        <p th:text="*{ age }"></p>
+        <p th:text="*{ regDate }"></p>
     </div>
     <p th:object="${member}" th:text="*{id}"></p>
     <p th:object="${member}" th:text="*{name}"></p>
@@ -50,6 +59,7 @@
     <h2>메세지 표현식</h2>
     <table>
         <thead>
+
             <th th:text="#{label.user.id}"></th>
             <th th:text="#{label.user.name}"></th>
             <th th:text="#{label.user.age}"></th>
@@ -61,9 +71,64 @@
     <input type="text" th:value="${member.name}"/>
 
     <h2>인라인표현식</h2>
-    <p>[[${member.id}]]</p>
+    <!--/*
+        html태그 또는 script태그안에서 인라인 표현식을 활용할 수 있다.
+        [[${..}]] th:text와 유사하게 작동한다.
+        [(${..})] th:utext와 유사하게 작동한다.
+
+        html태그안에서 th:inline="text" 선언없이도 인라인 표현식 가능
+        script태그안에서 th:inline="javascript" 선언없이도 인라인 표현식 가능
+    */-->
+    <p th:inline="text">[[${member.id}]]</p>
     <p>[[${member.name}]]</p>
     <p>[[${member.age}]]</p>
     <p>[[${member.regDate}]]</p>
+    <p>[[${text}]]</p>
+    <p th:text="${text}"></p>
+    <p>[(${text})]</p>
+    <p th:utext="${text}"></p>
+    <script th:inline="javascript">
+        // let text = "[[${text}]]"; // 오류 ""Hello world! <mark>Hello Thyemeleaf</mark>""
+
+        let text2 = '[[${text}]]';
+        console.log(text2); // "Hello world! <mark>Hello Thyemeleaf</mark>"
+        let text3 = [[${text}]];
+        console.log(text3); // Hello world! <mark>Hello Thyemeleaf</mark>
+    </script>
+
+    <h2>문자열 연결 연산</h2>
+    <h3>+</h3>
+    <p th:text="'이름은 ' + ${member.name}"></p>
+    <h3>||</h3>
+    <p th:text="|이름은 ${member.name}|"></p>
+
+    <h2>th:block</h2>
+    <!-- 시각화되지 않는 태그. 그룹/범위를 지정하기 위해 사용한다. -->
+    <th:block th:object="${member}">
+        <p th:text="*{id}"></p>
+    </th:block>
+    <th:block th:if="${true}">
+        <p>🍕🍕🍕</p>
+    </th:block>
+
+    <h2>form태그 관련</h2>
+    <h3>checked 처리</h3>
+    <!-- parameter값을 복수개의 값이 가질수 있으므로, 배열에서 포함여부로 처리해야한다. -->
+    <div>
+        <label for="no10">no1</label><input type="checkbox" name="no" id="no10" value="10" th:checked="${#arrays.contains(param.no, '10')}">
+        <label for="no20">no2</label><input type="checkbox" name="no" id="no20" value="20" th:checked="${#arrays.contains(param.no, '20')}">
+        <label for="no30">no3</label><input type="checkbox" name="no" id="no30" value="30" th:checked="${#arrays.contains(param.no, '30')}">
+    </div>
+
+    <h3>selected 처리</h3>
+    <!-- parameter값과 비교해 selected 처리를 할 수 있다. -->
+    <!-- param값은 여러개일수 있으므로, 0번지값과 비교할 수 있도록 해야한다 -->
+    <select name="lang" id="lang">
+        <option value="">언어를 선택하세요.</option>
+        <option value="en" th:selected="${param.lang[0] eq 'en'}">English</option>
+        <option value="ko" th:selected="${param.lang[0] eq 'ko'}">Korea</option>
+    </select>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

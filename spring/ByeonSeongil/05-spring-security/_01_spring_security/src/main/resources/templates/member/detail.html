@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Detail</title>
+</head>
+<body>
+<h1>Member Detail</h1>
+
+<form th:action="@{/member/update}" method="post" name="memberUpdateFrm">
+    <div>
+        <label for="memberId">아이디 : </label>
+        <input type="text" name="memberId" id="memberId" th:value="${#authentication.principal.username}" readonly>
+    </div>
+    <div>
+        <label for="name">이름 : </label>
+        <input type="text" name="name" id="name" th:value="${#authentication.principal.member.name}" required>
+    </div>
+    <div>
+        <button type="submit">등록</button>
+    </div>
+</form>
+<script>
+    document.memberUpdateFrm.onsubmit = (e) => {
+        // 폼 제출전 유효성 검사
+        // 문제가 있는 경우 e.preventDefault() 혹은 return false를 통해서 제출을 방지한다.
+    };
+</script>
+</body>
+</html>

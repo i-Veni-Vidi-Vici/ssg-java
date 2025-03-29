@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>6. File Upload</title>
+</head>
+<body>
+	<h1>6. File Upload</h1>
+
+	<h2>파일 한개 업로드</h2>
+	<!-- 서버에 파일 업로드를 위해서는 http 요청 메세지 작성 방식을 multipart방식으로 지정해야 한다. -->
+
+	<form th:action="@{/singleFile}" method="post" enctype="multipart/form-data">
+		파일 : <input type="file" name="singleFile"><br>
+		파일 설명 : <input type="text" name="singleFileDescription"><br>
+		<input type="submit">
+	</form>
+
+	<h2>파일 n개 업로드</h2>
+	<!-- 서버에 파일 업로드를 위해서는 http 요청메시지 작성방식을 multipart방식으로 지정해야 한다. -->
+	<form th:action="@{/multiFile}" method="post" enctype="multipart/form-data">
+		파일 : <input type="file" name="multiFile" multiple><br>
+		파일 설명 : <input type="text" name="multiFileDescription"><br>
+		<input type="submit">
+	</form>
+</body>
+</html>

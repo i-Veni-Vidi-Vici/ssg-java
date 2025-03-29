@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: _01_spring_ajaz
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh: debug
+

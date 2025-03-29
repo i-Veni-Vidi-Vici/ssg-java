@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: _04_file_upload
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+logging:
+  level:
+    com.sh: debug
+server:
+  servlet:
+    context-path: /app

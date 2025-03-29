@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: _05_hanlder_interceptor
+server:
+  servlet:
+    context-path: /app # ?? ?? ??? ?? root? ??
+
+logging:
+  level:
+    root: info
+    com.sh: debug

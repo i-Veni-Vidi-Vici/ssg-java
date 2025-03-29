@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: _05_handler_intercepter
+server:
+  servlet:
+    context-path: /app

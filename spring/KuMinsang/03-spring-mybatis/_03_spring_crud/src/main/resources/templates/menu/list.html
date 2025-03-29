@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <table class="table">
+            <thead>
+                <td>메뉴코드</td>
+                <td>메뉴명</td>
+                <td>메뉴 가격</td>
+                <td>카테고리</td>
+                <td>주문가능</td>
+            </thead>
+            <tbody>
+                <tr th:each="menu : ${menus}">
+<!--                    <td th:text="${menu.menuCode}"></td>-->
+<!--                    <td th:text="${menu.menuName}"></td>-->
+<!--                    <td th:text="${menu.menuPrice}"></td>-->
+<!--                    <td th:text="${menu.categoryCode}"></td>-->
+<!--                    <td th:text="${menu.orderableStatus}"></td>-->
+                    <td>[[${menu.menuCode}]]</td>
+                    <td > <a th:href="@{|/menu/detail/${menu.menuCode}|}">[[${menu.menuName}]]</a></td>
+                    <td>[[${#numbers.formatInteger(menu.menuPrice, 3, 'COMMA')}]]</td>
+                    <td>[[${menu.categoryName}]]</td>
+                    <td>[[${menu.orderableStatus}]]</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script layout:fragment="js">
+        const message = `[[${message}]]`;   //RedirectAttribute#addFlashAttribute에 담긴 속성
+        message && alert(message);
+    </script>
+</body>
+</html>

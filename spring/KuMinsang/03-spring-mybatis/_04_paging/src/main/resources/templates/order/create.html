@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <title>주문</title>
+    <script>
+        const message = `[[${message}]]`;
+        message && alert(message);
+    </script>
+</head>
+<body>
+    <main layout:fragment="main" class="container">
+        <h2 class="my-3">주문</h2>
+
+        <form name="orderCreateFrm" method="post">
+            <div class="menu-wrapper">
+                <fieldset data-menu-no="1">
+                    <legend>메뉴1</legend>
+                    <input type="text" name="orderMenus[0].menuCode" placeholder="메뉴코드" value="1">
+                    <input type="text" name="orderMenus[0].orderAmount" placeholder="수량" value="4">
+                    <input type="number" class="menu-price" id="menu-price1" value="5000">
+                </fieldset>
+                <fieldset data-menu-no="2">
+                    <legend>메뉴2</legend>
+                    <input type="text" name="orderMenus[1].menuCode" placeholder="메뉴코드" value="2">
+                    <input type="text" name="orderMenus[1].orderAmount" placeholder="수량" value="3">
+                    <input type="number" class="menu-price" id="menu-price2" value="7000">
+                    <button type="button" class="btn btn-danger" onclick="removeMenu(this)">X</button>
+                </fieldset>
+            </div>
+            <div>
+                <h5><label for="totalOrderPrice">총 결제금액</label></h5>
+                <input type="number" name="totalOrderPrice" id="totalOrderPrice" value="">
+            </div>
+            <div class="button-wrapper my-3">
+                <button class="btn btn-success" type="button" onclick="addMenu();">메뉴추가</button>
+            </div>
+            <div class="button-wrapper my-3">
+                <button class="btn btn-secondary" type="submit">제출</button>
+            </div>
+        </form>
+    </main>
+    <script layout:fragment="js" th:src="@{/js/order/create.js}"></script>
+</body>
+</html>
