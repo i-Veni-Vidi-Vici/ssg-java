@@ -1,0 +1,10 @@
+package com.sh.branching;
+
+public class App {
+    public static void main(String[] args) {
+        Break _break = new Break();
+        _break.test1();
+        Continue _continue = new Continue();
+        _continue.test1();
+    }
+}

@@ -1,0 +1,32 @@
+package com.sh.collections._02.set;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * 커스텀 클래스 set으로 관리하기
+ */
+public class App2 {
+    public static void main(String[] args) {
+        Set<Book> bookset = new HashSet<>();
+        bookset.add(new Book(100L,"홍길동전","허균",15000));
+        bookset.add(new Book(200L,"신사동 가로수길","신사임당",30000));
+        bookset.add(new Book(300L,"해시계 파헤치기","장영실",17000));
+        bookset.add(new Book(400L,"한글2","세종대왕",20000));
+        bookset.add(new Book(500L,"참수왕","논개",12000));
+
+       Book book5 = new Book(500L,"참수왕","논개",12000);
+       bookset.add(book5);
+
+       Book book6 = new Book(500L,"참수왕","논개",12000);
+       bookset.add(book6);
+
+        System.out.println(book5.equals(book6));
+        System.out.println(book5.hashCode()==book6.hashCode());
+
+        System.out.println(bookset);
+        System.out.println(bookset.size());
+    }
+}

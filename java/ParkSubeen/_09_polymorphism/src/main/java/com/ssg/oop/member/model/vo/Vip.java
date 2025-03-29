@@ -1,0 +1,20 @@
+package com.ssg.oop.member.model.vo;
+
+public class Vip extends Member{
+    public Vip() {
+    }
+
+    public Vip(String name, String grade, int point) {
+        super(name, grade, point);
+    }
+
+    @Override
+    public double getEjaPoint() {
+        return point * 0.1;
+    }
+
+    @Override
+    public int buy(int price) {
+        return price - (int)(price * 0.1);
+    }
+}
