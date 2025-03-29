@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh._02.xml.config.MenuMapper"> <!-- package를 포함한 인터페이스명 -->
+    <select id="findByMenuCode" resultType="com.sh._02.xml.config.MenuDto"> <!-- id: 인터페이스 안의 메소드명 resultType: package를 포함한 반환클래스명 -->
+        select
+            *
+        from
+            tbl_menu
+        where
+            menu_code = #{menuCode}
+    </select>
+
+    <!-- resultType속성은 ResultSet의 한행에 대응하는 DTO타입을 작성해야 한다. -->
+    <select id="findAll" resultType="com.sh._02.xml.config.MenuDto">
+        select
+            *
+        from
+            tbl_menu
+    </select>
+</mapper>

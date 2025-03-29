@@ -1,0 +1,5 @@
+<mapper namespace="com.sh._02.xml.config.MenuMapper">
+    <select id="findByMenuCode" resultType="com.sh._02.xml.config.MenuDto"> select * from tbl_menu where menu_code = #{menuCode} </select>
+    <!--  resultType속성은 ResultSet의 한행에 대응하는 DTO타입을 작성해야 한다.  -->
+    <select id="findAll" resultType="com.sh._02.xml.config.MenuDto"> select * from tbl_menu </select>
+</mapper>

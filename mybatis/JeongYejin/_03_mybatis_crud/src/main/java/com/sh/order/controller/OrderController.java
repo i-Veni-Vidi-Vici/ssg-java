@@ -1,0 +1,30 @@
+package com.sh.order.controller;
+
+import com.sh.common.ErrorView;
+import com.sh.common.error.ErrorCode;
+import com.sh.order.model.dto.OrderDto;
+import com.sh.order.model.exception.CreateOrderTransactionException;
+import com.sh.order.model.service.OrderService;
+import com.sh.order.view.OrderResultView;
+
+import static com.sh.common.error.ErrorCode.CREATE_ORDER_ERROR;
+
+public class OrderController {
+    private OrderService orderService = new OrderService();
+
+    public void createOrder(OrderDto orderDto) {
+
+        try {
+            int result = orderService.createOrder(orderDto);
+            OrderResultView.displayResult("주문", result);
+        } catch (CreateOrderTransactionException e) {
+            e.printStackTrace();
+            ErrorView.displayError(e.getErrorCode());
+        } catch (Exception e) {
+            // 예외로깅 (디버깅)
+//            e.printStackTrace(); // 이후에는 별도의 파일에 오류로그를 기록
+            // 사용자 에러메세지 처리
+            ErrorView.displayError(CREATE_ORDER_ERROR);
+        }
+    }
+}
