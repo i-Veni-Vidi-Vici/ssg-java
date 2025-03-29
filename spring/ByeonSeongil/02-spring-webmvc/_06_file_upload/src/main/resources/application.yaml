@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: _06_file_upload
+  servlet:
+    multipart:
+      max-file-size: 10MB # \uC5C5\uB85C\uB4DC \uD30C\uC77C\uB2F9 \uCD5C\uB300\uD06C\uAE30 (\uAE30\uBCF8\uAC12 : 1MB)
+      max-request-size: 50MB # \uC5C5\uB85C\uB4DC \uC694\uCCAD\uB2F9 \uCD5C\uB300\uD06C\uAE30 (\uAE30\uBCF8\uAC12: 10MB)
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh: debug

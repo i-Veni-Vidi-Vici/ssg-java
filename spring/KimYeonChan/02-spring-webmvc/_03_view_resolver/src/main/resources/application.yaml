@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: _03_view_resolver
+
+server:
+  servlet:
+    context-path: /app
+
+logging:
+  level:
+    root: info
+    com.sh: debug
